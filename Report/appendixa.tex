@@ -1,0 +1,137 @@
+\chapter{Appendix A}
+\section{Linewidth, PIIN and Doppler peak broadening}
+\label{appendix:PIIN}
+In order to understand the linewidth property of a laser source, it is important to first have an understanding of the concept of phase noise in a laser:
+
+    An ideal laser emits an electromagnetic wave $E(t) = E_0cos(2\pi f_0t + \phi)$ with $\phi$ a constant. A real laser emits $E(t)=E_0cos(2\pi f_0t + \phi(t))$ where $\phi(t)$ drifts unpredictably. This drift is called phase noise. Thus, when considering the frequency spectrum of the emitted laser beam over a long time period, it takes a Lorentzian shape centred around the nominal frequency of the laser (whereas an ideal laser would present simply as a delta spike at the nominal frequency). The laser linewidth, $\Delta f$, is then defined as the -3dB bandwidth of this Lorentzian spectrum, as illustrated in \autoref{fig:lorentzian} below:
+
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=0.68\textwidth, height=5.5cm,
+        xlabel={Frequency},
+        ylabel={Normalised PSD},
+        domain=-3:3, samples=400,
+        xmin=-3.2, xmax=3.2, ymin=0, ymax=1.2,
+        axis lines=left,
+        xtick={-2,0,2},
+        xticklabels={$f_0-2\Delta f$, $f_0$, $f_0+2\Delta f$},
+        clip=false,
+    ]
+    \addplot[thick, black] {1/(1+(2*x)^2)};
+    
+    % half-maximum level
+    \addplot[dashed, gray] coordinates {(-3.2,0.5) (3.2,0.5)};
+    \node[left, gray, font=\footnotesize] at (axis cs:-2.2,0.6) {$-3$\,dB};
+    
+    % centre line
+    \draw[dotted, gray] (axis cs:0,0) -- (axis cs:0,1);
+    
+    % FWHM arrow
+    \draw[<->, thick] (axis cs:-0.5,0.5) -- (axis cs:0.5,0.5);
+    \node[above, font=\small] at (axis cs:0,0.52) {$\Delta f$};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Lorentzian frequency spectrum of a laser diode.}
+    \label{fig:lorentzian}
+    \end{figure}
+
+    Asssociated with the linewidth is a quantity termed coherence length. The coherence length of the emitted beam, $L_c$, is given by \cite{bennett_doppler_2003}:
+    
+    \begin{equation}
+        L_c = \frac{c}{2\pi\Delta f}
+        \label{eqn:coherenceLength}
+    \end{equation}
+
+    Where $\Delta f$ is the linewidth of the source laser, and $c$ is the speed of light. The coherence length is of relevance when considering linewidth effects. 
+    
+    The non-ideal linewidth property of a laser source gives rise to two primary effects in a DWL system's measurements - namely phase-induced intensity noise (PIIN), and the broadened Doppler peak:
+
+    As noted by Cariou et al. \cite{cariou2006laser}, Jiang et al. \cite{jiang_performance_2019}, and Harris et al. \cite{harris_role_1998}, reflections of the outgoing beam - caused by optics and the fibre optic transmit path - travel back in the system and are interfered with the reference beam (LO) before detection (in the same way as the actual backscattered signal of interest is). Because the reflection and LO derive
+    from the same source, the mixing product is a strong, unwanted tone at baseband (homodyne)
+    or at the intermediate frequency (heterodyne), carrying the phase noise
+    accumulated over the path-length mismatch $\Delta L$ between the reflection and the LO. Harris et
+    al. \cite{harris_role_1998} show that the form of this residual noise is set by how large
+    $\Delta L$ is relative to the coherence length ($L_c$) of the laser source. 
+    
+    For $\Delta L \gg L_c$ the two
+    phases are highly uncorrelated because the difference in path (and therefore time) taken has allowed the phase of the two to "wander" significantly - and thus the tone broadens into a Lorentzian of width
+    $2\Delta f$. This case is illustrated in \autoref{fig:commonmode} below, where it can be seen that this unwanted Lorentzian peak can serve to swamp out the desired Doppler peak to be measured - this is especially impactful for low wind-speeds, where the Doppler peak will be closer to the unwanted common-mode Lorentzian peak, and will be hidden more by it.
+
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=0.68\textwidth, height=5.5cm,
+        xlabel={Frequency},
+        ylabel={PSD},
+        domain=-1.5:5, samples=500,
+        xmin=-1.5, xmax=5, ymin=0, ymax=1.25,
+        axis lines=left,
+        xtick={0,2.5},
+        xticklabels={$f_0$, $f_0+f_d$},
+        ytick=\empty,
+        clip=false,
+    ]
+    % common mode + Doppler signal
+    \addplot[thick, black] {1/(1+(3*x)^2) + 0.18/(1+(8*(x-2.5))^2)};
+
+    % centre lines
+    \draw[dotted, gray] (axis cs:0,0) -- (axis cs:0,1);
+    \draw[dotted, gray] (axis cs:2.5,0) -- (axis cs:2.5,0.2);
+
+    % peak labels
+    \node[right, font=\small] at (axis cs:0.3,1.05) {Common mode};
+    \node[right, font=\small] at (axis cs:2.7,0.3) {Doppler signal};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Spectrum of a monostatic CW coherent lidar, showing the Doppler
+    signal superimposed on the skirt of the common-mode peak (adapted from \cite{cariou2006laser}).}
+    \label{fig:commonmode}
+    \end{figure}
+    
+    For $\Delta L \ll L_c$, the case where the mismatch between LO and reflection paths is smaller, the reflected signal and the LO will be more correlated in phase.
+    Thus, the residual instead appears as a flat excess noise floor across the
+    frequency band, of level proportional to $\Delta f\,\Delta L^{2}$
+    \cite{harris_role_1998}. This excess noise is termed excess LO noise,
+    interferometric noise or phase-induced intensity noise (PIIN), depending on author
+    \cite{harris_role_1998,abari_all-fiber_2014,jiang_performance_2019}. For the remainder of this paper, this excess noise will be termed PIIN. PIIN has
+    been measured at 5 - 30dB above shot noise in a diode-laser
+    lidar \cite{harris_role_1998} and well above shot noise in a fibre-laser
+    system \cite{jiang_performance_2019}. Thus, PIIN is a significant noise source which can cause the system to operate far from the ideal shot-noise limit discussed in \autoref{sec:lit-noiseSources}. It is thus clear that to reduce PIIN, a laser with as small a linewidth as possible should be selected, and the path length mismatch, $\Delta L\ L$ between LO and reflection paths should be minimised. 
+
+    Another consideration arising due to non-ideal laser linewidth is the broadening of the measurable Doppler peak. This is particularly notable for longer ranges. 
+    
+    If the coherence length from \autoref{eqn:coherenceLength} is long relative to the emitted signal's path length, the broadening of the Doppler peak due to the laser's linewidth may be neglected, and it will instead be other factors (such as turbulence in the air, and speckle) which dominate and cause a broader measurable peak \cite{bennett_doppler_2003}. This is because the total round-trip time of the beam is shorter, thus ensuring that the phase of the beam has not had "time" to shift significantly in between transmission, and later reception and mixing with the local oscillator. Thus, the received backscatter signal and the LO phase will be more coherent and will result in a sharper peak after mixing.
+    
+    Conversely, if the coherence length is short relative to the signal path length (i.e. for targets at greater ranges), the Doppler peak will be spread over $2\times\Delta f$, meaning that the measurement resolution and the ability to resolve turbulence in the air will be reduced \cite{bennett_doppler_2003}.
+
+    From the two effects described above, it can clearly be seen that a narrow linewidth laser source is highly beneficial for DWL systems, in order to achieve the best-case shot-noise limited operation, and to achieve a narrow, measurable Doppler peak. 
+
+
+\textbf{IMPORTANT:} Appendix A (see the table below) should provide a summary of how you have met the GAs associated with the course, and where in the report the evidence can be found.
+
+If you have used AI in writing your report, you need to provide details in one of the appendices of how you used it.
+
+If appropriate, in a subsequent appendix, provide a link to any GitHub repository where the code and additional materials for your project can be found.
+
+\begin{center}
+\begin{tabular}{||p{2em} |p{15em} |p{20em}||}
+ \hline
+ \textbf{GA} & \textbf{Requirement} & \textbf{Justification and section in the report}  \\ [0.5ex] 
+ \hline\hline
+ 1 & Problem-solving & Description here  \\ 
+ \hline
+ 4 & Investigations, experiments and data analysis & Description here  \\
+ \hline
+ 5 & Use of engineering tools & Description here \\
+ \hline
+ 6 & Professional and technical communication (Long report) & Description here \\
+ \hline
+ 8 & Individual work & Description here \\
+ \hline
+ 9 & Independent learning ability & Description here \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}

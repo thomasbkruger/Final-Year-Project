@@ -1,0 +1,168 @@
+\begin{thebibliography}{10}
+
+\bibitem{abari_all-fiber_2014}
+Cyrus~F. Abari, Anders~T. Pedersen, and Jakob Mann.
+\newblock An all-fiber image-reject homodyne coherent {Doppler} wind lidar.
+\newblock {\em Optics Express}, 22(21):25880--25894, October 2014.
+
+\bibitem{abdelazim_development_2015}
+Sameh Abdelazim, David Santoro, Mark~F. Arend, Fred Moshary, and Sam Ahmed.
+\newblock Development and {Operational} {Analysis} of an {All}-{Fiber}
+  {Coherent} {Doppler} {Lidar} {System} for {Wind} {Sensing} and {Aerosol}
+  {Profiling}.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  53(12):6495--6506, December 2015.
+
+\bibitem{bennett_doppler_2003}
+Michael Bennett.
+\newblock Doppler lidar for boundary-layer measurements: must it be expensive?
+\newblock page 249, Varna, Bulgaria, November 2003.
+
+\bibitem{windenergyhandbook}
+Tony~L. Burton, Nick Jenkins, Ervin Bossanyi, David Sharpe, and Michael Graham.
+\newblock {\em Wind Energy Handbook}.
+\newblock John Wiley \& Sons, Chichester, UK, 3rd edition, 2021.
+
+\bibitem{cariou_leosphere_nodate}
+Jean-Pierre Cariou.
+\newblock {LEOSPHERE} {Pulsed} {Lidar} {Principles}.
+
+\bibitem{cariou2006laser}
+Jean-Pierre Cariou, B{\'e}atrice Augere, and Matthieu Valla.
+\newblock Laser source requirements for coherent lidars based on fiber
+  technology.
+\newblock {\em Comptes Rendus Physique}, 7(2):213--223, March 2006.
+\newblock High power fiber lasers and amplifiers.
+
+\bibitem{colberg_diode-laser-based_2026}
+Luke Colberg, Dylan~J. Maxwell, and Kevin~S. Repasky.
+\newblock Diode-laser-based direct-detection {Doppler} wind lidar: design and
+  initial results.
+\newblock {\em Applied Optics}, 65(10):3284--3299, April 2026.
+
+\bibitem{Doppler1842}
+Christian Doppler.
+\newblock {{\"U}ber das farbige Licht der Doppelsterne und einiger anderer
+  Gestirne des Himmels}.
+\newblock {\em Abhandlungen der K{\"o}niglichen B{\"o}hmischen Gesellschaft der
+  Wissenschaften}, 2:465--482, 1842.
+\newblock Read before the Royal Bohemian Society of Sciences, Prague, 25 May
+  1842.
+
+\bibitem{gwec2026}
+{Global Wind Energy Council}.
+\newblock Global wind report 2026.
+\newblock Technical report, Global Wind Energy Council, April 2026.
+\newblock Accessed DD Month 2026.
+
+\bibitem{harris_role_1998}
+M.~Harris, G.~N. Pearson, J.~M. Vaughan, D.~Letalick, and C.~Karlsson.
+\newblock The role of laser coherence length in continuous-wave coherent laser
+  radar.
+\newblock {\em Journal of Modern Optics}, 45(8):1567--1581, August 1998.
+
+\bibitem{harris2006}
+Michael Harris, Maureen~M. Hand, and Alan~D. Wright.
+\newblock Lidar for turbine control.
+\newblock Technical Report NREL/TP-500-39154, National Renewable Energy
+  Laboratory, Golden, CO, January 2006.
+
+\bibitem{hill_remote_nodate}
+Chris Hill.
+\newblock Remote {Sensing} ({UpWind} {WP6}) {QinetiQ} {Lidar} {Measurement}
+  {Report}.
+
+\bibitem{iec61400-50-3}
+{International Electrotechnical Commission}.
+\newblock Wind energy generation systems -- part 50-3: Use of nacelle-mounted
+  lidars for wind measurements.
+\newblock International Standard IEC 61400-50-3:2022, International
+  Electrotechnical Commission, Geneva, January 2022.
+\newblock Edition 1.0.
+
+\bibitem{jiang_performance_2019}
+Shan Jiang, Dongsong Sun, Yuli Han, Fei Han, Anran Zhou, and Jun Zheng.
+\newblock Performance of continuous-wave coherent doppler lidar for wind
+  measurement.
+\newblock {\em Current Optics and Photonics}, 3(5):466--472, oct 2019.
+
+\bibitem{kikuchi_fundamentals_2016}
+Kazuro Kikuchi.
+\newblock Fundamentals of coherent optical fiber communications.
+\newblock {\em Journal of Lightwave Technology}, 34(1):157--179, jan 2016.
+\newblock Tutorial Review.
+
+\bibitem{korb_theory_1998}
+C.~Laurence Korb, Bruce~M. Gentry, S.~Xingfu Li, and Cristina Flesia.
+\newblock Theory of the double-edge technique for {Doppler} lidar wind
+  measurement.
+\newblock {\em Applied Optics}, 37(15):3097--3104, May 1998.
+
+\bibitem{letizia_characterization_2023}
+Stefano Letizia, Peter Brugger, Nicola Bodini, Raghavendra Krishnamurthy,
+  Andrew Scholbrock, Eric Simley, Fernando Porté-Agel, Nicholas Hamilton,
+  Paula Doubrawa, and Patrick Moriarty.
+\newblock Characterization of wind turbine flow through nacelle-mounted lidars:
+  a review.
+\newblock {\em Frontiers in Mechanical Engineering}, 9, November 2023.
+
+\bibitem{liu_review_2019}
+Zhengliang Liu, Janet~F. Barlow, Pak-Wai Chan, Jimmy Chi~Hung Fung, Yuguo Li,
+  Chao Ren, Hugo Wai~Leung Mak, and Edward Ng.
+\newblock A {Review} of {Progress} and {Applications} of {Pulsed} {Doppler}
+  {Wind} {LiDARs}.
+\newblock {\em Remote Sensing}, 11(21):2522, January 2019.
+
+\bibitem{mikkelsen_spinner-integrated_2013}
+T.~Mikkelsen, N.~Angelou, K.~Hansen, M.~Sjöholm, M.~Harris, C.~Slinger,
+  P.~Hadley, R.~Scullion, G.~Ellis, and G.~Vives.
+\newblock A spinner-integrated wind lidar for enhanced wind turbine control.
+\newblock {\em Wind Energy}, 16(4):625--643, 2013.
+\newblock \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/we.1564.
+
+\bibitem{paschotta_shot_noise}
+R{\"u}diger Paschotta.
+\newblock Shot noise.
+\newblock RP Photonics Encyclopedia, 2005.
+\newblock Accessed: 2026-09-18.
+
+\bibitem{simley_optimizing_2018}
+Eric Simley, Holger Fürst, Florian Haizmann, and David Schlipf.
+\newblock Optimizing {Lidars} for {Wind} {Turbine} {Control}
+  {Applications}—{Results} from the {IEA} {Wind} {Task} 32 {Workshop}.
+\newblock {\em Remote Sensing}, 10(6):863, June 2018.
+
+\bibitem{veers_grand_2019}
+Paul Veers, Katherine Dykes, Eric Lantz, Stephan Barth, Carlo~L. Bottasso, Ola
+  Carlson, Andrew Clifton, Johney Green, Peter Green, Hannele Holttinen, Daniel
+  Laird, Ville Lehtomäki, Julie~K. Lundquist, James Manwell, Melinda Marquis,
+  Charles Meneveau, Patrick Moriarty, Xabier Munduate, Michael Muskulus,
+  Jonathan Naughton, Lucy Pao, Joshua Paquette, Joachim Peinke, Amy Robertson,
+  Javier Sanz~Rodrigo, Anna~Maria Sempreviva, J.~Charles Smith, Aidan Tuohy,
+  and Ryan Wiser.
+\newblock Grand challenges in the science of wind energy.
+\newblock {\em Science}, 366(6464):eaau2027, October 2019.
+
+\bibitem{wagner_power_2014}
+R.~Wagner, T.f. Pedersen, M.~Courtney, I.~Antoniou, S.~Davoust, and R.l.
+  Rivera.
+\newblock Power curve measurement with a nacelle mounted lidar.
+\newblock {\em Wind Energy}, 17(9):1441--1453, 2014.
+\newblock \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/we.1643.
+
+\bibitem{wagner_uncertainty_2016}
+Rozenn Wagner, Michael~Stephen Courtney, Troels~F. Pedersen, and Samuel
+  Davoust.
+\newblock Uncertainty of power curve measurement with a two-beam
+  nacelle-mounted lidar.
+\newblock {\em Wind Energy}, 19(7):1269--1287, 2016.
+\newblock \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/we.1897.
+
+\bibitem{werner_doppler_2005}
+Christian Werner.
+\newblock Doppler wind lidar.
+\newblock In Claus Weitkamp, editor, {\em Lidar: Range-Resolved Optical Remote
+  Sensing of the Atmosphere}, volume 102 of {\em Springer Series in Optical
+  Sciences}, pages 325--354. Springer, New York, NY, 2005.
+
+\end{thebibliography}

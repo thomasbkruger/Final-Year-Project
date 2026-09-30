@@ -1,0 +1,60 @@
+# daq_config.yaml - settings for Acquisition.py
+# Everything in this file is copied verbatim into the output .npz/.json, so
+# edit the `metadata:` block before each run to describe the experiment.
+
+visa_address: "USB0::0x2A8D::0x179B::CN58022160::0::INSTR"   # EDU-X 1002G, serial CN58022160.
+                                                            # Run `python Acquisition.py --list` to re-check.
+visa_backend: ""        # "" = Keysight IO Libraries (what works on this PC).
+                        # "@py" = pyvisa-py; on Windows it cannot see USB scopes claimed by the
+                        # Keysight driver, so leave this empty here. Use "@py" on Linux/macOS.
+
+scope:
+  volts_per_div: 0.05          # 5 mV/div for LO-only noise records (~1-4 mV rms).
+                                # Raise to 0.02-0.05 when the transmit path is connected.
+                                # Full scale (8 div) should be >= 4x the trace peak-to-peak; watch "clipped".
+  offset_v: 0.0
+
+  # MEASURED LIMITS of this EDU-X 1002G (channel 2 off, :DIGitize, RAW mode).
+  # Memory caps at 50 kpts in NORMal and 25 kpts in HRESolution, NOT the 100 kpts
+  # assumed in the original brief. Sample rate follows from timebase and memory:
+  #
+  #   acquire_type   s/div     sample rate   points   record   Nyquist
+  #   HRESolution    100.0e-6     25 MSa/s    25000     1 ms   12.5 MHz   <- default
+  #   HRESolution    400.0e-6      5 MSa/s    20001     4 ms    2.5 MHz
+  #   HRESolution      1.0e-3    2.5 MSa/s    25000    10 ms   1.25 MHz
+  #   NORMal         100.0e-6     50 MSa/s    50000     1 ms     25 MHz
+  #   NORMal         400.0e-6     10 MSa/s    40000     4 ms      5 MHz
+  #
+  # Change seconds_per_div, points and expected_sample_rate together, using a row above.
+  seconds_per_div: 20.0e-6      # 200 µs record, 5 kHz bins
+  points: 25000
+  acquire_type: HRESolution
+  coupling: DC
+  expected_sample_rate: 125.0e+6
+
+capture:
+  n_records: 100
+  progress_every: 10
+  inter_record_delay_s: 0.0     # e.g. 1.0 for a slow time series of the noise floor
+
+output_dir: "./data"            # files are named {date}_{time}_{tag}.npz / .json
+
+metadata:                       # free-form: add, remove or rename keys as you like
+  laser_current_mA: 48
+  laser_output_mW: 
+  coupler_leg_on_combiner: "10pct"   # "10pct", "90pct", "unknown"
+  lo_power_mW: 0.0
+  tec_setpoint_C: 25.0
+  transmit_path_connected: false
+  collimator_state: "n/a"           # "capped", "beam_stop", "target", "n/a"
+  photodiodes: "balanced"              # "balanced", "single_pd1", "single_pd2"
+  terminator_50ohm: false   # Is an external 50 ohm feed-through fitted at the scope input?
+                            # This scope is 1 Mohm only (:CHANnel1:IMPedance FIFTy is
+                            # rejected), so the feed-through is the only way to terminate.
+                            # Sets the PD100B transimpedance used by run_welch.py:
+                            #   false -> 39.0 kV/A (into 1 Mohm)
+                            #   true  -> 19.5 kV/A (into 50 ohm)
+  fibre_config: "as-built"
+  target: "none"                       # "none", "disc", "seeded_flow", ...
+  target_speed_mps: 0.0
+  beam_angle_deg: 0.0

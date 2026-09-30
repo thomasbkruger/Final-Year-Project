@@ -1,0 +1,77 @@
+Welch PSD results - run_welch.py
+generated: 2026-09-25 12:54:53 UTC
+files: all data/*.npz captures except laser_off (and derived _psd.npz)
+settings: defaults - nperseg=2500, overlap=0.5, window=hann, band 5-20 MHz
+
+
+20260925_143754_A2_11mA.npz
+  tag / note      : A2_11mA | -
+  records         : 100 x 25000 pts, 125 MSa/s, 0.2 ms each
+  resolution      : 5e+04 Hz over 1251 bins (0 to 62.5 MHz)
+  averages        : 1900 (19/record) -> per-bin +/-0.099 dB
+  gain            : 39 kV/A (high-Z per metadata (terminator_50ohm false))
+  band 5-20 MHz
+    PSD           : 1.3797e-13 +/- 3.35e-16 V^2/Hz
+    voltage noise : 371.4 nV/rtHz
+    input current : 9.524 pA/rtHz
+    shot-limited at LO power: 314.5 uW total on both diodes
+
+20260925_143927_A2_15mA.npz
+  tag / note      : A2_15mA | -
+  records         : 100 x 25000 pts, 125 MSa/s, 0.2 ms each
+  resolution      : 5e+04 Hz over 1251 bins (0 to 62.5 MHz)
+  averages        : 1900 (19/record) -> per-bin +/-0.099 dB
+  gain            : 39 kV/A (high-Z per metadata (terminator_50ohm false))
+  band 5-20 MHz
+    PSD           : 1.8440e-13 +/- 4.24e-16 V^2/Hz
+    voltage noise : 429.4 nV/rtHz
+    input current : 11.01 pA/rtHz
+    shot-limited at LO power: 420.4 uW total on both diodes
+
+20260925_144259_A2_23mA.npz
+  tag / note      : A2_23mA | -
+  records         : 100 x 25000 pts, 125 MSa/s, 0.2 ms each
+  resolution      : 5e+04 Hz over 1251 bins (0 to 62.5 MHz)
+  averages        : 1900 (19/record) -> per-bin +/-0.099 dB
+  gain            : 39 kV/A (high-Z per metadata (terminator_50ohm false))
+  band 5-20 MHz
+    PSD           : 2.8416e-13 +/- 6.01e-16 V^2/Hz
+    voltage noise : 533.1 nV/rtHz
+    input current : 13.67 pA/rtHz
+    shot-limited at LO power: 647.8 uW total on both diodes
+
+20260925_144602_A2_31mA.npz
+  tag / note      : A2_31mA | -
+  records         : 100 x 25000 pts, 125 MSa/s, 0.2 ms each
+  resolution      : 5e+04 Hz over 1251 bins (0 to 62.5 MHz)
+  averages        : 1900 (19/record) -> per-bin +/-0.099 dB
+  gain            : 39 kV/A (high-Z per metadata (terminator_50ohm false))
+  band 5-20 MHz
+    PSD           : 3.6844e-13 +/- 8.17e-16 V^2/Hz
+    voltage noise : 607 nV/rtHz
+    input current : 15.56 pA/rtHz
+    shot-limited at LO power: 840 uW total on both diodes
+
+20260925_144739_A2_38mA.npz
+  tag / note      : A2_38mA | -
+  records         : 100 x 25000 pts, 125 MSa/s, 0.2 ms each
+  resolution      : 5e+04 Hz over 1251 bins (0 to 62.5 MHz)
+  averages        : 1900 (19/record) -> per-bin +/-0.099 dB
+  gain            : 39 kV/A (high-Z per metadata (terminator_50ohm false))
+  band 5-20 MHz
+    PSD           : 4.6072e-13 +/- 9.68e-16 V^2/Hz
+    voltage noise : 678.8 nV/rtHz
+    input current : 17.4 pA/rtHz
+    shot-limited at LO power: 1050 uW total on both diodes
+
+20260925_144906_A2_47mA.npz
+  tag / note      : A2_47mA | -
+  records         : 100 x 25000 pts, 125 MSa/s, 0.2 ms each
+  resolution      : 5e+04 Hz over 1251 bins (0 to 62.5 MHz)
+  averages        : 1900 (19/record) -> per-bin +/-0.099 dB
+  gain            : 39 kV/A (high-Z per metadata (terminator_50ohm false))
+  band 5-20 MHz
+    PSD           : 5.4945e-13 +/- 1.15e-15 V^2/Hz
+    voltage noise : 741.2 nV/rtHz
+    input current : 19.01 pA/rtHz
+    shot-limited at LO power: 1253 uW total on both diodes

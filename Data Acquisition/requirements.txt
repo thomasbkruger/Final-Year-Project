@@ -1,0 +1,7 @@
+pyvisa
+numpy
+pyyaml
+# Linux/macOS only (Windows uses Keysight IO Libraries or NI-VISA instead):
+# pyvisa-py
+# pyusb
+scipy      # used by Welch.py, not by Acquisition.py or prepare_welch.py

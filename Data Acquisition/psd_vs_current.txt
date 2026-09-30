@@ -1,0 +1,27 @@
+Band-averaged PSD vs laser drive current - psd_vs_current.py
+generated: 2026-09-27 14:04:18 UTC
+currents taken from capture TAG (config.metadata.laser_current_mA is stale in several runs)
+gain 39 kV/A (high-Z) on every capture; no clipped records anywhere
+
+band 5-20 MHz, nperseg=2500
+electronic floor (laser off): 8.0611e-14 V^2/Hz
+
+balanced
+      7 mA  PSD 1.1127e-13 +/- 3.8e-16   excess 3.0659e-14    333.6 nV/rtHz
+     11 mA  PSD 1.3797e-13 +/- 3.3e-16   excess 5.7360e-14    371.4 nV/rtHz
+     15 mA  PSD 1.8440e-13 +/- 4.2e-16   excess 1.0379e-13    429.4 nV/rtHz
+     23 mA  PSD 2.8416e-13 +/- 6.0e-16   excess 2.0355e-13    533.1 nV/rtHz
+     31 mA  PSD 3.6844e-13 +/- 8.2e-16   excess 2.8783e-13    607.0 nV/rtHz
+     38 mA  PSD 4.6072e-13 +/- 9.7e-16   excess 3.8011e-13    678.8 nV/rtHz
+     47 mA  PSD 5.4945e-13 +/- 1.1e-15   excess 4.6884e-13    741.2 nV/rtHz
+     48 mA  PSD 5.2954e-13 +/- 1.0e-15   excess 4.4893e-13    727.7 nV/rtHz
+
+single_pd1
+     11 mA  PSD 1.3569e-13 +/- 4.6e-16   excess 5.5077e-14    368.4 nV/rtHz
+     21 mA  PSD 1.9066e-13 +/- 6.0e-16   excess 1.1005e-13    436.6 nV/rtHz
+     32 mA  PSD 2.5343e-13 +/- 6.0e-16   excess 1.7282e-13    503.4 nV/rtHz
+     41 mA  PSD 3.0309e-13 +/- 7.4e-16   excess 2.2247e-13    550.5 nV/rtHz
+     48 mA  PSD 3.4790e-13 +/- 7.8e-16   excess 2.6729e-13    589.8 nV/rtHz
+
+single_pd2
+     48 mA  PSD 3.5460e-13 +/- 1.1e-15   excess 2.7398e-13    595.5 nV/rtHz
