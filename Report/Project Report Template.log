@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  30 SEP 2026 12:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  30 SEP 2026 13:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1467,8 +1467,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--150
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 150--151
-\OT1/cmr/m/n/10.95 measurements indicating noise-floor characteristics
+Underfull \hbox (badness 1688) in paragraph at lines 150--151
+\OT1/cmr/m/n/10.95 averages \OT1/cmr/bx/n/10.95 OR \OT1/cmr/m/n/10.95 measureme
+nts indicating noise-floor
  []
 
 
@@ -2154,14 +2155,20 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
-ed.
-(rerunfilecheck)             Checksum: 10057FAF5903BCC3A6367CD6B1B29BBB;10964.
+
+Package rerunfilecheck Warning: File `"Project Report Template".out' has change
+d.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Project Report Template".out':
+(rerunfilecheck)             Before: 10057FAF5903BCC3A6367CD6B1B29BBB;10964
+(rerunfilecheck)             After:  B34321439594FF00586866C066BEA624;11304.
  ) 
 Here is how much of TeX's memory you used:
- 37591 strings out of 467871
- 919002 string characters out of 5418376
- 1497196 words of memory out of 5000000
+ 37593 strings out of 467871
+ 919034 string characters out of 5418376
+ 1498196 words of memory out of 5000000
  65651 multiletter control sequences out of 15000+600000
  640328 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2184,9 +2191,9 @@ ublic/amsfonts/cm/cmsy10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (60 pages, 934589 bytes).
+Output written on "Project Report Template.pdf" (60 pages, 936147 bytes).
 PDF statistics:
- 975 PDF objects out of 1000 (max. 8388607)
- 200 named destinations out of 1000 (max. 500000)
+ 979 PDF objects out of 1000 (max. 8388607)
+ 202 named destinations out of 1000 (max. 500000)
  510 words of extra memory for PDF output out of 10000 (max. 10000000)
 

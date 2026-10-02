@@ -136,7 +136,7 @@ From the desired functional requirements, a set of performance requirements can 
 \begin{tabular}{|p{0.5cm}|p{3cm}|p{9cm}|p{1.7cm}|}
 \hline
 \textbf{ID} & \textbf{Requirement} & \textbf{Value} & \textbf{Verified by} \\ \hline
-P1 & Velocity detection on a hard target & Measured Doppler peak at least \SI{10}{\decibel} above noise floor for a target 30cm away from laser emission & C1 \\ \hline
+P1 & Velocity detection on a hard target & Measured Doppler peak at least \SI{10}{\decibel} above noise floor for a target 10cm away from laser emission & C1 \\ \hline
 P2 & Detector noise & approaching ideal shot-noise-limited behaviour: total
      detector noise (electronic noise + residual RIN after balanced
      detection) within \SI{1}{\decibel} of the shot-noise limit
@@ -147,7 +147,7 @@ P4 & Phase-induced intensity noise (PIIN) & level (in dB) and spectral shape mea
      within \SI{6}{\decibel} & B1, B2 \\ \hline
 P5 & Low-velocity limit & minimum resolvable LOS speed quantified;
      goal of $\leq$ \SI{0.1}{\metre\per\second} on a hard target & B1, C1 \\ \hline
-P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $N \leq 1000$ averages \textbf{OR} measurements indicating noise-floor characteristics which make this not possible
+P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages \textbf{OR} measurements indicating noise-floor characteristics which make this not possible
       & D1, D2 \\ 
 \hline
 \end{tabular}

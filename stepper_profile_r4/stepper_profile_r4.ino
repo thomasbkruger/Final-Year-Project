@@ -30,9 +30,9 @@
 #include "pwm.h"
 
 // ---------------- Profile settings ----------------
-const float         HOLD_RPM        = 300.0;   // target speed (negative = reverse)
-const unsigned long HOLD_MS         = 10000;   // time at full speed
-const float         ACCEL_RPM_PER_S = 60.0;    // ramp rate up and down
+const float         HOLD_RPM        = 600.0;   // target speed (negative = reverse)
+const unsigned long HOLD_MS         = 30000;   // time at full speed
+const float         ACCEL_RPM_PER_S = 100.0;    // ramp rate up and down
 const unsigned long START_DELAY_MS  = 2000;    // pause after reset before moving
 
 // ---------------- Pins ----------------
