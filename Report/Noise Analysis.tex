@@ -193,11 +193,11 @@ In order to achieve shot-noise limited operation, the average PSD of the shot-no
 \subsubsection{A2: Electronic Noise \& Shot Noise}
 \autoref{fig:A2PSD} gives the PSD plots of the total noise - made up of shot-noise, electronic noise, and residual RIN - for different laser currents on the same axes:
 
-\begin{figure} [H]
-    \centering
-    \includegraphics[width=1\linewidth]{psd_overlay.png}
-    \caption{PSD of total noise (shot, electronic and relative intensity noise) for different laser source currents}
-    \label{fig:A2PSD}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_overlay"}
+	\caption{PSD of total noise (shot, electronic and relative intensity noise) for different laser source currents}
+	\label{fig:A2PSD}
 \end{figure}
 
 It can be seen that the total noise increases with increased laser current - this is expected, due to the linear relationship between shot noise and LO power (which is related to laser current which is varied here). In order to compare the PSDs for the various laser currents, the average PSD across the 5 - 20MHz range can again be taken here, for each laser current. \autoref{fig:A2PSDvsCurrent} gives these averages plotted against laser current:
@@ -268,8 +268,29 @@ Thus, RIN contributes an additional 0.6125dB of noise above the ideal shot-noise
 %DISCUSS WHY THIS RESULT IS SO SMALL, COMPARE TO FIBRE LASERS ETC.
 \section{B: Phase-induced Intensity Noise}
 \subsection{Experimental Goals}
-As discussed in \autoref{sec:lit-noiseSources}, and elaborated in \autoref{appendix:PIIN}, Phase-induced Intensity Noise (PIIN) can be a significant contributor to the total noise of the system, rising far above shot-noise - particularly when the linewidth of the laser source is not narrow, and when there is significant path-length mismatch between the LO and the transmit signal.
+As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{appendix:PIIN}, Phase-induced Intensity Noise (PIIN) can be a significant contributor to the total noise of the system, rising far above shot-noise - particularly when the linewidth of the laser source is not narrow, and when there is significant path-length mismatch between the LO and the transmit signal.
 
- The goal of Experiment B is to measure PIIN in a controlled setting, with no target, thus making all PIIN in the measurement attributable to reflections from the circulator and collimator, and independent of target. 
+ The goal of Experiment B is to measure and quantify the magnitude and shape of the total noise of the system, including PIIN, in a controlled setting. There is effectively no target in this experiment, thus making all PIIN in the measurement attributable to reflections from the circulator and collimator, and independent of target. 
+ 
+ 
  \subsection{Experimental Methodology}
+ For this experiment, the system is set up in full, as given by the final design in \autoref{fig:finalDesign}. The collimator is then pointed at a stationary matte-black painted surface, angled 45 degrees away from the collimator, and at a distance of 10cm from the collimator. Any reflections from the target surface will not be Doppler shifted, because it is stationary - thus, if these reflections are sent back into the collimator, they will appear at the output as additional PIIN (see Appendix \ref{appendix:PIIN}). This setup thus intends to absorb and reflect a large amount of the emitted light \textbf{away} from the system, so that the measured PIIN can be attributed to only the internal reflections in the system from the collimator and circulator, which is independent of target. 
+ 
+ The laser is then driven with a current of 48mA (the chosen operating point for LO power), and the same oscilloscope acquisition chain and post-processing chain (Welch PSD) as in experiment A is used to obtain the PIIN power. As discussed in \cite{jiang_performance_2019}, PIIN can vary drastically depending on temperature, or small disturbances in the system's fiber optics, thus this measurement is repeated 16 times over the course of an hour to account for such variations. The average noise power as well as the spread from these measurements can then be computed. 
+ 
+ \subsection{Results and Discussion}
+ \autoref{fig:psdpiin} below gives the averaged PSD of the obtained noise measurements, with the electronic noise floor and the total noise floor (excluding PIIN) from Experiment A2 given as reference. 
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_piin"}
+	\caption{Experiment B: Total noise in the system, including PIIN}
+	\label{fig:psdpiin}
+\end{figure}
+
+ It can be seen that the total noise is now significantly above that measured in A2, owing to the excess noise introduced by PIIN. It can also be seen that as expected, PIIN varied significantly between measurements. In the 5 - 20MHz band, the total excess noise was measured to be from 12.2 to 14.2dB above the A2 noise floor, for a given frequency. It can also be seen that this excess noise is not constant, and starts rolling off steeply from approximately 10MHz. 
+ 
+ From these results it is thus clear that in this system, PIIN dominates other noise sources by a large amount, especially at lower frequencies. It is thus the largest single noise contributor in the total SNR of the system when trying to measure a Doppler peak. This will have a larger effect at lower measured speeds, and will be less significant at speeds which correspond to Doppler peaks at $\geq$ 10MHz (speeds of $\geq$ 12.9m/s). For this project, comparison of excess noise from PIIN for different laser linewidths and different path length mismatches between LO and emission is out of scope, owing to budget constraints in sourcing different laser diodes, or splicing fibre so as to give different path lengths. From the work of Jiang et al., Harris et al. and Cariou et. al \cite{jiang_performance_2019} \cite{harris_role_1998} \cite{cariou2006laser}, it is however anticipated that PIIN could however be reduced in a future revision of the system for which these components are available. 
+ 
+ 
  

@@ -4,7 +4,7 @@ Welch.py is a library plus a synthetic self-test; on its own it cannot read a
 capture. This joins the three pieces: prepare_welch loads the raw file and
 converts it to volts, Welch.py computes the PSD, this prints and plots it.
 
-    python run_welch.py data/20260925_123928_A1_laser_off.npz
+    python run_welch.py data.npz
     python run_welch.py --all
     python run_welch.py data/....npz --plot --save
     python run_welch.py data/....npz --nperseg 5000 --band 1e6 10e6
@@ -23,6 +23,7 @@ from pathlib import Path
 import numpy as np
 
 from prepare_welch import load_run
+from psd_vs_current import resolve_tag
 from Welch import (Q, R_PD, band_average, to_input_current,
                    welch_psd, welch_stats)
 
@@ -87,7 +88,8 @@ def analyse(path: Path, args: argparse.Namespace) -> dict:
                             band_psd=band, band_sem=sem)
         print(f"  -> {out}")
 
-    return {"f": f, "psd": psd, "label": run.meta.get("tag", path.stem),
+    return {"f": f, "psd": psd,
+            "label": resolve_tag(run.meta.get("tag", path.stem)) or path.stem,
             "band": (f_lo, f_hi), "gain": gain}
 
 
@@ -102,17 +104,19 @@ def plot(results: list[dict], out_path: Path | None, gain: float) -> None:
     for r in results:
         f, psd = r["f"], r["psd"]
         m = f > 0
-        ax.loglog(f[m], np.sqrt(psd[m]) * 1e9, lw=1.0, label=r["label"])
+        ax.loglog(f[m], psd[m], lw=1.0, label=r["label"])
     lo, hi = results[0]["band"]
     ax.axvspan(lo, hi, color="0.85", zorder=0, label=f"band {lo/1e6:g}-{hi/1e6:g} MHz")
     ax.set_xlabel("frequency (Hz)")
-    ax.set_ylabel(r"voltage noise (nV/$\sqrt{\mathrm{Hz}}$)")
+    ax.set_ylabel(r"PSD (V$^2$/Hz)")
     ax.grid(True, which="both", alpha=0.3)
     ax.legend(fontsize=8)
 
-    sec = ax.secondary_yaxis("right", functions=(lambda v: v / (gain / 1e3),
-                                                 lambda i: i * (gain / 1e3)))
-    sec.set_ylabel(r"input current noise (pA/$\sqrt{\mathrm{Hz}}$)")
+    # Same quantity referred to the photodiode input: divide by the TIA gain
+    # squared, in pA^2/Hz so the numbers stay readable.
+    sec = ax.secondary_yaxis("right", functions=(lambda v: v / gain**2 * 1e24,
+                                                 lambda i: i * gain**2 / 1e24))
+    sec.set_ylabel(r"input current PSD (pA$^2$/Hz)")
     fig.tight_layout()
 
     if out_path:
@@ -157,6 +161,9 @@ def main() -> int:
     results, failed = [], 0
     for src in files:
         try:
+            if resolve_tag(load_run(src).meta.get("tag", src.stem)) is None:
+                print(f"skip {src.name}: superseded (see psd_vs_current.EXCLUDE_TAGS)")
+                continue
             results.append(analyse(src, args))
         except (OSError, ValueError, KeyError) as e:
             print(f"SKIP {src.name}: {e}", file=sys.stderr)

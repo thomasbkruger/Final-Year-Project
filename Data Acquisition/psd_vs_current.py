@@ -32,6 +32,20 @@ C_GRID = "#d8d7d3"
 
 TAG_CURRENT = re.compile(r"_(\d+)_?mA", re.IGNORECASE)
 
+# Corrections applied after acquisition. The capture tagged A2_47mA is the one
+# kept for the 48 mA point; the separate A2_48mA capture is dropped rather than
+# plotted as a second point at nearly the same current. Both live here, and
+# every figure imports resolve_tag, so no figure can disagree with another.
+EXCLUDE_TAGS = {"A2_48mA"}
+RETAG = {"A2_47mA": "A2_48mA"}
+
+
+def resolve_tag(tag: str) -> str | None:
+    """The tag a capture should be plotted under, or None to drop the capture."""
+    if tag in EXCLUDE_TAGS:
+        return None
+    return RETAG.get(tag, tag)
+
 
 def current_from_tag(tag: str) -> int | None:
     """Drive current in mA, parsed from the capture tag."""
@@ -47,7 +61,9 @@ def collect(data_dir: Path, band: tuple[float, float], nperseg: int) -> dict:
         if p.stem.endswith(("_volts", "_psd")):
             continue
         run = load_run(p)
-        tag = run.meta.get("tag", p.stem)
+        tag = resolve_tag(run.meta.get("tag", p.stem))
+        if tag is None:
+            continue
         f, _, per = welch_psd(run.v, run.fs, nperseg=nperseg)
         psd, sem = band_average(f, per, *band)
 
@@ -81,9 +97,9 @@ def plot(data: dict, band: tuple[float, float], out: Path, detector: str) -> Non
                 ha="left", fontsize=8.5, color=C_MUTED)
 
     if detector == "balanced" and "balanced" in g:
-        arr = g["balanced"]
-        arr = arr[arr[:, 0] != 48]              # 48 mA repeat of the 47 mA point
-        i, psd, sem = arr.T
+        # The duplicate 48 mA capture is dropped in collect(), via RETAG and
+        # EXCLUDE_TAGS, so that every figure drops the same one.
+        i, psd, sem = g["balanced"].T
         ax.errorbar(i, psd, yerr=sem, color=C_BALANCED, marker="o", ms=7, lw=1.8,
                     mec="#fcfcfb", mew=1.2, capsize=0, zorder=3)
 

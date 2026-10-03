@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  30 SEP 2026 13:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  3 OCT 2026 13:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1018,7 +1018,7 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 37.
-<uctLogo.png, id=242, 418.56375pt x 425.59pt>
+<uctLogo.png, id=254, 418.56375pt x 425.59pt>
 File: uctLogo.png Graphic file (type png)
 <use uctLogo.png>
 Package pdftex.def Info: uctLogo.png  used on input line 51.
@@ -1873,7 +1873,7 @@ Underfull \hbox (badness 5622) in paragraph at lines 151--151
 []|\OT1/cmr/m/n/12 Electronic noise + shot
  []
 
-<A1_PSD.png, id=725, 650.43pt x 396.7623pt>
+<A1_PSD.png, id=740, 650.43pt x 396.7623pt>
 File: A1_PSD.png Graphic file (type png)
 <use A1_PSD.png>
 Package pdftex.def Info: A1_PSD.png  used on input line 178.
@@ -1910,12 +1910,13 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.190 
        <./A1_PSD.png>]
-<psd_overlay.png, id=741, 650.43pt x 397.485pt>
-File: psd_overlay.png Graphic file (type png)
-<use psd_overlay.png>
-Package pdftex.def Info: psd_overlay.png  used on input line 198.
+<../Data Acquisition/figures/psd_overlay.png, id=756, 650.43pt x 397.485pt>
+File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
+<use ../Data Acquisition/figures/psd_overlay.png>
+Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
+nput line 198.
 (pdftex.def)             Requested size: 452.9679pt x 276.81836pt.
-<psd_vs_current.png, id=743, 607.068pt x 390.258pt>
+<psd_vs_current.png, id=758, 607.068pt x 390.258pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
 Package pdftex.def Info: psd_vs_current.png  used on input line 207.
@@ -1934,7 +1935,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.211 
-       <./psd_overlay.png>]
+       <../Data Acquisition/figures/psd_overlay.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1965,7 +1966,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [36]
-<psd_vs_current_single.png, id=774, 607.068pt x 390.258pt>
+<psd_vs_current_single.png, id=789, 607.068pt x 390.258pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
 Package pdftex.def Info: psd_vs_current_single.png  used on input line 251.
@@ -1984,7 +1985,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.257 \begin{equation}
-                       <./psd_vs_current_single.png>])
+                       <./psd_vs_current_single.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1993,6 +1994,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [38]
+<../Data Acquisition/figures/psd_piin.png, id=811, 766.062pt x 404.712pt>
+File: ../Data Acquisition/figures/psd_piin.png Graphic file (type png)
+<use ../Data Acquisition/figures/psd_piin.png>
+Package pdftex.def Info: ../Data Acquisition/figures/psd_piin.png  used on inpu
+t line 286.
+(pdftex.def)             Requested size: 452.9679pt x 239.3091pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[39])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.178 }
+        <../Data Acquisition/figures/psd_piin.png>]
 \openout2 = `Results.aux'.
 
  (Results.tex
@@ -2003,7 +2033,7 @@ Overfull \hbox (12.93237pt too wide) in paragraph at lines 4--6
 aphs where necessary. Remember
  []
 
-) [39
+) [41
 
 
 
@@ -2013,7 +2043,7 @@ aphs where necessary. Remember
 
  (Discussion.tex
 Chapter 6.
-) [40
+) [42
 
 
 
@@ -2023,7 +2053,7 @@ Chapter 6.
 
  (Conclusions.tex
 Chapter 7.
-) [41
+) [43
 
 
 
@@ -2033,12 +2063,12 @@ Chapter 7.
 
  (Recommendations.tex
 Chapter 8.
-) [42
+) [44
 
 
 
 
-] (Project Report Template.bbl [43
+] (Project Report Template.bbl [45
 
 
 
@@ -2050,7 +2080,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44]
+[46]
 Underfull \hbox (badness 6032) in paragraph at lines 154--160
 \OT1/cmr/m/n/12 Davoust.  Uncertainty of power curve measurement with a two-bea
 m
@@ -2070,12 +2100,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45]
+[47]
 \openout2 = `appendixa.aux'.
 
  (appendixa.tex
 Appendix A.
-[46
+[48
 
 
 
@@ -2092,7 +2122,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[47]
+[49]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2100,7 +2130,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[48
+[50
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2129,12 +2159,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[49]
+[51]
 \openout2 = `appendixb.aux'.
 
  (appendixb.tex
 Appendix B.
-) [50
+) [52
 
 
 
@@ -2155,21 +2185,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `"Project Report Template".out' has change
-d.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Project Report Template".out':
-(rerunfilecheck)             Before: 10057FAF5903BCC3A6367CD6B1B29BBB;10964
-(rerunfilecheck)             After:  B34321439594FF00586866C066BEA624;11304.
+Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
+ed.
+(rerunfilecheck)             Checksum: 553AA450A9A019B6D7FF2966F0C873FA;11482.
  ) 
 Here is how much of TeX's memory you used:
- 37593 strings out of 467871
- 919034 string characters out of 5418376
- 1498196 words of memory out of 5000000
- 65651 multiletter control sequences out of 15000+600000
+ 37618 strings out of 467871
+ 920132 string characters out of 5418376
+ 1497334 words of memory out of 5000000
+ 65672 multiletter control sequences out of 15000+600000
  640328 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,23n,118p,1402b,2356s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2191,9 +2215,9 @@ ublic/amsfonts/cm/cmsy10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (60 pages, 936147 bytes).
+Output written on "Project Report Template.pdf" (62 pages, 1055334 bytes).
 PDF statistics:
- 979 PDF objects out of 1000 (max. 8388607)
- 202 named destinations out of 1000 (max. 500000)
- 510 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1012 PDF objects out of 1200 (max. 8388607)
+ 206 named destinations out of 1000 (max. 500000)
+ 539 words of extra memory for PDF output out of 10000 (max. 10000000)
 

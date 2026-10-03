@@ -63,14 +63,15 @@
 \contentsline {subsubsection}{A3: Relative Intensity Noise}{37}{section*.16}%
 \contentsline {section}{\numberline {4.3}B: Phase-induced Intensity Noise}{38}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Experimental Goals}{38}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{38}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5}Results}{39}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Simulation Results}{39}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Experimental Results}{39}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Discussion}{40}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusions}{41}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{42}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Appendix A}{46}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Linewidth, PIIN and Doppler peak broadening}{46}{section.A.1}%
-\contentsline {chapter}{\numberline {B}Addenda}{50}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Ethics Forms}{50}{section.B.1}%
+\contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{39}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{39}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}Results}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Simulation Results}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Experimental Results}{41}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Discussion}{42}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusions}{43}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{44}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Appendix A}{48}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Linewidth, PIIN and Doppler peak broadening}{48}{section.A.1}%
+\contentsline {chapter}{\numberline {B}Addenda}{52}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Ethics Forms}{52}{section.B.1}%

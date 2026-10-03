@@ -10,6 +10,12 @@ as a plain FFT amplitude spectrum:
   * one figure per RPM, all on a shared y-range so the files can be compared
     side by side.
 
+The PSD figures are drawn in V^2/Hz on linear axes, ranged to the Doppler
+content (--fmax) because a linear frequency axis out to Nyquist would put every
+peak in the leftmost few percent. The shared y-range is kept, so a 2000 RPM
+peak really does read as a seventh of the 100 RPM one. The FFT figures stay on
+log axes in mV, where the peaks span decades.
+
 The FFT is one Hann-windowed transform per whole record (df = fs / record
 length), averaged across records in power - averaging the complex spectra
 would cancel the Doppler return, whose phase is random from record to record.
@@ -51,11 +57,15 @@ C_SURFACE = "#fcfcfb"
 
 RPM_TAG = re.compile(r"_(\d+)\s*RPM", re.IGNORECASE)
 
-# How each kind of spectrum turns its stored power into the plotted quantity.
+# How each kind of spectrum turns its stored power into the plotted quantity,
+# and the axis scales it is drawn on. The PSD is plotted as stored, in V^2/Hz
+# on linear axes; the FFT keeps amplitude in mV on log axes, where its peaks
+# span decades and a density unit would be wrong.
 KINDS = {
-    "psd": {"scale": 1e9, "ylabel": r"voltage noise (nV/$\sqrt{\mathrm{Hz}}$)",
-            "name": "PSD"},
-    "fft": {"scale": 1e3, "ylabel": "amplitude (mV)", "name": "FFT"},
+    "psd": {"root": False, "scale": 1.0, "ylabel": r"PSD (V$^2$/Hz)",
+            "name": "PSD", "xscale": "linear", "yscale": "linear"},
+    "fft": {"root": True, "scale": 1e3, "ylabel": "amplitude (mV)",
+            "name": "FFT", "xscale": "log", "yscale": "log"},
 }
 
 
@@ -128,15 +138,33 @@ def collect(data_dir: Path, series: str, ref_tag: str, date: str | None,
 
 
 def amp(power: np.ndarray, m: np.ndarray, kind: str) -> np.ndarray:
-    """V^2/Hz -> nV/rtHz for the PSD, V^2 -> mV for the FFT."""
-    return np.sqrt(power[m]) * KINDS[kind]["scale"]
+    """Stored power -> plotted quantity: V^2/Hz as stored for the PSD,
+    V^2 -> mV amplitude for the FFT."""
+    spec = KINDS[kind]
+    p = power[m]
+    return (np.sqrt(p) if spec["root"] else p) * spec["scale"]
+
+
+def content_fmax(d: dict, kind: str, headroom: float = 1.5) -> float:
+    """Upper frequency worth showing: above the highest Doppler peak, with room.
+
+    A log axis compresses the empty top end to nothing, but a linear one gives
+    it half the figure, so the linear plots are ranged to the signal instead.
+    """
+    f = d["f"][kind]
+    sel = f >= 20e3                              # skip the DC end
+    peaks = [f[sel][np.argmax(e[kind][sel])] for e in d["rpm"].values()]
+    return max(max(peaks) * headroom, 1e6)
 
 
 def style_axes(ax, kind: str, title: str | None = None) -> None:
     from matplotlib.ticker import FuncFormatter, LogLocator, NullFormatter
 
+    spec = KINDS[kind]
+    ax.set_xscale(spec["xscale"])
+    ax.set_yscale(spec["yscale"])
     ax.set_xlabel("frequency (Hz)", color=C_INK)
-    ax.set_ylabel(KINDS[kind]["ylabel"], color=C_INK)
+    ax.set_ylabel(spec["ylabel"], color=C_INK)
     ax.grid(True, which="major", color=C_GRID, lw=0.7, alpha=0.9)
     ax.grid(True, which="minor", color=C_GRID, lw=0.5, alpha=0.5)
     ax.set_axisbelow(True)
@@ -145,15 +173,20 @@ def style_axes(ax, kind: str, title: str | None = None) -> None:
     for s in ("left", "bottom"):
         ax.spines[s].set_color(C_GRID)
     ax.tick_params(colors=C_MUTED, labelsize=9, which="both")
-    # The y-range spans barely a decade, so label the 2s and 5s as well.
-    ax.yaxis.set_major_locator(LogLocator(base=10, subs=(1, 2, 5)))
-    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
-    ax.yaxis.set_minor_formatter(NullFormatter())
+    if spec["yscale"] == "log":
+        # The y-range spans barely a decade, so label the 2s and 5s as well.
+        ax.yaxis.set_major_locator(LogLocator(base=10, subs=(1, 2, 5)))
+        ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
+        ax.yaxis.set_minor_formatter(NullFormatter())
+    if spec["xscale"] == "linear":
+        ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v/1e6:g}"))
+        ax.set_xlabel("frequency (MHz)", color=C_INK)
     if title:
         ax.set_title(title, loc="left", fontsize=11, color=C_INK)
 
 
-def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str) -> None:
+def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
+                 fmax: float | None = None) -> None:
     import matplotlib.pyplot as plt
 
     f = d["f"][kind]
@@ -164,12 +197,14 @@ def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str) -> No
 
     if d["ref"]:
         ref = np.mean([e[kind] for e in d["ref"]], axis=0)
-        ax.loglog(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.2, ls=(0, (5, 4)),
-                  zorder=2, label=f"stationary, {ref_tag} (mean of {len(d['ref'])})")
+        ax.plot(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.2, ls=(0, (5, 4)),
+                zorder=2, label=f"stationary, {ref_tag} (mean of {len(d['ref'])})")
     for colour, (rpm, e) in zip(series_colours(len(d["rpm"])), d["rpm"].items()):
-        ax.loglog(f[m], amp(e[kind], m, kind), color=colour, lw=1.4, zorder=3,
-                  label=f"{rpm} RPM")
+        ax.plot(f[m], amp(e[kind], m, kind), color=colour, lw=1.4, zorder=3,
+                label=f"{rpm} RPM")
 
+    if KINDS[kind]["xscale"] == "linear":
+        ax.set_xlim(0, fmax or content_fmax(d, kind))
     style_axes(ax, kind, f"{series} rotating target {KINDS[kind]['name']}")
     leg = ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK,
                     bbox_to_anchor=(1.01, 1.0), borderaxespad=0,
@@ -182,7 +217,8 @@ def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str) -> No
     print(f"plot -> {out}")
 
 
-def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str) -> None:
+def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str,
+              fmax: float | None = None) -> None:
     import matplotlib.pyplot as plt
 
     f = d["f"][kind]
@@ -197,7 +233,7 @@ def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str) -> N
         every.append(ref)
     lo = min(amp(p, m, kind).min() for p in every)
     hi = max(amp(p, m, kind).max() for p in every)
-    ylim = (lo / 1.15, hi * 1.15)
+    ylim = (lo / 1.15, hi * 1.15) if KINDS[kind]["yscale"] == "log" else (0, hi * 1.05)
 
     for colour, (rpm, e) in zip(series_colours(len(d["rpm"])), d["rpm"].items()):
         fig, ax = plt.subplots(figsize=(9.2, 5.2))
@@ -205,14 +241,20 @@ def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str) -> N
         ax.set_facecolor(C_SURFACE)
 
         if ref is not None:
-            ax.loglog(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.1, ls=(0, (5, 4)),
-                      zorder=2, label=f"stationary, {ref_tag}")
-        ax.loglog(f[m], amp(e[kind], m, kind), color=colour, lw=1.6, zorder=4,
-                  label=f"{rpm} RPM")
+            ax.plot(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.1, ls=(0, (5, 4)),
+                    zorder=2, label=f"stationary, {ref_tag}")
+        ax.plot(f[m], amp(e[kind], m, kind), color=colour, lw=1.6, zorder=4,
+                label=f"{rpm} RPM")
 
         ax.set_ylim(*ylim)
+        if KINDS[kind]["xscale"] == "linear":
+            ax.set_xlim(0, fmax or content_fmax(d, kind))
         style_axes(ax, kind, f"{series} - {rpm} RPM, {KINDS[kind]['name']}")
-        ax.legend(frameon=False, fontsize=9, loc="lower left", labelcolor=C_INK)
+        # Peaks sit at the left on a linear axis and fill the lower band on a
+        # log one, so the top right corner is the only reliably empty one.
+        ax.legend(frameon=False, fontsize=9, labelcolor=C_INK,
+                  loc="upper right" if KINDS[kind]["xscale"] == "linear"
+                  else "lower left")
         fig.tight_layout()
         out = out_dir / f"{kind}_{series}_{rpm}RPM.png"
         fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
@@ -231,6 +273,9 @@ def main() -> int:
                     help="Welch segment length; 12500 gives 10 kHz bins at 125 MS/s")
     ap.add_argument("--capture", type=int, default=1,
                     help="which capture of each RPM to plot, in time order (1 or 2)")
+    ap.add_argument("--fmax", type=float,
+                    help="upper frequency on the linear (PSD) axes, Hz; "
+                         "default is 1.5x the highest Doppler peak")
     ap.add_argument("--out-dir", type=Path, default=Path("."),
                     help="overlays go here, per-RPM figures in psd_rpm/ and fft_rpm/ under it")
     args = ap.parse_args()
@@ -279,8 +324,9 @@ def main() -> int:
 
     for kind in KINDS:
         plot_overlay(d, kind, args.out_dir / f"{kind}_rpm_overlay.png",
-                     args.series, args.ref)
-        plot_each(d, kind, args.out_dir / f"{kind}_rpm", args.series, args.ref)
+                     args.series, args.ref, args.fmax)
+        plot_each(d, kind, args.out_dir / f"{kind}_rpm", args.series, args.ref,
+                  args.fmax)
     return 0
 
 
