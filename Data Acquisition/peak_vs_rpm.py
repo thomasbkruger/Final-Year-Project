@@ -63,6 +63,7 @@ def fit_origin(x: np.ndarray, y: np.ndarray) -> tuple[float, float, float]:
 
 
 def plot(rows: list[dict], k: float, se: float, out: Path, series: str) -> None:
+    """series is the display name; selection happens before this is called."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -104,7 +105,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--data-dir", type=Path, default=Path("data"))
-    ap.add_argument("--series", default="C1")
+    ap.add_argument("--series", default="C1",
+                    help="tag prefix that selects the captures")
+    ap.add_argument("--label", default="C",
+                    help="name for the series in the figure; kept separate "
+                         "from --series so selection stays exact")
     ap.add_argument("--ref", default="C1_ref")
     ap.add_argument("--date", help="YYYYmmdd; default is the latest date with RPM captures")
     ap.add_argument("--capture", type=int, default=1,
@@ -151,7 +156,7 @@ def main() -> int:
         w.writerows(rows)
     print(f"table -> {table}")
 
-    plot(rows, k, se, args.out, args.series)
+    plot(rows, k, se, args.out, args.label or args.series)
     return 0
 
 

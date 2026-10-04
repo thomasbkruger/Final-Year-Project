@@ -1,0 +1,45 @@
+Doppler peak power and local noise, C series
+generated: 2026-10-04 11:20:34 South Africa Standard Time
+captures:  20261002, capture #1 of each RPM, Welch nperseg=12500 (df = 10 kHz)
+peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over C1_ref;
+           the power quoted is the PSD of the bin nearest that centroid, not the
+           largest bin and not the integral under the peak
+noise:     3 x FWHM guard around the centroid, out to 2 MHz either side
+units:     V^2/Hz throughout
+
+   RPM  centroid     FWHM       PSD at   mean noise          std      5 x std     mean+5sd  cent/mean   bins
+           (MHz)    (MHz)     centroid     (V^2/Hz)     (V^2/Hz)     (V^2/Hz)     (V^2/Hz)       (dB)       
+--------------------------------------------------------------------------------------------------------------------
+    50     0.079    0.090   5.0665e-10   7.0146e-11   4.6735e-12   2.3367e-11   9.3514e-11        8.6    186
+   100     0.164    0.050   7.5683e-10   2.5551e-11   2.7946e-12   1.3973e-11   3.9524e-11       14.7    200
+   200     0.330    0.060   7.8645e-10   1.4341e-11   1.6207e-12   8.1033e-12   2.2444e-11       17.4    213
+   600     0.996    0.160   2.6067e-10   4.9213e-11   5.8681e-12   2.9340e-11   7.8553e-11        7.2    250
+   800     1.331    0.200   2.5229e-10   5.6060e-11   6.7690e-12   3.3845e-11   8.9905e-11        6.5    272
+  1200     1.985    0.310   1.4461e-10   4.0675e-11   4.6279e-12   2.3140e-11   6.3815e-11        5.5    304
+  2000     3.314    0.430   1.0373e-10   2.9175e-11   2.2781e-12   1.1391e-11   4.0566e-11        5.5    271
+
+every centroid clears mean + 5 sd
+
+noise band one-sided - too close to DC to fit a band below the peak - so the
+floor is read off the high side only and is likely a slight underestimate:
+     50 RPM  0 bins below the peak / 186 above
+    100 RPM  7 bins below the peak / 193 above
+    200 RPM  22 bins below the peak / 191 above
+
+integrated excess power under each peak, above the local noise:
+     50 RPM  4.0859e-05 V^2  (guard +/-0.135 MHz, capture 11:50:40)
+    100 RPM  4.0000e-05 V^2  (guard +/-0.075 MHz, capture 11:53:09)
+    200 RPM  4.3469e-05 V^2  (guard +/-0.090 MHz, capture 11:59:00)
+    600 RPM  3.7638e-05 V^2  (guard +/-0.240 MHz, capture 11:40:19)
+    800 RPM  3.9094e-05 V^2  (guard +/-0.300 MHz, capture 12:01:27)
+   1200 RPM  3.6251e-05 V^2  (guard +/-0.465 MHz, capture 12:05:49)
+   2000 RPM  3.9334e-05 V^2  (guard +/-0.645 MHz, capture 12:09:21)
+
+centroid against the largest bin, as a check on how far the two disagree:
+     50 RPM  centroid  0.079 MHz  argmax  0.070 MHz  offset    +8.9 kHz
+    100 RPM  centroid  0.164 MHz  argmax  0.160 MHz  offset    +4.2 kHz
+    200 RPM  centroid  0.330 MHz  argmax  0.330 MHz  offset    -0.2 kHz
+    600 RPM  centroid  0.996 MHz  argmax  0.970 MHz  offset   +26.0 kHz
+    800 RPM  centroid  1.331 MHz  argmax  1.320 MHz  offset   +11.2 kHz
+   1200 RPM  centroid  1.985 MHz  argmax  1.990 MHz  offset    -5.3 kHz
+   2000 RPM  centroid  3.314 MHz  argmax  3.290 MHz  offset   +23.7 kHz

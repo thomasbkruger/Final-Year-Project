@@ -145,6 +145,15 @@ def amp(power: np.ndarray, m: np.ndarray, kind: str) -> np.ndarray:
     return (np.sqrt(p) if spec["root"] else p) * spec["scale"]
 
 
+def shown_as(name: str, series: str, label: str) -> str:
+    """Tag or title text with the series prefix under its display name.
+
+    The captures are tagged C1, but the figures call the series C; selection
+    still matches the real prefix, so only what is drawn changes.
+    """
+    return name.replace(series, label, 1) if label != series else name
+
+
 def content_fmax(d: dict, kind: str, headroom: float = 1.5) -> float:
     """Upper frequency worth showing: above the highest Doppler peak, with room.
 
@@ -186,7 +195,7 @@ def style_axes(ax, kind: str, title: str | None = None) -> None:
 
 
 def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
-                 fmax: float | None = None) -> None:
+                 fmax: float | None = None, label: str | None = None) -> None:
     import matplotlib.pyplot as plt
 
     f = d["f"][kind]
@@ -198,14 +207,17 @@ def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
     if d["ref"]:
         ref = np.mean([e[kind] for e in d["ref"]], axis=0)
         ax.plot(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.2, ls=(0, (5, 4)),
-                zorder=2, label=f"stationary, {ref_tag} (mean of {len(d['ref'])})")
+                zorder=2,
+                label=f"stationary, {shown_as(ref_tag, series, label or series)} "
+                      f"(mean of {len(d['ref'])})")
     for colour, (rpm, e) in zip(series_colours(len(d["rpm"])), d["rpm"].items()):
         ax.plot(f[m], amp(e[kind], m, kind), color=colour, lw=1.4, zorder=3,
                 label=f"{rpm} RPM")
 
     if KINDS[kind]["xscale"] == "linear":
         ax.set_xlim(0, fmax or content_fmax(d, kind))
-    style_axes(ax, kind, f"{series} rotating target {KINDS[kind]['name']}")
+    style_axes(ax, kind, f"{label or series} rotating target "
+                         f"{KINDS[kind]['name']}")
     leg = ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK,
                     bbox_to_anchor=(1.01, 1.0), borderaxespad=0,
                     title="target speed", alignment="left")
@@ -218,7 +230,7 @@ def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
 
 
 def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str,
-              fmax: float | None = None) -> None:
+              fmax: float | None = None, label: str | None = None) -> None:
     import matplotlib.pyplot as plt
 
     f = d["f"][kind]
@@ -242,14 +254,16 @@ def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str,
 
         if ref is not None:
             ax.plot(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.1, ls=(0, (5, 4)),
-                    zorder=2, label=f"stationary, {ref_tag}")
+                    zorder=2,
+                    label=f"stationary, {shown_as(ref_tag, series, label or series)}")
         ax.plot(f[m], amp(e[kind], m, kind), color=colour, lw=1.6, zorder=4,
                 label=f"{rpm} RPM")
 
         ax.set_ylim(*ylim)
         if KINDS[kind]["xscale"] == "linear":
             ax.set_xlim(0, fmax or content_fmax(d, kind))
-        style_axes(ax, kind, f"{series} - {rpm} RPM, {KINDS[kind]['name']}")
+        style_axes(ax, kind, f"{label or series} - {rpm} RPM, "
+                             f"{KINDS[kind]['name']}")
         # Peaks sit at the left on a linear axis and fill the lower band on a
         # log one, so the top right corner is the only reliably empty one.
         ax.legend(frameon=False, fontsize=9, labelcolor=C_INK,
@@ -266,7 +280,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--data-dir", type=Path, default=Path("data"))
-    ap.add_argument("--series", default="C1")
+    ap.add_argument("--series", default="C1",
+                    help="tag prefix that selects the captures")
+    ap.add_argument("--label", default="C",
+                    help="name for the series in the figures; kept separate "
+                         "from --series so selection stays exact. Output "
+                         "filenames follow --series, not this.")
     ap.add_argument("--ref", default="C1_ref", help="tag of the stationary reference")
     ap.add_argument("--date", help="YYYYmmdd; default is the latest date with RPM captures")
     ap.add_argument("--nperseg", type=int, default=12500,
@@ -324,9 +343,9 @@ def main() -> int:
 
     for kind in KINDS:
         plot_overlay(d, kind, args.out_dir / f"{kind}_rpm_overlay.png",
-                     args.series, args.ref, args.fmax)
+                     args.series, args.ref, args.fmax, args.label)
         plot_each(d, kind, args.out_dir / f"{kind}_rpm", args.series, args.ref,
-                  args.fmax)
+                  args.fmax, args.label)
     return 0
 
 

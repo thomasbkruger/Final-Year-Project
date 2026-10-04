@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {1.2}Objectives of this study}{1}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Problems to be investigated}{1}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Purpose of the study}{1}{subsection.1.2.2}%
-\contentsline {section}{\numberline {1.3}Scope and Limitations}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Scope and Limitations}{1}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Plan of development}{2}{section.1.4}%
 \contentsline {chapter}{\numberline {2}Literature Review}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Wind Measurement in the Wind Energy Sector}{3}{section.2.1}%
@@ -15,63 +15,65 @@
 \contentsline {subsection}{\numberline {2.2.3}NML for Performance Optimization}{5}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}LiDAR for Performance Assessment}{6}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Discussion of NML Applications}{6}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}Principles of Doppler Wind LiDAR}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Principles of Doppler Wind LiDAR}{6}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Aerosol Backscatter and the Doppler Shift}{7}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Challenges in Measuring Doppler Shift in DWL}{8}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.2}Challenges in Measuring Doppler Shift in DWL}{7}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}LiDAR Detection Modes}{8}{subsection.2.3.3}%
 \contentsline {subsubsection}{Direct Detection}{8}{section*.2}%
-\contentsline {subsubsection}{Coherent Detection}{10}{section*.3}%
+\contentsline {subsubsection}{Coherent Detection}{9}{section*.3}%
 \contentsline {subsection}{\numberline {2.3.4}Coherent Detection: Homodyne, Heterodyne and Directional Ambiguity}{11}{subsection.2.3.4}%
 \contentsline {subsubsection}{Homodyne}{11}{section*.4}%
-\contentsline {subsubsection}{Heterodyne}{12}{section*.5}%
-\contentsline {subsection}{\numberline {2.3.5}Coherent Detection: Noise Sources and the Shot-Noise Limit}{13}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Coherent Detection: Single-Ended vs Balanced Detection}{15}{subsection.2.3.6}%
-\contentsline {subsection}{\numberline {2.3.7}Transmit and Receive Optics: Monostatic vs Bistatic}{17}{subsection.2.3.7}%
-\contentsline {subsubsection}{Bistatic}{17}{section*.6}%
-\contentsline {subsubsection}{Monostatic}{17}{section*.7}%
-\contentsline {subsection}{\numberline {2.3.8}Ranging: Pulsed versus Continuous Wave}{17}{subsection.2.3.8}%
-\contentsline {subsubsection}{Pulsed LiDAR}{18}{section*.8}%
-\contentsline {subsubsection}{Continuous-Wave LiDAR}{18}{section*.9}%
-\contentsline {chapter}{\numberline {3}System Design}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}System Architecture}{20}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Coherent detection}{20}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Homodyne mixing}{20}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Balanced detection}{21}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Monostatic optics}{21}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Continuous-wave operation}{22}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}All-fibre construction}{22}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}System Architecture Diagram}{22}{subsection.3.2.7}%
-\contentsline {section}{\numberline {3.3}System Requirements Analysis}{23}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Functional requirements}{23}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Performance requirements}{24}{subsection.3.3.2}%
+\contentsline {subsubsection}{Heterodyne}{11}{section*.5}%
+\contentsline {subsection}{\numberline {2.3.5}Coherent Detection: Noise Sources and the Shot-Noise Limit}{12}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Coherent Detection: Single-Ended vs Balanced Detection}{14}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Transmit and Receive Optics: Monostatic vs Bistatic}{16}{subsection.2.3.7}%
+\contentsline {subsubsection}{Bistatic}{16}{section*.6}%
+\contentsline {subsubsection}{Monostatic}{16}{section*.7}%
+\contentsline {subsection}{\numberline {2.3.8}Ranging: Pulsed versus Continuous Wave}{16}{subsection.2.3.8}%
+\contentsline {subsubsection}{Pulsed LiDAR}{17}{section*.8}%
+\contentsline {subsubsection}{Continuous-Wave LiDAR}{17}{section*.9}%
+\contentsline {chapter}{\numberline {3}System Design}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}System Architecture}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Coherent detection}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Homodyne mixing}{19}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Balanced detection}{20}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Monostatic optics}{20}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Continuous-wave operation}{20}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}All-fibre construction}{21}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}System Architecture Diagram}{21}{subsection.3.2.7}%
+\contentsline {section}{\numberline {3.3}System Requirements Analysis}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Functional requirements}{22}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Performance requirements}{23}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Component Choices}{24}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Laser Source}{25}{subsection.3.4.1}%
-\contentsline {subsubsection}{Wavelength}{25}{section*.10}%
-\contentsline {subsubsection}{Power Level}{25}{section*.11}%
-\contentsline {subsubsection}{Linewidth}{27}{section*.12}%
-\contentsline {subsubsection}{Laser source types and selection}{27}{section*.13}%
-\contentsline {section}{\numberline {3.5}Final Design}{29}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Noise Analysis}{30}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}A: Electronic, Shot and Relative Intensity Noise}{30}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Experimental Goals}{30}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{31}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Results and Discussion}{33}{subsection.4.2.3}%
-\contentsline {subsubsection}{A1: Electronic Noise}{33}{section*.14}%
-\contentsline {subsubsection}{A2: Electronic Noise \& Shot Noise}{34}{section*.15}%
-\contentsline {subsubsection}{A3: Relative Intensity Noise}{37}{section*.16}%
-\contentsline {section}{\numberline {4.3}B: Phase-induced Intensity Noise}{38}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Experimental Goals}{38}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{39}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{39}{subsection.4.3.3}%
-\contentsline {chapter}{\numberline {5}Results}{41}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Simulation Results}{41}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Experimental Results}{41}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Discussion}{42}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusions}{43}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{44}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Appendix A}{48}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Linewidth, PIIN and Doppler peak broadening}{48}{section.A.1}%
-\contentsline {chapter}{\numberline {B}Addenda}{52}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Ethics Forms}{52}{section.B.1}%
+\contentsline {subsection}{\numberline {3.4.1}Laser Source}{24}{subsection.3.4.1}%
+\contentsline {subsubsection}{Wavelength}{24}{section*.10}%
+\contentsline {subsubsection}{Power Level}{24}{section*.11}%
+\contentsline {subsubsection}{Linewidth}{26}{section*.12}%
+\contentsline {subsubsection}{Laser source types and selection}{26}{section*.13}%
+\contentsline {section}{\numberline {3.5}Final Design}{28}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Noise Analysis}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}A: Electronic, Shot and Relative Intensity Noise}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Experimental Goals}{29}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{30}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Results and Discussion}{32}{subsection.4.2.3}%
+\contentsline {subsubsection}{A1: Electronic Noise}{32}{section*.14}%
+\contentsline {subsubsection}{A2: Electronic Noise \& Shot Noise}{33}{section*.15}%
+\contentsline {subsubsection}{A3: Relative Intensity Noise}{35}{section*.16}%
+\contentsline {section}{\numberline {4.3}B: Phase-induced Intensity Noise}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Experimental Goals}{37}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{37}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{38}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}Functional Testing}{40}{chapter.5}%
+\contentsline {section}{\numberline {5.1}C: Hard-target Speed Measurement}{40}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Experimental Goals}{40}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Experimental Methodology}{41}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Results and Discussion}{42}{subsection.5.1.3}%
+\contentsline {chapter}{\numberline {6}Discussion}{44}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusions}{45}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{46}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Appendix A}{50}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Linewidth, PIIN and Doppler peak broadening}{50}{section.A.1}%
+\contentsline {chapter}{\numberline {B}Addenda}{54}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Ethics Forms}{54}{section.B.1}%

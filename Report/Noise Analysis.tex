@@ -173,12 +173,13 @@
 \subsubsection{A1: Electronic Noise}
 The power spectral density plot in \autoref{fig:A1PSD} was obtained from measurement A1, which gives the electronic noise from the detector only:
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{A1_PSD.png}
-    \caption{A1: PSD of electronic noise from detector}
-    \label{fig:A1PSD}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/A1_PSD"}
+	\caption{A1: PSD of electronic noise from detector}
+	\label{fig:A1PSD}
 \end{figure}
+
 
 The obtained PSD plot is noisy, despite the use of the Welch PSD and averaging, however it is sufficient for the purposes of this investigation. It can be seen that the electronic noise increases with frequency. The average PSD over the 5 - 20MHz band is calculated (using the script) as: $8.06\times 10^{-14}V^2/Hz$. Using the PD100B detector's gain value of 39kV/A, this can be converted into an average input noise current density across 5 - 20MHz, for comparison to the PD100B datasheet:
 
@@ -288,7 +289,7 @@ As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{
 	\label{fig:psdpiin}
 \end{figure}
 
- It can be seen that the total noise is now significantly above that measured in A2, owing to the excess noise introduced by PIIN. It can also be seen that as expected, PIIN varied significantly between measurements. In the 5 - 20MHz band, the total excess noise was measured to be from 12.2 to 14.2dB above the A2 noise floor, for a given frequency. It can also be seen that this excess noise is not constant, and starts rolling off steeply from approximately 10MHz. 
+ It can be seen that the total noise is now significantly above that measured in A2, owing to the excess noise introduced by PIIN. It can also be seen that as expected, PIIN varied significantly between measurements. In the 5 - 20MHz band, the total excess noise was measured to be from 12.2 to 14.2dB above the A2 noise floor, for a given frequency. It can also be seen that this excess noise is not constant, and starts rolling off steeply from approximately 10MHz. The shape of the PIIN corresponds to the $L_c \gg \Delta L$ regime described in Appendix \ref{appendix:PIIN}, as it is a flat floor and does not contain a Lorentzian peak at baseband.
  
  From these results it is thus clear that in this system, PIIN dominates other noise sources by a large amount, especially at lower frequencies. It is thus the largest single noise contributor in the total SNR of the system when trying to measure a Doppler peak. This will have a larger effect at lower measured speeds, and will be less significant at speeds which correspond to Doppler peaks at $\geq$ 10MHz (speeds of $\geq$ 12.9m/s). For this project, comparison of excess noise from PIIN for different laser linewidths and different path length mismatches between LO and emission is out of scope, owing to budget constraints in sourcing different laser diodes, or splicing fibre so as to give different path lengths. From the work of Jiang et al., Harris et al. and Cariou et. al \cite{jiang_performance_2019} \cite{harris_role_1998} \cite{cariou2006laser}, it is however anticipated that PIIN could however be reduced in a future revision of the system for which these components are available. 
  
