@@ -5,6 +5,12 @@ Cyrus~F. Abari, Anders~T. Pedersen, and Jakob Mann.
 \newblock An all-fiber image-reject homodyne coherent {Doppler} wind lidar.
 \newblock {\em Optics Express}, 22(21):25880--25894, October 2014.
 
+\bibitem{Abbas1983}
+Gregory~L. Abbas, Vincent W.~S. Chan, and T.~K. Yee.
+\newblock Local-oscillator excess-noise suppression for homodyne and heterodyne
+  detection.
+\newblock {\em Optics Letters}, 8(8):419--421, August 1983.
+
 \bibitem{abdelazim_development_2015}
 Sameh Abdelazim, David Santoro, Mark~F. Arend, Fred Moshary, and Sam Ahmed.
 \newblock Development and {Operational} {Analysis} of an {All}-{Fiber}
@@ -125,6 +131,11 @@ R{\"u}diger Paschotta.
 \newblock Shot noise.
 \newblock RP Photonics Encyclopedia, 2005.
 \newblock Accessed: 2026-09-18.
+
+\bibitem{Schumaker1984}
+Bonny~L. Schumaker.
+\newblock Noise in homodyne detection.
+\newblock {\em Optics Letters}, 9(5):189--191, May 1984.
 
 \bibitem{simley_optimizing_2018}
 Eric Simley, Holger Fürst, Florian Haizmann, and David Schlipf.

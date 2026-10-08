@@ -30,15 +30,11 @@ measured in a homodyne system, whereas a heterodyne system can resolve the direc
 For a benchtop-scale system which primarily aims to present the working principles of a DWL system and a sensitivity analysis, and where the direction of the flow being measured will always be known, it is not necessary to recover signed velocity. Adding an AOM thus adds needless complexity, and adds an additional unnecessary cost to a budget-constrained project. Crucially however, the addition of an AOM for a future iteration of the system is simple, and does not require the redesign of any parts of the current system. For these reasons it was thus decided to omit the AOM, and to therefore construct a \textbf{homodyne} coherent detection system.
 
 \subsection{Balanced detection}
-As discussed in \autoref{sec:lit-BalancedDetection}, signal power scales with $P_{LO}$ but RIN with $P_{LO}^2$
-\cite{abdelazim_development_2015}. However, to approach shot-noise limited operation with respect to electronic noise, a large $P_{LO}$ is desired, as outlined in \autoref{sec:lit-noiseSources}. Thus, at the LO power needed for
-ideal shot-noise-limited operation a single-ended photodetector will be RIN-limited at large $P_{LO}$ values. A 2:2
-coupler and matched photodiode pair (balanced detection) cancel the common-mode $P_{LO}$ and
-$P_{RS}$ terms in \autoref{eqn:beatSignal} and with them the RIN \cite{kikuchi_fundamentals_2016}. Thus, in order to approach the ideal shot-noise limited operation, which helps increase sensitivity in a DWL system with weak backscatter returns \cite{hill_remote_nodate}, a balanced detector setup will be beneficial, and was thus chosen for use in this project. 
+As discussed in \autoref{sec:lit-BalancedDetection}, balanced detection holds the advantage of providing a 3dB improvement in SNR (in shot-noise limited operation) as compared to single ended detection. It also allows RIN to be largely cancelled, further allowing SNR improvement, and allowing the system to better approach the shot-noise limit (see Appendix \ref{appendix:RIN}). For these reasons, it was decided that a balanced detection setup would be used.
 
 \subsection{Monostatic optics}
-For this project, it was decided to use a monostatic optical configuration - a single aperture serves both transmit and receive, separated by a fibre
-circulator, with no second lens and no overlap alignment necessary. A bistatic arrangement would
+For this project, it was decided to use a monostatic optical configuration - where a single aperture serves both transmit and receive, separated by a fibre
+circulator, with no second lens and no alignment of two lenses necessary. A bistatic arrangement would
 keep transmit-optics back-reflections away from the detector, at the cost of greatly increased alignment complexity
 \cite{cariou2006laser,harris_role_1998,bennett_doppler_2003}, as well as the additional cost of 2 sets of optics, and equipment needed for alignment. The accepted
 tradeoff here is thus that back-reflections from the transmit path reach the detector and
@@ -190,7 +186,7 @@ This section details the specific component selections which were made for the s
 
     \subsubsection{Linewidth}
     \label{sec:lit-linewidth}
-    Linewidth can be seen as a measure of the spectral purity of a laser source, and is one of the most critical parameters in the design of a DWL system. A narrow linewidth is highly desirable for DWL applications, as this will significantly reduce the phase-induced intensity noise (PIIN) in a DWL system, and allow the system to therefore have a better SNR and sensitivity to detect small backscatter signals. Furthermore, the linewidth of a laser source has a significant effect on how broad the returned backscatter signal's Doppler shifted peak is, particularly at longer ranges. This will result in the system having worse precision, and not being able to resolve turbulence in the air as well. For a full discussion on the mathematical and physical meaning of linewidth, as well as a treatment on how linewidth affects PIIN and the broadened peak, see \autoref{appendix:PIIN}. 
+    Linewidth can be seen as a measure of the spectral purity of a laser source, and is one of the most critical parameters in the design of a DWL system. A narrow linewidth is highly desirable for DWL applications, as this will significantly reduce the phase-induced intensity noise (PIIN) in a DWL system, and allow the system to therefore have a better SNR and sensitivity to detect small backscatter signals. Furthermore, the linewidth of a laser source has a significant effect on how broad the returned backscatter signal's Doppler shifted peak is, particularly at longer ranges. This will result in the system having worse precision, and not being able to resolve turbulence in the air as well. For a full discussion on the mathematical and physical meaning of linewidth, as well as a treatment on how linewidth affects PIIN and the broadened peak, see Appendix \ref{appendix:PIIN}. 
     
     
 
@@ -207,41 +203,29 @@ Source type & Linewidth (typ.) & Power, unamplified & Noise and practical notes 
 Fabry--P\'erot laser diode &
 multi-mode; not single-frequency &
 \SIrange{10}{100}{\milli\watt} &
-Multiple longitudinal modes; signal from different modes interferes destructively beyond the coherence length \cite{harris_role_1998}. Unsuitable for coherent detection. &
+Multi-mode, Unsuitable for coherent detection due to this. \cite{harris_role_1998}.  &
 $<100$ \\
 \hline
-DFB laser diode (butterfly, TEC) &
-\SIrange{0.5}{5}{\mega\hertz}; \SI{\sim100}{\kilo\hertz} in newer devices \cite{cariou2006laser,harris_role_1998} &
+DFB laser diode &
+\SIrange{0.5}{5}{\mega\hertz} &
 \SIrange{10}{40}{\milli\watt} &
-Relaxation peak \SI{\sim1}{\giga\hertz}, far above the Doppler band; RIN flat and low in-band \cite{cariou2006laser}. Coherence length tens of metres in fibre. Needs external driver and TEC controller. &
+Relaxation peak \SI{\sim1}{\giga\hertz}, far above the Doppler band, thus is RIN flat and low in the frequency band of interest \cite{cariou2006laser}. Needs external driver and temperature controller. &
 \numrange{100}{1000} (module) \\
 \hline
-Planar external-cavity semiconductor (e.g.\ RIO ORION/PLANEX) &
+Planar external-cavity semiconductor &
 $<1$ to \SI{15}{\kilo\hertz} &
 \SIrange{10}{30}{\milli\watt} &
-Gain chip with planar Bragg-grating cavity; RIN shot-noise-limited above \SI{500}{\kilo\hertz}; integrated driver; marketed for wind lidar. &
+Integrated driver, marketed for wind lidar.&
 quote only; low thousands \\
 \hline
-External-cavity diode laser (grating, Littrow/Littman) &
-\SIrange{10}{100}{\kilo\hertz} &
-\SIrange{10}{50}{\milli\watt} &
-Narrowed by optical feedback, but prone to jitter and mechanical instability \cite{harris_role_1998}. Free-space cavity. &
-quote only; $\sim$\num{10000}+ \\
-\hline
-Er-doped DFB fibre laser (e.g.\ NKT Koheras BASIK) &
+Er-doped DFB fibre laser &
 $<0.1$ to \SI{10}{\kilo\hertz} \cite{harris_role_1998} &
 \SIrange{10}{40}{\milli\watt} &
-The source of choice for CW anemometry at range \cite{cariou2006laser,hill_remote_nodate}; \SI{5.2}{\kilo\hertz} unit in \cite{abdelazim_development_2015}. Relaxation peak near \SI{1}{\mega\hertz}, inside the low-velocity Doppler band, so balanced detection is required there \cite{cariou2006laser}. &
+Common source of choice for CW anemometry due to narrow linewidth \cite{cariou2006laser,hill_remote_nodate, abdelazim_development_2015}. Relaxation peak near \SI{1}{\mega\hertz}, so higher RIN in the frequency band of interest \cite{cariou2006laser}. &
 quote only; tens of thousands \\
 \hline
-MOPA (any seed + EDFA) &
-that of the seed &
-\SIrange{0.1}{10}{\watt} &
-Required for pulsed and long-range CW operation \cite{cariou2006laser,abari_all-fiber_2014}; adds the amplifier's noise figure and ASE. &
-seed + \numrange{3600}{13000} (benchtop EDFA); quote for $>$\SI{1}{\watt} \\
-\hline
 \end{tabular}
-\caption{Single-frequency laser source classes at \SI{1550}{\nano\metre}. Linewidths and powers are typical of commercial devices; costs are list-price tiers as of September 2026 (see \autoref{appendix:prices}) and exclude drivers, controllers and import costs.}
+\caption{Laser source classes at \SI{1550}{\nano\metre}. Linewidths and powers are typical of commercial devices; approximate costs are as of September 2026 and exclude drivers, controllers and import costs.}
 \label{tab:design-laser-sources}
 \end{table}
     

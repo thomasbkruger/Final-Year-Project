@@ -259,81 +259,20 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     It can be seen that beyond a certain $P_{LO}$ level RIN will overtake shot noise in the denominator, and the system's SNR will no longer be increasing with increasing $P_{LO}$ and approaching the ideal shot-limited regime \cite{abdelazim_development_2015}. Instead, the SNR will \textbf{decrease} with an increasing $P_{LO}$ after this crossover point, due to the $P_{LO}^2$ scaling of RIN \cite{cariou2006laser}. It can thus be seen that RIN establishes an optimal $P_{LO}$ which can be used, and sets a ceiling on how close the detector can get to the ideal shot-noise limited operation of \autoref{eqn:lit-idealShot}, before increasing RIN dominates. It is therefore clear that if RIN can be reduced through other means, a larger $P_{LO}$ can be used, and thus the system can get closer to the ideal shot-noise limited state. Balanced detection is one means to achieve this \cite{cariou2006laser}, and is discussed in \autoref{sec:lit-BalancedDetection}.
 
     
-    Finally, there is phase-induced intensity noise (PIIN), which is noise which results from non-ideal linewidth effects of the laser source \cite{cariou2006laser}, \cite{jiang_performance_2019}, \cite{harris_role_1998}. PIIN is a significant source of noise in DWL systems, and has been shown to possibly exceed the shot-noise by up to 30dB \cite{harris_role_1998}. Thus, in order to remain as close as possible to the ideal shot-noise limit, PIIN should be reduced. This is possible through the selection of an appropriate laser source, and through careful matching of signal path lengths in the DWL system \cite{harris_role_1998}\cite{cariou2006laser}. PIIN is a complex noise source which can vary significantly in shape and magnitude depending on the laser source and the DWL system. An understanding of laser phase noise and linewidth is required to understand it - a full discussion and mathematical breakdown on these concepts and how they relate to PIIN is provided in \autoref{appendix:PIIN}.
+    Finally, there is phase-induced intensity noise (PIIN), which is noise which results from non-ideal linewidth effects of the laser source \cite{cariou2006laser}, \cite{jiang_performance_2019}, \cite{harris_role_1998}. PIIN is a significant source of noise in DWL systems, and has been shown to be highly unstable, and to possibly exceed the shot-noise by up to 30dB \cite{harris_role_1998}. Thus, in order to remain as close as possible to the ideal shot-noise limit, PIIN should be reduced. This is possible through the selection of an appropriate laser source, and through careful matching of signal path lengths in the DWL system \cite{harris_role_1998}\cite{cariou2006laser}. PIIN is a complex noise source which can vary significantly in shape and magnitude depending on the laser source and the DWL system. An understanding of laser phase noise and linewidth is required to understand it - a full discussion and mathematical breakdown on these concepts and how they relate to PIIN is provided in \autoref{appendix:PIIN}.
     
     \subsection{Coherent Detection: Single-Ended vs Balanced Detection} \label{sec:lit-BalancedDetection}
     
-    As previously discussed, in order to determine the Doppler shift of the received backscatter signal in a coherent detection DWL system, the backscatter signal must be optically mixed with the LO signal, and this mixed signal must then be detected using a photodetector system. This section discusses the two common types of photodetection methodologies - single-ended detection, and balanced detection.
+    As previously discussed, in order to determine the Doppler shift of the received backscatter signal in a coherent detection DWL system, the backscatter signal must be optically mixed with the LO signal, and this mixed signal must then be detected using a photodetector system. This section discusses the two common types of photodetection methodologies - single-ended detection, and balanced detection. Balanced detection holds two key advantages over single-ended detection, which will be discussed here.
+
+    A single-ended detection system simply uses a 2:1 (2 inputs, one output) fiber optic coupler to mix the LO reference signal with the backscatter signal, and uses a single photodetector to convert this light signal into a measurable current. Balanced detection instead makes use of a 2:2 fiber optic coupler for mixing, thus giving two outputs which will be opposite in phase (due to conservation of energy \cite{Schumaker1984}). These opposite phase signals are then detected using two matched photodiodes, with the output being given by the differential of the current produced by the two. At this point it is important to note that a 2:1 coupler functions exactly the same as a 2:2 coupler, but with one of its outputs terminated - the effect of this being that effectively half of the signal is discarded. In a balanced setup the two antiphase beat signals are subtracted, so their
+    amplitudes add, doubling the beat current amplitude (a fourfold increase in signal power) relative to a single 50:50 output \cite{kikuchi_fundamentals_2016}. Because the
+    shot noise of the two photodiodes is \textbf{uncorrelated}, the noise power only doubles,
+    giving a net 3dB improvement in shot-noise-limited SNR over single-ended
+    detection with a 50:50 coupler \cite{Schumaker1984}. Conversely, RIN is common to
+    both outputs and is \textbf{cancelled} by the subtraction \cite{Abbas1983, Abdelazim2015}. This allows the system to better approach the ideal shot-noise limit sensitivity as discussed in \autoref{sec:lit-noiseSources}. For a mathematical description of why this is the case, and a full treatment on the significance, see \ref{appendix:RIN}. 
     
-    As discussed in \autoref{sec:lit-noiseSources}, the best-case performance of a DWL system is for it to operate in a shot-noise limited regime - thus, all other sources of noise should be reduced to below the shot-noise level. In coherent detection LiDAR architectures, the use of a balanced detector setup has become common for this purpose, as it assists in reducing a laser source's relative-intensity noise (RIN) below the shot-noise level, in a manner which single-ended detection does not. 
-
-    A single-ended detection system simply uses a 2:1 fibre optic coupler to mix the LO reference signal with the backscatter signal, and uses a single photodetector to convert this light signal into a measurable current, which will be proportional to the optical signal power as given in \autoref{eqn:beatSignal}. It can be seen that this detection method retains the DC terms $P_{LO}$, $P_{RS}$. Any RIN from the laser source is present in the output, as these intensity fluctuations are contained in these two power terms. Thus, the measurable Doppler peak will be smaller with respect to the noise floor. 
     
-    Contrastingly, balanced detection setup makes use of a 2:2 fibre optic coupler which also optically mixes the LO reference signal with the received backscatter signal (as discussed in \autoref{sec:lit-coherentDetection}). However, the 2:2 coupler has two outputs, thus giving two output signals which can be termed $E_1$ and $E_2$ \cite{kikuchi_fundamentals_2016}:
-
-    \begin{equation}
-        E_1 = \frac{1}{\sqrt2}(E_{RS} + E_{LO}), \space 
-        E_2 = \frac{1}{\sqrt{2}}(E_{RS} - E_{LO})
-    \end{equation}
-     Where $E_{RS}$ and $E_{LO}$ are the complex electromagnetic fields of the returned backscatter signal and the local oscillator respectively. 
-
-     Thereafter, the two signals enter the balanced detector, which consists of two matched photodiodes and a transimpedance amplifier to convert their currents into a measurable voltage. The photodiodes respond with currents $I_1$ and $I_2$ respectively, proportional to the intensity of the electromagnetic field incident on it ($|E_{1}|^2$ and $|E_2|^2$ respectively), as was also discussed in \autoref{sec:lit-coherentDetection}. Due to the internal setup of the transimpedance amplifier and the photodiodes in the balanced detector, the output current is then given by \cite{kikuchi_fundamentals_2016}:
-
-     \begin{equation}
-         I_{det} \propto I_1 - I_2 \propto |E_1|^2 - |E_2|^2 \newline
-         \propto 2\sqrt{P_{LO}P_{RS}} cos(2\pi\Delta f t)
-     \end{equation}
-
-     Comparing this to \autoref{eqn:beatSignal}, it can be seen that the DC terms $P_{LO}$ and $P_{RS}$ are no longer present due to them being common-mode in both $I_1$ and $I_2$ and thus being canceled by the subtraction. This therefore lowers the noise floor, as the RIN contained in these terms is also eliminated. 
-
-     \autoref{fig:balanceddetector} depicts this process graphically:
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[font=\small, line width=0.7pt]
-
-% ---- inputs ----
-\draw[->] (0.3,2.25) -- (2.2,2.25);
-\node[above] at (1.25,2.25) {$E_{LO}$ (LO)};
-\draw[->] (0.3,0.75) -- (2.2,0.75);
-\node[below, align=center] at (1.25,0.75) {$E_{RS}$\\(backscatter)};
-
-% ---- coupler ----
-\draw[rounded corners=2pt] (2.2,0.25) rectangle (4.0,2.75);
-\node[align=center] at (3.1,1.5) {50:50\\coupler};
-
-% ---- coupler outputs ----
-\draw[->] (4.0,2.25) -- (9.0,2.25);
-\node[above] at (6.5,2.25) {$E_1 = \tfrac{1}{\sqrt{2}}(E_{RS} + E_{LO})$};
-\draw[->] (4.0,0.75) -- (9.0,0.75);
-\node[below] at (6.5,0.75) {$E_2 = \tfrac{1}{\sqrt{2}}(E_{RS} - E_{LO})$};
-
-% ---- balanced detector ----
-\draw[rounded corners=2pt] (9.0,-0.25) rectangle (12.0,3.25);
-\node[above] at (10.5,3.25) {Balanced detector};
-\draw[rounded corners=1pt] (9.3,1.85) rectangle (10.5,2.65);
-\node at (9.9,2.25) {PD$_1$};
-\draw[rounded corners=1pt] (9.3,0.35) rectangle (10.5,1.15);
-\node at (9.9,0.75) {PD$_2$};
-
-% ---- difference ----
-\draw (10.5,2.25) -- (11.0,2.25) -- (11.0,0.75) -- (10.5,0.75);
-\node[above, font=\footnotesize] at (10.75,2.25) {$I_1$};
-\node[below, font=\footnotesize] at (10.75,0.75) {$I_2$};
-\fill (11.0,1.5) circle (1.5pt);
-\draw (11.0,1.5) -- (12.0,1.5);
-
-% ---- output ----
-\draw[->] (12.0,1.5) -- (12.7,1.5);
-\node[right] at (12.7,1.5) {$I_1 - I_2$};
-\end{tikzpicture}
-\caption{Balanced detection. The 50:50 coupler delivers the sum and difference
-of the backscatter and LO fields to two matched photodiodes; the output is the
-difference of their photocurrents, in which the common-mode terms cancel and
-only the beat term $2\sqrt{P_{LO} P_{RS}}\cos(2\pi\Delta f t)$ remains.}
-\label{fig:balanceddetector}
-\end{figure}
-
-It can thus be seen that balanced detection provides the advantage of cancelling RIN. This allows for the final detected signal to theoretically be able to achieve the desired shot-noise limited operation (if other sources of noise are also eliminated). 
 
 \subsection{Transmit and Receive Optics: Monostatic vs Bistatic}
     For a DWL system there are two optical configurations which are commonly used - bistatic and monostatic. This section discusses the differences between the two.

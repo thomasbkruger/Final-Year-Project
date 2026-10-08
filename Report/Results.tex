@@ -17,7 +17,9 @@ As shown in the figure, an angle of 45 degrees is used between the collimator an
 
 It must also be noted that the PLA plastic used reflects very little light at 1550nm, and thus standard white paper was attached to the spinning disc to increase the reflectivity. 
 
-The motor RPM was varied across measurements in order to test the system's ability to resolve various different speeds. The same data acquisition and processing chain as for experiments A and B are used here, with 100 oscilloscope records being obtained for a given motor RPM, their Welch PSDs computed, and averaged to obtain a result. 
+The rest of the system is set up as in \autoref{fig:finalDesign}, with all components fully connected. The laser is driven at a constant 48mA.
+
+The motor RPM is varied across measurements in order to test the system's ability to resolve various different speeds. The same data acquisition and processing chain as for experiments A and B are used here, with 100 oscilloscope records being obtained for a given motor RPM, their Welch PSDs computed, and averaged to obtain a result. 
 
 \subsection{Results and Discussion}
 
@@ -26,6 +28,13 @@ The motor RPM was varied across measurements in order to test the system's abili
 	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_rpm_overlay"}
 	\caption{C: PSD of hard-target speed measurements, at different motor RPMs}
 	\label{fig:CPSD}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/peak_vs_rpm"}
+	\caption{C: Doppler peak frequency (from centroid) vs target motor RPM}
+	\label{fig:CentroidVSRPM}
 \end{figure}
 
 \begin{table}[H]
@@ -43,6 +52,7 @@ The motor RPM was varied across measurements in order to test the system's abili
 		noise, integrated across the peak.}
 	\label{tab:doppler_vs_rpm}
 	\smallskip
+
 	\begin{tabular}{
 			|S[table-format=4.0]   % RPM
 			|S[table-format=1.3]   % f_D (centroid)

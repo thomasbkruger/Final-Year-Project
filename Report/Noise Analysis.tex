@@ -3,7 +3,7 @@
  \section{Introduction}
  This chapter gives a comprehensive account of the testing which was done on the completed DWL system to account for the various sources of noise. The purpose of the noise analysis is to quantify the noise observed in the system and attribute it to the appropriate sources, while investigating how component, architecture, and operating point choice affects this. This chapter is separate from the functional testing of \autoref{sec:functionalAnalysis}, as the experimental setup differs significantly, and the results from these experiments will indeed be used to inform the expected results of the experiments in \autoref{sec:functionalAnalysis}, and to construct an optimal experimental setup in those cases.
 
- \section{A: Electronic, Shot and Relative Intensity Noise}
+ \section{A: Electronic and Shot Noise}
  
  \subsection{Experimental Goals}
  As discussed in \autoref{sec:lit-noiseSources}, a coherent DWL performs best when it is
@@ -30,7 +30,7 @@
  	\item \textbf{Quantify RIN and validate balanced detection (A3).} Repeat the measurement
  	with only one photodiode connected, making the PD100B a single-ended detector. Comparing
  	this with the balanced case measures the laser's relative intensity noise (RIN) and
- 	confirms that the balanced detector cancels this common-mode noise as intended.
+ 	confirms that the balanced detector cancels this common-mode noise as intended. This experiment is only included for completeness, to demonstrate RIN cancellation, and the results are given in Appendix \ref{appendix:RINValidation}.
  \end{itemize} 
 
  \subsection{Experimental Methodology}
@@ -137,18 +137,18 @@
      \label{fig:expASetup}
  \end{figure}
 
- It can be seen that this differs from the full system setup. The circulator and collimator are unused for this experiment. The 90\% splitter arm is left unconnected and is capped. Only the 10\% splitter arm (LO) is connected to the one arm of the 50:50 coupler. Both outputs of the coupler are connected to the balanced detector, except in the case of experiment A3. Since there is no circulator, collimator or target, the only light reaching the detector is the LO itself. With no second optical field there is no beat term (as in \autoref{eqn:beatSignal}), and the LO contributes only a DC photocurrent, which is removed by the detector's AC coupling. Thus, the signal at the detector will be a pure noise signal, containing only electronic noise and shot noise. Note that phase-induced intensity noise is not present here, as it originates from reflections in the collimator and circulator which are not present in this setup, and RIN is assumed to be cancelled fully by balanced detection (further investigated in A3). 
+ It can be seen that this differs from the full system setup. The circulator and collimator are unused for this experiment. The 90\% splitter arm is left unconnected and is capped. Only the 10\% splitter arm (LO) is connected to the one arm of the 50:50 coupler. Both outputs of the coupler are connected to the balanced detector, except in the case of experiment A3. Since there is no circulator, collimator or target, the only light reaching the detector is the LO itself. With no second optical field there is no beat term (as in \autoref{eqn:beatSignal}), and the LO contributes only a DC photocurrent, which is removed by the detector's AC coupling. Thus, the signal at the detector will be a pure noise signal, containing only electronic noise and shot noise. Note that phase-induced intensity noise is not present here, as it originates from reflections in the collimator and circulator which are not present in this setup, and RIN is assumed to be cancelled fully by balanced detection.
 
  The experiment is divided into three phases, with slightly different configurations for each in order to give different measurands, as shown in \autoref{tab:expAParts}:
 
  \begin{table}[H]
      \centering
-     \begin{tabular}{|p{1cm}|p{7cm}|p{5cm}|}
+     \begin{tabular}{|p{3.5cm}|p{7cm}|p{5cm}|}
      \hline
          \textbf{ID} & \textbf{Configuration} & \textbf{Quantity Measured} \\ \hline
           A1 & Laser output off, detector switched on & Electronic noise only \\ \hline
           A2 & Laser output on (current varied), detector switched on, both detector inputs connected & Electronic noise + shot noise \\ \hline
-          A3 & Laser output on (current varied), detector switched on, only one detector input connected & Electronic noise + shot noise + full RIN \\ \hline
+          A3 (supplementary experiment) & Laser output on (current varied), detector switched on, only one detector input connected & Electronic noise + shot noise + full RIN \\ \hline
      \end{tabular}
      \caption{Experiment A phases and configurations}
      \label{tab:expAParts}
@@ -158,7 +158,7 @@
  100 records of the detector output are captured sequentially with the oscilloscope and
  transferred to a laptop. Each record contains 25\,000 samples at 125\,MSa/s (200\,$\mu$s).
  A1 requires only a single measurement, while A2 and A3 are repeated over a range of drive
- currents up to the 48\,mA operating point, with A3 performed on each detector input in turn.
+ currents up to the 48\,mA operating point.
  
  The PSD of each record is estimated using Welch's method (Hann window, 2\,500-sample
  segments with 50\,\% overlap, giving a 50\,kHz resolution) rather than a single periodogram,
@@ -245,28 +245,8 @@ Noting that \autoref{fig:A2PSD} and \autoref{fig:A2PSDvsCurrent} both give the \
 From this, it can be seen that an operating current of 48mA for the laser allows P2 in \autoref{tab:requirements} to be met with the highest margin, and this will thus be used as the laser current for the remainder of this project. While a higher laser current still may be used, to even further approach the ideal shot-noise limit, this risks saturating the detector. The detector has a maximum incident power rating of 1.5mW on each photodiode \cite{detector  datasheet}. From the laser datasheet \cite{laser datasheet}, a current of 48mA gives approximately 17mW at the laser output, which will result in approximately 0.85mW at each detector from the LO alone. This allows the detector to thus remain comfortably far away from its saturation point, even if returned signal is high and results in a higher incident power at the photodiode after mixing with the LO. 
 
 \subsubsection{A3: Relative Intensity Noise}
-Experiment A3 serves to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. \autoref{fig:A3Plot} gives the 5 - 20MHz averaged PSD of the detected noise, when only a single photodetector input of the PD100B is used - effectively turning it into a singe-ended detector. The electronic noise floor will remain the same, but the total noise PSD averages will now also contain RIN in addition to shot-noise and electronic noise. Before analysis of this plot can commence, it is important to note that in the case of balanced detection, the shot-noise of each detector is uncorrelated, and will therefore add together at the output. Thus, in the single-ended case, the shot-noise at the output for a given laser current is expected to be half that of the balanced detection case. Any excess noise above this half-power shot-noise level is thus contributed from the electronic noise, and the uncancelled RIN. 
+Experiment A3 serves only for completeness, to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. It was found that indeed 0.6125dB of RIN was cancelled by using the balanced detection setup. See Appendix \ref{appendix:RINValidation} for the full results and discussion of this supplementary experiment.  
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{psd_vs_current_single.png}
-    \caption{A3: 5 - 20MHz Average PSD vs Laser Current with Single-Ended Detection}
-    \label{fig:A3Plot}
-\end{figure}
-
-It can be seen in \autoref{fig:A3Plot} that indeed, the total noise is lower than in \autoref{fig:A2PSDvsCurrent}, as expected. Observing the total noise at the operating point of 48mA however, it can be seen that a value of approximately $3.5 \times 10^{-13}V^2/Hz$ is obtained, which gives $2.694\times 10^{-13}V^2/Hz$ once electronic noise has been subtracted. In the balanced detection case at the same laser current, a value of $5.49\times10^{-13}V^2/Hz$ was obtained - subtracting electronic noise and halving this gives $2.342\times 10^{-13}V^2/Hz$. This clearly indicates that the noise power in the single-ended case is higher than simply half of the shot-noise in the balanced detection case, thus proving that indeed there is excess RIN present. Thisexcess RIN noise can be calculated: 
-\begin{equation}
-    RIN_{excess}= (2.694 - 2.342)\times 10^{-13} = 0.352\times 10 ^{-13}V^2/Hz
-\end{equation}
-
-Converting to dB:
-
-\begin{equation}
-    10log_{10}(1+\frac{RIN_{excess}}{S})=10log_{10}(1+\frac{0.352\times 10 ^{-13}}{2.324\times 10^{-13}})= 0.6125dB
-\end{equation}
-
-Thus, RIN contributes an additional 0.6125dB of noise above the ideal shot-noise limit at the 48mA operating point. Balanced detection allows this excess noise to be removed, as illustrated in the results of A2 - allowing for a better SNR. 
-%DISCUSS WHY THIS RESULT IS SO SMALL, COMPARE TO FIBRE LASERS ETC.
 \section{B: Phase-induced Intensity Noise}
 \subsection{Experimental Goals}
 As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{appendix:PIIN}, Phase-induced Intensity Noise (PIIN) can be a significant contributor to the total noise of the system, rising far above shot-noise - particularly when the linewidth of the laser source is not narrow, and when there is significant path-length mismatch between the LO and the transmit signal.
@@ -291,7 +271,7 @@ As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{
 
  It can be seen that the total noise is now significantly above that measured in A2, owing to the excess noise introduced by PIIN. It can also be seen that as expected, PIIN varied significantly between measurements. In the 5 - 20MHz band, the total excess noise was measured to be from 12.2 to 14.2dB above the A2 noise floor, for a given frequency. It can also be seen that this excess noise is not constant, and starts rolling off steeply from approximately 10MHz. The shape of the PIIN corresponds to the $L_c \gg \Delta L$ regime described in Appendix \ref{appendix:PIIN}, as it is a flat floor and does not contain a Lorentzian peak at baseband.
  
- From these results it is thus clear that in this system, PIIN dominates other noise sources by a large amount, especially at lower frequencies. It is thus the largest single noise contributor in the total SNR of the system when trying to measure a Doppler peak. This will have a larger effect at lower measured speeds, and will be less significant at speeds which correspond to Doppler peaks at $\geq$ 10MHz (speeds of $\geq$ 12.9m/s). For this project, comparison of excess noise from PIIN for different laser linewidths and different path length mismatches between LO and emission is out of scope, owing to budget constraints in sourcing different laser diodes, or splicing fibre so as to give different path lengths. From the work of Jiang et al., Harris et al. and Cariou et. al \cite{jiang_performance_2019} \cite{harris_role_1998} \cite{cariou2006laser}, it is however anticipated that PIIN could however be reduced in a future revision of the system for which these components are available. 
+ From these results it is thus clear that in this system, PIIN dominates other noise sources by a large amount, especially at lower frequencies. It is thus the largest single noise contributor in the total SNR of the system when trying to measure a Doppler peak, and the system is therefore no longer shot-noise limited (the ideal case). This will have a larger effect at lower measured speeds, and will be less significant at speeds which correspond to Doppler peaks at $\geq$ 10MHz (speeds of $\geq$ 12.9m/s). For this project, comparison of excess noise from PIIN for different laser linewidths and different path length mismatches between LO and emission is out of scope, owing to budget constraints in sourcing different laser diodes, or splicing fibre so as to give different path lengths. From the work of Jiang et al., Harris et al. and Cariou et. al \cite{jiang_performance_2019} \cite{harris_role_1998} \cite{cariou2006laser}, it is however anticipated that PIIN could however be reduced in a future revision of the system for which these components are available. Indeed, for maximum sensitivity this would be essential, as it would allow the system to reach shot-noise limited operation, which would maximise the SNR.  
  
  
  
