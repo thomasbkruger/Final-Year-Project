@@ -29,6 +29,7 @@ date that has RPM captures.
     python psd_rpm.py
     python psd_rpm.py --date 20261002 --nperseg 25000
     python psd_rpm.py --capture 2              # the second capture of each RPM
+    python psd_rpm.py --series "" --ref PIIN_4m --date 20261009   # 4 m fibre set
 
 RPM is parsed from the capture tag (C1_600RPM): the metadata block on these
 runs still carries target "none" / 0 m/s from an earlier config.
@@ -55,7 +56,9 @@ C_MUTED = "#52514e"
 C_GRID = "#d8d7d3"
 C_SURFACE = "#fcfcfb"
 
-RPM_TAG = re.compile(r"_(\d+)\s*RPM", re.IGNORECASE)
+# Matches C1_600RPM and 500rpm_4m alike: the number opens the tag or follows
+# an underscore.
+RPM_TAG = re.compile(r"(?:^|_)(\d+)\s*RPM", re.IGNORECASE)
 
 # How each kind of spectrum turns its stored power into the plotted quantity,
 # and the axis scales it is drawn on. The PSD is plotted as stored, in V^2/Hz
@@ -119,7 +122,9 @@ def collect(data_dir: Path, series: str, ref_tag: str, date: str | None,
         run = load_run(p)
         tag = run.meta.get("tag", p.stem[16:])
         rpm = rpm_from_tag(tag)
-        if rpm is None and tag != ref_tag:
+        # The reference matches by prefix, so numbered repeats (PIIN_4m_1,
+        # PIIN_4m_2, ...) all join the stationary baseline.
+        if rpm is None and not tag.startswith(ref_tag):
             continue
         f_psd, psd, _ = welch_psd(run.v, run.fs, nperseg=nperseg)
         f_fft, fft = fft_power(run.v, run.fs)
@@ -151,7 +156,7 @@ def shown_as(name: str, series: str, label: str) -> str:
     The captures are tagged C1, but the figures call the series C; selection
     still matches the real prefix, so only what is drawn changes.
     """
-    return name.replace(series, label, 1) if label != series else name
+    return name.replace(series, label, 1) if series and label != series else name
 
 
 def content_fmax(d: dict, kind: str, headroom: float = 1.5) -> float:
@@ -166,14 +171,24 @@ def content_fmax(d: dict, kind: str, headroom: float = 1.5) -> float:
     return max(max(peaks) * headroom, 1e6)
 
 
-def style_axes(ax, kind: str, title: str | None = None) -> None:
+def style_axes(ax, kind: str, title: str | None = None, xscale: str | None = None,
+               yscale: str | None = None, ylabel: str | None = None) -> None:
+    """Shared axis styling. The scales and y label default to the kind's own.
+
+    acquire_windtunnel.py draws the same quantity but wants it on log axes,
+    where the whole spectrum out to Nyquist is the point, rather than the
+    linear axes the RPM figures use to show the Doppler peaks. It overrides
+    them here rather than keeping a second copy of this styling.
+    """
     from matplotlib.ticker import FuncFormatter, LogLocator, NullFormatter
 
     spec = KINDS[kind]
-    ax.set_xscale(spec["xscale"])
-    ax.set_yscale(spec["yscale"])
+    xscale = xscale or spec["xscale"]
+    yscale = yscale or spec["yscale"]
+    ax.set_xscale(xscale)
+    ax.set_yscale(yscale)
     ax.set_xlabel("frequency (Hz)", color=C_INK)
-    ax.set_ylabel(spec["ylabel"], color=C_INK)
+    ax.set_ylabel(ylabel or spec["ylabel"], color=C_INK)
     ax.grid(True, which="major", color=C_GRID, lw=0.7, alpha=0.9)
     ax.grid(True, which="minor", color=C_GRID, lw=0.5, alpha=0.5)
     ax.set_axisbelow(True)
@@ -182,12 +197,13 @@ def style_axes(ax, kind: str, title: str | None = None) -> None:
     for s in ("left", "bottom"):
         ax.spines[s].set_color(C_GRID)
     ax.tick_params(colors=C_MUTED, labelsize=9, which="both")
-    if spec["yscale"] == "log":
-        # The y-range spans barely a decade, so label the 2s and 5s as well.
+    if yscale == "log" and spec["yscale"] == "log":
+        # The RPM y-range spans barely a decade, so label the 2s and 5s too.
+        # A full spectrum spans several and is left to the default locator.
         ax.yaxis.set_major_locator(LogLocator(base=10, subs=(1, 2, 5)))
         ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
         ax.yaxis.set_minor_formatter(NullFormatter())
-    if spec["xscale"] == "linear":
+    if xscale == "linear":
         ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v/1e6:g}"))
         ax.set_xlabel("frequency (MHz)", color=C_INK)
     if title:
@@ -270,7 +286,7 @@ def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str,
                   loc="upper right" if KINDS[kind]["xscale"] == "linear"
                   else "lower left")
         fig.tight_layout()
-        out = out_dir / f"{kind}_{series}_{rpm}RPM.png"
+        out = out_dir / f"{kind}_{series or label}_{rpm}RPM.png"
         fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
         plt.close(fig)
         print(f"plot -> {out}")
@@ -281,12 +297,15 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--data-dir", type=Path, default=Path("data"))
     ap.add_argument("--series", default="C1",
-                    help="tag prefix that selects the captures")
+                    help="tag prefix that selects the captures; \"\" for tags "
+                         "with no prefix, such as 500rpm_4m")
     ap.add_argument("--label", default="C",
                     help="name for the series in the figures; kept separate "
                          "from --series so selection stays exact. Output "
-                         "filenames follow --series, not this.")
-    ap.add_argument("--ref", default="C1_ref", help="tag of the stationary reference")
+                         "filenames follow --series, or this when --series "
+                         "is empty.")
+    ap.add_argument("--ref", default="C1_ref",
+                    help="tag prefix of the stationary reference captures")
     ap.add_argument("--date", help="YYYYmmdd; default is the latest date with RPM captures")
     ap.add_argument("--nperseg", type=int, default=12500,
                     help="Welch segment length; 12500 gives 10 kHz bins at 125 MS/s")

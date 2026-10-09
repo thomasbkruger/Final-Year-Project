@@ -35,10 +35,18 @@ C_POINT = CAT[0]
 
 
 def peak_of(f: np.ndarray, excess: np.ndarray, f_min: float = 20e3,
-            smooth: int = 5) -> dict:
-    """Centroid and FWHM edges of the strongest peak in the excess spectrum."""
-    sm = np.convolve(excess, np.ones(smooth) / smooth, mode="same")
-    i = int(np.argmax(np.where(f >= f_min, sm, -np.inf)))
+            smooth: int = 5, locate: np.ndarray | None = None) -> dict:
+    """Centroid and FWHM edges of the strongest peak in the excess spectrum.
+
+    locate, if given, is the spectrum the peak is found in (the capture over
+    its reference, say); the centroid and edges are still taken on the excess.
+    Without it the largest absolute excess wins, which near DC can be drift
+    or vibration rather than the Doppler return.
+    """
+    kernel = np.ones(smooth) / smooth
+    sm = np.convolve(excess, kernel, mode="same")
+    seek = sm if locate is None else np.convolve(locate, kernel, mode="same")
+    i = int(np.argmax(np.where(f >= f_min, seek, -np.inf)))
 
     lo = hi = i
     while lo > 0 and sm[lo - 1] > 0.2 * sm[i]:
@@ -131,7 +139,11 @@ def main() -> int:
             print(f"{rpm} RPM has {len(caps)} capture(s); cannot pick #{args.capture}")
             return 1
         e = caps[args.capture - 1]
-        rows.append({"rpm": rpm, "capture": e["time"], **peak_of(f, e["fft"] - ref)})
+        # Found by ratio to the reference: at 1000 RPM on 9 Oct a near-DC
+        # excess matches the Doppler peak in absolute power, but it is 3x the
+        # reference where the Doppler peak is 60x.
+        rows.append({"rpm": rpm, "capture": e["time"],
+                     **peak_of(f, e["fft"] - ref, locate=e["fft"] / ref)})
 
     rpm = np.array([r["rpm"] for r in rows], float)
     fc = np.array([r["centroid"] for r in rows])

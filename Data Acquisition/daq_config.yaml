@@ -2,8 +2,13 @@
 # Everything in this file is copied verbatim into the output .npz/.json, so
 # edit the `metadata:` block before each run to describe the experiment.
 
-visa_address: "USB0::0x2A8D::0x179B::CN58022160::0::INSTR"   # EDU-X 1002G, serial CN58022160.
-                                                            # Run `python Acquisition.py --list` to re-check.
+visa_address: "USB0::0x2A8D::0x179B::CN57212115::0::INSTR"   # EDU-X 1002G, serial CN57212115
+                                                            # (from 2026-10-07; runs before that used
+                                                            # CN58022160). If this address stops
+                                                            # answering, Acquisition.py looks for any
+                                                            # EDU-X 1002G that does and logs which one
+                                                            # it used. `python Acquisition.py --list`
+                                                            # shows what is connected.
 visa_backend: ""        # "" = Keysight IO Libraries (what works on this PC).
                         # "@py" = pyvisa-py; on Windows it cannot see USB scopes claimed by the
                         # Keysight driver, so leave this empty here. Use "@py" on Linux/macOS.

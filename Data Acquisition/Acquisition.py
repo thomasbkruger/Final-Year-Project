@@ -20,6 +20,7 @@ import json
 import os
 import socket
 import sys
+import threading
 import time
 from datetime import datetime
 from pathlib import Path
@@ -53,6 +54,9 @@ import pyvisa  # noqa: E402  (must follow the DLL search-path fix above)
 import yaml  # noqa: E402
 
 EXPECTED_MODEL = ("EDU-X 1002G", "EDUX1002G")
+
+COMPRESS_BELOW_MB = 200     # compress the .npz only when the samples are smaller
+                            # than this; see the note where the file is written
 
 # ---------------------------------------------------------------------------
 # InfiniiVision command set - see Keysight X-Series Programmer's Guide
@@ -105,17 +109,58 @@ def list_instruments(backend: str = "") -> None:
     print("Paste the address below into visa_address in daq_config.yaml:\n")
     for addr in found:
         try:
-            inst = rm.open_resource(addr)
-            inst.timeout = 5000
-            idn = inst.query("*IDN?").strip()
+            inst, idn = _open(rm, addr)
             inst.close()
         except Exception as e:  # noqa: BLE001
-            idn = f"<no response: {type(e).__name__}>"
-        print(f"  {addr}\n      {idn}")
+            idn = f"<no response: {type(e).__name__}: {e}>"
+        print(f"  {addr}\n      {idn}", flush=True)
 
 
-def connect(cfg: dict) -> pyvisa.resources.MessageBasedResource:
-    """Open the scope, set transfer limits, and check the identity string."""
+OPEN_DEADLINE_S = 8
+
+
+def _open(rm, addr: str):
+    """Open one address and ask *IDN?, giving up after OPEN_DEADLINE_S.
+
+    scope.timeout only covers reads and writes on an open session. A scope
+    whose USB link has locked up (or that was unplugged mid-query) can block
+    open_resource itself forever, so the whole exchange runs in a daemon
+    thread and is abandoned if it overruns. Raises TimeoutError then; power-
+    cycle the scope or replug its USB cable to clear it.
+    """
+    out: dict = {}
+
+    def work() -> None:
+        try:
+            s = rm.open_resource(addr, open_timeout=3000)
+            try:
+                s.timeout = 5000
+                out["idn"] = s.query("*IDN?").strip()
+            except Exception:
+                s.close()
+                raise
+            out["scope"] = s
+        except Exception as e:  # noqa: BLE001 - re-raised in the caller's thread
+            out["err"] = e
+
+    t = threading.Thread(target=work, daemon=True)
+    t.start()
+    t.join(OPEN_DEADLINE_S)
+    if t.is_alive():
+        raise TimeoutError(f"no reply in {OPEN_DEADLINE_S} s; scope USB link may be stuck")
+    if "err" in out:
+        raise out["err"]
+    return out["scope"], out["idn"]
+
+
+def connect(cfg: dict) -> tuple[pyvisa.resources.MessageBasedResource, str]:
+    """Open the scope, set transfer limits, and check the identity string.
+
+    If the configured address does not answer (the scope was swapped for
+    another unit, so the serial in the address changed), every visible address
+    is tried and the first EDUX1002G that answers is used. Returns the scope
+    and its *IDN? string, which names the serial actually used.
+    """
     try:
         rm = pyvisa.ResourceManager(cfg.get("visa_backend") or "")
     except pyvisa.errors.VisaIOError as e:
@@ -124,14 +169,33 @@ def connect(cfg: dict) -> pyvisa.resources.MessageBasedResource:
             "Install Keysight IO Libraries Suite, or set visa_backend: \"@py\" in the config "
             "after 'pip install pyvisa-py pyusb'."
         ) from e
-    scope = rm.open_resource(cfg["visa_address"])
+    addr = cfg["visa_address"]
+    try:
+        scope, idn = _open(rm, addr)
+    except (pyvisa.errors.VisaIOError, TimeoutError) as e:
+        why = e.abbreviation if isinstance(e, pyvisa.errors.VisaIOError) else e
+        log(f"No answer at {addr} ({why}); looking for another EDUX1002G")
+        for other in rm.list_resources():
+            if other == addr:
+                continue
+            try:
+                scope, idn = _open(rm, other)
+            except (pyvisa.errors.VisaIOError, TimeoutError):
+                continue
+            if any(m in idn for m in EXPECTED_MODEL):
+                log(f"WARNING: using {other} instead; put this address in visa_address "
+                    "in the config to skip this search")
+                break
+            scope.close()
+        else:
+            raise SystemExit(f"No EDUX1002G answered. Run `python Acquisition.py --list` "
+                             "to see what is connected.") from e
     scope.timeout = 20_000          # ms; a 100 kpt WORD transfer takes a few seconds
     scope.chunk_size = 1 << 20
-    idn = scope.query("*IDN?").strip()
     log(f"Connected: {idn}")
     if not any(m in idn for m in EXPECTED_MODEL):
         log("WARNING: this does not look like an EDUX1002G; continuing anyway")
-    return scope
+    return scope, idn
 
 
 def configure(scope, sc: dict, full: bool) -> dict:
@@ -206,7 +270,7 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = f"{datetime.now():%Y%m%d_%H%M%S}_{args.tag}"
 
-    scope = connect(cfg)
+    scope, idn = connect(cfg)
     exit_code = 0
     t0s: list[float] = []
     pres: list[list[float]] = []
@@ -260,6 +324,8 @@ def main() -> int:
         "start_time": datetime.fromtimestamp(t_start).isoformat(timespec="seconds"),
         "stop_time": datetime.now().isoformat(timespec="seconds"),
         "host": socket.gethostname(),
+        "scope_idn": idn,           # names the serial actually used; config.visa_address
+                                    # may differ if the fallback search picked another scope
         "configured_scope": not args.no_configure,
         "scope_readback": readback,
         "config": cfg,
@@ -279,16 +345,26 @@ def main() -> int:
     }
 
     npz_path = out_dir / f"{stem}.npz"
-    np.savez_compressed(
+    raw = np.stack(raws)
+    # zlib manages about 5 MB/s on scope records. A 100-record capture
+    # compresses in a couple of seconds, but 10 000 records would hold the run
+    # open for ~2 minutes after the last record, to save about a third of the
+    # file size. Small captures stay compressed; large ones are written raw.
+    compress = raw.nbytes < COMPRESS_BELOW_MB * 1e6
+    t_save = time.time()
+    (np.savez_compressed if compress else np.savez)(
         npz_path,
-        raw=np.stack(raws),
+        raw=raw,
         t0_unix=np.array(t0s, dtype=np.float64),
         preamble=np.array(pres, dtype=np.float64),
         clipped=np.array(clipped, dtype=bool),
         meta_json=json.dumps(meta),
     )
     (out_dir / f"{stem}.json").write_text(json.dumps({"summary": summary, **meta}, indent=2))
-    log(f"Saved {summary['n_records']} records to {npz_path}")
+    log(f"Saved {summary['n_records']} records to {npz_path} in "
+        f"{time.time() - t_save:.1f} s "
+        f"({raw.nbytes / 1e6:.0f} MB of samples, "
+        + ("compressed)" if compress else "uncompressed)"))
     return exit_code
 
 
