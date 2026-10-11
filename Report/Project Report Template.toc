@@ -51,31 +51,38 @@
 \contentsline {subsubsection}{Power Level}{23}{section*.11}%
 \contentsline {subsubsection}{Linewidth}{24}{section*.12}%
 \contentsline {subsubsection}{Laser source types and selection}{25}{section*.13}%
-\contentsline {section}{\numberline {3.5}Final Design}{26}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Noise Analysis}{27}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction}{27}{section.4.1}%
-\contentsline {section}{\numberline {4.2}A: Electronic and Shot Noise}{27}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Experimental Goals}{27}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{28}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Results and Discussion}{30}{subsection.4.2.3}%
-\contentsline {subsubsection}{A1: Electronic Noise}{30}{section*.14}%
-\contentsline {subsubsection}{A2: Electronic Noise \& Shot Noise}{31}{section*.15}%
-\contentsline {subsubsection}{A3: Relative Intensity Noise}{33}{section*.16}%
-\contentsline {section}{\numberline {4.3}B: Phase-induced Intensity Noise}{34}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Experimental Goals}{34}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{34}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{35}{subsection.4.3.3}%
-\contentsline {chapter}{\numberline {5}Functional Testing}{37}{chapter.5}%
-\contentsline {section}{\numberline {5.1}C: Hard-target Speed Measurement}{37}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Experimental Goals}{37}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Experimental Methodology}{38}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Results and Discussion}{39}{subsection.5.1.3}%
-\contentsline {chapter}{\numberline {6}Discussion}{41}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusions}{42}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{43}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Appendix A}{47}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Balanced Detection: RIN Cancellation}{47}{section.A.1}%
-\contentsline {section}{\numberline {A.2}A3: Supplementary Experiment on RIN Cancellation}{48}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Linewidth, PIIN and Doppler peak broadening}{50}{section.A.3}%
-\contentsline {chapter}{\numberline {B}Addenda}{54}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Ethics Forms}{54}{section.B.1}%
+\contentsline {subsection}{\numberline {3.4.2}Laser driver and temperature control}{27}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Detector}{28}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Fiber Optics}{29}{subsection.3.4.4}%
+\contentsline {subsubsection}{Optical Mixer, Circulator}{29}{section*.14}%
+\contentsline {subsubsection}{Fiber Splitter}{29}{section*.15}%
+\contentsline {subsection}{\numberline {3.4.5}Optics}{30}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Final Design}{31}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Noise Analysis}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{32}{section.4.1}%
+\contentsline {section}{\numberline {4.2}A: Electronic and Shot Noise}{32}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Experimental Goals}{32}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{33}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Results and Discussion}{35}{subsection.4.2.3}%
+\contentsline {subsubsection}{A1: Electronic Noise}{35}{section*.16}%
+\contentsline {subsubsection}{A2: Electronic Noise \& Shot Noise}{36}{section*.17}%
+\contentsline {subsubsection}{A3: Relative Intensity Noise}{38}{section*.18}%
+\contentsline {section}{\numberline {4.3}B: Phase-induced Intensity Noise}{39}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Experimental Goals}{39}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{39}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{40}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Reducing PIIN}{41}{subsection.4.3.4}%
+\contentsline {chapter}{\numberline {5}Functional Testing}{42}{chapter.5}%
+\contentsline {section}{\numberline {5.1}C: Hard-target Speed Measurement}{42}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Experimental Goals}{42}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Experimental Methodology}{43}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Results and Discussion}{44}{subsection.5.1.3}%
+\contentsline {chapter}{\numberline {6}Discussion}{46}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusions}{47}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{48}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Appendix A}{52}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Balanced Detection: RIN Cancellation}{52}{section.A.1}%
+\contentsline {section}{\numberline {A.2}A3: Supplementary Experiment on RIN Cancellation}{53}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Linewidth, PIIN and Doppler peak broadening}{55}{section.A.3}%
+\contentsline {chapter}{\numberline {B}Addenda}{59}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Ethics Forms}{59}{section.B.1}%
