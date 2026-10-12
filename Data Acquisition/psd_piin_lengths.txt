@@ -1,0 +1,23 @@
+Total system noise (PIIN) vs balanced reference - psd_piin.py
+generated: 2026-10-12 10:07:26 South Africa Standard Time
+series:    no matching (PIIN_ref*, n=10), 2m patch cable (PIIN_2m*, n=10), 3m patch cable (PIIN_3m*, n=10), 4m patch cable (PIIN_4m*, n=10)
+band 5-20 MHz, nperseg=2500; band averages taken on linear PSD
+
+  floor (A1)                   8.0611e-14 V^2/Hz      283.9 nV/rtHz
+  ref (A2_48mA)                5.2954e-13 V^2/Hz      727.7 nV/rtHz
+  no matching mean of 10       8.5511e-11 V^2/Hz     9247.2 nV/rtHz
+    run-to-run: min 6052, max 11503 nV/rtHz; PSD spread +/-30.0% (1 SD)
+    session 09 Oct 10:57 (n=10): mean 9247 nV/rtHz, runs 10298/8691/6052/10270/11503/8564/9280/8319/9324/9138
+    no matching mean / reference: 161.5x in power, 12.7x in amplitude (22.1 dB)
+  2m patch cable mean of 10    2.7864e-11 V^2/Hz     5278.6 nV/rtHz
+    run-to-run: min 4334, max 5726 nV/rtHz; PSD spread +/-14.2% (1 SD)
+    session 09 Oct 11:06 (n=10): mean 5279 nV/rtHz, runs 5408/5223/5247/5236/5707/4334/5726/5127/5500/5147
+    2m patch cable mean / reference: 52.6x in power, 7.3x in amplitude (17.2 dB)
+  3m patch cable mean of 10    1.8391e-11 V^2/Hz     4288.4 nV/rtHz
+    run-to-run: min 3539, max 4918 nV/rtHz; PSD spread +/-16.8% (1 SD)
+    session 09 Oct 11:11 (n=10): mean 4288 nV/rtHz, runs 4529/4343/4238/4039/4230/4283/4918/4079/4547/3539
+    3m patch cable mean / reference: 34.7x in power, 5.9x in amplitude (15.4 dB)
+  4m patch cable mean of 10    1.9788e-12 V^2/Hz     1406.7 nV/rtHz
+    run-to-run: min 1194, max 1785 nV/rtHz; PSD spread +/-27.9% (1 SD)
+    session 09 Oct 11:16 (n=10): mean 1407 nV/rtHz, runs 1424/1360/1257/1246/1318/1617/1474/1194/1281/1785
+    4m patch cable mean / reference: 3.7x in power, 1.9x in amplitude (5.7 dB)

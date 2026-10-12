@@ -1,4 +1,5 @@
 \chapter{Functional Testing}
+\label{sec:functionalTesting}
 This chapter details the testing which was done on the system's primary function: velocity measurement. Two distinct test setups are used, which are described in this section - results were then collected for these test setups and are presented and discussed with respect to the goals of the system and the overarching project. 
 
 \section{C: Hard-target Speed Measurement}
@@ -84,4 +85,66 @@ The motor RPM is varied across measurements in order to test the system's abilit
 	from the high-frequency side only and is likely a slight underestimate.
 \end{table}
 
+\section{C: Wind-speed Measurement}
+\subsection{Experimental Goals}
+Now that the noise analysis of the system is complete, and the speed-measurement principle has been shown to be functional for a hard-target, the system can finally be tested for seeded air wind-speed measurement. The primary subject of investigation for this section is the sensitivity of the system with respect to its noise and the different levels of seeding in the air, as well as its accuracy at different tested speeds. As discussed previously, the range of the system can not be tested in a wind-tunnel environment, and thus this is out of scope for this project. 
+\subsection{Experimental Setup}
+% Wind-tunnel test set-up (side view). Coordinates are in mm, scaled 1 mm -> 0.25 mm.
+% Needs: \usepackage{tikz} \usetikzlibrary{arrows.meta,patterns,decorations.pathmorphing,calc}
+\begin{tikzpicture}[x=0.25mm, y=0.25mm, font=\small,
+	blk/.style={draw, thick, rounded corners=2pt, align=center, fill=gray!8, inner sep=5pt},
+	flow/.style={-{Stealth[length=6pt]}, thick, blue!60!black},
+	lbl/.style={font=\footnotesize, align=center}]
+	
+	% ---------------- wind-tunnel test section ----------------
+	\fill[pattern=north east lines, pattern color=brown!70] (0,250) rectangle (500,262);
+	\fill[pattern=north east lines, pattern color=brown!70] (0,-12) rectangle (500,0);
+	\draw[very thick] (0,250) -- (500,250);
+	\draw[very thick] (0,0) -- (500,0);
+	\draw[dashed, gray] (0,0) -- (0,250);
+	\draw[dashed, gray] (500,0) -- (500,250);
+	\node[lbl, anchor=south] at (250,264) {MDF ceiling panel (beam terminates here)};
+	\node[lbl, anchor=north west, gray!40!black] at (3,246) {inlet};
+	\node[lbl, anchor=north east, gray!40!black] at (497,246) {outlet};
+	\node[lbl, gray!40!black] at (395,70) {Wind-tunnel test section\\[-1pt]$500 \times 250 \times 250$~mm};
+	
+	% air-flow arrows
+	\foreach \y in {95,150,205} \draw[flow] (12,\y) -- (72,\y);
+	\node[lbl, blue!60!black, anchor=west] at (78,150) {air flow};
+	
+	% ---------------- seeding ----------------
+	\node[blk, fill=gray!15] (seed) at (-120,165) {Seeding\\smoke/fog};
+	\draw[-{Stealth[length=6pt]}, thick, decorate,
+	decoration={snake, amplitude=2pt, segment length=8pt, post length=6pt}]
+	(seed.east) -- (-4,165);
+	
+	% ---------------- wedge and collimator ----------------
+	% printed PLA wedge (side profile), lens centre at (105,26)
+	\filldraw[fill=orange!35, draw=black, thick]
+	(43.2,0) -- (43.2,1.0) -- (96.4,38.3) -- (123.2,0) -- cycle;
+	% collimator body along the beam axis (35 deg), lens face at (105,26)
+	\begin{scope}[shift={(105,26)}, rotate=35]
+		\filldraw[fill=gray!60, draw=black] (-46.8,-6) rectangle (0,6);
+		\filldraw[fill=gray!30, draw=black] (-62,-3) rectangle (-46.8,3);   % FC/APC connector
+	\end{scope}
+	\draw[thin] (200,8) -- (118,8);
+	\node[lbl, anchor=west] at (202,8) {PLA wedge + collimator};
+	
+	% ---------------- beam ----------------
+	\draw[red!80!black, very thick] (105,26) -- (425.3,250);
+	\fill[red!80!black] (425.3,250) circle (3.5);
+	\path (105,26) -- (425.3,250) node[pos=0.62, sloped, above, lbl, red!70!black] {beam, $\lambda = \SI{1550}{nm}$};
+	
+	% angle to the flow
+	\draw[dashed, gray] (105,26) -- (190,26);
+	\draw[thick] (160,26) arc[start angle=0, end angle=35, radius=55];
+	\node[lbl] at (180,44) {$35^\circ$};
+	
+	% ---------------- fibre and lidar system ----------------
+	\node[blk, minimum width=150, minimum height=46] (sys) at (105,-120)
+	{Lidar system\\[-1pt]{\footnotesize laser, circulator, LO, balanced detector, DAQ}};
+	\coordinate (rear) at ($(105,26)+(215:62)$);
+	\draw[orange!80!black, very thick] (rear) -- (rear |- sys.north);
+	\node[lbl, orange!50!black, anchor=west] at (60,-58) {single-mode fibre (FC/APC)};
+\end{tikzpicture}
 

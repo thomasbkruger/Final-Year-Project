@@ -1,0 +1,12 @@
+Total system noise (PIIN) vs balanced reference - psd_piin.py
+generated: 2026-10-12 10:07:40 South Africa Standard Time
+series:    B (B1*, n=16)
+band 5-20 MHz, nperseg=2500; band averages taken on linear PSD
+
+  floor (A1)                   8.0611e-14 V^2/Hz      283.9 nV/rtHz
+  ref (A2_48mA)                5.2954e-13 V^2/Hz      727.7 nV/rtHz
+  B mean of 16                 1.1497e-11 V^2/Hz     3390.7 nV/rtHz
+    run-to-run: min 1917, max 4983 nV/rtHz; PSD spread +/-62.1% (1 SD)
+    session 28 Sep 09:56 (n=4): mean 3436 nV/rtHz, runs 1948/4983/2114/3761
+    session 28 Sep 11:00 (n=12): mean 3375 nV/rtHz, runs 4445/2932/2003/4493/4357/2404/4278/2391/3600/3557/1917/2468
+    B mean / reference: 21.7x in power, 4.7x in amplitude (13.4 dB)

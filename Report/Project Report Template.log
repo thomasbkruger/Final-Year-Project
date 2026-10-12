@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  11 OCT 2026 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  12 OCT 2026 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -906,6 +906,14 @@ File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@layerbox@background=\box79
 \pgf@layerboxsaved@background=\box80
 )
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
 Package translations Info: No language package found. I am going to use `englis
 h' as default language. on input line 39.
 
@@ -1018,7 +1026,7 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 39.
-<uctLogo.png, id=286, 418.56375pt x 425.59pt>
+<uctLogo.png, id=302, 418.56375pt x 425.59pt>
 File: uctLogo.png Graphic file (type png)
 <use uctLogo.png>
 Package pdftex.def Info: uctLogo.png  used on input line 53.
@@ -1617,7 +1625,7 @@ Overfull \hbox (23.37357pt too wide) in paragraph at lines 146--153
  [][] 
  []
 
-<../Data Acquisition/figures/A1_PSD.png, id=793, 650.43pt x 397.485pt>
+<../Data Acquisition/figures/A1_PSD.png, id=813, 650.43pt x 397.485pt>
 File: ../Data Acquisition/figures/A1_PSD.png Graphic file (type png)
 <use ../Data Acquisition/figures/A1_PSD.png>
 Package pdftex.def Info: ../Data Acquisition/figures/A1_PSD.png  used on input 
@@ -1641,13 +1649,13 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.191 
        <../Data Acquisition/figures/A1_PSD.png>]
-<../Data Acquisition/figures/psd_overlay.png, id=808, 650.43pt x 397.485pt>
+<../Data Acquisition/figures/psd_overlay.png, id=828, 650.43pt x 397.485pt>
 File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
 nput line 199.
 (pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
-<psd_vs_current.png, id=810, 607.068pt x 390.258pt>
+<psd_vs_current.png, id=830, 607.068pt x 390.258pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
 Package pdftex.def Info: psd_vs_current.png  used on input line 208.
@@ -1674,107 +1682,110 @@ LaTeX Warning: Citation `laser datasheet' on page 38 undefined on input line 24
 5.
 
 [38] [39]
-<../Data Acquisition/figures/psd_piin.png, id=853, 766.062pt x 404.712pt>
+<../Data Acquisition/figures/psd_piin.png, id=873, 766.062pt x 404.712pt>
 File: ../Data Acquisition/figures/psd_piin.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin.png  used on inpu
 t line 267.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
-
-
-LaTeX Warning: Reference `sec:functionalTesting' on page 40 undefined on input 
-line 277.
-
-[40
+ [40
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.278 
        <../Data Acquisition/figures/psd_piin.png>]
-
-LaTeX Warning: Reference `fig:psdpiinlengths' on page 41 undefined on input lin
-e 279.
-
-<../Data Acquisition/figures/psd_piin_lengths.png, id=863, 766.062pt x 404.712p
+<../Data Acquisition/figures/psd_piin_lengths.png, id=886, 766.062pt x 404.712p
 t>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin_lengths.png  used
  on input line 283.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
-) [41
+ [41
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
+l.312 
+       <../Data Acquisition/figures/psd_piin_lengths.png>]) [42
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
 l.180 }
-        <../Data Acquisition/figures/psd_piin_lengths.png>]
+       ]
 \openout2 = `Results.aux'.
 
  (Results.tex
 Chapter 5.
-<../../../../../Downloads/fig_rig_side3d.pdf, id=872, 909.34059pt x 353.66838pt
+<../../../../../Downloads/fig_rig_side3d.pdf, id=903, 909.34059pt x 353.66838pt
 >
 File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_rig_side3d.pdf>
 Package pdftex.def Info: ../../../../../Downloads/fig_rig_side3d.pdf  used on i
-nput line 12.
+nput line 13.
 (pdftex.def)             Requested size: 455.24411pt x 177.06041pt.
-[42
+[43
 
 
 
 
 ]
 
-LaTeX Warning: Citation `f810 apc datasheet' on page 43 undefined on input line
- 16.
+LaTeX Warning: Citation `f810 apc datasheet' on page 44 undefined on input line
+ 17.
 
-[43
+[44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.21 
+l.22 
       <../../../../../Downloads/fig_rig_side3d.pdf>]
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=922, 766.062pt x 404.712pt
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=953, 766.062pt x 404.712pt
 >
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_rpm_overlay.png  used 
-on input line 28.
+on input line 29.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
-<../Data Acquisition/figures/peak_vs_rpm.png, id=923, 621.522pt x 375.804pt>
+<../Data Acquisition/figures/peak_vs_rpm.png, id=954, 621.522pt x 375.804pt>
 File: ../Data Acquisition/figures/peak_vs_rpm.png Graphic file (type png)
 <use ../Data Acquisition/figures/peak_vs_rpm.png>
 Package pdftex.def Info: ../Data Acquisition/figures/peak_vs_rpm.png  used on i
-nput line 35.
+nput line 36.
 (pdftex.def)             Requested size: 455.24411pt x 275.26933pt.
- [44
+ [45
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 
-      <../Data Acquisition/figures/psd_rpm_overlay.png>]) [45
+l.87 
+      <../Data Acquisition/figures/psd_rpm_overlay.png>] [46
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.180 }
-       
+l.91 \subsection
+                {Experimental Setup}
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.180 }
-        <../Data Acquisition/figures/peak_vs_rpm.png>]
+l.91 \subsection
+                {Experimental Setup} <../Data Acquisition/figures/peak_vs_rpm.p
+ng>]
+Overfull \hbox (16.28003pt too wide) in paragraph at lines 149--150
+[] 
+ []
+
+) [47]
 \openout2 = `Discussion.aux'.
 
  (Discussion.tex
 Chapter 6.
-) [46
+) [48
 
 
 
@@ -1784,7 +1795,7 @@ Chapter 6.
 
  (Conclusions.tex
 Chapter 7.
-) [47
+) [49
 
 
 
@@ -1794,12 +1805,12 @@ Chapter 7.
 
  (Recommendations.tex
 Chapter 8.
-) [48
+) [50
 
 
 
 
-] (Project Report Template.bbl [49
+] (Project Report Template.bbl [51
 
 
 
@@ -1809,7 +1820,7 @@ Underfull \hbox (badness 1092) in paragraph at lines 123--128
 , C. Slinger,
  []
 
-[50]
+[52]
 Underfull \hbox (badness 6592) in paragraph at lines 165--171
 \OT1/cmr/m/n/12 Davoust.  Uncertainty of power curve measurement with a two-bea
 m
@@ -1821,12 +1832,12 @@ Underfull \hbox (badness 5504) in paragraph at lines 165--171
 n/12 , 19(7):1269--1287, 2016.  []-eprint:
  []
 
-) [51]
+) [53]
 \openout2 = `appendixa.aux'.
 
  (appendixa.tex
 Appendix A.
-[52
+[54
 
 
 ]
@@ -1834,31 +1845,31 @@ Overfull \hbox (39.09349pt too wide) in paragraph at lines 74--74
 []\OT1/cmr/bx/n/17.28 A3: Supplementary Experiment on RIN Cancellation 
  []
 
-[53
+[55
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.77 
      ]
-<psd_vs_current_single.png, id=991, 607.068pt x 390.258pt>
+<psd_vs_current_single.png, id=1028, 607.068pt x 390.258pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
 Package pdftex.def Info: psd_vs_current_single.png  used on input line 80.
 (pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [54
+ [56
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.88 \end{equation}
-                    <./psd_vs_current_single.png>] [55
+                    <./psd_vs_current_single.png>] [57
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.138     \begin{equation}
-                          ] [56] [57
+                          ] [58] [59
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1880,12 +1891,12 @@ Overfull \hbox (21.90134pt too wide) in paragraph at lines 216--233
  [] 
  []
 
-) [58]
+) [60]
 \openout2 = `appendixb.aux'.
 
  (appendixb.tex
 Appendix B.
-) [59
+) [61
 
 
 
@@ -1906,21 +1917,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `"Project Report Template".out' has change
-d.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Project Report Template".out':
-(rerunfilecheck)             Before: 9373FB479BD0E9DD4AC54DB852F20819;12999
-(rerunfilecheck)             After:  B8669708276B12A2B7C25862CFC707FC;13129.
+Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
+ed.
+(rerunfilecheck)             Checksum: 8317533772B1EAA201670C5F56BE3FDB;13625.
  ) 
 Here is how much of TeX's memory you used:
- 37751 strings out of 467871
- 923982 string characters out of 5418376
- 1497310 words of memory out of 5000000
- 65764 multiletter control sequences out of 15000+600000
+ 37956 strings out of 467871
+ 929718 string characters out of 5418376
+ 1508321 words of memory out of 5000000
+ 65957 multiletter control sequences out of 15000+600000
  643466 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,23n,118p,1654b,2356s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1944,13 +1949,14 @@ s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thoma/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/thoma/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/thoma
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
-ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pf
+ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pf
 b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (69 pages, 1514346 bytes).
+cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmti8.pfb>
+Output written on "Project Report Template.pdf" (71 pages, 1537711 bytes).
 PDF statistics:
- 1184 PDF objects out of 1200 (max. 8388607)
- 237 named destinations out of 1000 (max. 500000)
- 623 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1226 PDF objects out of 1440 (max. 8388607)
+ 243 named destinations out of 1000 (max. 500000)
+ 659 words of extra memory for PDF output out of 10000 (max. 10000000)
 

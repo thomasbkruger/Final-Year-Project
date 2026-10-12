@@ -19,7 +19,8 @@ Several series can be overlaid: each --series prefix is pooled into its own
 mean curve, named by the matching --label entry.
 
     python psd_piin.py --series PIIN_ref PIIN_2m PIIN_3m PIIN_4m \
-        --label ref 2m 3m 4m --ref-label "A2 shot noise (balanced, 48 mA)" \
+        --label "no matching" "2m patch cable" "3m patch cable" "4m patch cable" \
+        --ref-label "A2 shot noise (balanced, 48 mA)" \
         --out figures/psd_piin_lengths.png
 
 The captures are tagged B1, but the figure calls the series "B": the tag prefix
@@ -149,8 +150,8 @@ def plot(d: dict, band: tuple[float, float], out: Path, labels: dict[str, str],
                             color=c, alpha=0.15 if single else 0.10, lw=0, zorder=4,
                             label=f"run-to-run spread (min-max, n={len(reps)})"
                                   if single else None)
-        name = (f"Experiment {labels[s]}: PIIN, mean of {len(reps)}" if single
-                else f"PIIN {labels[s]}, mean of {len(reps)}")
+        name = (f"Experiment {labels[s]}: Total system noise, mean of {len(reps)}" if single
+                else f"Total system noise, {labels[s]}")
         ax.loglog(f[m], pw(reps.mean(axis=0)), color=c, lw=1.8, zorder=5, label=name)
 
     ax.set_xlabel("frequency (Hz)", color=C_INK)
@@ -194,6 +195,9 @@ def main() -> int:
     ap.add_argument("--no-spread", action="store_true",
                     help="omit the min-max run-to-run envelopes")
     ap.add_argument("--out", type=Path, default=Path("psd_piin.png"))
+    ap.add_argument("--txt", type=Path, default=None,
+                    help="results file (default: the --out name with .txt, in "
+                         "the working directory)")
     args = ap.parse_args()
 
     if args.label is None:
@@ -212,32 +216,47 @@ def main() -> int:
         print(f"note: reference tag {args.ref} not found; plotting without it")
 
     sel = (d["f"] >= args.band[0]) & (d["f"] <= args.band[1])
-    print(f"band {args.band[0]/1e6:g}-{args.band[1]/1e6:g} MHz, nperseg={args.nperseg}")
+    lines = [
+        "Total system noise (PIIN) vs balanced reference - psd_piin.py",
+        f"generated: {datetime.now().astimezone():%Y-%m-%d %H:%M:%S %Z}",
+        "series:    " + ", ".join(f"{labels[s]} ({s}*, n={len(d['reps'][s])})"
+                                  for s in args.series),
+        f"band {args.band[0]/1e6:g}-{args.band[1]/1e6:g} MHz, nperseg={args.nperseg}; "
+        "band averages taken on linear PSD",
+        "",
+    ]
     for name, psd in (("floor (A1)", d["floor"]), (f"ref ({args.ref})", d["ref"])):
         if psd is not None:
             b = psd[sel].mean()
-            print(f"  {name:24s} {b:.4e} V^2/Hz   {np.sqrt(b)*1e9:8.1f} nV/rtHz")
+            lines.append(f"  {name:28s} {b:.4e} V^2/Hz   {np.sqrt(b)*1e9:8.1f} nV/rtHz")
 
     for s in args.series:
         label, reps = labels[s], d["reps"][s]
         mean = reps.mean(axis=0)
         b = mean[sel].mean()
-        print(f"  {f'{label} mean of {len(reps)}':24s} {b:.4e} V^2/Hz   "
-              f"{np.sqrt(b)*1e9:8.1f} nV/rtHz")
+        lines.append(f"  {f'{label} mean of {len(reps)}':28s} {b:.4e} V^2/Hz   "
+                     f"{np.sqrt(b)*1e9:8.1f} nV/rtHz")
         per_rep = reps[:, sel].mean(axis=1)
-        print(f"    run-to-run: min {np.sqrt(per_rep.min())*1e9:.0f}, "
-              f"max {np.sqrt(per_rep.max())*1e9:.0f} nV/rtHz; "
-              f"PSD spread +/-{100*per_rep.std(ddof=1)/per_rep.mean():.1f}% (1 SD)")
+        lines.append(f"    run-to-run: min {np.sqrt(per_rep.min())*1e9:.0f}, "
+                     f"max {np.sqrt(per_rep.max())*1e9:.0f} nV/rtHz; "
+                     f"PSD spread +/-{100*per_rep.std(ddof=1)/per_rep.mean():.1f}% (1 SD)")
         # Pooled, but report the sittings so drift between them stays visible.
         for sess in d["sessions"][s]:
             sb = sess["psds"][:, sel].mean(axis=1)
-            print(f"    session {sess['label']} (n={len(sb)}): "
-                  f"mean {np.sqrt(sb.mean())*1e9:.0f} nV/rtHz, runs "
-                  + "/".join(f"{np.sqrt(v)*1e9:.0f}" for v in sb))
+            lines.append(f"    session {sess['label']} (n={len(sb)}): "
+                         f"mean {np.sqrt(sb.mean())*1e9:.0f} nV/rtHz, runs "
+                         + "/".join(f"{np.sqrt(v)*1e9:.0f}" for v in sb))
         if d["ref"] is not None:
             ratio = b / d["ref"][sel].mean()
-            print(f"    {label} mean / reference: {ratio:.1f}x in power, "
-                  f"{np.sqrt(ratio):.1f}x in amplitude")
+            lines.append(f"    {label} mean / reference: {ratio:.1f}x in power, "
+                         f"{np.sqrt(ratio):.1f}x in amplitude "
+                         f"({10*np.log10(ratio):.1f} dB)")
+
+    report = "\n".join(lines) + "\n"
+    print(report, end="")
+    txt = args.txt or Path(args.out.stem + ".txt")
+    txt.write_text(report, encoding="utf-8")
+    print(f"results -> {txt}")
 
     plot(d, tuple(args.band), args.out, labels, ref_label, not args.no_spread)
     return 0

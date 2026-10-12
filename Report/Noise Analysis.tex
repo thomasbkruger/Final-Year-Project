@@ -274,15 +274,42 @@ As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{
  From these results it is thus clear that in this system, PIIN dominates other noise sources by a large amount, especially at lower frequencies. It is thus the largest single noise contributor in the total SNR of the system when trying to measure a Doppler peak, and the system is therefore no longer shot-noise limited (the ideal case).  
  
  \subsection{Reducing PIIN}
- The experiments in \autoref{sec:functionalTesting} were performed using the system as is, with the PIIN-limited behaviour observed and described above. It was found that while the system could adequately detect the velocity of a hard-target, it did not have enough sensitivity to detect the velocity of a seeded air-flow, owing to the high noise floor from PIIN. It was thus decided that an attempt would be made to reduce PIIN, from the theory discussed in \autoref{sec:lit-noiseSources} and elaborated in Appendix \ref{appendix:PIIN}. Obtaining a narrower linewidth laser source is out of budget for this project, thus the only remaining option was to attempt to better match the fiber optic path length between the LO and the received signal. This allows the LO and the received signal to be more coherent in phase at the detector. This is because the travel-time for both will be closer matched, meaning that the phase of the laser will not have been able to "wander" by as much between the two signals.
+ The experiments in \autoref{sec:functionalTesting} were performed using the system as is, with the PIIN-limited behaviour observed and described above. It was found that while the system could adequately detect the velocity of a hard-target, it did not have enough sensitivity to detect the velocity of a seeded air-flow, owing to the high noise floor from PIIN. It was thus decided that an attempt would be made to reduce PIIN, from the theory discussed in \autoref{sec:lit-noiseSources} and elaborated in Appendix \ref{appendix:PIIN}. Obtaining a narrower linewidth laser source is out of budget for this project, thus the only remaining option was to attempt to better match the fiber optic path length between the LO and the received signal. This allows the LO and the received signal to be more coherent in phase at the mixer, resulting in a less noisy output. This is because the travel-time for both will be closer matched, meaning that the phase of the laser will not have been able to "wander" by as much between the two signals.
  
- FC/APC fiber patch cords of varying lengths were obtained and inserted in between the 10\% splitter arm and the one arm of the 50:50 mixer, to effectively increase the LO path length, in an attempt to closer match the longer path length followed by the received signal (which traverses the collimator and free-space twice, in excess of the LO path). The PIIN of the system was measured for each length of patch-cable using the same methodology previously described, with 10 averages for each patch cable length. The results are given in \autoref{fig:psdpiinlengths}:
+ FC/APC fiber patch cords of varying lengths were obtained and inserted in between the 10\% splitter arm and the one arm of the 50:50 mixer, to effectively increase the LO path length, in an attempt to closer match the longer path length followed by the received signal (which traverses the collimator and free-space twice, in excess of the LO path). The total system noise, including PIIN, of the system was measured for each length of patch-cable using the same methodology previously described, with 10 averages for each patch cable length. The results are given in \autoref{fig:psdpiinlengths} and \autoref{tab:piin_matching}:
  
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_piin_lengths"}
 	\caption{Total noise in the system for different inserted patch-cable lengths}
 	\label{fig:psdpiinlengths}
 \end{figure}
 
-It can be seen that 
+\begin{table}[H]
+	\centering
+	\small
+	\setlength{\tabcolsep}{4pt}
+	\label{tab:piin_matching}
+	\smallskip
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Configuration}} & \textbf{Mean PSD} & \textbf{Above shot}
+		& \textbf{Measured} & \textbf{Predicted} \\
+		& (\num{e-12}\,\si{V^2/Hz}) & \textbf{noise (dB)}
+		& \textbf{reduction (dB)} & \textbf{reduction (dB)} \\ \hline
+		No matching     & 85.5 & 22.1 & $0.0$   & $0.0$   \\ \hline
+		\SI{2}{m} cable & 27.9 & 17.2 & $-4.9$  & $-5.6$  \\ \hline
+		\SI{3}{m} cable & 18.4 & 15.4 & $-6.8$  & $-10.9$ \\ \hline
+		\SI{4}{m} cable & 1.98 & 5.7  & $-17.7$ & $-26.4$ \\ \hline
+	\end{tabular}
+	\caption{Total system noise in the \SIrange{5}{20}{MHz} band for each LO-arm patch cable,
+		with the beam blocked (mean of 10 captures each). The measured reduction is that of the
+		PIIN alone (total minus the balanced shot-noise reference), and the predicted reduction
+		is $20\log_{10}(\Delta L/\Delta L_0)$, from the $\Delta L^2$ dependence of
+		Harris et al.~\cite{harris_role_1998}, where $\Delta L$ is the residual path mismatch and
+		$\Delta L_0 = \SI{4.2}{m}$ is the initial mismatch estimated from the circulator fiber length}
+\end{table}
+
+It can be seen that increasing the patch cable length so as to closer match LO and receive signal paths resulted in significant reductions in the total noise, due to the reduction in PIIN. The PIIN reduction loosely matched the predicted dependence of PIIN on the square of the mismatch, $\Delta L^2$, as identified by Harris et al. \cite{harris_role_1998}. 
+
+For the 4m patch cable case, a remarkable 17.7dB reduction in PIIN was observed, bringing the total noise to just 5.7dB above shot noise. While this means that the system is still PIIN-noise limited, it is far closer to the ideal shot-noise limited case, and the system has thus gained a significant improvement in sensitivity. For the remainder of this project, and all the experiments in \autoref{sec:functionalTesting}, the 4m patch cable is thus kept in the system due to its very clear benefits. 

@@ -72,17 +72,20 @@
 \contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{39}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{40}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Reducing PIIN}{41}{subsection.4.3.4}%
-\contentsline {chapter}{\numberline {5}Functional Testing}{42}{chapter.5}%
-\contentsline {section}{\numberline {5.1}C: Hard-target Speed Measurement}{42}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Experimental Goals}{42}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Experimental Methodology}{43}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Results and Discussion}{44}{subsection.5.1.3}%
-\contentsline {chapter}{\numberline {6}Discussion}{46}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusions}{47}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{48}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Appendix A}{52}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Balanced Detection: RIN Cancellation}{52}{section.A.1}%
-\contentsline {section}{\numberline {A.2}A3: Supplementary Experiment on RIN Cancellation}{53}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Linewidth, PIIN and Doppler peak broadening}{55}{section.A.3}%
-\contentsline {chapter}{\numberline {B}Addenda}{59}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Ethics Forms}{59}{section.B.1}%
+\contentsline {chapter}{\numberline {5}Functional Testing}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}C: Hard-target Speed Measurement}{43}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Experimental Goals}{43}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Experimental Methodology}{44}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Results and Discussion}{45}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}C: Wind-speed Measurement}{47}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Experimental Goals}{47}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Experimental Setup}{47}{subsection.5.2.2}%
+\contentsline {chapter}{\numberline {6}Discussion}{48}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusions}{49}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{50}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Appendix A}{54}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Balanced Detection: RIN Cancellation}{54}{section.A.1}%
+\contentsline {section}{\numberline {A.2}A3: Supplementary Experiment on RIN Cancellation}{55}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Linewidth, PIIN and Doppler peak broadening}{57}{section.A.3}%
+\contentsline {chapter}{\numberline {B}Addenda}{61}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Ethics Forms}{61}{section.B.1}%
