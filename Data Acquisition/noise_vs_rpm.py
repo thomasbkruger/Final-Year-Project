@@ -19,6 +19,10 @@ because the floor is not flat: it rises towards DC and rolls off above ~20 MHz,
 so a single figure would understate the noise at 50 RPM and overstate it at
 2000 RPM. The excluded guard band is set from the measured FWHM, widened where
 needed so it always covers the half-maximum points either side of the centroid.
+The noise band also stops short of DC (--noise-fmin): the first few bins above
+the peak-search limit carry a low-frequency spike - 20x the floor at 20 kHz in
+the 9 Oct 1000 RPM capture - which would otherwise dominate the std of any peak
+whose band reaches down that far.
 
     python noise_vs_rpm.py
     python noise_vs_rpm.py --guard-mult 4 --window 3e6
@@ -39,10 +43,12 @@ from peak_vs_rpm import peak_of
 from psd_rpm import collect
 
 FMIN = 20e3          # skip the DC end; the 50 RPM peak sits near 60 kHz
+NOISE_FMIN = 50e3    # noise band starts here, clear of the near-DC spike
 
 
 def measure(f: np.ndarray, psd: np.ndarray, ref: np.ndarray | None,
-            window: float, guard_mult: float) -> dict:
+            window: float, guard_mult: float,
+            noise_fmin: float = NOISE_FMIN) -> dict:
     """Centroid peak power and the noise statistics beside it, for one capture."""
     excess = np.clip(psd - ref, 0, None) if ref is not None else psd
     p = peak_of(f, excess, f_min=FMIN)
@@ -56,10 +62,9 @@ def measure(f: np.ndarray, psd: np.ndarray, ref: np.ndarray | None,
     guard = max(guard_mult * fwhm / 2,
                 centroid - p["fwhm_lo"], p["fwhm_hi"] - centroid)
 
-    band = f >= FMIN
     off = np.abs(f - centroid)
-    noise = band & (off > guard) & (off <= window)
-    peak_sel = band & (off <= guard)
+    noise = (f >= noise_fmin) & (off > guard) & (off <= window)
+    peak_sel = (f >= FMIN) & (off <= guard)
 
     below = int((noise & (f < centroid)).sum())
     above = int((noise & (f > centroid)).sum())
@@ -90,6 +95,9 @@ def main() -> int:
                     help="half-width of the noise band either side of the peak, Hz")
     ap.add_argument("--guard-mult", type=float, default=3.0,
                     help="guard band excluded around the centroid, in FWHMs")
+    ap.add_argument("--noise-fmin", type=float, default=NOISE_FMIN,
+                    help="lowest frequency in the noise band, Hz; keeps the "
+                         "near-DC spike out of the noise statistics")
     ap.add_argument("--out", type=Path, default=Path("noise_vs_rpm.txt"))
     args = ap.parse_args()
 
@@ -111,7 +119,8 @@ def main() -> int:
             print(f"{rpm} RPM has {len(caps)} capture(s); cannot pick #{args.capture}")
             return 1
         cap = caps[args.capture - 1]
-        r = measure(f, cap["psd"], ref, args.window, args.guard_mult)
+        r = measure(f, cap["psd"], ref, args.window, args.guard_mult,
+                    args.noise_fmin)
         r.update(rpm=rpm, time=cap["time"])
         rows.append(r)
 
@@ -126,7 +135,8 @@ def main() -> int:
         f"centroid, not the\n"
         f"           largest bin and not the integral under the peak\n"
         f"noise:     {args.guard_mult:g} x FWHM guard around the centroid, out "
-        f"to {args.window/1e6:g} MHz either side\n"
+        f"to {args.window/1e6:g} MHz either side,\n"
+        f"           nothing below {args.noise_fmin/1e3:g} kHz (near-DC spike)\n"
         f"units:     V^2/Hz throughout\n"
     )
     cols = (f"\n{'RPM':>6} {'centroid':>9} {'FWHM':>8} {'PSD at':>12} "
