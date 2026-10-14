@@ -87,11 +87,27 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     The backscattered light can be detected by the LiDAR system's photodetector. The backscattered light, however, will be shifted in frequency relative to the incident LiDAR beam, by a magnitude which depends on the velocity of the particle itself - this is due to the Doppler effect \cite{Doppler1842}. Specifically, the shift in frequency of the backscattered light is directly proportional to the  line-of-sight (LOS) velocity of the particle - that is, the component of the particle's velocity in the direction of the line of the LiDAR beam - through the following equation \cite{letizia_characterization_2023}:
 
     \begin{equation}
-        v_{LOS} = \frac{c}{2}\frac{f_{beam}-f_{scatter}}{f_{scatter}}
+        v_{LOS} = \frac{c}{2}\frac{f_{beam}-f_{scatter}}{f_{scatter}} = 
         \label{eq:DopplerShift}
     \end{equation}
-
-    Note the factor of 2 in the denominator, which is necessary to account for the fact that the Doppler shift occurs twice - once for the emitted light hitting the moving particle, and again for the light being emitted/scattered \textbf{from} the moving particle. 
+    
+    Since the particle velocities of interest are many orders of magnitude smaller than the speed
+    of light ($v_{LOS} \ll c$), the frequency shift is tiny compared with the optical frequency,
+    and so $f_{scatter} \approx f_{beam}$ in the denominator. Defining the Doppler shift as
+    $\Delta f = f_{beam} - f_{scatter}$ and using $c = \lambda f_{beam}$, where $\lambda$ is the
+    wavelength of the LiDAR beam, Equation~\ref{eq:DopplerShift} simplifies to
+    \begin{equation}
+    	v_{LOS} = \frac{\lambda}{2}\,\Delta f
+    	\qquad \Longleftrightarrow \qquad
+    	\Delta f = \frac{2\,v_{LOS}}{\lambda} .
+    	\label{eqn:DopplerSimple}
+    \end{equation}
+    
+    The Doppler shift is therefore directly proportional to the LOS velocity and inversely
+    proportional to the wavelength. The factor of two arises because the light is shifted twice:
+    once when it reaches the moving particle, and again when it is scattered back towards the
+    receiver. For the \SI{1550}{nm} wavelength used in this work (discussed in \autoref{sec:design-ComponentChoices}), each \si{m/s} of LOS velocity
+    corresponds to a Doppler shift of approximately \SI{1.29}{MHz}.
 
     Thus, by determining the Doppler frequency shift of the received backscatter from aerosol particles, the LOS velocity of those particles can be determined, and from this, the LOS wind-speed can be inferred. Note that this explanation simplifies concepts used in ranging of the wind-speed, which will be discussed in later sections. 
 

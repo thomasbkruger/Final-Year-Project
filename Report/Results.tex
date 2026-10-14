@@ -4,26 +4,48 @@ This chapter details the testing which was done on the system's primary function
 
 \section{C: Hard-target Speed Measurement}
 \subsection{Experimental Goals}
-The overarching goal of the system is to measure wind-speed via the Doppler shift, however, owing to the very weak signal return in air and complexities in setting up appropriate tests, this is a challenging test to perform. For this reason it was decided that before wind-speed measurement testing is performed, hard-target speed measurement would first be tested. This uses the same working principle as wind-speed measurement, but with a target which provides a far higher signal return. Thus, this experiment serves to first validate the working principle of the system to measure velocity via the optical Doppler shift, before wind-speed measurement testing is performed. This allows for any significant setup or procedure problems in the system to be identified in an environment which is easier to control, and which is more reliable for measurement (owing to the larger return signal, and thus higher SNR). 
+Before attempting wind-speed measurement, where the aerosol return signal is very weak, the working principle of the system is first to be validated on a hard target, whose return signal is far stronger and whose velocity can be set precisely. This isolates set-up and processing problems from the difficulties of a weak signal, and tests performance requirements P1 (hard-target SNR),
+P5 (low-speed detection) and P7 (velocity accuracy).
 
 \subsection{Experimental Methodology}
-In order to generate a constant and precise hard-target velocity to be measured, a NEMA-17 stepper motor is used with a disc attached to the motor shaft. Stepper motors are capable of rotating at very constant and accurate RPMs. If the motor axis is tilted at an angle with respect to the laser beam, there will be a component of the disc's angular velocity in the direction of the laser beam. If the beam is carefully aligned with a known point on the disc's radius, the instantaneous velocity of that point in the direction of the beam, $v_{los}$, can thus be calculated. A design was created and 3D printed, which aligns the collimator lens with a spot on the spinning disc's radius. \autoref{fig:CRig} shows the setup used:
+A disc driven by a NEMA-17 stepper motor provides a constant, accurately known target speed.
+The 3D-printed rig in \autoref{fig:CRig} holds the collimator at $\alpha = 45^\circ$ to the
+motor axis, aimed at a point a distance $d = \SI{15}{mm}$ from the disc centre. Since the disc is at an angle to the collimator, there will be a component of its angular velocity which is in the direction (line-of-sight) of the beam. The
+line-of-sight velocity at that point is
+\begin{equation}
+	v_{\mathrm{LOS}} = \frac{2\pi N}{60}\, d \sin\alpha ,
+	\label{eq:vlos_rig}
+\end{equation}
+where $N$ is the motor speed in RPM. Two features of the geometry affect the measurement.
+Any error in $d$ or $\alpha$ scales $v_{\mathrm{LOS}}$ directly. Additionally, the collimator output beam is \textbf{not} infinitesimally small, and thus the finite beam spot
+(which is about \SI{7}{mm} in diameter \cite{f810 apc datasheet}) covers a range of radii on the disc, and hence covers a number of line-of-sight
+velocities, which broadens the Doppler peak.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{../../../../../Downloads/fig_rig_side3d}
 	\caption{Test setup used for hard-target speed measurement}
 	\label{fig:CRig}
 \end{figure}
-As shown in the figure, an angle of 45 degrees is used between the collimator and the motor axis, and the beam is aimed approximately $d = 15mm$ from the centre of the disc. The line of sight velocity of the beam is thus: $v_{los}=sin(45)2\pi N \times d$, where $N$ is the RPM of the motor, and $d$ is the radius from the centre of the disc to the beam spot. While care was taken in the design to precisely align the collimator with the intended point at $d=15mm$, any error in this alignment will translate directly into a measured velocity which is different from the calculated velocity. Furthermore, the beam spot has a finite size which has a diameter of approximately 7mm (from the F810-APC datasheet \cite{f810 apc datasheet}) - thus the measurement will also have contributions from other points on the disc radius which move at a different angular velocity to the intended target point. These contributions are likely to appear as a broadening of the Doppler peak. 
 
-It must also be noted that the PLA plastic used reflects very little light at 1550nm, and thus standard white paper was attached to the spinning disc to increase the reflectivity. 
+The PLA disc transmits much of the light at \SI{1550}{nm}, allowing returns from stationary parts
+behind it, so white paper was attached to its face to provide a strong, diffuse return. The
+rest of the system was configured as in \autoref{fig:finalDesign}, with the laser at
+\SI{48}{mA}. For each motor speed, %% CHECK record count
+100 oscilloscope records were captured, and their Welch PSDs averaged, using the same
+processing chain as experiments A and B, as detailed in \autoref(sec:design-DataAcquisition). From \autoref{eqn:DopplerSimple}, the expected Doppler shift
+is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 
-The rest of the system is set up as in \autoref{fig:finalDesign}, with all components fully connected. The laser is driven at a constant 48mA.
+%As shown in the figure, an angle of 45 degrees is used between the collimator and the motor axis, and the beam is aimed approximately $d = 15mm$ from the centre of the disc. The line of sight velocity of the beam is thus: $v_{los}=sin(45)2\pi N \times d$, where $N$ is the RPM of the motor, and $d$ is the radius from the centre of the disc to the beam spot. While care was taken in the design to precisely align the collimator with the intended point at $d=15mm$, any error in this alignment will translate directly into a measured velocity which is different from the calculated velocity. Furthermore, the beam spot has a finite size which has a diameter of approximately 7mm (from the F810-APC datasheet \cite{f810 apc datasheet}) - thus the measurement will also have contributions from other points on the disc radius which move at a different angular velocity to the intended target point. These contributions are likely to appear as a broadening of the Doppler peak. 
 
-The motor RPM is varied across measurements in order to test the system's ability to resolve various different speeds. The same data acquisition and processing chain as for experiments A and B are used here, with 100 oscilloscope records being obtained for a given motor RPM, their Welch PSDs computed, and averaged to obtain a result. 
+%It must also be noted that the PLA plastic used reflects very little light at 1550nm, and thus standard white paper was attached to the spinning disc to increase the reflectivity. 
+
+%The rest of the system is set up as in \autoref{fig:finalDesign}, with all components fully connected. The laser is driven at a constant 48mA.
+
+%The motor RPM is varied across measurements in order to test the system's ability to resolve various different speeds. The same data acquisition and processing chain as for experiments A and B are used here, with 100 oscilloscope records being obtained for a given motor RPM, their Welch PSDs computed, and averaged to obtain a result. From \autoref{eqn:Doppler}, substituting $\lambda = 1550nm$, it can be obtained that the velocity can be calculated from the Doppler shift, which gives a beat signal frequency of $1.29MHz$ expected per $m/s$ velocity. 
 
 \subsection{Results and Discussion}
-
+\autoref{fig:CPSD} below shows the PSD of the measurements obtained for different motor RPMs tested. \autoref{tab:doppler_vs_rpm} gives the Doppler peak and local noise floor for each target speed. The Doppler peak, $f_D$, is taken as the power-weighted centroid of the excess PSD at each peak, as compared to the stationary-target reference, and $v_{\mathrm{LOS}} = f_D / (\SI{1.29}{MHz.s/m})$. The noise statistics are taken in a band outside $3\times$FWHM around the centroid, out to \SI{2}{MHz} either side. All PSD values are in the same units, so the PSD at $f_D$ can be compared directly with the detection threshold (mean $+\,5\sigma$). The excess power created at the Doppler frequency is calculated by integrating each peak across the frequencies which it spans. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_rpm_overlay"}
@@ -31,66 +53,101 @@ The motor RPM is varied across measurements in order to test the system's abilit
 	\label{fig:CPSD}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/peak_vs_rpm"}
-	\caption{C: Doppler peak frequency (from centroid) vs target motor RPM}
-	\label{fig:CentroidVSRPM}
-\end{figure}
-
 \begin{table}[H]
 	\centering
 	\small
-	\setlength{\tabcolsep}{4pt}
-	\caption{Doppler peak and local noise floor for each target speed (capture~1 of each speed,
-		Welch PSD with $\Delta f = \SI{10}{kHz}$). $f_D$ is the power-weighted centroid of
-		the excess PSD over the stationary-target reference, and
-		$v_{\mathrm{LOS}} = f_D / (\SI{1.29}{MHz.s/m})$. The PSD at $f_D$ is that of the bin
-		nearest the centroid; the noise statistics are taken in a band outside
-		$3\times$FWHM around the centroid, out to \SI{2}{MHz} either side. All PSD values are
-		in the same units, so the PSD at $f_D$ can be compared directly with the detection
-		threshold (mean $+\,5\sigma$), which it exceeds at every speed. The excess power is the PSD above the local
-		noise, integrated across the peak.}
+	\setlength{\tabcolsep}{3.5pt}
+	\caption{}
 	\label{tab:doppler_vs_rpm}
 	\smallskip
-
+	
 	\begin{tabular}{
 			|S[table-format=4.0]   % RPM
 			|S[table-format=1.3]   % f_D (centroid)
-			|S[table-format=1.3]   % v_LOS
+			|S[table-format=1.3]   % v_LOS measured
+			|S[table-format=1.3]   % v_LOS expected
 			|S[table-format=1.2]   % mean noise
 			|S[table-format=1.2]   % mean + 5 sigma
-			|S[table-format=2.1]   % PSD at f_D
+			|S[table-format=3.1]   % PSD at f_D
 			|S[table-format=2.1]   % PSD/mean
 			|S[table-format=1.2]|  % integrated excess power
 		}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\boldmath$f_D$} & \multicolumn{1}{c|}{\boldmath$v_{\mathrm{LOS}}$}
-		& \multicolumn{3}{c|}{\textbf{PSD} (\num{e-11}\,\si{V^2/Hz})} & \multicolumn{1}{c|}{\textbf{PSD/mean}} & \multicolumn{1}{c|}{\textbf{Excess power}} \\ \cline{4-6}
-		\multicolumn{1}{|c|}{(RPM)} & \multicolumn{1}{c|}{(\si{MHz})} & \multicolumn{1}{c|}{(\si{m/s})}
-		& \multicolumn{1}{c|}{Mean noise} & \multicolumn{1}{c|}{Mean $+\,5\sigma$}
-		& \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}} & \multicolumn{1}{c|}{(\si{dB})} & \multicolumn{1}{c|}{(\num{e-5}\,\si{V^2})} \\ \hline
-		50 & 0.079 & 0.061 & {7.01\textsuperscript{\dag}} & 9.35 & 50.7 &  8.6 & 4.09 \\ \hline
-		100 & 0.164 & 0.127 & {2.56\textsuperscript{\dag}} & 3.95 & 75.7 & 14.7 & 4.00 \\ \hline
-		200 & 0.330 & 0.256 & {1.43\textsuperscript{\dag}} & 2.24 & 78.6 & 17.4 & 4.35 \\ \hline
-		600 & 0.996 & 0.772 & 4.92 & 7.86 & 26.1 &  7.2 & 3.76 \\ \hline
-		800 & 1.331 & 1.032 & 5.61 & 8.99 & 25.2 &  6.5 & 3.91 \\ \hline
-		1200 & 1.985 & 1.539 & 4.07 & 6.38 & 14.5 &  5.5 & 3.63 \\ \hline
-		2000 & 3.314 & 2.569 & 2.92 & 4.06 & 10.4 &  5.5 & 3.93 \\ \hline
+		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\boldmath$f_D$}
+		& \multicolumn{2}{c|}{\boldmath$v_{\mathrm{LOS}}$ (\si{m/s})}
+		& \multicolumn{3}{c|}{\textbf{PSD} (\num{e-12}\,\si{V^2/Hz})} & \multicolumn{1}{c|}{\textbf{PSD/}} & \multicolumn{1}{c|}{\textbf{Excess}} \\ \cline{3-4} \cline{5-7}
+		\multicolumn{1}{|c|}{(RPM)} & \multicolumn{1}{c|}{(\si{MHz})}
+		& \multicolumn{1}{c|}{Measured} & \multicolumn{1}{c|}{Expected}
+		& \multicolumn{1}{c|}{Mean} & \multicolumn{1}{c|}{Mean $+\,5\sigma$}
+		& \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}} & \multicolumn{1}{c|}{\textbf{mean} (\si{dB})} & \multicolumn{1}{c|}{(\num{e-5}\,\si{V^2})} \\ \hline
+		50 & 0.074 & 0.057 & 0.056 & {1.15\textsuperscript{\dag}} & 1.57 & 294.1 & 24.1 & 3.65 \\ \hline
+		100 & 0.162 & 0.126 & 0.111 & {1.38\textsuperscript{\dag}} & 1.98 & 421.3 & 24.9 & 3.65 \\ \hline
+		250 & 0.397 & 0.308 & 0.278 & {1.20\textsuperscript{\dag}} & 2.09 & 465.3 & 25.9 & 3.57 \\ \hline
+		500 & 0.793 & 0.615 & 0.555 & {1.68\textsuperscript{\dag}} & 3.99 & 257.9 & 21.9 & 3.58 \\ \hline
+		1000 & 1.577 & 1.222 & 1.111 & 1.84 & 3.03 & 126.2 & 18.4 & 3.61 \\ \hline
+		2000 & 3.174 & 2.460 & 2.221 & 1.39 & 2.54 & 68.0 & 16.9 & 3.50 \\ \hline
 	\end{tabular}
 	
 	\vspace{2pt}
 	\raggedright\footnotesize
-	\textsuperscript{\dag}\,Peak too close to DC for a noise band below it; the floor is taken
-	from the high-frequency side only and is likely a slight underestimate.
+	Noise statistics exclude bins below \SI{50}{kHz} (near-DC residual from disc imperfections).\\
+	\textsuperscript{\dag}\,Peak too close to DC for a full noise band below it; the floor is taken
+	mostly or entirely from the high-frequency side and is likely a slight underestimate.
 \end{table}
+	
+A distinct Doppler peak was obtained at every speed, between \SIlist{16.9;25.9}{dB} above
+the local noise floor and well clear of the mean $+\,5\sigma$ detection threshold in every
+case, satisfying P1. The peak height falls and its width grows with speed because the
+velocity spread across the beam spot scales with $N$. However, the integrated excess power
+stays constant at $(3.6 \pm 0.1)\times10^{-5}\,\si{V^2}$, which shows that the returned
+power is unchanged and is merely spread over a wider band. At \SI{50}{RPM}
+($v_{\mathrm{LOS}} = \SI{0.056}{m/s}$) the peak is still clearly resolved, satisfying P5;
+here however, the \SI{10}{kHz} bin width of the Welch PSD (corresponding to \SI{7.75}{mm/s} of velocity) and the proximity to DC limit the precision,
+which explains why this point does not show the systematic error seen at higher speeds, as discussed below.
 
-\section{C: Wind-speed Measurement}
+It can also be seen that $f_{D}$, the centroid of each Doppler peak, and its corresponding measured velocity, $v_{LOS} = \frac{f_D}{1.29MHz}$, was higher than the predicted Doppler peak, by approximately 10\% for each case, causing the system to fail performance requirement P7 for the hard-target case. This illustrate visually in \autoref{fig:CentroidVSRPM}:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{../../../../../Downloads/fig_doppler_vs_rpm}
+	\caption{C: Measured Doppler peak frequency (from centroid) and expected Doppler peak frequency vs target motor RPM}
+	\label{fig:CentroidVSRPM}
+\end{figure}
+
+As \autoref{fig:CentroidVSRPM} shows, $f_D$ is linear in $N$: a fit through the origin gives
+\SI{1585 \pm 2}{Hz/RPM}, and all points from \SI{250}{RPM} upwards lie within \SI{0.5}{\percent}
+of it. However, the slope is \SI{10.6}{\percent} above the expected \SI{1433}{Hz/RPM}, so P7 is
+not met as built. Because the error is a constant scale factor, it points to the geometry rather
+than to the measurement itself. Since $v_{\mathrm{LOS}}$ is proportional to $d$, the beam striking
+the disc only \SI{1.6}{mm} further from the axis than intended would account for it. Over the
+\SI{100}{mm} collimator-to-disc distance, that is a collimator tilt of only about \ang{0.9}.
+Adjusting the collimator bracket screw changed the percentage error between experiment sets,
+%% CHECK give the range observed, e.g. "from X to Y %"
+while it remained constant within each set, which supports this explanation.
+
+In summary, the experiment validates the Doppler measurement principle: the system resolves
+speeds from \SIrange{0.06}{2.5}{m/s}, with a linear response and a large SNR margin on a hard
+target. The \SI{10.6}{\percent} offset is a calibration error in the rig geometry, which a
+single-point calibration would remove. The aerosol return in experiment D is expected to be
+far weaker, so this margin does not by itself guarantee wind-speed measurement, which is
+addressed in \autoref{sec:windTesting}.
+
+
+
+
+\section{D: Wind-speed Measurement}
+\label{sec:windTesting}
 \subsection{Experimental Goals}
 Now that the noise analysis of the system is complete, and the speed-measurement principle has been shown to be functional for a hard-target, the system can finally be tested for seeded air wind-speed measurement. The primary subject of investigation for this section is the sensitivity of the system with respect to its noise and the different levels of seeding in the air, as well as its accuracy at different tested speeds. As discussed previously, the range of the system can not be tested in a wind-tunnel environment, and thus this is out of scope for this project. 
-\subsection{Experimental Setup}
-% Wind-tunnel test set-up (side view). Coordinates are in mm, scaled 1 mm -> 0.25 mm.
-% Needs: \usepackage{tikz} \usetikzlibrary{arrows.meta,patterns,decorations.pathmorphing,calc}
+\subsection{Experimental Methodology}
+In order to test wind-speed measurements in a controlled environment, a test-setup was built in an existing wind-tunnel. The wind-tunnel is capable of producing measured, stable flows at 3.5 - 20m/s, with the flow-speed being measured at the centre of the test section. The tunnel has an inlet, where an air seeding device can be placed to seed the tunnel air. Two types of seeding are investigated; "fog" machines, which use mixtures of glycol or glycerin, and distilled water to produce a dense, visible vapour cloud in the air (of the same type typically seen in entertainment venues), and "misters", which simply use water to generate a very fine (barely visible) mist in the air, which is akin to atmospheric conditions on a misty day. It must be noted that at higher tunnel wind-speeds, the atmospheric seeding becomes more diffuse, and it is thus expected that for the same amount of seeding the Doppler return will decrease at higher speeds. 
+
+The test setup used in the wind-tunnel is shown in \autoref{fig:DRig}:
+
+\begin{figure}[H]
+\label{fig:DRig}
+\centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[x=0.25mm, y=0.25mm, font=\small,
 	blk/.style={draw, thick, rounded corners=2pt, align=center, fill=gray!8, inner sep=5pt},
 	flow/.style={-{Stealth[length=6pt]}, thick, blue!60!black},
@@ -113,7 +170,7 @@ Now that the noise analysis of the system is complete, and the speed-measurement
 	\node[lbl, blue!60!black, anchor=west] at (78,150) {air flow};
 	
 	% ---------------- seeding ----------------
-	\node[blk, fill=gray!15] (seed) at (-120,165) {Seeding\\smoke/fog};
+	\node[blk, fill=gray!15] (seed) at (-120,165) {Seeding\\fog/mist};
 	\draw[-{Stealth[length=6pt]}, thick, decorate,
 	decoration={snake, amplitude=2pt, segment length=8pt, post length=6pt}]
 	(seed.east) -- (-4,165);
@@ -147,4 +204,25 @@ Now that the noise analysis of the system is complete, and the speed-measurement
 	\draw[orange!80!black, very thick] (rear) -- (rear |- sys.north);
 	\node[lbl, orange!50!black, anchor=west] at (60,-58) {single-mode fibre (FC/APC)};
 \end{tikzpicture}
+}
+\caption{D: Wind-tunnel experimental setup diagram}
+\end{figure}
+
+A small wedge which fits the collimator and which can be attached to the floor of the wind-tunnel was designed and 3D printed. The collimator is pointed in the direction of the flow, so as to minimise any residue buildup from seeded air hitting the collimator lens from front-on. The consequence of this however, is that the collimator has to be placed at an angle (35 degrees in this design), rather than straight in the direction of flow, so as to avoid the collimator and the housing from disturbing the flow and causing excessive turbulence, immediately prior to the measurement line-of-sight. This would indeed not as heavily be the case if the collimator was pointed \textbf{opposing} the flow, as measurements would then be taken in a line-of-sight \textbf{before} the housing. The angled wedge however also provides the advantage of allowing the beam to terminate on a stationary angled surface (the MDF ceiling of the wind-tunnel), rather than continuing on through the tunnel to hit the rotor which generates the flow, which would generate additional Doppler components at the radial velocity of the rotor-blades in the direction of the beam. The angled beam termination surface also serves to absorb and reflect unwanted stationary (non-Doppler shifted) beam components away from the system, so that there is minimal additional PIIN - this mimics the setup of \autoref{sec:PIINTesting}.
+
+ It must be noted from the rig geometry, that the system only measures the component of the velocity which is in the direction of the beam. Assuming no vertical flow in the tunnel, the velocity "seen" by the beam is:
+ \begin{equation}
+ 	 v_{los}=cos(35)\times U
+ \end{equation}
+ Where $U$ is the horizontal flow-speed in the wind-tunnel, as measured by its sensor. As previously derived, a 1550nm beam will be Doppler shifted by approximately $1.29MHz$ per $m/s$ of flow in the direction of the beam. Thus, for this test setup, a Doppler shift of
+ \begin{equation}
+ 	\Delta F = 1.29MHz \times cos(35) \times U = 1.057MHz \times U
+ \end{equation} 
+ is seen, i.e. $1.057MHz$ per $m/s$ of wind-tunnel flow. 
+ 
+ Again, the system is fully set up for these experiments as for C, as shown in \autoref{fig:finalDesign} and with a laser drive current of 48mA. The Welch method for calculating PSD was again used here, as for experiments A, B, and C, however in this case 500 oscilloscope records are obtained, and each segment length is set to 2500, giving a total of approximately 7400 independent averages (see \autoref{sec:design-DataAcquisition}). This gives a lower noise variance which will make the detection of a smaller Doppler peak easier, in the absence of a laser power amplifier which would increase the aerosol return, and thus increase the size of the Doppler peak. Even with this high amount of averages, the 500 records of \num{25000} samples at \SI{125}{MSa/s} represent only \SI{100}{ms} of sampled data, which is
+ comparable to the \SIrange{4}{41}{ms} integration times of established CW lidars\cite{hill_remote_nodate}\cite{bennett_doppler_2003}. Each \SI{200}{\micro s} record is short enough that the flow is effectively frozen within it, so with a continuously streaming digitiser the same averaging would give a new velocity estimate every \SI{0.1}{s}. This \SI{10}{Hz} update rate is well above the \SIrange{0.5}{1}{Hz} found to be
+ sufficient for lidar-assisted wind turbine control \cite{letizia_characterization_2023} \cite{simley_optimizing_2018}, though below the \SI{50}{Hz} of the commercial ZephIR \cite{hill_remote_nodate}. In
+ this set-up, however, the oscilloscope's transfer bottleneck spreads the records over roughly \SI{35}{s}, so each PSD is an average of the flow over that period. This is acceptable here because the tunnel speed is held constant during each capture, but in a field-deployed iteration of the system an FPGA based acquisition chain should certainly be investigated. 
+
 

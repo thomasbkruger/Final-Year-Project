@@ -154,16 +154,9 @@
      \label{tab:expAParts}
  \end{table}
 
- For each measurement, the laser is held at a fixed drive current and
- 100 records of the detector output are captured sequentially with the oscilloscope and
- transferred to a laptop. Each record contains 25\,000 samples at 125\,MSa/s (200\,$\mu$s).
- A1 requires only a single measurement, while A2 and A3 are repeated over a range of drive
+ For each measurement the laser is held at a fixed drive current and
+ 100 records of the detector output are captured sequentially with the oscilloscope and transferred to a laptop. The averaged PSD of the record is estimated, as described in \autoref{sec:design-DataAcquisition}. A1 requires only a single measurement, while A2 and A3 are repeated over a range of drive
  currents up to the 48\,mA operating point.
- 
- The PSD of each record is estimated using Welch's method (Hann window, 2\,500-sample
- segments with 50\,\% overlap, giving a 50\,kHz resolution) rather than a single periodogram,
- since averaging over segments greatly reduces the variance of the estimate, giving a smoother curve. Because the noise
- is stationary (properties don't change across records), the PSDs of the 100 records can then be averaged as well for further smoothing.
  
  To compare the results with a single figure, the PSD can be averaged over the 5--20\,MHz band.
  From \autoref{eq:DopplerShift}, this band corresponds to target speeds of roughly
@@ -194,7 +187,7 @@ In order to achieve shot-noise limited operation, the average PSD of the shot-no
 \subsubsection{A2: Electronic Noise \& Shot Noise}
 \autoref{fig:A2PSD} gives the PSD plots of the total noise - made up of shot-noise, electronic noise, and residual RIN - for different laser currents on the same axes:
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_overlay"}
 	\caption{PSD of total noise (shot, electronic and relative intensity noise) for different laser source currents}
@@ -248,6 +241,7 @@ From this, it can be seen that an operating current of 48mA for the laser allows
 Experiment A3 serves only for completeness, to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. It was found that indeed 0.6125dB of RIN was cancelled by using the balanced detection setup. See Appendix \ref{appendix:RINValidation} for the full results and discussion of this supplementary experiment.  
 
 \section{B: Phase-induced Intensity Noise}
+\label{sec:PIINTesting}
 \subsection{Experimental Goals}
 As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{appendix:PIIN}, Phase-induced Intensity Noise (PIIN) can be a significant contributor to the total noise of the system, rising far above shot-noise - particularly when the linewidth of the laser source is not narrow, and when there is significant path-length mismatch between the LO and the transmit signal.
 

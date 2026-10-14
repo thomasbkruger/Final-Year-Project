@@ -3,7 +3,7 @@
 \section{Introduction}
 This chapter details the design of a Doppler wind LiDAR system. As discussed in the introduction and scope of this report, the system is a benchtop prototype whose purpose is to make the sensitivity of a DWL measurable and attributable to specific component and architecture choices. As such, the primary considerations will be noise-levels, sensitivity, and the overarching principles of physics governing DWL systems. This system design will thus not include the design of housing for field deployment, nor will it be concerned with real-time post-processing pipelines for the system's data (which would be required in a field-deployed system). Furthermore, several key components that would be typical in a scientific- or industry-grade, field-deployable DWL system are deliberately omitted in order to reduce costs, at little functional expense for a benchtop system. Where possible, the system was made extensible for future iterations and field deployment.
 
-First \autoref{sec:design-sysArch} gives an overview of the architecture chosen, as synthesised from the various architecture types reviewed in \autoref{sec:litReview}, and with respect to the project's overarching goals. Thereafter, \autoref{sec:design-sysReqs} discusses the functional and performance requirements of the system. Section \ref{sec:design-ComponentChoices} details the specific components chosen to meet these requirements. Finally, \autoref{sec:design-SimValidation} presents two numerical simulations which validate the choice of components and architecture for the project. 
+First \autoref{sec:design-sysArch} gives an overview of the architecture chosen, as synthesised from the various architecture types reviewed in \autoref{sec:litReview}, and with respect to the project's overarching goals. Thereafter, \autoref{sec:design-sysReqs} discusses the functional and performance requirements of the system. Finally, section \ref{sec:design-ComponentChoices} details the specific components chosen to meet these requirements. 
 
 \section{System Architecture}
 \label{sec:design-sysArch}
@@ -113,6 +113,7 @@ continuous-wave, monostatic, homodyne, with balanced detection}
 \end{figure}
 
 \section{System Requirements Analysis}
+\label{sec:design-sysReqs}
 Now that a system architecture has been decided on, requirements which are specific to this choice of architecture, and which are related to the project goals can be synthesised. The requirements for the system are divided into two sets: functional requirements, which define the ideal outcomes which are desired from the system, and performance requirements, which define specific metrics which are to be measured and quantified with respect to the goals of the functional requirements. 
 
 \subsection{Functional requirements}
@@ -120,12 +121,14 @@ Now that a system architecture has been decided on, requirements which are speci
 
   \item Measure the line-of-sight velocity of a target from the          Doppler shift of coherently detected backscatter,
         using a monostatic all-fibre homodyne architecture with balanced detection and continuous-wave operation.
-  \item Operate on both a diffuse hard target of known velocity (for calibration) and on air seeded with smoke or fog. 
+  \item Operate on both a diffuse hard target of known velocity and on air seeded with smoke or fog. 
   \item Produce a velocity estimate from a recorded spectrum using a stated, reproducible detection criterion (threshold relative to the system's noise floor).
 \end{enumerate}
 
 \subsection{Performance requirements}
-From the desired functional requirements, a set of performance requirements can be synthesised; these are given in \autoref{tab:requirements} below along with the IDs of the tests which will verify them. It must be noted again here that this project's goals chiefly concern the measurement and characterisation of noise and SNR in a constrained DWL system build, and how these aspects relate to component choice. As such, the majority of these requirements are concerned with the characterisation of the system relative to an ideal system, and thus the quantification of the system's limitations - rather than attempting to achieve performance specifications which will allow all the functional requirements to be met. 
+From the desired functional requirements, a set of performance requirements can be synthesised; these are given in \autoref{tab:requirements} below along with the IDs of the tests which will verify them. 
+
+%It must be noted again here that this project's goals chiefly concern the measurement and characterisation of noise and SNR in a constrained DWL system build, and how these aspects relate to component choice. As such, the majority of these requirements are concerned with the characterisation of the system relative to an ideal system, and thus the quantification of the system's limitations - rather than attempting to achieve performance specifications which will allow all the functional requirements to be met. 
 \begin{table}[H]
 \centering
 \small
@@ -140,10 +143,11 @@ P2 & Detector noise & approaching ideal shot-noise-limited behaviour: total
  agreement with the path-mismatch model of \cite{harris_role_1998}
     within \SI{6}{\decibel} & B \\ \hline
 P3 & Total system noise & Total noise floor (shot + electronic + residual RIN + PIIN) quantified with respect to the shot-noise limit, and sources of excess noise described and characterised & B \\ \hline
- P1 & Velocity detection on a hard target & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 100$ averages, for a hard target 10cm away from laser emission & C \\ \hline
+ P1 & Velocity detection on a hard target & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
 P5 & Low-velocity limit & Minimum resolvable LOS speed of $\leq$ \SI{0.1}{\metre\per\second} on a hard target & C \\ \hline
-P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages 
-      & D\\ 
+P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 10 000$ averages 
+& D \\ \hline
+P7 & Velocity accuracy & Doppler velocity within 5\% of ground-truth velocity of target (hard target and seeded flow) & C, D \\
 \hline
 \end{tabular}
 \caption{Performance requirements and their verification tests.}
@@ -185,7 +189,7 @@ This section details the specific component selections which were made for the s
 
     \subsubsection{Linewidth}
     \label{sec:lit-linewidth}
-    Linewidth can be seen as a measure of the spectral purity of a laser source, and is one of the most critical parameters in the design of a DWL system. A narrow linewidth is highly desirable for DWL applications, as this will significantly reduce the phase-induced intensity noise (PIIN) in a DWL system, and allow the system to therefore have a better SNR and sensitivity to detect small backscatter signals. Furthermore, the linewidth of a laser source has a significant effect on how broad the returned backscatter signal's Doppler shifted peak is, particularly at longer ranges. This will result in the system having worse precision, and not being able to resolve turbulence in the air as well. For a full discussion on the mathematical and physical meaning of linewidth, as well as a treatment on how linewidth affects PIIN and the broadened peak, see Appendix \ref{appendix:PIIN}. Cariou et al. make the claim that linewidths typical of DFB diodes (0.5 - 5MHz, see \autoref{tab:design-laser-sources}) disqualify them for use in CW DWL systems due to their PIIN, however, Bennett shows that indeed a DFB source with a linewidth of 1.4MHz can be used for these purposes, provided careful attention is given to other design considerations, such as optical fiber path length matching \cite{bennett_doppler_2003}. The analysis of noise in the system, and the associated constraints arising from the use of a comparatively wider linewidth laser source indeed forms a key part of this project, owing to budget considerations, as will be discussed below and in \autoref{sec:NoiseAnalysis}.
+    Linewidth can be seen as a measure of the spectral purity of a laser source, and is one of the most critical parameters in the design of a DWL system. A narrow linewidth is highly desirable for DWL applications, as this will significantly reduce the phase-induced intensity noise (PIIN) in a DWL system, and allow the system to therefore have a better SNR and sensitivity to detect small backscatter signals. Furthermore, the linewidth of a laser source has a significant effect on how broad the returned backscatter signal's Doppler shifted peak is, particularly at longer ranges. This will result in the system having worse precision, and not being able to resolve turbulence in the air as well. For a full discussion on the mathematical and physical meaning of linewidth, as well as a treatment on how linewidth affects PIIN and the broadened peak, see Appendix \ref{appendix:PIIN}. Cariou et al. make the claim that linewidths typical of DFB diodes (0.5 - 5MHz, see \autoref{tab:design-laser-sources}) disqualify them for use in CW DWL systems due to their PIIN, however, Bennett shows that indeed a DFB source with a linewidth of 1.4MHz can be used for these purposes, provided careful attention is given to other design considerations, such as optical fiber path length matching \cite{bennett_doppler_2003}. The analysis of noise in the system, and the associated constraints arising from the use of a comparatively wider linewidth laser source indeed forms a key part of this project, owing to budget considerations, as will be discussed below and in \autoref{sec:noiseAnalysis}.
     
     
 
@@ -394,7 +398,37 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  \end{table}
  
  
+ \section{Data Acquisition}
+ \label{sec:design-DataAcquisition}
+ As discussed in the introduction to this section, this project is not concerned with real-time processing of the data, which typically involves the use of high sampling-rate ADCs, and FPGAs which are programmed to be able to perform FFTs of the sampled data very quickly. Instead, data is obtained via a Keysight EDU1002X oscilloscope and post-processed on a laptop. The sampling rate of the oscilloscope is set to 125MHz, giving a Nyquist frequency of 62.5MHz. A beat signal at 62.5MHz would correspond to a speed of approximately 80m/s, which is far above any speed that will be measured, thus making the oscilloscope sampling rate more than sufficient. 
  
+ Data is transferred from the oscilloscope to the laptop in discrete "records". Each oscilloscope record obtained is 25 000 samples long, corresponding to $200\mu s $ of data, however the oscilloscope can only obtain and transfer at a rate of approximately 8 records/second, meaning that only 0.2\% of data for the data acquisition period is effectively used. By contrast, systems utilising FPGAs and high sampling-rate ADCs can sample up to 100\% of the data in a given time period \cite{hill_remote_nodate}. Thus, when considering the acquisition time for a measurement, the oscilloscope record obtaining bottleneck is not considered, and only the total amount of time which the data represents is considered. This is of importance, because in a real-world setup this time period determines how many wind-speed measurements the system can make over a given time-period, and thus determines how well it can detect rapid changes in wind-speed. 
+ 
+Using Python scripts, the power spectral density (PSD) of each capture is obtained with
+Welch's method. Each record is divided into segments of $N_{\mathrm{seg}}$ samples that overlap
+by \SI{50}{\percent}, and each segment is multiplied by a Hann window to suppress spectral leakage
+from its edges. The FFT of each windowed segment is then taken, and its squared magnitude gives a
+periodogram. Finally, the periodograms from all segments of all records are averaged to give the
+PSD. Averaging after the FFT in this manner reduces the variance of the noise floor, so that a
+weak Doppler peak can be distinguished from random fluctuations, with the tradeoff being that more data has to be acquired, over a longer time period.
+
+The segment length sets the frequency resolution, $\Delta f = f_s/N_{\mathrm{seg}}$, and, for a
+fixed record length, the number of segments, and hence the number of averages - thus for a fixed record length and number of records, there is a tradeoff between frequency resolution and number of averages (which reduce variance). For experiments
+A, B and C, $N_{\mathrm{seg}} = \num{12500}$ samples and 100 records of \num{25000} samples are
+used, giving $\Delta f = \SI{10}{kHz}$ at $f_s = \SI{125}{MSa/s}$ (a velocity resolution of
+\SI{7.75}{mm/s}). Each record then yields 3 overlapping segments, so a capture averages 300
+periodograms. For the final wind-tunnel tests in \autoref{sec:windTesting}, where the weak aerosol return calls
+for more averaging rather than finer resolution, $N_{\mathrm{seg}} = \num{2500}$ and 500 records
+are used instead. This gives $\Delta f = \SI{50}{kHz}$ (\SI{3.9}{cm/s}), 19 segments per record,
+and \num{9500} periodograms in total.
+
+Because the \SI{50}{\percent} overlap makes adjacent Hann-windowed segments partially correlated,
+these correspond to about 245 and \num{7200} independent averages respectively. For stationary
+Gaussian noise, the standard deviation of each averaged PSD bin is
+$\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the local noise PSD and $N_{\mathrm{eff}}$
+the number of independent averages: about $0.064\,S$ for the default settings and $0.012\,S$ for
+the wind-tunnel settings. The absolute fluctuation therefore scales with the noise floor, while its
+relative size is set by the number of averages.
 \section{Final Design}
 The final design of the system using the architecture and components discussed above is given in \autoref{fig:finalDesign} below.
 

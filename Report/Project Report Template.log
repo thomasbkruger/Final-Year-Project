@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  12 OCT 2026 11:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  14 OCT 2026 11:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,7 +1026,7 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 39.
-<uctLogo.png, id=302, 418.56375pt x 425.59pt>
+<uctLogo.png, id=306, 418.56375pt x 425.59pt>
 File: uctLogo.png Graphic file (type png)
 <use uctLogo.png>
 Package pdftex.def Info: uctLogo.png  used on input line 53.
@@ -1035,22 +1035,22 @@ Package pdftex.def Info: uctLogo.png  used on input line 53.
 
 {C:/Users/thoma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./uctLogo.pn
 g>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
@@ -1067,13 +1067,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [3
 
-]
-Overfull \hbox (9.70804pt too wide) in paragraph at lines 24--24
- [][] [][]\OT1/cmr/m/n/12 Coherent Detection: Homodyne, Heterodyne and Directio
-nal Ambiguity[] [][]  
- []
-
-[4] [5])
+] [4] [5])
 \tf@toc=\write5
 \openout5 = `"Project Report Template.toc"'.
 
@@ -1082,13 +1076,13 @@ nal Ambiguity[] [][]
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 180.
+ine 159.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 180.
+ine 160.
 
 \openout2 = `Introduction.aux'.
 
@@ -1111,18 +1105,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.180 }
-        [2]
+l.167 \include{Introduction}
+                             [2]
 \openout2 = `Literature.aux'.
 
  (Literature.tex
 Chapter 2.
-
-Overfull \hbox (22.58426pt too wide) in paragraph at lines 25--27
-\OT1/cmr/m/n/12 The traditional instrument for wind-speed measurement for wind-
-turbines is the meteorological
- []
-
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
@@ -1135,42 +1123,6 @@ l.27
 
 
 ]
-Overfull \hbox (13.46225pt too wide) in paragraph at lines 35--36
-\OT1/cmr/m/n/12 Advancements in LiDAR technology have resulted in the technolog
-y presenting an alternative
- []
-
-
-Overfull \hbox (2.97775pt too wide) in paragraph at lines 37--38
-[]\OT1/cmr/m/n/12 Doppler wind LiDAR (DWL) systems measure the line-of-sight ve
-locity of wind by emitting
- []
-
-
-Overfull \hbox (5.30301pt too wide) in paragraph at lines 37--38
-\OT1/cmr/m/n/12 deployment was on the nacelle of a 2.3MW turbine, and with Vais
-ala's (formerly Leosphere)
- []
-
-
-Overfull \hbox (1.08551pt too wide) in paragraph at lines 39--40
-\OT1/cmr/m/n/12 load reduction, performance optimization, and performance asses
-sment [[]]. NML systems
- []
-
-
-Overfull \hbox (8.94135pt too wide) in paragraph at lines 39--40
-\OT1/cmr/m/n/12 present several advantages over traditional measurement techniq
-ues for these ends, including
- []
-
-
-Overfull \hbox (0.78171pt too wide) in paragraph at lines 39--40
-\OT1/cmr/m/n/12 turbines, and are thus well-suited to the growing demands for w
-ind-energy systems globally
- []
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1178,87 +1130,31 @@ been already used, duplicate ignored
 l.40 
       [4]
 Overfull \hbox (7.09981pt too wide) in paragraph at lines 58--72
-\OT1/cmr/m/n/12 Power performance testing is an area in which NML has had great
-est success and widespread
+\OT1/cmr/m/n/12 Power per-for-mance test-ing is an area in which NML has had gr
+eat-est suc-cess and widespread
  []
 
-[5] [6] [7] [8] [9]
-Overfull \hbox (2.67058pt too wide) in paragraph at lines 158--159
-[]\OT1/cmr/m/n/12 It can be seen from the above equation that the squared mixed
- signal has three components:
- []
+[5] [6] [7] [8] [9] [10] [11] [12] [13]
+
+LaTeX Warning: Citation `Abdelazim2015' on page 14 undefined on input line 289.
 
 
-Overfull \hbox (21.85701pt too wide) in paragraph at lines 170--170
-[]\OT1/cmr/bx/n/14.4 Coherent Detection: Homodyne, Heterodyne and Directional
- []
-
-[10] [11]
-Overfull \hbox (2.87819pt too wide) in paragraph at lines 239--240
-[]\OT1/cmr/m/n/12 Where $\OML/cmm/m/it/12 P[]$ \OT1/cmr/m/n/12 is electronic no
-ise power, $\OML/cmm/m/it/12 P[]$ \OT1/cmr/m/n/12 is the shot noise power, and 
-$\OML/cmm/m/it/12 $ \OT1/cmr/m/n/12 is a proportionality
- []
-
-[12] [13]
-
-LaTeX Warning: Citation `Abdelazim2015' on page 14 undefined on input line 273.
-
-
-[14] [15]) [16]
+[14] [15] [16]) [17]
 \openout2 = `"System Design.aux"'.
 
  (System Design.tex
 Chapter 3.
-
-LaTeX Warning: Reference `sec:design-sysReqs' on page 17 undefined on input lin
-e 6.
-
-
-LaTeX Warning: Reference `sec:design-SimValidation' on page 17 undefined on inp
-ut line 6.
-
-
-Overfull \hbox (8.9631pt too wide) in paragraph at lines 6--7
-\OT1/cmr/m/n/12 of the system. Section []3.4[] details the specific components 
-chosen to meet these requirements.
- []
-
-
-Overfull \hbox (5.96036pt too wide) in paragraph at lines 10--11
-\OT1/cmr/m/n/12 and post-processing done on a laptop computer. This section det
-ails why these architectural
- []
-
-[17
+[18
 
 
 
 
-]
-Overfull \hbox (2.30948pt too wide) in paragraph at lines 14--18
-\OT1/cmr/m/n/12 The direct detection technique requires the Rayleigh/Mie scatte
-ring ratio and temperature,
- []
+] [19]
 
-
-Overfull \hbox (19.86438pt too wide) in paragraph at lines 14--18
-\OT1/cmr/m/n/12 alignment and calibration [[], [], []]. These present substanti
-al challenges to an undergraduate
- []
-
-
-Overfull \hbox (4.32843pt too wide) in paragraph at lines 14--18
-\OT1/cmr/m/n/12 project, particularly the stabilised laser and etalon temperatu
-re control. The one advantage
- []
-
-[18]
-
-LaTeX Warning: Reference `sec:lit-pulsedCW' on page 19 undefined on input line 
+LaTeX Warning: Reference `sec:lit-pulsedCW' on page 20 undefined on input line 
 44.
 
-[19]
+[20]
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 5
 4.
  (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
@@ -1267,352 +1163,261 @@ File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 54.
 
-Overfull \hbox (11.97466pt too wide) in paragraph at lines 54--113
-[]\OT1/cmr/m/n/12 Figure 3.1[][] below shows a functional block-diagram of the 
-system's decided-upon architecture.
- []
-
-[20
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.117 
+l.118 
       ]
-Overfull \hbox (12.27048pt too wide) in paragraph at lines 121--123
-\OT1/cmr/m/n/12 detected backscatter, using a monostatic all-fibre homodyne arc
-hitecture with balanced
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 []|\OT1/cmr/bx/n/10.95 Verified
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
 []|\OT1/cmr/m/n/10.95 Phase-induced
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
-\OT1/cmr/m/n/10.95 intensity noise
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 142--142
-[]|\OT1/cmr/m/n/10.95 Total system
+\OT1/cmr/m/n/10.95 in-ten-sity noise
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 145--145
+[]|\OT1/cmr/m/n/10.95 Total sys-tem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--148
 []|\OT1/cmr/m/n/10.95 Detection of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 148--148
 \OT1/cmr/m/n/10.95 wind-speed in
  []
 
-[21] [22
+[22] [23
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.158 
-      ] [23]
+l.162 
+      ] [24]
 
-LaTeX Warning: Reference `sec:NoiseAnalysis' on page 24 undefined on input line
- 188.
+LaTeX Warning: Reference `sec:noiseAnalysis' on page 25 undefined on input line
+ 192.
 
-[24]
-Overfull \hbox (1.2599pt too wide) in paragraph at lines 200--200
+[25]
+Overfull \hbox (1.2599pt too wide) in paragraph at lines 204--204
 []|\OT1/cmr/bx/n/10.95 Linewidth
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--200
+Underfull \hbox (badness 10000) in paragraph at lines 204--204
 []|\OT1/cmr/bx/n/10.95 Power,
  []
 
 
-Overfull \hbox (15.99167pt too wide) in paragraph at lines 200--200
-\OT1/cmr/bx/n/10.95 unamplified| 
+Underfull \hbox (badness 10000) in paragraph at lines 204--204
+\OT1/cmr/bx/n/10.95 un-am-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 []|\OT1/cmr/bx/n/10.95 Indicative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--202
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
 []|\OT1/cmr/m/n/10.95 Fabry--P^^Serot
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--203
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\OT1/cmr/m/n/10.95 multi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--203
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
 \OT1/cmr/m/n/10.95 single-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--205
-[]|\OT1/cmr/m/n/10.95 Multi-mode, Unsuitable for
- []
-
-
-Underfull \hbox (badness 3690) in paragraph at lines 205--205
-\OT1/cmr/m/n/10.95 coherent detection due to this.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--208
+Underfull \hbox (badness 10000) in paragraph at lines 212--212
 []|\OT1/cmr/m/n/10.95 DFB laser
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
 []|\OT1/cmr/m/n/10.95 Planar
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
 \OT1/cmr/m/n/10.95 external-cavity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--215
+Underfull \hbox (badness 10000) in paragraph at lines 219--219
 []|$\OML/cmm/m/it/10.95 < \OT1/cmr/m/n/10.95 1$ to
  []
 
 
-Underfull \hbox (badness 4967) in paragraph at lines 217--217
-[]|\OT1/cmr/m/n/10.95 Integrated driver, marketed for
+Underfull \hbox (badness 4967) in paragraph at lines 221--221
+[]|\OT1/cmr/m/n/10.95 Integrated driver, mar-keted for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
-[]|\OT1/cmr/m/n/10.95 quote
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+[]|\OT1/cmr/m/n/10.95 quote only;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
-\OT1/cmr/m/n/10.95 only; low
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+\OT1/cmr/m/n/10.95 low thou-
  []
 
 
-Underfull \hbox (badness 3000) in paragraph at lines 221--221
+Underfull \hbox (badness 3000) in paragraph at lines 225--225
 []|$\OML/cmm/m/it/10.95 < \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n
 /10.95 1$ to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--223
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
 []|\OT1/cmr/m/n/10.95 Common source of choice for
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 223--223
-\OT1/cmr/m/n/10.95 CW anemometry due to narrow
+Underfull \hbox (badness 1406) in paragraph at lines 227--227
+\OT1/cmr/m/n/10.95 CW anemom-e-try due to nar-row
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 []|\OT1/cmr/m/n/10.95 quote only;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
-\OT1/cmr/m/n/10.95 tens of
- []
-
-
-Overfull \hbox (16.8753pt too wide) in paragraph at lines 198--227
+Overfull \hbox (16.8753pt too wide) in paragraph at lines 202--231
  [][] 
  []
 
-[25]
+[26]
 
-LaTeX Warning: Reference `sec:testingPIIN' on page 26 undefined on input line 2
-31.
-
-
-LaTeX Warning: Reference `appendix:laser' on page 26 undefined on input line 25
-0.
+LaTeX Warning: Reference `sec:testingPIIN' on page 27 undefined on input line 2
+35.
 
 
-LaTeX Warning: Reference `appendix:laser' on page 26 undefined on input line 25
-0.
+LaTeX Warning: Reference `appendix:laser' on page 27 undefined on input line 25
+4.
 
-[26
+
+LaTeX Warning: Reference `appendix:laser' on page 27 undefined on input line 25
+4.
+
+[27
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.252 
+l.256 
       ]
 
-LaTeX Warning: Citation `Gwinner2024' on page 27 undefined on input line 254.
+LaTeX Warning: Citation `Gwinner2024' on page 28 undefined on input line 258.
 
 
-LaTeX Warning: Citation `Gwinner2024' on page 27 undefined on input line 256.
+LaTeX Warning: Citation `Gwinner2024' on page 28 undefined on input line 260.
 
-
-Overfull \hbox (17.7371pt too wide) in paragraph at lines 258--259
-[]\OT1/cmr/m/n/12 The Koheron DRV200S-A-200 laser driver was chosen, due to its
- very low noise characteristics,
- []
-
-
-Underfull \hbox (badness 3098) in paragraph at lines 277--277
-[]\OT1/cmr/m/n/12 Table 3.4: []Key specifications of the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 277--277
-\OT1/cmr/m/n/12 Koheron DRV200S-A-200 laser diode
- []
-
-
-Underfull \hbox (badness 3098) in paragraph at lines 295--295
-[]\OT1/cmr/m/n/12 Table 3.5: []Key specifications of the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
-\OT1/cmr/m/n/12 Koheron TEC100L-50 temperature
- []
-
-[27
+[28
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.298 
+l.302 
       ]
-Overfull \hbox (1.9567pt too wide) in paragraph at lines 300--301
-\OT1/cmr/m/n/12 circuitry of the detector to avoid parasitic effects, such as s
-tray capacitance and inductance,
- []
+
+LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
+24.
 
 
-LaTeX Warning: Reference `appendix:pd100b' on page 28 undefined on input line 3
-20.
+LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
+24.
 
-
-LaTeX Warning: Reference `appendix:pd100b' on page 28 undefined on input line 3
-20.
-
-[28
+[29
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.324 
+l.328 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.324 
+l.328 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.324 
-      ]
-Overfull \hbox (0.83191pt too wide) in paragraph at lines 327--328
-\OT1/cmr/m/n/12 A standard 50:50 non-polarisation maintaining FC/APC connector 
-type fiber optic coupler
- []
+l.328 
+      ] [30]
 
-
-Overfull \hbox (5.38037pt too wide) in paragraph at lines 335--341
-[]\OT1/cmr/m/n/12 The lower bound on the LO power is set by the requirement for
- shot-noise-limited operation,
- []
-
-[29]
-
-LaTeX Warning: Reference `sec:testingA' on page 30 undefined on input line 362.
+LaTeX Warning: Reference `sec:testingA' on page 31 undefined on input line 366.
 
 
 
-LaTeX Warning: Reference `sec:lit-Optics' on page 30 undefined on input line 36
-5.
+LaTeX Warning: Reference `sec:lit-Optics' on page 31 undefined on input line 36
+9.
 
-[30]) [31
+[31] [32
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.180 }
-       
+l.414 
+      ]) [33] [34
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.180 }
-       ]
+l.169 \include{System Design}
+                             ]
 \openout2 = `"Noise Analysis.aux"'.
 
  (Noise Analysis.tex
 Chapter 4.
 
-LaTeX Warning: Reference `sec:functionalAnalysis' on page 32 undefined on input
+LaTeX Warning: Reference `sec:functionalAnalysis' on page 35 undefined on input
  line 4.
 
 
-LaTeX Warning: Reference `sec:functionalAnalysis' on page 32 undefined on input
+LaTeX Warning: Reference `sec:functionalAnalysis' on page 35 undefined on input
  line 4.
 
-
-Overfull \hbox (1.04282pt too wide) in paragraph at lines 4--5
-\OT1/cmr/m/n/12 This chapter gives a comprehensive account of the testing which
- was done on the completed
- []
-
-[32
+[35
 
 
 
 
 ]
-Overfull \hbox (4.22449pt too wide) in paragraph at lines 30--34
-[]\OT1/cmr/bx/n/12 Quantify RIN and validate balanced detection (A3). \OT1/cmr/
-m/n/12 Repeat the measurement
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 40--136
 [][]
  []
 
-[33
+[36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.141 
       ]
-Underfull \hbox (badness 4846) in paragraph at lines 150--150
-[]|\OT1/cmr/m/n/12 Laser output on (current varied),
- []
-
-
 Underfull \hbox (badness 5622) in paragraph at lines 150--150
 []|\OT1/cmr/m/n/12 Electronic noise + shot
- []
-
-
-Underfull \hbox (badness 4846) in paragraph at lines 151--151
-[]|\OT1/cmr/m/n/12 Laser output on (current varied),
  []
 
 
@@ -1625,167 +1430,181 @@ Overfull \hbox (23.37357pt too wide) in paragraph at lines 146--153
  [][] 
  []
 
-<../Data Acquisition/figures/A1_PSD.png, id=813, 650.43pt x 397.485pt>
+
+LaTeX Warning: Reference `sec:design-DataAcquisition' on page 37 undefined on i
+nput line 158.
+
+<../Data Acquisition/figures/A1_PSD.png, id=837, 650.43pt x 397.485pt>
 File: ../Data Acquisition/figures/A1_PSD.png Graphic file (type png)
 <use ../Data Acquisition/figures/A1_PSD.png>
 Package pdftex.def Info: ../Data Acquisition/figures/A1_PSD.png  used on input 
-line 178.
+line 171.
 (pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
-[34
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.181 \end{figure}
-                  ]
+l.178 
+      ]
 
-LaTeX Warning: Citation `Koheron PD100B' on page 35 undefined on input line 190
+LaTeX Warning: Citation `Koheron PD100B' on page 38 undefined on input line 183
 .
 
-[35
+<../Data Acquisition/figures/psd_overlay.png, id=846, 650.43pt x 397.485pt>
+File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
+<use ../Data Acquisition/figures/psd_overlay.png>
+Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
+nput line 192.
+(pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
+[38
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.191 
-       <../Data Acquisition/figures/A1_PSD.png>]
-<../Data Acquisition/figures/psd_overlay.png, id=828, 650.43pt x 397.485pt>
-File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
-<use ../Data Acquisition/figures/psd_overlay.png>
-Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
-nput line 199.
-(pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
-<psd_vs_current.png, id=830, 607.068pt x 390.258pt>
+l.195 \end{figure}
+                   <../Data Acquisition/figures/A1_PSD.png>]
+<psd_vs_current.png, id=854, 607.068pt x 390.258pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
-Package pdftex.def Info: psd_vs_current.png  used on input line 208.
+Package pdftex.def Info: psd_vs_current.png  used on input line 201.
 (pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [36
+ [39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.212 
-       <../Data Acquisition/figures/psd_overlay.png>] [37
+l.205 
+       <../Data Acquisition/figures/psd_overlay.png>] [40
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.228 
+l.221 
        <./psd_vs_current.png>]
 
-LaTeX Warning: Citation `detector datasheet' on page 38 undefined on input line
- 245.
+LaTeX Warning: Citation `detector datasheet' on page 41 undefined on input line
+ 238.
 
 
-LaTeX Warning: Citation `laser datasheet' on page 38 undefined on input line 24
-5.
+LaTeX Warning: Citation `laser datasheet' on page 41 undefined on input line 23
+8.
 
-[38] [39]
-<../Data Acquisition/figures/psd_piin.png, id=873, 766.062pt x 404.712pt>
+[41] [42]
+<../Data Acquisition/figures/psd_piin.png, id=897, 766.062pt x 404.712pt>
 File: ../Data Acquisition/figures/psd_piin.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin.png  used on inpu
-t line 267.
+t line 261.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
- [40
+ [43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.278 
+l.272 
        <../Data Acquisition/figures/psd_piin.png>]
-<../Data Acquisition/figures/psd_piin_lengths.png, id=886, 766.062pt x 404.712p
+<../Data Acquisition/figures/psd_piin_lengths.png, id=910, 766.062pt x 404.712p
 t>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin_lengths.png  used
- on input line 283.
+ on input line 277.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
- [41
+ [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.312 
-       <../Data Acquisition/figures/psd_piin_lengths.png>]) [42
+l.306 
+       <../Data Acquisition/figures/psd_piin_lengths.png>]) [45
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.180 }
-       ]
+l.170 \include{Noise Analysis}
+                              ]
 \openout2 = `Results.aux'.
 
  (Results.tex
 Chapter 5.
-<../../../../../Downloads/fig_rig_side3d.pdf, id=903, 909.34059pt x 353.66838pt
->
-File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
-<use ../../../../../Downloads/fig_rig_side3d.pdf>
-Package pdftex.def Info: ../../../../../Downloads/fig_rig_side3d.pdf  used on i
-nput line 13.
-(pdftex.def)             Requested size: 455.24411pt x 177.06041pt.
-[43
+[46
 
 
 
 
 ]
 
-LaTeX Warning: Citation `f810 apc datasheet' on page 44 undefined on input line
- 17.
+LaTeX Warning: Citation `f810 apc datasheet' on page 47 undefined on input line
+ 21.
 
-[44
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.22 
-      <../../../../../Downloads/fig_rig_side3d.pdf>]
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=953, 766.062pt x 404.712pt
+<../../../../../Downloads/fig_rig_side3d.pdf, id=933, 909.34059pt x 353.66838pt
+>
+File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
+<use ../../../../../Downloads/fig_rig_side3d.pdf>
+Package pdftex.def Info: ../../../../../Downloads/fig_rig_side3d.pdf  used on i
+nput line 26.
+(pdftex.def)             Requested size: 455.24411pt x 177.06041pt.
+
+LaTeX Warning: Reference `(' on page 47 undefined on input line 36.
+
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=938, 766.062pt x 404.712pt
 >
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_rpm_overlay.png  used 
-on input line 29.
+on input line 51.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
-<../Data Acquisition/figures/peak_vs_rpm.png, id=954, 621.522pt x 375.804pt>
-File: ../Data Acquisition/figures/peak_vs_rpm.png Graphic file (type png)
-<use ../Data Acquisition/figures/peak_vs_rpm.png>
-Package pdftex.def Info: ../Data Acquisition/figures/peak_vs_rpm.png  used on i
-nput line 36.
-(pdftex.def)             Requested size: 455.24411pt x 275.26933pt.
- [45
+[47
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.54 \end{figure}
+                  <../../../../../Downloads/fig_rig_side3d.pdf>] [48
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.87 
-      <../Data Acquisition/figures/psd_rpm_overlay.png>] [46
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.91 \subsection
-                {Experimental Setup}
+l.107 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.91 \subsection
-                {Experimental Setup} <../Data Acquisition/figures/peak_vs_rpm.p
-ng>]
-Overfull \hbox (16.28003pt too wide) in paragraph at lines 149--150
-[] 
- []
+l.107 
+       <../Data Acquisition/figures/psd_rpm_overlay.png>]
+<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=996, 758.835pt x 448.07399
+pt>
+File: ../../../../../Downloads/fig_doppler_vs_rpm.pdf Graphic file (type pdf)
+<use ../../../../../Downloads/fig_doppler_vs_rpm.pdf>
+Package pdftex.def Info: ../../../../../Downloads/fig_doppler_vs_rpm.pdf  used 
+on input line 112.
+(pdftex.def)             Requested size: 455.24411pt x 268.81227pt.
+ [49
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.128 I
+       n summary, the experiment validates the Doppler measurement principle...
+ <../../../../../Downloads/fig_doppler_vs_rpm.pdf>] [50] [51
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.214  \begin{equation}
+                       ]
 
-) [47]
+LaTeX Warning: Reference `sec:design-DataAcquisition' on page 52 undefined on i
+nput line 223.
+
+) [52]
 \openout2 = `Discussion.aux'.
 
  (Discussion.tex
 Chapter 6.
-) [48
+) [53
 
 
 
@@ -1795,7 +1614,7 @@ Chapter 6.
 
  (Conclusions.tex
 Chapter 7.
-) [49
+) [54
 
 
 
@@ -1805,85 +1624,74 @@ Chapter 7.
 
  (Recommendations.tex
 Chapter 8.
-) [50
+) [55
 
 
 
 
-] (Project Report Template.bbl [51
+] (Project Report Template.bbl [56
 
 
 
 ]
 Underfull \hbox (badness 1092) in paragraph at lines 123--128
-[]\OT1/cmr/m/n/12 T. Mikkelsen, N. Angelou, K. Hansen, M. Sj^^?oholm, M. Harris
-, C. Slinger,
+[]\OT1/cmr/m/n/12 T. Mikkelsen, N. An-gelou, K. Hansen, M. Sj^^?oholm, M. Har-r
+is, C. Slinger,
  []
 
-[52]
+[57]
 Underfull \hbox (badness 6592) in paragraph at lines 165--171
-\OT1/cmr/m/n/12 Davoust.  Uncertainty of power curve measurement with a two-bea
-m
+\OT1/cmr/m/n/12 Davoust.  Un-cer-tainty of power curve mea-sure-ment with a two
+-beam
  []
 
 
 Underfull \hbox (badness 5504) in paragraph at lines 165--171
-\OT1/cmr/m/n/12 nacelle-mounted lidar.  \OT1/cmr/m/it/12 Wind Energy\OT1/cmr/m/
-n/12 , 19(7):1269--1287, 2016.  []-eprint:
+\OT1/cmr/m/n/12 nacelle-mounted li-dar.  \OT1/cmr/m/it/12 Wind En-ergy\OT1/cmr/
+m/n/12 , 19(7):1269--1287, 2016.  []-eprint:
  []
 
-) [53]
+) [58]
 \openout2 = `appendixa.aux'.
 
  (appendixa.tex
 Appendix A.
-[54
+[59
 
 
-]
-Overfull \hbox (39.09349pt too wide) in paragraph at lines 74--74
-[]\OT1/cmr/bx/n/17.28 A3: Supplementary Experiment on RIN Cancellation 
- []
-
-[55
+] [60
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.77 
      ]
-<psd_vs_current_single.png, id=1028, 607.068pt x 390.258pt>
+<psd_vs_current_single.png, id=1138, 607.068pt x 390.258pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
 Package pdftex.def Info: psd_vs_current_single.png  used on input line 80.
 (pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [56
+ [61
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.88 \end{equation}
-                    <./psd_vs_current_single.png>] [57
+l.86 \begin{equation}
+                      <./psd_vs_current_single.png>] [62] [63
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.138     \begin{equation}
-                          ] [58] [59
+l.188     \end{figure}
+                      ] [64
 pdfTeX warning (ext4): destination with the same identifier (name{figure.A.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.206     F
-           rom the two effects described above, it can clearly be seen that ...
-]
+l.205 
+      ]
 Underfull \hbox (badness 3098) in paragraph at lines 222--222
-[]|\OT1/cmr/m/n/12 Investigations, experiments and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
-[]|\OT1/cmr/m/n/12 Professional and technical
+[]|\OT1/cmr/m/n/12 Investigations, ex-per-i-ments and
  []
 
 
@@ -1891,12 +1699,12 @@ Overfull \hbox (21.90134pt too wide) in paragraph at lines 216--233
  [] 
  []
 
-) [60]
+) [65]
 \openout2 = `appendixb.aux'.
 
  (appendixb.tex
 Appendix B.
-) [61
+) [66
 
 
 
@@ -1919,16 +1727,16 @@ LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 8317533772B1EAA201670C5F56BE3FDB;13625.
+(rerunfilecheck)             Checksum: 2FB816F7C7A23E3F740797DCEA3A1F9E;13793.
  ) 
 Here is how much of TeX's memory you used:
- 37956 strings out of 467871
- 929718 string characters out of 5418376
- 1508321 words of memory out of 5000000
- 65957 multiletter control sequences out of 15000+600000
- 643466 words of font info for 98 fonts, out of 8000000 for 9000
+ 37975 strings out of 467871
+ 929866 string characters out of 5418376
+ 1515637 words of memory out of 5000000
+ 65964 multiletter control sequences out of 15000+600000
+ 643806 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,23n,118p,1654b,2356s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,23n,118p,1676b,2033s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0700.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1939,24 +1747,25 @@ KTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/thoma/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/thoma/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/thoma
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
-ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pf
+ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pf
 b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmib10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cmextra/cmmib8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thoma/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thoma/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/thoma/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/thoma
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
-ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pf
+cmmi8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmib10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cmextra/cmmib8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thoma/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thoma/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thoma/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/thom
+a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
+rs/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (71 pages, 1537711 bytes).
+cmsy7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmti8.pfb>
+Output written on "Project Report Template.pdf" (76 pages, 1542515 bytes).
 PDF statistics:
- 1226 PDF objects out of 1440 (max. 8388607)
- 243 named destinations out of 1000 (max. 500000)
- 659 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1346 PDF objects out of 1440 (max. 8388607)
+ 254 named destinations out of 1000 (max. 500000)
+ 667 words of extra memory for PDF output out of 10000 (max. 10000000)
 
