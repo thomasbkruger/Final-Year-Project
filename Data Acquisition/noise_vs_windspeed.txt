@@ -1,0 +1,84 @@
+Doppler peak power and local noise, D series (wind tunnel)
+generated: 2026-10-14 12:42:27 South Africa Standard Time
+captures:  20261012 (plus 20261009), one per speed setpoint; Welch nperseg=2500 (df = 50 kHz)
+mist xN:   the first N captures of that speed, averaged in power
+peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over the PSD's
+           own running median (61 bins), searched over 1-40 MHz; the power quoted
+           is the PSD of the bin nearest that centroid, not the largest bin and not
+           the integral under the peak
+noise:     3 x FWHM guard around the centroid, out to 2 MHz either side,
+           nothing below 50 kHz (near-DC spike)
+units:     V^2/Hz throughout
+
+              U  centroid     FWHM       PSD at   mean noise          std      5 x std     mean+5sd  cent/mean   bins
+                    (MHz)    (MHz)     centroid     (V^2/Hz)     (V^2/Hz)     (V^2/Hz)     (V^2/Hz)       (dB)       
+-----------------------------------------------------------------------------------------------------------------------------
+        3.5 m/s     3.637    0.450   4.7300e-12   3.0144e-12   7.8203e-14   3.9101e-13   3.4054e-12        2.0     53
+          5 m/s     5.868    0.500   4.7912e-12   3.4502e-12   7.4908e-14   3.7454e-13   3.8248e-12        1.4     50
+          6 m/s     6.892    0.500   3.7757e-12   2.4358e-12   3.0841e-14   1.5420e-13   2.5900e-12        1.9     50
+          7 m/s     7.997    0.500   3.4913e-12   2.2981e-12   3.9839e-14   1.9919e-13   2.4973e-12        1.8     50
+          8 m/s     9.280    0.450   5.3579e-12   4.3034e-12   8.1577e-14   4.0788e-13   4.7113e-12        1.0     53
+          9 m/s    10.611    0.550   3.6030e-12   2.7366e-12   4.2145e-14   2.1072e-13   2.9473e-12        1.2     47
+         10 m/s    11.664    0.550   5.1805e-12   4.1955e-12   5.3748e-14   2.6874e-13   4.4642e-12        0.9     47
+       11.3 m/s    13.837    0.650   4.5127e-12   3.9361e-12   5.3458e-14   2.6729e-13   4.2034e-12        0.6     41
+         21 m/s    24.674    0.500   4.2227e-12   3.6883e-12   5.1785e-14   2.5893e-13   3.9473e-12        0.6     50
+3.5 m/s mist x1     3.938    0.850   4.0554e-12   3.2039e-12   5.3764e-14   2.6882e-13   3.4728e-12        1.0     29
+3.5 m/s mist x2     3.956    0.900   3.6977e-12   2.9049e-12   4.1309e-14   2.0654e-13   3.1114e-12        1.0     26
+  5 m/s mist x1     5.730    0.800   4.8022e-12   4.4774e-12   9.0028e-14   4.5014e-13   4.9276e-12        0.3     32
+  5 m/s mist x2     5.716    1.000   4.0814e-12   3.8288e-12   8.7312e-14   4.3656e-13   4.2653e-12        0.3     20
+  5 m/s mist x3     5.726    0.750   4.2943e-12   4.0042e-12   8.0766e-14   4.0383e-13   4.4081e-12        0.3     35
+
+centroids NOT clearing mean + 5 sd: 5 m/s mist x1, 5 m/s mist x2, 5 m/s mist x3
+
+integrated excess power under each peak, above the local noise:
+          3.5 m/s  1.0254e-06 V^2  (guard +/-0.675 MHz, capture 20261009_135015)
+            5 m/s  8.8684e-07 V^2  (guard +/-0.750 MHz, capture 20261012_143806)
+            6 m/s  7.5522e-07 V^2  (guard +/-0.750 MHz, capture 20261012_145830)
+            7 m/s  7.0444e-07 V^2  (guard +/-0.750 MHz, capture 20261012_150022)
+            8 m/s  5.9897e-07 V^2  (guard +/-0.675 MHz, capture 20261012_150813)
+            9 m/s  6.0835e-07 V^2  (guard +/-0.825 MHz, capture 20261012_153845)
+           10 m/s  6.0022e-07 V^2  (guard +/-0.825 MHz, capture 20261012_150951)
+         11.3 m/s  5.2664e-07 V^2  (guard +/-0.975 MHz, capture 20261012_151234)
+           21 m/s  4.0061e-07 V^2  (guard +/-0.750 MHz, capture 20261012_151452)
+  3.5 m/s mist x1  1.0841e-06 V^2  (guard +/-1.275 MHz, capture 20261012_155822)
+  3.5 m/s mist x2  1.0377e-06 V^2  (guard +/-1.350 MHz, capture 20261012_155822..160505)
+    5 m/s mist x1  4.3823e-07 V^2  (guard +/-1.200 MHz, capture 20261012_160034)
+    5 m/s mist x2  4.4463e-07 V^2  (guard +/-1.500 MHz, capture 20261012_160034..160156)
+    5 m/s mist x3  3.7500e-07 V^2  (guard +/-1.125 MHz, capture 20261012_160034..160316)
+
+centroid against the largest bin, as a check on how far the two disagree:
+          3.5 m/s  centroid  3.637 MHz  argmax  3.600 MHz  offset   +37.1 kHz
+            5 m/s  centroid  5.868 MHz  argmax  5.800 MHz  offset   +67.8 kHz
+            6 m/s  centroid  6.892 MHz  argmax  6.850 MHz  offset   +42.1 kHz
+            7 m/s  centroid  7.997 MHz  argmax  7.950 MHz  offset   +47.5 kHz
+            8 m/s  centroid  9.280 MHz  argmax  9.300 MHz  offset   -19.8 kHz
+            9 m/s  centroid 10.611 MHz  argmax 10.550 MHz  offset   +61.5 kHz
+           10 m/s  centroid 11.664 MHz  argmax 11.650 MHz  offset   +14.3 kHz
+         11.3 m/s  centroid 13.837 MHz  argmax 13.850 MHz  offset   -13.3 kHz
+           21 m/s  centroid 24.674 MHz  argmax 24.650 MHz  offset   +24.1 kHz
+  3.5 m/s mist x1  centroid  3.938 MHz  argmax  4.050 MHz  offset  -112.4 kHz
+  3.5 m/s mist x2  centroid  3.956 MHz  argmax  4.100 MHz  offset  -144.1 kHz
+    5 m/s mist x1  centroid  5.730 MHz  argmax  5.600 MHz  offset  +129.8 kHz
+    5 m/s mist x2  centroid  5.716 MHz  argmax  5.850 MHz  offset  -133.5 kHz
+    5 m/s mist x3  centroid  5.726 MHz  argmax  5.850 MHz  offset  -124.0 kHz
+
+relative to each PSD's own noise floor (PSD / running median, in dB, as in the
+floor-normalised figures), over the same noise band:
+
+              U      peak  band mean   band sd  (peak-mean)/sd  clears 5 sd
+                     (dB)       (dB)      (dB)                             
+---------------------------------------------------------------------------
+        3.5 m/s     1.815     -0.039    0.0530            35.0          yes
+          5 m/s     1.340     -0.025    0.0641            21.3          yes
+          6 m/s     1.843     -0.034    0.0502            37.4          yes
+          7 m/s     1.749     -0.034    0.0676            26.4          yes
+          8 m/s     0.868     -0.051    0.0742            12.4          yes
+          9 m/s     1.099     -0.050    0.0743            15.5          yes
+         10 m/s     0.855     -0.029    0.0487            18.2          yes
+       11.3 m/s     0.526     -0.024    0.0555             9.9          yes
+         21 m/s     0.502     -0.025    0.0574             9.2          yes
+3.5 m/s mist x1     0.695     -0.050    0.0709            10.5          yes
+3.5 m/s mist x2     0.694     -0.042    0.0480            15.3          yes
+  5 m/s mist x1     0.141     -0.017    0.0543             2.9           NO
+  5 m/s mist x2     0.114     -0.000    0.0262             4.4           NO
+  5 m/s mist x3     0.160     -0.005    0.0243             6.8          yes

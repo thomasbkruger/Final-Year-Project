@@ -1,5 +1,5 @@
 Doppler peak power and local noise, C series
-generated: 2026-10-13 11:46:20 South Africa Standard Time
+generated: 2026-10-14 12:42:43 South Africa Standard Time
 captures:  20261009, capture #1 of each RPM, Welch nperseg=12500 (df = 10 kHz)
 peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over PIIN_4m;
            the power quoted is the PSD of the bin nearest that centroid, not the
