@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  14 OCT 2026 11:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  14 OCT 2026 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1430,11 +1430,7 @@ Overfull \hbox (23.37357pt too wide) in paragraph at lines 146--153
  [][] 
  []
 
-
-LaTeX Warning: Reference `sec:design-DataAcquisition' on page 37 undefined on i
-nput line 158.
-
-<../Data Acquisition/figures/A1_PSD.png, id=837, 650.43pt x 397.485pt>
+<../Data Acquisition/figures/A1_PSD.png, id=838, 650.43pt x 397.485pt>
 File: ../Data Acquisition/figures/A1_PSD.png Graphic file (type png)
 <use ../Data Acquisition/figures/A1_PSD.png>
 Package pdftex.def Info: ../Data Acquisition/figures/A1_PSD.png  used on input 
@@ -1451,7 +1447,7 @@ l.178
 LaTeX Warning: Citation `Koheron PD100B' on page 38 undefined on input line 183
 .
 
-<../Data Acquisition/figures/psd_overlay.png, id=846, 650.43pt x 397.485pt>
+<../Data Acquisition/figures/psd_overlay.png, id=847, 650.43pt x 397.485pt>
 File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
@@ -1464,7 +1460,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.195 \end{figure}
                    <../Data Acquisition/figures/A1_PSD.png>]
-<psd_vs_current.png, id=854, 607.068pt x 390.258pt>
+<psd_vs_current.png, id=855, 607.068pt x 390.258pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
 Package pdftex.def Info: psd_vs_current.png  used on input line 201.
@@ -1491,7 +1487,7 @@ LaTeX Warning: Citation `laser datasheet' on page 41 undefined on input line 23
 8.
 
 [41] [42]
-<../Data Acquisition/figures/psd_piin.png, id=897, 766.062pt x 404.712pt>
+<../Data Acquisition/figures/psd_piin.png, id=898, 766.062pt x 404.712pt>
 File: ../Data Acquisition/figures/psd_piin.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin.png  used on inpu
@@ -1504,7 +1500,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.272 
        <../Data Acquisition/figures/psd_piin.png>]
-<../Data Acquisition/figures/psd_piin_lengths.png, id=910, 766.062pt x 404.712p
+<../Data Acquisition/figures/psd_piin_lengths.png, id=911, 766.062pt x 404.712p
 t>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
@@ -1538,7 +1534,7 @@ Chapter 5.
 LaTeX Warning: Citation `f810 apc datasheet' on page 47 undefined on input line
  21.
 
-<../../../../../Downloads/fig_rig_side3d.pdf, id=933, 909.34059pt x 353.66838pt
+<../../../../../Downloads/fig_rig_side3d.pdf, id=934, 909.34059pt x 353.66838pt
 >
 File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_rig_side3d.pdf>
@@ -1548,7 +1544,7 @@ nput line 26.
 
 LaTeX Warning: Reference `(' on page 47 undefined on input line 36.
 
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=938, 766.062pt x 404.712pt
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=939, 766.062pt x 404.712pt
 >
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
@@ -1574,7 +1570,7 @@ as been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.107 
        <../Data Acquisition/figures/psd_rpm_overlay.png>]
-<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=996, 758.835pt x 448.07399
+<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=997, 758.835pt x 448.07399
 pt>
 File: ../../../../../Downloads/fig_doppler_vs_rpm.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_doppler_vs_rpm.pdf>
@@ -1594,12 +1590,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.214  \begin{equation}
-                       ]
-
-LaTeX Warning: Reference `sec:design-DataAcquisition' on page 52 undefined on i
-nput line 223.
-
-) [52]
+                       ]) [52]
 \openout2 = `Discussion.aux'.
 
  (Discussion.tex
@@ -1666,7 +1657,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.77 
      ]
-<psd_vs_current_single.png, id=1138, 607.068pt x 390.258pt>
+<psd_vs_current_single.png, id=1141, 607.068pt x 390.258pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
 Package pdftex.def Info: psd_vs_current_single.png  used on input line 80.
@@ -1725,14 +1716,20 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
-ed.
-(rerunfilecheck)             Checksum: 2FB816F7C7A23E3F740797DCEA3A1F9E;13793.
+
+Package rerunfilecheck Warning: File `"Project Report Template".out' has change
+d.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Project Report Template".out':
+(rerunfilecheck)             Before: 2FB816F7C7A23E3F740797DCEA3A1F9E;13793
+(rerunfilecheck)             After:  DDDD41406D16D7BE623D97A06D5D5389;13971.
  ) 
 Here is how much of TeX's memory you used:
- 37975 strings out of 467871
- 929866 string characters out of 5418376
- 1515637 words of memory out of 5000000
+ 37976 strings out of 467871
+ 929882 string characters out of 5418376
+ 1515681 words of memory out of 5000000
  65964 multiletter control sequences out of 15000+600000
  643806 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1763,9 +1760,9 @@ cmsy7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (76 pages, 1542515 bytes).
+Output written on "Project Report Template.pdf" (76 pages, 1543197 bytes).
 PDF statistics:
- 1346 PDF objects out of 1440 (max. 8388607)
- 254 named destinations out of 1000 (max. 500000)
+ 1349 PDF objects out of 1440 (max. 8388607)
+ 255 named destinations out of 1000 (max. 500000)
  667 words of extra memory for PDF output out of 10000 (max. 10000000)
 
