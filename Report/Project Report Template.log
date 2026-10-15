@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  14 OCT 2026 12:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  15 OCT 2026 16:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -194,28 +194,7 @@ MM)
 Package: lastpagemodern 2025-08-14 v2.1h Refers to last page's name (HMM; JPG)
 \c@lastpagecount=\count299
 ) 
-))
-(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.sty
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
-\subfigtopskip=\skip71
-\subfigcapskip=\skip72
-\subfigcaptopadj=\dimen168
-\subfigbottomskip=\skip73
-\subfigcapmargin=\dimen169
-\subfiglabelskip=\skip74
-\c@subfigure=\count300
-\c@lofdepth=\count301
-\c@subtable=\count302
-\c@lotdepth=\count303
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-
-(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.cfg
-)
-\subfig@top=\skip75
-\subfig@bottom=\skip76
-) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+)) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 ) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyphenat\hyphenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
@@ -269,20 +248,20 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count304
+\c@section@level=\count300
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count305
+\etb@tempcnta=\count301
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen170
-\Hy@linkcounter=\count306
-\Hy@pagecounter=\count307
+\@linkdim=\dimen168
+\Hy@linkcounter=\count302
+\Hy@pagecounter=\count303
  (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -290,7 +269,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count308
+\Hy@SavedSpaceFactor=\count304
  (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -303,14 +282,14 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count309
+\c@Hy@tempcnt=\count305
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen171
+\XeTeXLinkMargin=\dimen169
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -320,9 +299,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count310
-\Field@Width=\dimen172
-\Fld@charsize=\dimen173
+\Fld@menulength=\count306
+\Field@Width=\dimen170
+\Fld@charsize=\dimen171
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -330,16 +309,16 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count311
-\c@Item=\count312
-\c@Hfootnote=\count313
+\Hy@abspage=\count307
+\c@Item=\count308
+\c@Hfootnote=\count309
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count314
-\c@bookmark@seq@number=\count315
+\Fld@listcount=\count310
+\c@bookmark@seq@number=\count311
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -352,7 +331,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip77
+\Hy@SectionHShift=\skip71
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.rev
@@ -367,8 +346,8 @@ y
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
 \pgfutil@everybye=\toks31
-\pgfutil@tempdima=\dimen174
-\pgfutil@tempdimb=\dimen175
+\pgfutil@tempdima=\dimen172
+\pgfutil@tempdimb=\dimen173
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -latex.def
@@ -398,26 +377,26 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 libraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks34
 ))
-\pgf@x=\dimen176
-\pgf@y=\dimen177
-\pgf@xa=\dimen178
-\pgf@ya=\dimen179
-\pgf@xb=\dimen180
-\pgf@yb=\dimen181
-\pgf@xc=\dimen182
-\pgf@yc=\dimen183
-\pgf@xd=\dimen184
-\pgf@yd=\dimen185
+\pgf@x=\dimen174
+\pgf@y=\dimen175
+\pgf@xa=\dimen176
+\pgf@ya=\dimen177
+\pgf@xb=\dimen178
+\pgf@yb=\dimen179
+\pgf@xc=\dimen180
+\pgf@yc=\dimen181
+\pgf@xd=\dimen182
+\pgf@yd=\dimen183
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count316
-\c@pgf@countb=\count317
-\c@pgf@countc=\count318
-\c@pgf@countd=\count319
+\c@pgf@counta=\count312
+\c@pgf@countb=\count313
+\c@pgf@countc=\count314
+\c@pgf@countd=\count315
 \t@pgf@toka=\toks35
 \t@pgf@tokb=\toks36
 \t@pgf@tokc=\toks37
-\pgf@sys@id@count=\count320
+\pgf@sys@id@count=\count316
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
 fg
@@ -436,8 +415,8 @@ File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count321
-\pgfsyssoftpath@bigbuffer@items=\count322
+\pgfsyssoftpath@smallbuffer@items=\count317
+\pgfsyssoftpath@bigbuffer@items=\count318
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 sprotocol.code.tex
@@ -471,8 +450,8 @@ Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
 r.code.tex
-\pgfmath@dimen=\dimen186
-\pgfmath@count=\count323
+\pgfmath@dimen=\dimen184
+\pgfmath@count=\count319
 \pgfmath@box=\box56
 \pgfmath@toks=\toks38
 \pgfmath@stack@operand=\toks39
@@ -500,39 +479,39 @@ ions.integerarithmetics.code.tex)
 code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count324
+\c@pgfmathroundto@lastzeros=\count320
 ))
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
 tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen187
-\pgf@picmaxx=\dimen188
-\pgf@picminy=\dimen189
-\pgf@picmaxy=\dimen190
-\pgf@pathminx=\dimen191
-\pgf@pathmaxx=\dimen192
-\pgf@pathminy=\dimen193
-\pgf@pathmaxy=\dimen194
-\pgf@xx=\dimen195
-\pgf@xy=\dimen196
-\pgf@yx=\dimen197
-\pgf@yy=\dimen198
-\pgf@zx=\dimen199
-\pgf@zy=\dimen256
+\pgf@picminx=\dimen185
+\pgf@picmaxx=\dimen186
+\pgf@picminy=\dimen187
+\pgf@picmaxy=\dimen188
+\pgf@pathminx=\dimen189
+\pgf@pathmaxx=\dimen190
+\pgf@pathminy=\dimen191
+\pgf@pathmaxy=\dimen192
+\pgf@xx=\dimen193
+\pgf@xy=\dimen194
+\pgf@yx=\dimen195
+\pgf@yy=\dimen196
+\pgf@zx=\dimen197
+\pgf@zy=\dimen198
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen257
-\pgf@path@lasty=\dimen258
+\pgf@path@lastx=\dimen199
+\pgf@path@lasty=\dimen256
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen259
-\pgf@shorten@start@additional=\dimen260
+\pgf@shorten@end@additional=\dimen257
+\pgf@shorten@start@additional=\dimen258
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 escopes.code.tex
@@ -540,19 +519,19 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box57
 \pgf@hbox=\box58
 \pgf@layerbox@main=\box59
-\pgf@picture@serial@count=\count325
+\pgf@picture@serial@count=\count321
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen261
+\pgflinewidth=\dimen259
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 etransformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen262
-\pgf@pt@y=\dimen263
-\pgf@pt@temp=\dimen264
+\pgf@pt@x=\dimen260
+\pgf@pt@y=\dimen261
+\pgf@pt@temp=\dimen262
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 equick.code.tex
@@ -569,14 +548,14 @@ File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 earrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen265
+\pgfarrowsep=\dimen263
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count326
-\pgf@shadingcount=\count327
+\pgf@max=\dimen264
+\pgf@sys@shading@range@num=\count322
+\pgf@shadingcount=\count323
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eimage.code.tex
@@ -615,8 +594,8 @@ File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen267
-\pgf@nodesepend=\dimen268
+\pgf@nodesepstart=\dimen265
+\pgf@nodesepend=\dimen266
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-1-18.sty
@@ -634,8 +613,8 @@ ty
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
 code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen269
-\pgffor@skip=\dimen270
+\pgffor@iter=\dimen267
+\pgffor@skip=\dimen268
 \pgffor@stack=\toks41
 \pgffor@toks=\toks42
 ))
@@ -646,34 +625,34 @@ Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count328
-\pgfplotmarksize=\dimen271
+\pgf@plot@mark@count=\count324
+\pgfplotmarksize=\dimen269
 )
-\tikz@lastx=\dimen272
-\tikz@lasty=\dimen273
-\tikz@lastxsaved=\dimen274
-\tikz@lastysaved=\dimen275
-\tikz@lastmovetox=\dimen276
-\tikz@lastmovetoy=\dimen277
-\tikzleveldistance=\dimen278
-\tikzsiblingdistance=\dimen279
+\tikz@lastx=\dimen270
+\tikz@lasty=\dimen271
+\tikz@lastxsaved=\dimen272
+\tikz@lastysaved=\dimen273
+\tikz@lastmovetox=\dimen274
+\tikz@lastmovetoy=\dimen275
+\tikzleveldistance=\dimen276
+\tikzsiblingdistance=\dimen277
 \tikz@figbox=\box62
 \tikz@figbox@bg=\box63
 \tikz@tempbox=\box64
 \tikz@tempbox@bg=\box65
-\tikztreelevel=\count329
-\tikznumberofchildren=\count330
-\tikznumberofcurrentchild=\count331
-\tikz@fig@count=\count332
+\tikztreelevel=\count325
+\tikznumberofchildren=\count326
+\tikznumberofcurrentchild=\count327
+\tikz@fig@count=\count328
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count333
-\pgfmatrixcurrentcolumn=\count334
-\pgf@matrix@numberofcolumns=\count335
+\pgfmatrixcurrentrow=\count329
+\pgfmatrixcurrentcolumn=\count330
+\pgf@matrix@numberofcolumns=\count331
 )
-\tikz@expandcount=\count336
+\tikz@expandcount=\count332
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarytopaths.code.tex
@@ -686,9 +665,9 @@ e.tex
 \t@pgfplots@toka=\toks43
 \t@pgfplots@tokb=\toks44
 \t@pgfplots@tokc=\toks45
-\pgfplots@tmpa=\dimen280
-\c@pgfplots@coordindex=\count337
-\c@pgfplots@scanlineindex=\count338
+\pgfplots@tmpa=\dimen278
+\c@pgfplots@coordindex=\count333
+\c@pgfplots@scanlineindex=\count334
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplots
 sysgeneric.code.tex))
@@ -713,13 +692,13 @@ e\pgfplotsliststructure.code.tex)
 e\pgfplotsliststructureext.code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count339
+\c@pgfplotsarray@tmp=\count335
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsmatrix.code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
 plotstableshared.code.tex
-\c@pgfplotstable@counta=\count340
+\c@pgfplotstable@counta=\count336
 \t@pgfplotstable@a=\toks49
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
@@ -732,7 +711,7 @@ sbinary.data.code.tex))
 sutil.verb.code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibr
 arypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count341
+\c@pgfplotslibrarysurf@no=\count337
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibra
 rypgfplots.surfshading.pgfsys-pdftex.def)))
@@ -764,14 +743,14 @@ hs.code.tex)
 z/libraries\tikzlibrarydecorations.code.tex
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 decorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen281
-\pgfdecoratedremainingdistance=\dimen282
-\pgfdecoratedinputsegmentcompleteddistance=\dimen283
-\pgfdecoratedinputsegmentremainingdistance=\dimen284
-\pgf@decorate@distancetomove=\dimen285
-\pgf@decorate@repeatstate=\count342
-\pgfdecorationsegmentamplitude=\dimen286
-\pgfdecorationsegmentlength=\dimen287
+\pgfdecoratedcompleteddistance=\dimen279
+\pgfdecoratedremainingdistance=\dimen280
+\pgfdecoratedinputsegmentcompleteddistance=\dimen281
+\pgfdecoratedinputsegmentremainingdistance=\dimen282
+\pgf@decorate@distancetomove=\dimen283
+\pgf@decorate@repeatstate=\count338
+\pgfdecorationsegmentamplitude=\dimen284
+\pgfdecorationsegmentlength=\dimen285
 )
 \tikz@lib@dec@box=\box66
 )
@@ -785,13 +764,13 @@ z/libraries\tikzlibrarydecorations.pathreplacing.code.tex
 ions\pgflibrarydecorations.pathreplacing.code.tex))
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
 rarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count343
-\pgfplots@xmin@reg=\dimen288
-\pgfplots@xmax@reg=\dimen289
-\pgfplots@ymin@reg=\dimen290
-\pgfplots@ymax@reg=\dimen291
-\pgfplots@zmin@reg=\dimen292
-\pgfplots@zmax@reg=\dimen293
+\pgfplots@numplots=\count339
+\pgfplots@xmin@reg=\dimen286
+\pgfplots@xmax@reg=\dimen287
+\pgfplots@ymin@reg=\dimen288
+\pgfplots@ymax@reg=\dimen289
+\pgfplots@zmin@reg=\dimen290
+\pgfplots@zmax@reg=\dimen291
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryplotmarks.code.tex
@@ -803,7 +782,7 @@ File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )))
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count344
+\c@float@type=\count340
 \float@exts=\toks50
 \float@box=\box67
 \@float@everytoks=\toks51
@@ -811,38 +790,38 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen294
-\lightrulewidth=\dimen295
-\cmidrulewidth=\dimen296
-\belowrulesep=\dimen297
-\belowbottomsep=\dimen298
-\aboverulesep=\dimen299
-\abovetopsep=\dimen300
-\cmidrulesep=\dimen301
-\cmidrulekern=\dimen302
-\defaultaddspace=\dimen303
-\@cmidla=\count345
-\@cmidlb=\count346
-\@aboverulesep=\dimen304
-\@belowrulesep=\dimen305
-\@thisruleclass=\count347
-\@lastruleclass=\count348
-\@thisrulewidth=\dimen306
+\heavyrulewidth=\dimen292
+\lightrulewidth=\dimen293
+\cmidrulewidth=\dimen294
+\belowrulesep=\dimen295
+\belowbottomsep=\dimen296
+\aboverulesep=\dimen297
+\abovetopsep=\dimen298
+\cmidrulesep=\dimen299
+\cmidrulekern=\dimen300
+\defaultaddspace=\dimen301
+\@cmidla=\count341
+\@cmidlb=\count342
+\@aboverulesep=\dimen302
+\@belowrulesep=\dimen303
+\@thisruleclass=\count343
+\@lastruleclass=\count344
+\@thisrulewidth=\dimen304
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2026-09-18 v3.6.2 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count349
-\l__siunitx_number_exponent_fixed_int=\count350
-\l__siunitx_number_min_decimal_int=\count351
-\l__siunitx_number_min_integer_int=\count352
-\l__siunitx_number_round_precision_int=\count353
-\l__siunitx_number_lower_threshold_int=\count354
-\l__siunitx_number_upper_threshold_int=\count355
-\l__siunitx_number_group_first_int=\count356
-\l__siunitx_number_group_size_int=\count357
-\l__siunitx_number_group_min_int=\count358
-\l__siunitx_number_group_minimum_int=\count359
-\l__siunitx_compound_count_int=\count360
+\l__siunitx_number_uncert_offset_int=\count345
+\l__siunitx_number_exponent_fixed_int=\count346
+\l__siunitx_number_min_decimal_int=\count347
+\l__siunitx_number_min_integer_int=\count348
+\l__siunitx_number_round_precision_int=\count349
+\l__siunitx_number_lower_threshold_int=\count350
+\l__siunitx_number_upper_threshold_int=\count351
+\l__siunitx_number_group_first_int=\count352
+\l__siunitx_number_group_size_int=\count353
+\l__siunitx_number_group_min_int=\count354
+\l__siunitx_number_group_minimum_int=\count355
+\l__siunitx_compound_count_int=\count356
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/translations\translatio
 ns.sty
@@ -851,38 +830,66 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
 )
 Include code introduced on 2026-09-12
 \l__siunitx_table_tmp_box=\box69
-\l__siunitx_table_tmp_dim=\dimen307
-\l__siunitx_table_column_width_dim=\dimen308
+\l__siunitx_table_tmp_dim=\dimen305
+\l__siunitx_table_column_width_dim=\dimen306
 \l__siunitx_table_integer_box=\box70
 \l__siunitx_table_decimal_box=\box71
 \l__siunitx_table_uncert_box=\box72
 \l__siunitx_table_before_box=\box73
 \l__siunitx_table_after_box=\box74
-\l__siunitx_table_before_dim=\dimen309
-\l__siunitx_table_carry_dim=\dimen310
-\l__siunitx_unit_tmp_int=\count361
-\l__siunitx_unit_position_int=\count362
-\l__siunitx_unit_total_int=\count363
-\l__siunitx_sexagesimal_tmp_dim=\dimen311
+\l__siunitx_table_before_dim=\dimen307
+\l__siunitx_table_carry_dim=\dimen308
+\l__siunitx_unit_tmp_int=\count357
+\l__siunitx_unit_position_int=\count358
+\l__siunitx_unit_total_int=\count359
+\l__siunitx_sexagesimal_tmp_dim=\dimen309
 \l__siunitx_sexagesimal_marker_box=\box75
 \l__siunitx_sexagesimal_unit_box=\box76
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen312
+\col@sep=\dimen310
 \ar@mcellbox=\box77
-\extrarowheight=\dimen313
+\extrarowheight=\dimen311
 \NC@list=\toks52
-\extratabsurround=\skip78
-\backup@length=\skip79
+\extratabsurround=\skip72
+\backup@length=\skip73
 \ar@cellbox=\box78
 ))
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen312
+\captionmargin=\dimen313
+\caption@leftmargin=\dimen314
+\caption@rightmargin=\dimen315
+\caption@width=\dimen316
+\caption@indent=\dimen317
+\caption@parindent=\dimen318
+\caption@hangindent=\dimen319
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count360
+\c@continuedfloat=\count361
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count362
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count363
+)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen314
-\pgfarrowlength=\dimen315
-\pgfarrowwidth=\dimen316
-\pgfarrowlinewidth=\dimen317
+\pgfarrowinset=\dimen320
+\pgfarrowlength=\dimen321
+\pgfarrowwidth=\dimen322
+\pgfarrowlinewidth=\dimen323
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypositioning.code.tex
@@ -988,13 +995,13 @@ LaTeX Font Info:    ... okay on input line 39.
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count365
-\scratchdimen=\dimen318
+\scratchdimen=\dimen324
 \scratchbox=\box81
 \nofMPsegments=\count366
 \nofMParguments=\count367
 \everyMPshowfont=\toks53
 \MPscratchCnt=\count368
-\MPscratchDim=\dimen319
+\MPscratchDim=\dimen325
 \MPnumerator=\count369
 \makeMPintoPDFobject=\count370
 \everyMPtoPDFconversion=\toks54
@@ -1026,7 +1033,9 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 39.
-<uctLogo.png, id=306, 418.56375pt x 425.59pt>
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+<uctLogo.png, id=310, 418.56375pt x 425.59pt>
 File: uctLogo.png Graphic file (type png)
 <use uctLogo.png>
 Package pdftex.def Info: uctLogo.png  used on input line 53.
@@ -1163,13 +1172,7 @@ File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 54.
 
-[21
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.118 
-      ]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 137--137
 []|\OT1/cmr/bx/n/10.95 Verified
  []
@@ -1199,13 +1202,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--148
 \OT1/cmr/m/n/10.95 wind-speed in
  []
 
-[22] [23
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.162 
-      ] [24]
+[22] [23] [24]
 
 LaTeX Warning: Reference `sec:noiseAnalysis' on page 25 undefined on input line
  192.
@@ -1319,53 +1316,30 @@ LaTeX Warning: Reference `appendix:laser' on page 27 undefined on input line 25
 LaTeX Warning: Reference `appendix:laser' on page 27 undefined on input line 25
 4.
 
-[27
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 
-      ]
+[27]
 
 LaTeX Warning: Citation `Gwinner2024' on page 28 undefined on input line 258.
 
 
 LaTeX Warning: Citation `Gwinner2024' on page 28 undefined on input line 260.
 
-[28
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.302 
-      ]
+[28]
 
-LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
-24.
+Package caption Warning: \label without proper reference on input line 310.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:pd100b' on page 29 undefined on input line 306.
 
 
 LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
 24.
 
-[29
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.328 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.328 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.328 
-      ] [30]
+
+LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
+24.
+
+[29] [30]
 
 LaTeX Warning: Reference `sec:testingA' on page 31 undefined on input line 366.
 
@@ -1374,19 +1348,15 @@ LaTeX Warning: Reference `sec:testingA' on page 31 undefined on input line 366.
 LaTeX Warning: Reference `sec:lit-Optics' on page 31 undefined on input line 36
 9.
 
-[31] [32
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.414 
-      ]) [33] [34
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.169 \include{System Design}
-                             ]
+
+Package caption Warning: \label without proper reference on input line 384.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:collimator' on page 31 undefined on input line 37
+1.
+
+[31] [32]) [33] [34]
 \openout2 = `"Noise Analysis.aux"'.
 
  (Noise Analysis.tex
@@ -1404,18 +1374,7 @@ LaTeX Warning: Reference `sec:functionalAnalysis' on page 35 undefined on input
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 40--136
-[][]
- []
-
-[36
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.141 
-      ]
+] [36]
 Underfull \hbox (badness 5622) in paragraph at lines 150--150
 []|\OT1/cmr/m/n/12 Electronic noise + shot
  []
@@ -1430,172 +1389,183 @@ Overfull \hbox (23.37357pt too wide) in paragraph at lines 146--153
  [][] 
  []
 
-<../Data Acquisition/figures/A1_PSD.png, id=838, 650.43pt x 397.485pt>
-File: ../Data Acquisition/figures/A1_PSD.png Graphic file (type png)
-<use ../Data Acquisition/figures/A1_PSD.png>
-Package pdftex.def Info: ../Data Acquisition/figures/A1_PSD.png  used on input 
-line 171.
-(pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
-[37
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.178 
-      ]
+[37]
 
-LaTeX Warning: Citation `Koheron PD100B' on page 38 undefined on input line 183
+LaTeX Warning: Citation `Koheron PD100B' on page 38 undefined on input line 178
 .
 
-<../Data Acquisition/figures/psd_overlay.png, id=847, 650.43pt x 397.485pt>
+<../Data Acquisition/figures/psd_overlay.png, id=849, 650.43pt x 397.485pt>
 File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
-nput line 192.
+nput line 187.
 (pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
-[38
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.195 \end{figure}
-                   <../Data Acquisition/figures/A1_PSD.png>]
-<psd_vs_current.png, id=855, 607.068pt x 390.258pt>
+[38 <../Data Acquisition/figures/psd_overlay.png>]
+<psd_vs_current.png, id=859, 607.068pt x 390.258pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
-Package pdftex.def Info: psd_vs_current.png  used on input line 201.
+Package pdftex.def Info: psd_vs_current.png  used on input line 196.
 (pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [39
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.205 
-       <../Data Acquisition/figures/psd_overlay.png>] [40
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.221 
-       <./psd_vs_current.png>]
+ [39 <./psd_vs_current.png>]
 
-LaTeX Warning: Citation `detector datasheet' on page 41 undefined on input line
- 238.
+LaTeX Warning: Citation `detector datasheet' on page 40 undefined on input line
+ 233.
 
 
-LaTeX Warning: Citation `laser datasheet' on page 41 undefined on input line 23
-8.
+LaTeX Warning: Citation `laser datasheet' on page 40 undefined on input line 23
+3.
 
-[41] [42]
-<../Data Acquisition/figures/psd_piin.png, id=898, 766.062pt x 404.712pt>
-File: ../Data Acquisition/figures/psd_piin.png Graphic file (type png)
-<use ../Data Acquisition/figures/psd_piin.png>
-Package pdftex.def Info: ../Data Acquisition/figures/psd_piin.png  used on inpu
-t line 261.
-(pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
- [43
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.272 
-       <../Data Acquisition/figures/psd_piin.png>]
-<../Data Acquisition/figures/psd_piin_lengths.png, id=911, 766.062pt x 404.712p
+[40]
+
+LaTeX Warning: Reference `ch:functional' on page 41 undefined on input line 255
+.
+
+[41]
+
+LaTeX Warning: Reference `fig:piin' on page 42 undefined on input line 259.
+
+
+LaTeX Warning: Reference `tab:piin_cables' on page 42 undefined on input line 2
+59.
+
+[42]
+<../Data Acquisition/figures/psd_piin_lengths.png, id=904, 766.062pt x 404.712p
 t>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin_lengths.png  used
- on input line 277.
+ on input line 288.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
- [44
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.306 
-       <../Data Acquisition/figures/psd_piin_lengths.png>]) [45
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.170 \include{Noise Analysis}
-                              ]
+
+
+LaTeX Warning: Reference `app:linewidth' on page 43 undefined on input line 294
+.
+
+
+LaTeX Warning: Citation `harris1998' on page 43 undefined on input line 296.
+
+) [43 <../Data Acquisition/figures/psd_piin_lengths.png>] [44]
 \openout2 = `Results.aux'.
 
  (Results.tex
 Chapter 5.
-[46
+[45
 
 
 
 
 ]
 
-LaTeX Warning: Citation `f810 apc datasheet' on page 47 undefined on input line
- 21.
+LaTeX Warning: Citation `f810 apc datasheet' on page 46 undefined on input line
+ 22.
 
-<../../../../../Downloads/fig_rig_side3d.pdf, id=934, 909.34059pt x 353.66838pt
+<../../../../../Downloads/fig_rig_side3d.pdf, id=926, 909.34059pt x 353.66838pt
 >
 File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_rig_side3d.pdf>
 Package pdftex.def Info: ../../../../../Downloads/fig_rig_side3d.pdf  used on i
-nput line 26.
+nput line 27.
 (pdftex.def)             Requested size: 455.24411pt x 177.06041pt.
 
-LaTeX Warning: Reference `(' on page 47 undefined on input line 36.
+LaTeX Warning: Reference `(' on page 46 undefined on input line 37.
 
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=939, 766.062pt x 404.712pt
+
+Package caption Warning: \label without proper reference on input line 61.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:doppler_vs_rpm' on page 46 undefined on input lin
+e 49.
+
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=931, 766.062pt x 404.712pt
 >
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_rpm_overlay.png  used 
-on input line 51.
+on input line 52.
 (pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
-[47
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.54 \end{figure}
-                  <../../../../../Downloads/fig_rig_side3d.pdf>] [48
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.107 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.107 
-       <../Data Acquisition/figures/psd_rpm_overlay.png>]
-<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=997, 758.835pt x 448.07399
+[46 <../../../../../Downloads/fig_rig_side3d.pdf>]
+Overfull \hbox (16.21693pt too wide) in paragraph at lines 64--90
+ [][] 
+ []
+
+[47 <../Data Acquisition/figures/psd_rpm_overlay.png>]
+<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=989, 758.835pt x 448.07399
 pt>
 File: ../../../../../Downloads/fig_doppler_vs_rpm.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_doppler_vs_rpm.pdf>
 Package pdftex.def Info: ../../../../../Downloads/fig_doppler_vs_rpm.pdf  used 
 on input line 112.
 (pdftex.def)             Requested size: 455.24411pt x 268.81227pt.
- [49
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.128 I
-       n summary, the experiment validates the Doppler measurement principle...
- <../../../../../Downloads/fig_doppler_vs_rpm.pdf>] [50] [51
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.214  \begin{equation}
-                       ]) [52]
+ [48 <../../../../../Downloads/fig_doppler_vs_rpm.pdf>]
+
+Package caption Warning: \label without proper reference on input line 148.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:DRig' on page 49 undefined on input line 145.
+
+[49] [50]
+
+Package caption Warning: \label without proper reference on input line 243.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:doppler_vs_windspeed' on page 51 undefined on inp
+ut line 230.
+
+[51]
+<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=1090, 1156.32p
+t x 549.252pt>
+File: ../Data Acquisition/figures/psd_windtunnel_overlay_pair.png Graphic file 
+(type png)
+<use ../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>
+Package pdftex.def Info: ../Data Acquisition/figures/psd_windtunnel_overlay_pai
+r.png  used on input line 234.
+(pdftex.def)             Requested size: 500.77129pt x 237.8667pt.
+
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 234--235
+ [][] 
+ []
+
+
+Overfull \hbox (28.49728pt too wide) in paragraph at lines 246--275
+ [][] 
+ []
+
+[52 <../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>]
+<../Data Acquisition/figures/peak_vs_windtunnel_speed.png, id=1099, 621.522pt x
+ 375.804pt>
+File: ../Data Acquisition/figures/peak_vs_windtunnel_speed.png Graphic file (ty
+pe png)
+<use ../Data Acquisition/figures/peak_vs_windtunnel_speed.png>
+Package pdftex.def Info: ../Data Acquisition/figures/peak_vs_windtunnel_speed.p
+ng  used on input line 291.
+(pdftex.def)             Requested size: 455.24411pt x 275.26933pt.
+<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1100, 953.964pt x 
+332.442pt>
+File: ../Data Acquisition/figures/psd_5mps_mist_averaging.png Graphic file (typ
+e png)
+<use ../Data Acquisition/figures/psd_5mps_mist_averaging.png>
+Package pdftex.def Info: ../Data Acquisition/figures/psd_5mps_mist_averaging.pn
+g  used on input line 298.
+(pdftex.def)             Requested size: 455.24411pt x 158.64711pt.
+
+
+Package caption Warning: \label without proper reference on input line 243.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:doppler_vs_windspeed' on page 53 undefined on inp
+ut line 344.
+
+[53 <../Data Acquisition/figures/peak_vs_windtunnel_speed.png>]) [54 <../Data A
+cquisition/figures/psd_5mps_mist_averaging.png>]
 \openout2 = `Discussion.aux'.
 
  (Discussion.tex
 Chapter 6.
-) [53
+) [55
 
 
 
@@ -1605,7 +1575,7 @@ Chapter 6.
 
  (Conclusions.tex
 Chapter 7.
-) [54
+) [56
 
 
 
@@ -1615,12 +1585,12 @@ Chapter 7.
 
  (Recommendations.tex
 Chapter 8.
-) [55
+) [57
 
 
 
 
-] (Project Report Template.bbl [56
+] (Project Report Template.bbl [58
 
 
 
@@ -1630,7 +1600,7 @@ Underfull \hbox (badness 1092) in paragraph at lines 123--128
 is, C. Slinger,
  []
 
-[57]
+[59]
 Underfull \hbox (badness 6592) in paragraph at lines 165--171
 \OT1/cmr/m/n/12 Davoust.  Un-cer-tainty of power curve mea-sure-ment with a two
 -beam
@@ -1642,60 +1612,46 @@ Underfull \hbox (badness 5504) in paragraph at lines 165--171
 m/n/12 , 19(7):1269--1287, 2016.  []-eprint:
  []
 
-) [58]
+) [60]
 \openout2 = `appendixa.aux'.
 
  (appendixa.tex
 Appendix A.
-[59
+[61
 
 
-] [60
-pdfTeX warning (ext4): destination with the same identifier (name{figure.A.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.77 
-     ]
-<psd_vs_current_single.png, id=1141, 607.068pt x 390.258pt>
+] [62]
+<psd_vs_current_single.png, id=1161, 607.068pt x 390.258pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
 Package pdftex.def Info: psd_vs_current_single.png  used on input line 80.
 (pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [61
-pdfTeX warning (ext4): destination with the same identifier (name{figure.A.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.86 \begin{equation}
-                      <./psd_vs_current_single.png>] [62] [63
-pdfTeX warning (ext4): destination with the same identifier (name{figure.A.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.188     \end{figure}
-                      ] [64
-pdfTeX warning (ext4): destination with the same identifier (name{figure.A.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.205 
-      ]
-Underfull \hbox (badness 3098) in paragraph at lines 222--222
+ [63 <./psd_vs_current_single.png>] [64] [65] [66]
+<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1207, 1214.136pt x 78
+0.516pt>
+File: ../Data Acquisition/figures/psd_windtunnel_cases.png Graphic file (type p
+ng)
+<use ../Data Acquisition/figures/psd_windtunnel_cases.png>
+Package pdftex.def Info: ../Data Acquisition/figures/psd_windtunnel_cases.png  
+used on input line 219.
+(pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
+
+Underfull \hbox (badness 3098) in paragraph at lines 232--232
 []|\OT1/cmr/m/n/12 Investigations, ex-per-i-ments and
  []
 
 
-Overfull \hbox (21.90134pt too wide) in paragraph at lines 216--233
+Overfull \hbox (21.90134pt too wide) in paragraph at lines 226--243
  [] 
  []
 
-) [65]
+[67 <../Data Acquisition/figures/psd_windtunnel_cases.png>]) [68]
 \openout2 = `appendixb.aux'.
 
- (appendixb.tex
+
+(appendixb.tex
 Appendix B.
-) [66
+) [69
 
 
 
@@ -1716,24 +1672,18 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `"Project Report Template".out' has change
-d.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Project Report Template".out':
-(rerunfilecheck)             Before: 2FB816F7C7A23E3F740797DCEA3A1F9E;13793
-(rerunfilecheck)             After:  DDDD41406D16D7BE623D97A06D5D5389;13971.
+Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
+ed.
+(rerunfilecheck)             Checksum: 9708898E99136D0ADAFD8CE7D344A190;14155.
  ) 
 Here is how much of TeX's memory you used:
- 37976 strings out of 467871
- 929882 string characters out of 5418376
- 1515681 words of memory out of 5000000
- 65964 multiletter control sequences out of 15000+600000
- 643806 words of font info for 99 fonts, out of 8000000 for 9000
+ 39256 strings out of 467871
+ 957008 string characters out of 5418376
+ 1529078 words of memory out of 5000000
+ 67232 multiletter control sequences out of 15000+600000
+ 644114 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,23n,118p,1676b,2033s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,23n,118p,1676b,2059s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0700.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1746,23 +1696,24 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/thoma
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
 ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pf
 b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmi8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmmib10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cmextra/cmmib8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thoma/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thoma/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thoma/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/thom
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
-rs/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsy7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (76 pages, 1543197 bytes).
+cmmi7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/thoma/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thoma/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thoma/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/tho
+ma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Us
+ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmsy7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on "Project Report Template.pdf" (79 pages, 2775613 bytes).
 PDF statistics:
- 1349 PDF objects out of 1440 (max. 8388607)
- 255 named destinations out of 1000 (max. 500000)
- 667 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1384 PDF objects out of 1440 (max. 8388607)
+ 264 named destinations out of 1000 (max. 500000)
+ 685 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -164,17 +164,12 @@
 
 \subsection{Results and Discussion}
 \subsubsection{A1: Electronic Noise}
-The power spectral density plot in \autoref{fig:A1PSD} was obtained from measurement A1, which gives the electronic noise from the detector only:
+The PSD for the measurement was obtained which gives the electronic noise from the detector only. The average PSD over the 5 - 20MHz band is calculated (using the script) as:
+\begin{equation}
+	PSD_{avg (5 - 20MHz)} = 8.06\times 10^{-14}V^2/Hz
+\end{equation}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/A1_PSD"}
-	\caption{A1: PSD of electronic noise from detector}
-	\label{fig:A1PSD}
-\end{figure}
-
-
-The obtained PSD plot is noisy, despite the use of the Welch PSD and averaging, however it is sufficient for the purposes of this investigation. It can be seen that the electronic noise increases with frequency. The average PSD over the 5 - 20MHz band is calculated (using the script) as: $8.06\times 10^{-14}V^2/Hz$. Using the PD100B detector's gain value of 39kV/A, this can be converted into an average input noise current density across 5 - 20MHz, for comparison to the PD100B datasheet:
+Using the PD100B detector's gain value of 39kV/A, this can be converted into an average input noise current density across 5 - 20MHz, for comparison to the PD100B datasheet:
 
 \begin{equation}
     I_{input} = \frac{8.06\times 10^{-14}V^2/Hz}{(39kV/A)^2}=7.28pA/\sqrt{Hz}
@@ -251,33 +246,17 @@ As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{
  \subsection{Experimental Methodology}
  For this experiment, the system is set up in full, as given by the final design in \autoref{fig:finalDesign}. The collimator is then pointed at a stationary matte-black painted surface, angled 45 degrees away from the collimator, and at a distance of 10cm from the collimator. Any reflections from the target surface will not be Doppler shifted, because it is stationary - thus, if these reflections are sent back into the collimator, they will appear at the output as additional PIIN (see Appendix \ref{appendix:PIIN}). This setup thus intends to absorb and reflect a large amount of the emitted light \textbf{away} from the system, so that the measured PIIN can be attributed to only the internal reflections in the system from the collimator and circulator, which is independent of target. 
  
- The laser is then driven with a current of 48mA (the chosen operating point for LO power), and the same oscilloscope acquisition chain and post-processing chain (Welch PSD) as in experiment A is used to obtain the PIIN power. As discussed in \cite{jiang_performance_2019}, PIIN can vary drastically depending on temperature, or small disturbances in the system's fiber optics, thus this measurement is repeated 16 times over the course of an hour to account for such variations. The average noise power as well as the spread from these measurements can then be computed. 
+ The laser is then driven with a current of 48mA (the chosen operating point for LO power), and the same oscilloscope acquisition chain and post-processing chain (Welch PSD) as in experiment A is used to obtain the PIIN power. As discussed in \cite{jiang_performance_2019}, PIIN can vary drastically depending on temperature, or small disturbances in the system's fiber optics, thus this measurement is repeated 10 times over the course of an hour to account for such variations. The average noise power as well as the spread from these measurements can then be computed. 
  
- \subsection{Results and Discussion}
- \autoref{fig:psdpiin} below gives the averaged PSD of the obtained noise measurements, with the electronic noise floor and the total noise floor (excluding PIIN) from Experiment A2 given as reference. 
- 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_piin"}
-	\caption{Experiment B: Total noise in the system, including PIIN}
-	\label{fig:psdpiin}
-\end{figure}
 
- It can be seen that the total noise is now significantly above that measured in A2, owing to the excess noise introduced by PIIN. It can also be seen that as expected, PIIN varied significantly between measurements. In the 5 - 20MHz band, the total excess noise was measured to be from 12.2 to 14.2dB above the A2 noise floor, for a given frequency. It can also be seen that this excess noise is not constant, and starts rolling off steeply from approximately 10MHz. The shape of the PIIN corresponds to the $L_c \gg \Delta L$ regime described in Appendix \ref{appendix:PIIN}, as it is a flat floor and does not contain a Lorentzian peak at baseband.
- 
- From these results it is thus clear that in this system, PIIN dominates other noise sources by a large amount, especially at lower frequencies. It is thus the largest single noise contributor in the total SNR of the system when trying to measure a Doppler peak, and the system is therefore no longer shot-noise limited (the ideal case).  
- 
- \subsection{Reducing PIIN}
- The experiments in \autoref{sec:functionalTesting} were performed using the system as is, with the PIIN-limited behaviour observed and described above. It was found that while the system could adequately detect the velocity of a hard-target, it did not have enough sensitivity to detect the velocity of a seeded air-flow, owing to the high noise floor from PIIN. It was thus decided that an attempt would be made to reduce PIIN, from the theory discussed in \autoref{sec:lit-noiseSources} and elaborated in Appendix \ref{appendix:PIIN}. Obtaining a narrower linewidth laser source is out of budget for this project, thus the only remaining option was to attempt to better match the fiber optic path length between the LO and the received signal. This allows the LO and the received signal to be more coherent in phase at the mixer, resulting in a less noisy output. This is because the travel-time for both will be closer matched, meaning that the phase of the laser will not have been able to "wander" by as much between the two signals.
- 
- FC/APC fiber patch cords of varying lengths were obtained and inserted in between the 10\% splitter arm and the one arm of the 50:50 mixer, to effectively increase the LO path length, in an attempt to closer match the longer path length followed by the received signal (which traverses the collimator and free-space twice, in excess of the LO path). The total system noise, including PIIN, of the system was measured for each length of patch-cable using the same methodology previously described, with 10 averages for each patch cable length. The results are given in \autoref{fig:psdpiinlengths} and \autoref{tab:piin_matching}:
- 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_piin_lengths"}
-	\caption{Total noise in the system for different inserted patch-cable lengths}
-	\label{fig:psdpiinlengths}
-\end{figure}
+\subsection{Results and Discussion}
+
+\subsubsection{Initial Results}
+The total noise was found to be significantly above that measured in A2, owing to the excess noise introduced by PIIN. In the 5--20\,MHz band, the total noise was measured to be 22.1\,dB above the shot-noise floor. PIIN is thus the largest single noise contributor in the system, and the system is therefore no longer shot-noise limited. Experiments C and D (Chapter~\ref{ch:functional}) were first attempted using the system as is, with the PIIN-limited behaviour described above. While the system could adequately detect the velocity of a hard target, it did not have enough sensitivity to detect the velocity of a seeded air-flow, owing to the high noise floor from PIIN. It was thus decided that an attempt would be made to reduce PIIN, from the theory discussed in \autoref{sec:lit-noiseSources} and elaborated in Appendix \ref{appendix:PIIN}, and the experiment would be rerun for this improved system. 
+
+\subsubsection{Reducing PIIN: Methodology and Results}
+\label{sec:reducing_piin}
+ Obtaining a narrower linewidth laser source is out of budget for this project, so the only remaining option was to better match the fibre optic path length between the LO and the received signal. This allows the LO and the received signal to be more coherent in phase at the mixer, as the phase of the laser will not have been able to ``wander'' by as much between the two signals. FC/APC fibre patch cords of varying lengths were inserted between the 10\% splitter arm and the 50:50 mixer, to increase the LO path length to more closely match the longer path followed by the received signal (which traverses the collimator and free space twice, in excess of the LO path). The total system noise was measured for each patch cable length using the same methodology, with 10 captures each. The results are given in Figure~\ref{fig:piin} and Table~\ref{tab:piin_cables}, with the electronic noise floor and the total noise floor (excluding PIIN) from Experiment A2 given as reference.
 
 \begin{table}[H]
 	\centering
@@ -296,14 +275,22 @@ As discussed in \autoref{sec:lit-noiseSources}, and elaborated in Appendix \ref{
 		\SI{3}{m} cable & 18.4 & 15.4 & $-6.8$  & $-10.9$ \\ \hline
 		\SI{4}{m} cable & 1.98 & 5.7  & $-17.7$ & $-26.4$ \\ \hline
 	\end{tabular}
-	\caption{Total system noise in the \SIrange{5}{20}{MHz} band for each LO-arm patch cable,
-		with the beam blocked (mean of 10 captures each). The measured reduction is that of the
+	\caption{Total system noise in the \SIrange{5}{20}{MHz} band for each LO-arm patch cable. The measured reduction is that of the
 		PIIN alone (total minus the balanced shot-noise reference), and the predicted reduction
 		is $20\log_{10}(\Delta L/\Delta L_0)$, from the $\Delta L^2$ dependence of
-		Harris et al.~\cite{harris_role_1998}, where $\Delta L$ is the residual path mismatch and
+		Harris et al.~\cite{harris_role_1998}, where $\Delta L$ is the path mismatch and
 		$\Delta L_0 = \SI{4.2}{m}$ is the initial mismatch estimated from the circulator fiber length}
 \end{table}
 
-It can be seen that increasing the patch cable length so as to closer match LO and receive signal paths resulted in significant reductions in the total noise, due to the reduction in PIIN. The PIIN reduction loosely matched the predicted dependence of PIIN on the square of the mismatch, $\Delta L^2$, as identified by Harris et al. \cite{harris_role_1998}. 
 
-For the 4m patch cable case, a remarkable 17.7dB reduction in PIIN was observed, bringing the total noise to just 5.7dB above shot noise. While this means that the system is still PIIN-noise limited, it is far closer to the ideal shot-noise limited case, and the system has thus gained a significant improvement in sensitivity. For the remainder of this project, and all the experiments in \autoref{sec:functionalTesting}, the 4m patch cable is thus kept in the system due to its very clear benefits. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_piin_lengths"}
+	\caption{Total noise in the system for different inserted patch-cable lengths}
+	\label{fig:psdpiinlengths}
+\end{figure}
+
+
+As expected from the theory of Harris et al. and Jiang et al. \cite{harris_role_1998} \cite{jiang_performance_2019}, PIIN varied significantly, even between measurements with the same setup. It can also be observed that the shape of the PIIN corresponds to the $L_c \gg \Delta L$ regime described in Appendix~\ref{app:linewidth}, as it is a flat floor and does not contain a Lorentzian peak at baseband.
+
+It was found that increasing the patch cable length (and thus increasing the fibre path matching) significantly reduced the total noise, with the PIIN reduction loosely matching the $\Delta L^2$ dependence identified by Harris et al. \cite{harris1998}. The 4m patch cable gave a remarkable 17.7dB reduction in PIIN, bringing the total noise to just 5.7dB above shot noise. While the system is still PIIN-limited, it is far closer to the ideal shot-noise limit, and this gain in sensitivity is what made the wind-speed measurements of Experiment D possible. The 4\ patch cable is therefore kept in the system for all results reported in \autoref{sec:functionalTesting}.

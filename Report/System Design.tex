@@ -398,22 +398,21 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  \end{table}
  
  
- \section{Data Acquisition}
+ \section{Data Acquisition and Processing}
  \label{sec:design-DataAcquisition}
  As discussed in the introduction to this section, this project is not concerned with real-time processing of the data, which typically involves the use of high sampling-rate ADCs, and FPGAs which are programmed to be able to perform FFTs of the sampled data very quickly. Instead, data is obtained via a Keysight EDU1002X oscilloscope and post-processed on a laptop. The sampling rate of the oscilloscope is set to 125MHz, giving a Nyquist frequency of 62.5MHz. A beat signal at 62.5MHz would correspond to a speed of approximately 80m/s, which is far above any speed that will be measured, thus making the oscilloscope sampling rate more than sufficient. 
  
- Data is transferred from the oscilloscope to the laptop in discrete "records". Each oscilloscope record obtained is 25 000 samples long, corresponding to $200\mu s $ of data, however the oscilloscope can only obtain and transfer at a rate of approximately 8 records/second, meaning that only 0.2\% of data for the data acquisition period is effectively used. By contrast, systems utilising FPGAs and high sampling-rate ADCs can sample up to 100\% of the data in a given time period \cite{hill_remote_nodate}. Thus, when considering the acquisition time for a measurement, the oscilloscope record obtaining bottleneck is not considered, and only the total amount of time which the data represents is considered. This is of importance, because in a real-world setup this time period determines how many wind-speed measurements the system can make over a given time-period, and thus determines how well it can detect rapid changes in wind-speed. 
+ Data is transferred from the oscilloscope to the laptop in discrete "records". Each oscilloscope record obtained is 25 000 samples long, corresponding to $200\mu s $ of data, however the oscilloscope can only obtain and transfer at a rate of approximately 8 records/second, while approximately 5000 records worth of data points are available for the same time period, meaning that only 0.2\% of data for the data acquisition period is effectively used. By contrast, systems utilising FPGAs and high sampling-rate ADCs can sample up to 100\% of the data in a given time period \cite{hill_remote_nodate}. Thus, when considering the acquisition time for a measurement, the oscilloscope record obtaining bottleneck is not considered, and only the total amount of time which the data represents is considered. This is of importance, because in a real-world setup this time period determines how many wind-speed measurements the system can make over a given time-period, and thus determines how well it can detect rapid changes in wind-speed. 
  
 Using Python scripts, the power spectral density (PSD) of each capture is obtained with
 Welch's method. Each record is divided into segments of $N_{\mathrm{seg}}$ samples that overlap
 by \SI{50}{\percent}, and each segment is multiplied by a Hann window to suppress spectral leakage
 from its edges. The FFT of each windowed segment is then taken, and its squared magnitude gives a
 periodogram. Finally, the periodograms from all segments of all records are averaged to give the
-PSD. Averaging after the FFT in this manner reduces the variance of the noise floor, so that a
-weak Doppler peak can be distinguished from random fluctuations, with the tradeoff being that more data has to be acquired, over a longer time period.
+PSD. Averaging after the FFT in this manner reduces the variance of the noise floor, so that a weak Doppler peak can be distinguished from random fluctuations, with the tradeoff being that more data has to be acquired, over a longer time period.
 
 The segment length sets the frequency resolution, $\Delta f = f_s/N_{\mathrm{seg}}$, and, for a
-fixed record length, the number of segments, and hence the number of averages - thus for a fixed record length and number of records, there is a tradeoff between frequency resolution and number of averages (which reduce variance). For experiments
+fixed record length, the number of segments, and hence the number of averages that are taken. Thus, for a fixed record length and number of records, there is a tradeoff between frequency resolution and number of averages (which help to reduce variance). For experiments
 A, B and C, $N_{\mathrm{seg}} = \num{12500}$ samples and 100 records of \num{25000} samples are
 used, giving $\Delta f = \SI{10}{kHz}$ at $f_s = \SI{125}{MSa/s}$ (a velocity resolution of
 \SI{7.75}{mm/s}). Each record then yields 3 overlapping segments, so a capture averages 300
@@ -425,9 +424,9 @@ and \num{9500} periodograms in total.
 Because the \SI{50}{\percent} overlap makes adjacent Hann-windowed segments partially correlated,
 these correspond to about 245 and \num{7200} independent averages respectively. For stationary
 Gaussian noise, the standard deviation of each averaged PSD bin is
-$\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the local noise PSD and $N_{\mathrm{eff}}$
-the number of independent averages: about $0.064\,S$ for the default settings and $0.012\,S$ for
-the wind-tunnel settings. The absolute fluctuation therefore scales with the noise floor, while its
+$\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the noise PSD and $N_{\mathrm{eff}}$
+is the number of independent averages. This equation gives about $0.064\,S$ for the default settings and $0.012\,S$ for
+the wind-tunnel settings, illustrating that in the wind-tunnel case the noise variance will be approximately $5\times$ lower. The absolute fluctuation of the noise therefore scales with the noise floor, while its
 relative size is set by the number of averages.
 \section{Final Design}
 The final design of the system using the architecture and components discussed above is given in \autoref{fig:finalDesign} below.
