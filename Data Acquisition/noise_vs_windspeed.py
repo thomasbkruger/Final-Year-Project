@@ -1,11 +1,8 @@
 """noise_vs_windspeed.py - Doppler peak power against the local noise, per tunnel speed.
 
-The wind-tunnel counterpart of noise_vs_rpm.py, reporting the same quantities
-in V^2/Hz for the dense-fog captures wind_tunnel_doppler.py plots (one per
-speed, the 9 Oct capture at 3.5 m/s), followed by the mist runs. Each mist
-speed gets one row per number of captures averaged - the first capture, the
-first two, and so on in time order - since its return is weak enough that the
-averaging matters:
+The wind-tunnel counterpart of noise_vs_rpm.py. For the dense-fog captures
+wind_tunnel_doppler.py plots (one per speed, plus the 9 Oct 3.1 m/s capture) it
+reports the same quantities in V^2/Hz:
 
   * the PSD at the peak centroid;
   * the mean noise PSD in a band around that peak, with the peak itself
@@ -17,12 +14,14 @@ is found differently: there is no no-flow reference to subtract, so the
 centroid is taken on the excess over each PSD's own running median
 (wind_tunnel_doppler.locate), exactly as in the Doppler-peak figure.
 
-A second table repeats the test relative to that running median, as the
-floor-normalised figures plot it: PSD / floor in dB over the same noise band,
-the peak's height above the band's mean, and that height in units of the
-band's scatter. The raw std counts the floor's slope across the band as noise,
-and averaging cannot reduce that; dividing by the floor removes it, leaving
-the random scatter that averaging does reduce.
+The mist runs follow in a table of their own, measured relative to that
+running median instead, as the floor-normalised figures plot it: PSD / floor
+in dB over the same noise band, the peak's height above the band's mean, and
+that height in units of the band's scatter. The raw std counts the floor's
+slope across the band as noise, which swamps the weak mist peaks and which
+averaging cannot reduce; dividing by the floor removes it, leaving the random
+scatter that averaging does reduce. Each mist speed gets one row per number of
+captures averaged - the first capture, the first two, and so on in time order.
 
     python noise_vs_windspeed.py
     python noise_vs_windspeed.py --guard-mult 4 --window 3e6
@@ -40,18 +39,26 @@ from wind_tunnel_doppler import (BASELINE_BINS, F_MAX, F_MIN, captures, locate,
 
 
 def relative_to_floor(rows: list[dict], width: int) -> str:
-    """The 5 sd test again, on PSD / own floor in dB over the same noise band."""
-    text = ("\nrelative to each PSD's own noise floor (PSD / running median, in dB, "
-            "as in the\nfloor-normalised figures), over the same noise band:\n"
-            f"\n{'U':>{width}} {'peak':>9} {'band mean':>10} {'band sd':>9} "
-            f"{'(peak-mean)/sd':>15} {'clears 5 sd':>12}\n"
-            f"{'':>{width}} {'(dB)':>9} {'(dB)':>10} {'(dB)':>9} {'':>15} {'':>12}\n"
-            + "-" * (width + 60) + "\n")
+    """The 5 sd test on PSD / own floor in dB, over the same noise band."""
+    text = ("\n\nmist runs, relative to each PSD's own noise floor (PSD / running "
+            "median, in dB,\nas in the floor-normalised figures), over the same "
+            "noise band; mist xN = the\nfirst N captures of that speed, averaged "
+            "in power:\n"
+            f"\n{'U':>{width}} {'centroid':>9} {'FWHM':>8} {'peak':>9} "
+            f"{'band mean':>10} {'band sd':>9} {'(peak-mean)/sd':>15} "
+            f"{'clears 5 sd':>12}\n"
+            f"{'':>{width}} {'(MHz)':>9} {'(MHz)':>8} {'(dB)':>9} {'(dB)':>10} "
+            f"{'(dB)':>9} {'':>15} {'':>12}\n"
+            + "-" * (width + 78) + "\n")
     for r in rows:
         r["rel_sigmas"] = (r["rel_peak_dB"] - r["rel_mean_dB"]) / r["rel_sd_dB"]
-        text += (f"{r['x']:>{width}} {r['rel_peak_dB']:9.3f} {r['rel_mean_dB']:10.3f} "
+        text += (f"{r['x']:>{width}} {r['centroid']/1e6:9.3f} {r['fwhm']/1e6:8.3f} "
+                 f"{r['rel_peak_dB']:9.3f} {r['rel_mean_dB']:10.3f} "
                  f"{r['rel_sd_dB']:9.4f} {r['rel_sigmas']:15.1f} "
                  f"{'yes' if r['rel_sigmas'] > 5 else 'NO':>12}\n")
+    text += "\ncaptures:\n"
+    for r in rows:
+        text += f"  {r['x']:>{width}}  {r['time']}\n"
     return text
 
 
@@ -92,6 +99,7 @@ def main() -> int:
                         f"{'~' if c['approx'] else ''}{c['speed']:g} m/s",
                         c["path"].stem[:15]))
 
+    mist = []
     for c in select(args.data_dir, args.date, mist=True):
         tag = c["path"].stem[16:]
         runs = [psd_of(p, args.nperseg) | {"stem": p.stem[:15]}
@@ -102,7 +110,7 @@ def main() -> int:
             records = sum(d["n"] for d in used)
             psd = sum(d["psd"] * d["n"] for d in used) / records
             time = used[0]["stem"] + (f"..{used[-1]['stem'][9:]}" if n > 1 else "")
-            rows.append(row(psd, f, f"{c['speed']:g} m/s mist x{n}", time))
+            mist.append(row(psd, f, f"{c['speed']:g} m/s mist x{n}", time))
 
     extra = sorted({c["path"].stem[:8] for c in caps} - {args.date})
     head = (
@@ -112,7 +120,6 @@ def main() -> int:
         + (f" (plus {', '.join(extra)})" if extra else "")
         + f", one per speed setpoint; Welch nperseg={args.nperseg} "
         f"(df = {(f[1]-f[0])/1e3:g} kHz)\n"
-        f"mist xN:   the first N captures of that speed, averaged in power\n"
         f"peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess "
         f"over the PSD's\n"
         f"           own running median ({BASELINE_BINS} bins), searched over "
@@ -123,11 +130,13 @@ def main() -> int:
         f"noise:     {args.guard_mult:g} x FWHM guard around the centroid, out "
         f"to {args.window/1e6:g} MHz either side,\n"
         f"           nothing below {args.noise_fmin/1e3:g} kHz (near-DC spike)\n"
-        f"units:     V^2/Hz throughout\n"
+        f"units:     V^2/Hz, except the mist table (dB relative to the floor)\n"
+        f"\ndense fog, raw PSD:\n"
     )
-    width = max(len(r["x"]) for r in rows)
+    width = max(len(r["x"]) for r in rows + mist)
     text = report(head, rows, "", ("U", ""), width=width)
-    text += relative_to_floor(rows, width)
+    if mist:
+        text += relative_to_floor(mist, width)
     args.out.write_text(text, encoding="utf-8")
     print(text, end="")
     print(f"\n-> {args.out}")

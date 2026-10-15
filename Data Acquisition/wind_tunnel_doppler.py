@@ -2,14 +2,12 @@
 
 Uses the 12 Oct wind-tunnel captures, one per speed setpoint (the earliest when
 a speed was captured more than once), leaving out the mist runs. The 9 Oct
-3 m/s capture is added as well, plotted at 3.5 m/s: it was logged as 3 m/s, but
-its peak sits where 3.5 m/s does on the line through the other speeds (3.5-3.8
-m/s was the range given for it; 3.5 fits best).
+3.1 m/s capture is added as well.
 
 These dense-fog captures are compared with the mist runs (tags ending _mist),
 which are picked the same way, one per speed.
 
-Four figures, in the style of psd_rpm.py and peak_vs_rpm.py:
+Six figures, in the style of psd_rpm.py and peak_vs_rpm.py:
 
   * psd_windtunnel_overlay.png - every dense-fog speed's Welch PSD on one
     linear axis;
@@ -21,6 +19,9 @@ Four figures, in the style of psd_rpm.py and peak_vs_rpm.py:
     and the predicted shift for the rig geometry,
     f_D = (2 / lambda) cos(35 deg) U = 1.057 MHz per m/s. The right axis
     converts the peak frequency to tunnel speed with that same factor;
+  * psd_windtunnel_cases.png - a grid with one panel per test case (dense fog
+    and mist), each the raw PSD with its floor and located peak, for an
+    appendix;
   * psd_5mps_mist_averaging.png - the 5 m/s mist PSD relative to its floor,
     from one capture, two averaged and all three averaged, side by side: the
     mist return is weak enough that averaging visibly lifts it out of the noise.
@@ -62,11 +63,11 @@ F_MAX = 40e6                # and stops here: a fixed bump near 60 MHz, close to
                             # Nyquist, outranks the weak mist returns
 AVERAGING_TAG = "5mps_mist"  # the captures compared in psd_5mps_mist_averaging
 
-# 5mps, 11-3mps (11.3 m/s), 15ishmps (an approximate setpoint, ~15 m/s)
+# 5mps, 11-8mps (11.8 m/s), 15ishmps (an approximate setpoint, ~15 m/s)
 SPEED_TAG = re.compile(r"^(\d+)(?:-(\d+))?(ish)?mps$")
 
 # Captures from other dates, with the speed to plot them at.
-EXTRA = {"20261009_135015_3mps": 3.5}
+EXTRA = {"20261009_135015_3-1mps": 3.1}
 
 
 def speed_of(tag: str) -> tuple[float, bool] | None:
@@ -126,11 +127,9 @@ def finish(ax, fig, out: Path) -> None:
     print(f"plot -> {out}")
 
 
-def plot_overlay(rows: list[dict], f: np.ndarray, out: Path, title: str,
-                 y_of=lambda r: r["psd"], ylabel: str | None = None) -> None:
+def draw_overlay(ax, rows: list[dict], f: np.ndarray, y_of=lambda r: r["psd"],
+                 pad: float = 0.1) -> None:
     """Every speed on one linear axis; y_of picks what is plotted per row."""
-    import matplotlib.pyplot as plt
-
     # The date's own captures take the categorical slots in speed order; one
     # from another date is drawn dashed in muted ink, which also keeps the
     # count within the eight slots rather than inventing a ninth hue.
@@ -140,8 +139,6 @@ def plot_overlay(rows: list[dict], f: np.ndarray, out: Path, title: str,
                          "colours; split the figure rather than inventing hues")
     colour = dict(zip((id(r) for r in own), CAT))
     m = f > 0
-    fig, ax = plt.subplots(figsize=(10.6, 5.6))
-    fig.patch.set_facecolor(C_SURFACE)
     ax.set_facecolor(C_SURFACE)
     for r in rows:
         style = ({"color": C_MUTED, "ls": (0, (5, 4))} if r["extra"]
@@ -155,7 +152,16 @@ def plot_overlay(rows: list[dict], f: np.ndarray, out: Path, title: str,
     shown = (f >= F_MIN) & (f <= fmax)
     lo = min(y_of(r)[shown].min() for r in rows)
     hi = max(y_of(r)[shown].max() for r in rows)
-    ax.set_ylim(lo - 0.1 * (hi - lo), hi + 0.1 * (hi - lo))
+    ax.set_ylim(lo - pad * (hi - lo), hi + pad * (hi - lo))
+
+
+def plot_overlay(rows: list[dict], f: np.ndarray, out: Path, title: str,
+                 y_of=lambda r: r["psd"], ylabel: str | None = None) -> None:
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots(figsize=(10.6, 5.6))
+    fig.patch.set_facecolor(C_SURFACE)
+    draw_overlay(ax, rows, f, y_of)
     style_axes(ax, "psd", title, ylabel=ylabel)
     leg = ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK,
                     bbox_to_anchor=(1.01, 1.0), borderaxespad=0,
@@ -166,8 +172,105 @@ def plot_overlay(rows: list[dict], f: np.ndarray, out: Path, title: str,
     plt.close(fig)
 
 
+def plot_overlay_pair(rows: list[dict], f: np.ndarray, out: Path) -> None:
+    """The raw and floor-normalised overlays side by side, untitled, in larger
+    type and taller panels so each stays legible at half the page width."""
+    import matplotlib.pyplot as plt
+
+    fig, (raw, rel) = plt.subplots(1, 2, figsize=(16, 7.6))
+    fig.patch.set_facecolor(C_SURFACE)
+    # Raw PSD in units of 1e-12 V^2/Hz, so the scale sits in the axis label
+    # rather than in an offset above the axis.
+    draw_overlay(raw, rows, f, y_of=lambda r: r["psd"] / 1e-12, pad=0.03)
+    style_axes(raw, "psd", ylabel=r"PSD ($10^{-12}$ V$^2$/Hz)")
+    draw_overlay(rel, rows, f, y_of=lambda r: 10 * np.log10(r["psd"] / r["floor"]),
+                 pad=0.03)
+    style_axes(rel, "psd", ylabel="PSD / local noise floor (dB)")
+    for ax, title in ((raw, "Raw signal PSD"),
+                      (rel, "Signal PSD normalised to noise floor")):
+        ax.set_title(title, loc="left", fontsize=15, color=C_INK)
+        ax.tick_params(labelsize=13, which="both")
+        ax.xaxis.label.set_size(15)
+        ax.yaxis.label.set_size(15)
+
+    handles, labels = raw.get_legend_handles_labels()
+    leg = fig.legend(handles, labels, frameon=False, fontsize=13, ncol=5,
+                     loc="lower center", labelcolor=C_INK,
+                     title="tunnel speed setpoint", title_fontsize=13)
+    leg.get_title().set_color(C_MUTED)
+    fig.tight_layout(rect=(0, 0.13, 1, 1))
+    fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+    print(f"plot -> {out}")
+    plt.close(fig)
+
+
+def plot_case_grid(rows: list[dict], mist: list[dict], f: np.ndarray,
+                   out: Path, ncols: int = 4) -> None:
+    """One panel per test case, for the appendix: the raw PSD, the running-
+    median floor its peak was found against, and the located centroid. Each
+    panel is scaled to its own data, since the floors differ by up to 2x and
+    the mist peaks are only a few per cent high."""
+    import matplotlib.pyplot as plt
+
+    cases = ([(r, "dense fog", CAT[0]) for r in rows]
+             + [(r, "mist", CAT[2]) for r in mist])
+    nrows = -(-(len(cases) + 1) // ncols)       # one spare slot for the legend
+    # Not sharex: it would hide the ticks of a column's last panel whenever
+    # that panel is not on the bottom row. The x-limits are set alike below.
+    fig, axes = plt.subplots(nrows, ncols, figsize=(4.2 * ncols, 3.6 * nrows))
+    fig.patch.set_facecolor(C_SURFACE)
+    axes = axes.ravel()
+    fmax = max(r["centroid"] for r, _, _ in cases) * 1.25
+    m = (f >= F_MIN) & (f <= fmax)
+    scale = 1e-12                                # plotted in 1e-12 V^2/Hz
+
+    for i, (ax, (r, fog, colour)) in enumerate(zip(axes, cases)):
+        ax.set_facecolor(C_SURFACE)
+        ax.plot(f[m], r["psd"][m] / scale, color=colour, lw=1.2, zorder=3,
+                label=f"PSD, {fog}")
+        ax.plot(f[m], r["floor"][m] / scale, color=C_MUTED, lw=1.2,
+                ls=(0, (5, 4)), zorder=4, label="running-median noise floor")
+        ax.axvline(r["centroid"], color=C_INK, lw=1, ls=(0, (1, 2)), zorder=2,
+                   label="peak centroid")
+        lo, hi = r["psd"][m].min() / scale, r["psd"][m].max() / scale
+        ax.set_ylim(lo - 0.05 * (hi - lo), hi + 0.05 * (hi - lo))
+        ax.set_xlim(0, fmax)
+        date = f", {int(r['capture'][6:8])} Oct" if r["extra"] else ""
+        style_axes(ax, "psd", f"{speed_label(r)}, {fog}{date}\n"
+                              f"peak {r['centroid']/1e6:.2f} MHz, "
+                              f"{r['ratio_dB']:.2f} dB above floor",
+                   ylabel=r"PSD ($10^{-12}$ V$^2$/Hz)")
+        ax.title.set_size(12)
+        ax.tick_params(labelsize=10, which="both")
+        ax.xaxis.label.set_size(11)
+        ax.yaxis.label.set_size(11)
+        if i % ncols:
+            ax.set_ylabel("")                     # left column carries it
+        if i < len(cases) - ncols:
+            ax.set_xlabel("")                     # bottom panel of each column
+            ax.tick_params(labelbottom=False)
+
+    # Both PSD colours, then the floor and centroid entries once.
+    entries = {}
+    for ax in (axes[0], axes[len(cases) - 1]):
+        for h, lab in zip(*ax.get_legend_handles_labels()):
+            entries.setdefault(lab, h)
+    order = sorted(entries, key=lambda lab: not lab.startswith("PSD"))
+    handles, labels = [entries[lab] for lab in order], order
+    spare = axes[len(cases)]
+    spare.axis("off")
+    spare.legend(handles, labels, frameon=False, fontsize=12, loc="center left",
+                 labelcolor=C_INK)
+    for ax in axes[len(cases) + 1:]:
+        ax.axis("off")
+    fig.tight_layout()
+    fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+    print(f"plot -> {out}")
+    plt.close(fig)
+
+
 def plot_peaks(rows: list[dict], mist: list[dict], k: float, se: float,
-               out: Path, label: str) -> None:
+               out: Path) -> None:
     import matplotlib.pyplot as plt
 
     fig, ax = plt.subplots(figsize=(8.6, 5.2))
@@ -185,16 +288,17 @@ def plot_peaks(rows: list[dict], mist: list[dict], k: float, se: float,
     fit = [r for r in rows if not r["approx"]]
     out_of_fit = [r for r in rows if r["approx"]]
     ax.plot([r["speed"] for r in fit], [r["centroid"] / 1e6 for r in fit], "o",
-            ms=7, color=CAT[0], mec=C_SURFACE, mew=1.5, zorder=3,
+            ms=7, color=CAT[0], mec=C_SURFACE, mew=1.5, zorder=4,
             label="peak centroid, dense fog")
     if out_of_fit:
         ax.plot([r["speed"] for r in out_of_fit],
                 [r["centroid"] / 1e6 for r in out_of_fit], "o", ms=7,
-                mfc=C_SURFACE, mec=CAT[0], mew=1.8, zorder=3,
+                mfc=C_SURFACE, mec=CAT[0], mew=1.8, zorder=4,
                 label="peak centroid, dense fog, approximate setpoint (not fitted)")
     if mist:
         ax.plot([r["speed"] for r in mist], [r["centroid"] / 1e6 for r in mist],
-                "D", ms=7, color=CAT[2], mec=C_SURFACE, mew=1.5, zorder=4,
+                # Under the dense-fog circles, which it would hide at 5 m/s.
+                "D", ms=7, color=CAT[2], mec=C_SURFACE, mew=1.5, zorder=3,
                 label="peak centroid, mist")
 
     ax.set_xlabel("wind-tunnel speed setpoint (m/s)", color=C_INK)
@@ -208,8 +312,6 @@ def plot_peaks(rows: list[dict], mist: list[dict], k: float, se: float,
     sec.spines["right"].set_color(C_GRID)
     sec.tick_params(colors=C_MUTED, labelsize=9)
 
-    ax.set_title(f"{label} Doppler peak vs wind-tunnel speed setpoint", loc="left",
-                 fontsize=11, color=C_INK)
     ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK)
     ax.grid(True, color=C_GRID, lw=0.7, alpha=0.9)
     ax.set_axisbelow(True)
@@ -222,7 +324,7 @@ def plot_peaks(rows: list[dict], mist: list[dict], k: float, se: float,
     plt.close(fig)
 
 
-def plot_averaging(caps: list[dict], f: np.ndarray, out: Path, title: str,
+def plot_averaging(caps: list[dict], f: np.ndarray, out: Path,
                    fmax: float = 15e6) -> list[dict]:
     """One panel per number of captures averaged (1, 2, ... all, in time
     order), each PSD relative to its own floor. Returns each panel's peak."""
@@ -257,13 +359,11 @@ def plot_averaging(caps: list[dict], f: np.ndarray, out: Path, title: str,
                               f"{' averaged' if len(used) > 1 else ''} "
                               f"({records} records)\n"
                               f"peak {p['ratio_dB']:.2f} dB at "
-                              f"{p['centroid']/1e6:.2f} MHz, floor sd {sd:.3f} dB "
-                              f"({sig:.1f} sd)",
+                              f"{p['centroid']/1e6:.2f} MHz, floor sd {sd:.3f} dB",
                    ylabel="PSD / local noise floor (dB)")
         if i:
             ax.set_ylabel("")                     # shared with the first panel
         ax.set_xlim(0, fmax)
-    fig.suptitle(title, x=0.01, ha="left", fontsize=11, color=C_INK)
     finish(ax, fig, out)
     plt.close(fig)
     return panels
@@ -345,17 +445,15 @@ def main() -> int:
                  f"{args.label} wind-tunnel PSD relative to its own noise floor",
                  y_of=lambda r: 10 * np.log10(r["psd"] / r["floor"]),
                  ylabel="PSD / local noise floor (dB)")
-    plot_peaks(rows, mist, k, se, args.out_dir / "peak_vs_windtunnel_speed.png",
-               args.label)
+    plot_overlay_pair(rows, f, args.out_dir / "psd_windtunnel_overlay_pair.png")
+    plot_case_grid(rows, mist, f, args.out_dir / "psd_windtunnel_cases.png")
+    plot_peaks(rows, mist, k, se, args.out_dir / "peak_vs_windtunnel_speed.png")
 
     avg = [{"path": p} for p in captures(args.data_dir, args.date, AVERAGING_TAG)]
     if len(avg) > 1:
         measure_all(avg, args.nperseg, f)
-        tag = AVERAGING_TAG.replace("mps_mist", " m/s mist")
         panels = plot_averaging(
-            avg, f, args.out_dir / f"psd_{AVERAGING_TAG}_averaging.png",
-            f"{args.label} {tag}: PSD relative to its own noise floor, "
-            "averaging successive captures")
+            avg, f, args.out_dir / f"psd_{AVERAGING_TAG}_averaging.png")
         print(f"  {AVERAGING_TAG} averaging:")
         for p in panels:
             print(f"    {p['captures']} capture(s), {p['records']:5d} records: "
