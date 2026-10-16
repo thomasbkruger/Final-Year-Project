@@ -121,24 +121,28 @@ def plot(d: dict, band: tuple[float, float], out: Path, labels: dict[str, str],
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    from matplotlib.ticker import FuncFormatter, NullFormatter
+
+    import figstyle
+    figstyle.use()
 
     f = d["f"]
     m = f > 0
     pw = lambda psd: psd[m]                       # plotted as stored, V^2/Hz
     single = len(d["reps"]) == 1
 
-    fig, ax = plt.subplots(figsize=(10.6, 5.6))
+    fig, ax = plt.subplots(figsize=(figstyle.TEXT_WIDTH, 4.0))
     fig.patch.set_facecolor(C_SURFACE)
     ax.set_facecolor(C_SURFACE)
 
     ax.axvspan(*band, color=C_BAND, lw=0, zorder=0)
-    ax.text(np.sqrt(band[0] * band[1]), 0.965,
+    ax.text(np.sqrt(band[0] * band[1]), 0.98,
             f"{band[0]/1e6:g}-{band[1]/1e6:g} MHz band", transform=ax.get_xaxis_transform(),
-            ha="center", va="top", fontsize=8.5, color=C_MUTED)
+            ha="center", va="top", fontsize=figstyle.FS_NOTE, color=C_MUTED)
 
     if d["floor"] is not None:
         ax.loglog(f[m], pw(d["floor"]), color=C_MUTED, lw=1.1, ls=(0, (5, 4)),
-                  label="laser off (electronic floor)", zorder=2)
+                  label="electronic floor (laser off)", zorder=2)
     if d["ref"] is not None:
         ax.loglog(f[m], pw(d["ref"]), color=C_SLOTS[len(d["reps"])], lw=1.5,
                   label=ref_label, zorder=3)
@@ -151,11 +155,20 @@ def plot(d: dict, band: tuple[float, float], out: Path, labels: dict[str, str],
                             label=f"run-to-run spread (min-max, n={len(reps)})"
                                   if single else None)
         name = (f"Experiment {labels[s]}: Total system noise, mean of {len(reps)}" if single
-                else f"Total system noise, {labels[s]}")
+                else f"total noise, {labels[s]}")
         ax.loglog(f[m], pw(reps.mean(axis=0)), color=c, lw=1.8, zorder=5, label=name)
 
-    ax.set_xlabel("frequency (Hz)", color=C_INK)
+    # Ranged to what is drawn, envelopes included, with a small log margin.
+    drawn = [c for c in (d["floor"], d["ref"]) if c is not None]
+    for reps in d["reps"].values():
+        drawn += [reps.min(axis=0), reps.max(axis=0)] if spread else [reps.mean(axis=0)]
+    ax.set_ylim(min(pw(c).min() for c in drawn) / 1.15,
+                max(pw(c).max() for c in drawn) * 1.15)
+
+    ax.set_xlabel("frequency (MHz)", color=C_INK)
     ax.set_ylabel(r"PSD (V$^2$/Hz)", color=C_INK)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v/1e6:g}"))
+    ax.xaxis.set_minor_formatter(NullFormatter())
     ax.grid(True, which="major", color=C_GRID, lw=0.7, alpha=0.9)
     ax.grid(True, which="minor", color=C_GRID, lw=0.5, alpha=0.5)
     ax.set_axisbelow(True)
@@ -163,13 +176,15 @@ def plot(d: dict, band: tuple[float, float], out: Path, labels: dict[str, str],
         ax.spines[s].set_visible(False)
     for s in ("left", "bottom"):
         ax.spines[s].set_color(C_GRID)
-    ax.tick_params(colors=C_MUTED, labelsize=9, which="both")
+    ax.tick_params(colors=C_MUTED, which="both")
 
-    # Curves span the axes top to bottom, so the legend sits outside the data.
-    ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK,
-              bbox_to_anchor=(1.01, 1.0), borderaxespad=0)
+    # Curves span the axes top to bottom, so the legend sits above the data,
+    # in two columns to keep the plot the full width.
+    ax.legend(frameon=False, loc="lower left", labelcolor=C_INK, ncol=2,
+              bbox_to_anchor=(0, 1.0), borderaxespad=0.3, columnspacing=1.2,
+              fontsize=figstyle.FS_NOTE)
     fig.tight_layout()
-    fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+    fig.savefig(out, facecolor=fig.get_facecolor())
     print(f"plot -> {out}")
 
 

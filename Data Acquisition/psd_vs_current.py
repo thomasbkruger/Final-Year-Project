@@ -60,6 +60,10 @@ def collect(data_dir: Path, band: tuple[float, float], nperseg: int) -> dict:
     for p in sorted(data_dir.glob("*.npz")):
         if p.stem.endswith(("_volts", "_psd")):
             continue
+        # Captures are named YYYYmmdd_HHMMSS_tag; this skips derived files
+        # such as *_stack.npz, which hold no raw records.
+        if not re.match(r"\d{8}_\d{6}_", p.name):
+            continue
         run = load_run(p)
         tag = resolve_tag(run.meta.get("tag", p.stem))
         if tag is None:
@@ -86,54 +90,74 @@ def plot(data: dict, band: tuple[float, float], out: Path, detector: str) -> Non
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
+    import figstyle
+    figstyle.use()
+
+    # Plotted in units of 1e-13 V^2/Hz, so the scale sits in the axis label
+    # rather than in an offset above the axis.
+    scale = 1e-13
     g, floor = data["groups"], data["floor"]
-    fig, ax = plt.subplots(figsize=(8.4, 5.4))
+    fig, ax = plt.subplots(figsize=(figstyle.TEXT_WIDTH, 3.6))
     fig.patch.set_facecolor("#fcfcfb")
     ax.set_facecolor("#fcfcfb")
 
     if floor is not None:
-        ax.axhline(floor[0], color=C_MUTED, lw=1.0, ls=(0, (5, 4)), zorder=1)
-        ax.text(1.5, floor[0], "electronic floor (laser off)", va="bottom",
-                ha="left", fontsize=8.5, color=C_MUTED)
+        ax.axhline(floor[0] / scale, color=C_MUTED, lw=1.0, ls=(0, (5, 4)), zorder=1)
+        # Below the line, clear of the gridline above it.
+        ax.annotate("electronic floor (laser off)", (1.0, floor[0] / scale),
+                    xytext=(0, -3), textcoords="offset points", va="top",
+                    ha="left", fontsize=figstyle.FS_NOTE, color=C_MUTED)
 
+    shown = []                                  # every plotted point, for the y-range
     if detector == "balanced" and "balanced" in g:
         # The duplicate 48 mA capture is dropped in collect(), via RETAG and
         # EXCLUDE_TAGS, so that every figure drops the same one.
         i, psd, sem = g["balanced"].T
-        ax.errorbar(i, psd, yerr=sem, color=C_BALANCED, marker="o", ms=7, lw=1.8,
-                    mec="#fcfcfb", mew=1.2, capsize=0, zorder=3)
+        ax.errorbar(i, psd / scale, yerr=sem / scale, color=C_BALANCED, marker="o",
+                    ms=7, lw=1.8, mec="#fcfcfb", mew=1.2, capsize=0, zorder=3)
+        shown.append(psd)
 
     if detector == "single":
         if "single_pd1" in g:
             i, psd, sem = g["single_pd1"].T
-            ax.errorbar(i, psd, yerr=sem, color=C_SINGLE, marker="s", ms=7, lw=1.8,
-                        mec="#fcfcfb", mew=1.2, capsize=0, label="PD1", zorder=3)
+            ax.errorbar(i, psd / scale, yerr=sem / scale, color=C_SINGLE, marker="s",
+                        ms=7, lw=1.8, mec="#fcfcfb", mew=1.2, capsize=0, label="PD1",
+                        zorder=3)
+            shown.append(psd)
         if "single_pd2" in g:                   # one-point check on the other diode
             i, psd, sem = g["single_pd2"].T
-            ax.errorbar(i, psd, yerr=sem, color=C_SINGLE2, marker="D", ms=7, lw=0,
-                        mec="#fcfcfb", mew=1.2, label="PD2", zorder=4)
+            ax.errorbar(i, psd / scale, yerr=sem / scale, color=C_SINGLE2, marker="D",
+                        ms=7, lw=0, mec="#fcfcfb", mew=1.2, label="PD2", zorder=4)
+            shown.append(psd)
 
     ax.set_xlabel("laser drive current (mA)", color=C_INK)
-    ax.set_ylabel(f"PSD averaged {band[0]/1e6:g}-{band[1]/1e6:g} MHz  (V$^2$/Hz)", color=C_INK)
-    ax.set_xlim(0, 52)
-    ax.set_ylim(0, None)
+    ax.set_ylabel(f"PSD, {band[0]/1e6:g}-{band[1]/1e6:g} MHz avg.\n"
+                  r"($10^{-13}$ V$^2$/Hz)", color=C_INK)
+    ax.set_xlim(0, 50)
+    # Ranged to the data and the floor rather than from zero, so the points
+    # use the whole height.
+    vals = np.concatenate(shown + ([[floor[0]]] if floor is not None else [])) / scale
+    span = vals.max() - vals.min()
+    # Extra room at the bottom for the floor's label, beneath its line.
+    ax.set_ylim(vals.min() - 0.11 * span, vals.max() + 0.05 * span)
     ax.grid(True, color=C_GRID, lw=0.7, alpha=0.9)
     ax.set_axisbelow(True)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     for s in ("left", "bottom"):
         ax.spines[s].set_color(C_GRID)
-    ax.tick_params(colors=C_MUTED, labelsize=9)
+    ax.tick_params(colors=C_MUTED)
 
-    sec = ax.secondary_yaxis("right", functions=(lambda v: np.sqrt(np.maximum(v, 0)) * 1e9,
-                                                 lambda n: (n / 1e9) ** 2))
+    sec = ax.secondary_yaxis("right", functions=(
+        lambda v: np.sqrt(np.maximum(v * scale, 0)) * 1e9,
+        lambda n: (n / 1e9) ** 2 / scale))
     sec.set_ylabel(r"voltage noise (nV/$\sqrt{\mathrm{Hz}}$)", color=C_MUTED)
-    sec.tick_params(colors=C_MUTED, labelsize=9)
+    sec.tick_params(colors=C_MUTED)
 
     if ax.get_legend_handles_labels()[1]:
-        ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK)
+        ax.legend(frameon=False, loc="upper left", labelcolor=C_INK)
     fig.tight_layout()
-    fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+    fig.savefig(out, facecolor=fig.get_facecolor())
     print(f"plot -> {out}")
 
 

@@ -31,7 +31,12 @@ import numpy as np
 from psd_rpm import C_GRID, C_INK, C_MUTED, C_SURFACE, CAT, collect
 
 WAVELENGTH = 1550e-9        # m, DFB laser (System Design)
+RIG_RADIUS = 15e-3          # m, beam spot from the disc axis (Results, rig C)
+RIG_ANGLE_DEG = 45.0        # collimator to motor axis
+# Expected shift per RPM: v_LOS = (2 pi N / 60) d sin(alpha), f_D = 2 v / lambda.
+HZ_PER_RPM = 2 / WAVELENGTH * 2 * np.pi / 60 * RIG_RADIUS * np.sin(np.radians(RIG_ANGLE_DEG))
 C_POINT = CAT[0]
+C_EXPECTED = CAT[1]
 
 
 def peak_of(f: np.ndarray, excess: np.ndarray, f_min: float = 20e3,
@@ -71,30 +76,53 @@ def fit_origin(x: np.ndarray, y: np.ndarray) -> tuple[float, float, float]:
 
 
 def plot(rows: list[dict], k: float, se: float, out: Path, series: str) -> None:
-    """series is the display name; selection happens before this is called."""
+    """series is the display name; selection happens before this is called.
+
+    Untitled: the report caption names the figure. The expected shift from
+    the rig geometry is drawn against the measurement, and the right axis
+    reads the peak frequency as line-of-sight speed, v = f_D lambda / 2.
+    """
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
+    import figstyle
+    figstyle.use()
+
     rpm = np.array([r["rpm"] for r in rows], float)
     fc = np.array([r["centroid"] for r in rows]) / 1e6
 
-    fig, ax = plt.subplots(figsize=(8.6, 5.2))
+    fig, ax = plt.subplots(figsize=(figstyle.TEXT_WIDTH, 3.6))
     fig.patch.set_facecolor(C_SURFACE)
     ax.set_facecolor(C_SURFACE)
     xs = np.array([0, rpm.max() * 1.05])
 
     ax.plot(xs, k * xs / 1e6, color=C_MUTED, lw=1.2, ls=(0, (5, 4)), zorder=2,
-            label=f"fit through origin: {k:.0f} ± {se:.0f} Hz/RPM")
-    ax.plot(rpm, fc, "o", ms=7, color=C_POINT, mec=C_SURFACE, mew=1.5, zorder=3,
-            label="peak centroid")
+            label=f"fit to measured: {k:.0f} ± {se:.0f} Hz/RPM")
+    line, = ax.plot(xs, HZ_PER_RPM * xs / 1e6, color=C_EXPECTED, lw=1.6,
+                    ls=(0, (1, 1.5)), zorder=2)
+    marks, = ax.plot(rpm, HZ_PER_RPM * rpm / 1e6, "o", ms=7, mfc=C_SURFACE,
+                     mec=C_EXPECTED, mew=1.8, zorder=3)
+    ax.plot(rpm, fc, "o", ms=6, color=C_POINT, mec=C_SURFACE, mew=1.2, zorder=4,
+            label="measured centroid")
     ax.set_xlabel("target speed (RPM)", color=C_INK)
     ax.set_ylabel("Doppler peak frequency (MHz)", color=C_INK)
     ax.set_xlim(0, xs[1])
-    ax.set_ylim(0, None)
-    ax.set_title(f"{series} Doppler peak vs target speed", loc="left",
-                 fontsize=11, color=C_INK)
-    ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK)
+    ax.set_ylim(0, max(fc.max(), k * xs[1] / 1e6) * 1.03)
+
+    handles, labels = ax.get_legend_handles_labels()
+    handles.insert(1, (line, marks))
+    labels.insert(1, f"expected: {HZ_PER_RPM:.0f} Hz/RPM")
+    # Above the lines, where the top left of the plot is empty; the labels are
+    # kept short so the legend stays clear of the 2000 RPM points.
+    ax.legend(handles, labels, frameon=False, loc="upper left", labelcolor=C_INK,
+              fontsize=figstyle.FS_NOTE)
+
+    sec = ax.secondary_yaxis("right", functions=(lambda f: f * 1e6 * WAVELENGTH / 2,
+                                                 lambda v: v * 2 / WAVELENGTH / 1e6))
+    sec.set_ylabel(r"line-of-sight velocity $v_{\mathrm{LOS}}$ (m/s)", color=C_INK)
+    sec.spines["right"].set_color(C_GRID)
+    sec.tick_params(colors=C_MUTED)
 
     ax.grid(True, color=C_GRID, lw=0.7, alpha=0.9)
     ax.set_axisbelow(True)
@@ -102,10 +130,10 @@ def plot(rows: list[dict], k: float, se: float, out: Path, series: str) -> None:
         ax.spines[s].set_visible(False)
     for s in ("left", "bottom"):
         ax.spines[s].set_color(C_GRID)
-    ax.tick_params(colors=C_MUTED, labelsize=9)
+    ax.tick_params(colors=C_MUTED)
 
     fig.tight_layout()
-    fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+    fig.savefig(out, facecolor=fig.get_facecolor())
     print(f"plot -> {out}")
 
 

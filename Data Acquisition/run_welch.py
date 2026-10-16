@@ -23,7 +23,7 @@ from pathlib import Path
 import numpy as np
 
 from prepare_welch import load_run
-from psd_vs_current import resolve_tag
+from psd_vs_current import current_from_tag, resolve_tag
 from Welch import (Q, R_PD, band_average, to_input_current,
                    welch_psd, welch_stats)
 
@@ -93,34 +93,74 @@ def analyse(path: Path, args: argparse.Namespace) -> dict:
             "band": (f_lo, f_hi), "gain": gain}
 
 
+def display_label(tag: str) -> str:
+    """Legend name for a capture: the laser state for the A series, else the tag."""
+    if tag.startswith("A1"):
+        return "laser off"
+    current = current_from_tag(tag)
+    return f"{current} mA" if current is not None else tag
+
+
 def plot(results: list[dict], out_path: Path | None, gain: float) -> None:
     """Plot the noise floor in nV/rtHz and pA/rtHz against frequency."""
     import matplotlib
     if out_path:
         matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    from matplotlib.ticker import FuncFormatter, NullFormatter
 
-    fig, ax = plt.subplots(figsize=(9, 5.5))
+    import figstyle
+    from psd_rpm import C_GRID, C_INK, C_MUTED, C_SURFACE, CAT
+    figstyle.use()
+
+    fig, ax = plt.subplots(figsize=(figstyle.TEXT_WIDTH, 3.8))
+    fig.patch.set_facecolor(C_SURFACE)
+    ax.set_facecolor(C_SURFACE)
+    # The laser-off floor is drawn dashed in muted ink, as in the other
+    # figures; the rest take the categorical slots in order.
+    colours = iter(CAT if len(results) <= len(CAT) + 1 else [None] * len(results))
+    lo_y, hi_y = np.inf, 0.0
     for r in results:
         f, psd = r["f"], r["psd"]
         m = f > 0
-        ax.loglog(f[m], psd[m], lw=1.0, label=r["label"])
+        name = display_label(r["label"])
+        style = ({"color": C_MUTED, "ls": (0, (5, 4))} if name == "laser off"
+                 else {"color": next(colours)})
+        ax.loglog(f[m], psd[m], lw=1.2, label=name, **style)
+        lo_y, hi_y = min(lo_y, psd[m].min()), max(hi_y, psd[m].max())
     lo, hi = results[0]["band"]
-    ax.axvspan(lo, hi, color="0.85", zorder=0, label=f"band {lo/1e6:g}-{hi/1e6:g} MHz")
-    ax.set_xlabel("frequency (Hz)")
-    ax.set_ylabel(r"PSD (V$^2$/Hz)")
-    ax.grid(True, which="both", alpha=0.3)
-    ax.legend(fontsize=8)
+    ax.axvspan(lo, hi, color="#eceae6", lw=0, zorder=0)
+    ax.text(np.sqrt(lo * hi), 0.03, f"{lo/1e6:g}-{hi/1e6:g} MHz band",
+            transform=ax.get_xaxis_transform(), ha="center", va="bottom",
+            fontsize=figstyle.FS_NOTE, color=C_MUTED)
+    ax.set_ylim(lo_y / 1.1, hi_y * 1.1)
+
+    ax.set_xlabel("frequency (MHz)", color=C_INK)
+    ax.set_ylabel(r"PSD (V$^2$/Hz)", color=C_INK)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v/1e6:g}"))
+    ax.xaxis.set_minor_formatter(NullFormatter())
+    ax.grid(True, which="major", color=C_GRID, lw=0.7, alpha=0.9)
+    ax.grid(True, which="minor", color=C_GRID, lw=0.5, alpha=0.5)
+    ax.set_axisbelow(True)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    for s in ("left", "bottom"):
+        ax.spines[s].set_color(C_GRID)
+    ax.tick_params(colors=C_MUTED, which="both")
+    # Above the axes: the curves span the full width and height.
+    ax.legend(frameon=False, loc="lower left", bbox_to_anchor=(0, 1.0),
+              ncol=4, borderaxespad=0.3, labelcolor=C_INK, columnspacing=1.4)
 
     # Same quantity referred to the photodiode input: divide by the TIA gain
     # squared, in pA^2/Hz so the numbers stay readable.
     sec = ax.secondary_yaxis("right", functions=(lambda v: v / gain**2 * 1e24,
                                                  lambda i: i * gain**2 / 1e24))
-    sec.set_ylabel(r"input current PSD (pA$^2$/Hz)")
+    sec.set_ylabel(r"input current PSD (pA$^2$/Hz)", color=C_MUTED)
+    sec.tick_params(colors=C_MUTED, which="both")
     fig.tight_layout()
 
     if out_path:
-        fig.savefig(out_path, dpi=150)
+        fig.savefig(out_path, facecolor=fig.get_facecolor())
         print(f"\nplot -> {out_path}")
     else:
         plt.show()

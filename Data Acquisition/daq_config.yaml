@@ -14,7 +14,7 @@ visa_backend: ""        # "" = Keysight IO Libraries (what works on this PC).
                         # Keysight driver, so leave this empty here. Use "@py" on Linux/macOS.
 
 scope:
-  volts_per_div: 1000         # 5 mV/div for LO-only noise records (~1-4 mV rms).
+  volts_per_div: 0.2         # 5 mV/div for LO-only noise records (~1-4 mV rms).
                                 # Raise to 0.02-0.05 when the transmit path is connected.
                                 # Full scale (8 div) should be >= 4x the trace peak-to-peak; watch "clipped".
   offset_v: 0.0

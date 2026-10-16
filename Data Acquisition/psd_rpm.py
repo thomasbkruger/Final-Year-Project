@@ -196,7 +196,7 @@ def style_axes(ax, kind: str, title: str | None = None, xscale: str | None = Non
         ax.spines[s].set_visible(False)
     for s in ("left", "bottom"):
         ax.spines[s].set_color(C_GRID)
-    ax.tick_params(colors=C_MUTED, labelsize=9, which="both")
+    ax.tick_params(colors=C_MUTED, which="both")
     if yscale == "log" and spec["yscale"] == "log":
         # The RPM y-range spans barely a decade, so label the 2s and 5s too.
         # A full spectrum spans several and is left to the default locator.
@@ -207,40 +207,55 @@ def style_axes(ax, kind: str, title: str | None = None, xscale: str | None = Non
         ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v/1e6:g}"))
         ax.set_xlabel("frequency (MHz)", color=C_INK)
     if title:
-        ax.set_title(title, loc="left", fontsize=11, color=C_INK)
+        ax.set_title(title, loc="left", color=C_INK)
 
 
 def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
                  fmax: float | None = None, label: str | None = None) -> None:
     import matplotlib.pyplot as plt
 
+    import figstyle
+
     f = d["f"][kind]
     m = f > 0
-    fig, ax = plt.subplots(figsize=(10.6, 5.6))
+    fig, ax = plt.subplots(figsize=(figstyle.TEXT_WIDTH, 3.6))
     fig.patch.set_facecolor(C_SURFACE)
     ax.set_facecolor(C_SURFACE)
 
+    # A linear PSD axis is scaled by a power of ten, named in the axis label
+    # rather than in an offset above the axis.
+    curves = [e[kind] for e in d["rpm"].values()]
+    exp = (int(np.floor(np.log10(max(amp(c, m, kind).max() for c in curves))))
+           if KINDS[kind]["yscale"] == "linear" else 0)
+    y = lambda power: amp(power, m, kind) / 10.0 ** exp
+    ylabel = (rf"PSD ($10^{{{exp}}}$ V$^2$/Hz)" if exp else None)
+
     if d["ref"]:
         ref = np.mean([e[kind] for e in d["ref"]], axis=0)
-        ax.plot(f[m], amp(ref, m, kind), color=C_MUTED, lw=1.2, ls=(0, (5, 4)),
+        ax.plot(f[m], y(ref), color=C_MUTED, lw=1.2, ls=(0, (5, 4)),
                 zorder=2,
                 label=f"stationary, {shown_as(ref_tag, series, label or series)} "
                       f"(mean of {len(d['ref'])})")
     for colour, (rpm, e) in zip(series_colours(len(d["rpm"])), d["rpm"].items()):
-        ax.plot(f[m], amp(e[kind], m, kind), color=colour, lw=1.4, zorder=3,
+        ax.plot(f[m], y(e[kind]), color=colour, lw=1.4, zorder=3,
                 label=f"{rpm} RPM")
 
     if KINDS[kind]["xscale"] == "linear":
         ax.set_xlim(0, fmax or content_fmax(d, kind))
-    style_axes(ax, kind, f"{label or series} rotating target "
-                         f"{KINDS[kind]['name']}")
-    leg = ax.legend(frameon=False, fontsize=9, loc="upper left", labelcolor=C_INK,
-                    bbox_to_anchor=(1.01, 1.0), borderaxespad=0,
-                    title="target speed", alignment="left")
-    leg.get_title().set_fontsize(9)
+        ax.set_ylim(0, None)
+    # Untitled: the report caption names the figure.
+    style_axes(ax, kind, ylabel=ylabel)
+    # The peaks sit low and to the left on the linear axes, leaving the top
+    # right empty; on log axes the spectrum fills the plot, so go outside.
+    inside = KINDS[kind]["xscale"] == "linear"
+    leg = ax.legend(frameon=False, labelcolor=C_INK, title="target speed",
+                    alignment="left",
+                    **({"loc": "upper right"} if inside else
+                       {"loc": "upper left", "bbox_to_anchor": (1.01, 1.0),
+                        "borderaxespad": 0}))
     leg.get_title().set_color(C_MUTED)
     fig.tight_layout()
-    fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+    fig.savefig(out, facecolor=fig.get_facecolor())
     plt.close(fig)
     print(f"plot -> {out}")
 
@@ -282,12 +297,12 @@ def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str,
                              f"{KINDS[kind]['name']}")
         # Peaks sit at the left on a linear axis and fill the lower band on a
         # log one, so the top right corner is the only reliably empty one.
-        ax.legend(frameon=False, fontsize=9, labelcolor=C_INK,
+        ax.legend(frameon=False, labelcolor=C_INK,
                   loc="upper right" if KINDS[kind]["xscale"] == "linear"
                   else "lower left")
         fig.tight_layout()
         out = out_dir / f"{kind}_{series or label}_{rpm}RPM.png"
-        fig.savefig(out, dpi=150, facecolor=fig.get_facecolor())
+        fig.savefig(out, facecolor=fig.get_facecolor())
         plt.close(fig)
         print(f"plot -> {out}")
 
@@ -334,6 +349,8 @@ def main() -> int:
 
     import matplotlib
     matplotlib.use("Agg")
+    import figstyle
+    figstyle.use()
 
     f, f_fft = d["f"]["psd"], d["f"]["fft"]
     print(f"{args.series} on {d['date']}, PSD nperseg={args.nperseg} "

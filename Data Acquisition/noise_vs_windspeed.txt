@@ -1,6 +1,7 @@
 Doppler peak power and local noise, D series (wind tunnel)
-generated: 2026-10-15 11:00:37 South Africa Standard Time
-captures:  20261012 (plus 20261009), one per speed setpoint; Welch nperseg=2500 (df = 50 kHz)
+generated: 2026-10-16 10:36:46 South Africa Standard Time
+captures:  20261012, unrotated rig (plus 20261009), one per speed setpoint;
+           Welch nperseg=2500 (df = 50 kHz)
 peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over the PSD's
            own running median (61 bins), searched over 1-40 MHz; the power quoted
            is the PSD of the bin nearest that centroid, not the largest bin and not
@@ -50,7 +51,7 @@ centroid against the largest bin, as a check on how far the two disagree:
 
 
 mist runs, relative to each PSD's own noise floor (PSD / running median, in dB,
-as in the floor-normalised figures), over the same noise band; mist xN = the
+as in the floor-normalised figures), over the same noise band; xN = the
 first N captures of that speed, averaged in power:
 
               U  centroid     FWHM      peak  band mean   band sd  (peak-mean)/sd  clears 5 sd
