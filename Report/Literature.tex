@@ -5,81 +5,58 @@
 \chapter{Literature Review}
 \label{sec:litReview}
 
+%Research has been focused on two areas; ground-based systems for wind-speed measurement (primarily for resource assessment prior to building wind-energy farms), and nacelle-mounted LiDAR (NML) systems \cite{letizia_characterization_2023}. 
+%
+%The following subsections provide a brief overview of different NML application areas, and progress and limitations in these sectors. These areas of research present viable means to lower the levelized cost of energy (LCOE) for wind-turbines, and are thus well-suited to the growing demands for wind-energy systems globally \cite{letizia_characterization_2023}. 
+%
+%
+%% ---------------------------------------------------------------------
+%\section{Wind Measurement in the Wind Energy Sector}
+%    \subsection{Introduction}
+%    
+
+%    \subsection{NML for Load Reduction}
+%    Wind gusts can place significant load on a wind-turbine structure - however appropriate control of the turbine's rotor pitch can serve to decrease this load, preserving the structural integrity and longevity of the system.
+%    Standard turbine controllers are feedback systems that react to
+%    a turbulent gust only after it has loaded the rotor. A lidar preview of
+%    the approaching wind-field however would enable feed-forward pitch action \textbf{before} the gust
+%    arrives, and there is consensus that load reduction in certain regions of wind-turbine operation is a promising lidar-assisted control
+%    (LAC) application \cite{letizia_characterization_2023}. Crucially however, any benefit from feedforward LAC for load-reduction is limited by
+%    the coherence between the wind-speed measured by the LiDAR from a distance, and the actual wind-speed which hits the turbine rotors (rotor-effective wind-speed) \cite{letizia_characterization_2023}. The seminal simulation study of Harris et al. reported a 10\% reduction
+%    in damage-equivalent load on the flapwise blade root \cite{harris2006}, which spurred on further research into the topic. There is much ongoing research on the topic, particularly with respect to the evolution of the wind-field in between sensing and reaching the turbine, and reported results span a wide range. This lack of consolidation has thus presented a barrier to widespread adoption of LAC for load reduction, however research thus far indicates that this is indeed a promising application of the technology \cite{simley_optimizing_2018} \cite{letizia_characterization_2023}. 
+%    
+%    \subsection{NML for Performance Optimization}
+%    Another application area for LAC is performance optimization, where feedforward control based on NML measurements of the incoming wind-field can be used to yaw and pitch the turbine appropriately, and use torque control to maintain optimal rotor speed, so as to maximise power generation. This has however showed limited results in comparison to load reduction. Simulation studies thus far have found negligible gains in power coefficient from feed-forward torque control for optimising rotor speed, because conventional non-LAC torque controllers are already
+%    mature \cite{letizia_characterization_2023}. Where gains are reported they come from yaw correction - a
+%    hub-mounted ZephIR used to correct misalignment on a 2\,MW turbine gave
+%    an estimated 5\% annual energy production increase \cite{letizia_characterization_2023}. 
+%    
+%    \subsection{LiDAR for Performance Assessment}
+%    Power performance testing is an area in which NML has had greatest success and widespread adoption \cite{letizia_characterization_2023}. A turbine's power curve is conventionally
+%    measured against a met-mast's wind-speed measurements. Mikkelsen et al. used a spinner lidar (mounted on the wind turbine blades rather than the nacelle) to reconstruct the low-speed end
+%    of a 2.3\,MW turbine's power curve and found less scatter than the met-mast
+%    measurement, which they attributed to a more representative
+%    rotor-equivalent wind speed \cite{mikkelsen_spinner-integrated_2013}. Wagner et al. achieved similar results, and identified the reasons:
+%    because the lidar yaws with the turbine it always measures upwind, so
+%    its measured wind-speed correlates better with power fluctuations than the met-mast's; and
+%    because it is never in the wake of the turbine under test, the usable wind sector was larger than the undisturbed sector of the cup
+%    anemometer \cite{wagner_power_2014}. This shows a direct advantage of a DWL system over traditional in-situ measurements, where the met-mast is fixed. A subsequent uncertainty analysis found
+%    the NML estimated annual energy production only 1.1\% more uncertain than the cup-anemometer reference, its
+%    higher instrumental uncertainty offset by greater data
+%    availability \cite{wagner_uncertainty_2016}.
+%    The International Electrotechnical Commission (IEC) formalised the method in 2022 \cite{iec61400-50-3}, and some 500 campaigns
+%    per year are projected this decade~\cite{letizia_characterization_2023}.
+%    
+%    \subsection{Discussion of NML Applications}
+%    The three application areas discussed above present results which show some of the use-cases of LiDAR for wind-speed measurement, however they are not exhaustive, and the topic remains an active area of research. What is however clear in the literature is that the widespread adoption of such systems depends on the reliability, accuracy and cost of the LiDAR systems \cite{letizia_characterization_2023}. Traditionally, such systems have been very expensive, and there has been research into methods to reduce the cost \cite{bennett_doppler_2003}. The remainder of this report thus addresses aspects related to the design of such systems, and the costs and tradeoffs involved. 
 % ---------------------------------------------------------------------
-\section{Wind Measurement in the Wind Energy Sector}
-    \subsection{Introduction}
-    Wind has become a mainstream source of electricity. A record 165\,GW of
-    new wind capacity was installed worldwide in 2025, 40\% more than the
-    previous record year, bringing cumulative capacity to roughly 1.3\,TW
-    across 138 countries \cite{gwec2026}. Delivering that growth at acceptable cost depends on how well the wind
-    resource itself can be characterised, which Veers et al. identify as one
-    of the grand challenges of wind energy science \cite{veers_grand_2019}.
-    Wind speed is an important factor in analysis of a turbine's economics
-    and engineering. The power available in the wind scales with the cube of
-    wind speed, so a small error in measured or predicted wind speed becomes
-    a much larger error in predicted energy \cite{windenergyhandbook}. Furthermore, wind speed and turbulence significantly affect the structural fatigue on a turbine, and act as an input to controllers which control the pitch and yaw of the turbines appropriately to maximise power generation and minimise stresses on the structure. It is clear that real-time measurement of the wind field around wind-turbines is a critical objective for this industry, and one to which much attention must be given. However, turbines operate in the lower atmospheric boundary layer, where the flow
-    is turbulent and shaped by mesoscale circulation, orography, thermal stratification and the wakes of neighbouring turbines, which makes this characterisation of the wind-field difficult \cite{letizia_characterization_2023}.
-    
-
-    \subsection{Current In-Situ Anemometry Methods and Limitations}
-    The traditional instrument for wind-speed measurement for wind-turbines is the meteorological mast (met-mast),
-    which holds cup and sonic anemometers at fixed heights, mounted on a long mast. This technology is well established, providing high resolution measurements, and indeed acting as a reference point to which any alternative method is compared \cite{liu_review_2019}, \cite{hill_remote_nodate}. This methodology however holds several limitations:
-
-    Erecting a meteorological mast can be costly, particularly for offshore wind-turbines \cite{wagner_uncertainty_2016}. Once constructed, the  met-mast is naturally limited to a single location, which limits spatial coverage - this makes variability in the wind, which occurs over larger areas, difficult to characterise \cite{letizia_characterization_2023}. Furthermore, the wake of the mast itself can corrupt measurements in the anemometer \cite{letizia_characterization_2023}. These constraints motivated the research into a remote sensing alternative to in-situ measurements.
-    
-    
-% ---------------------------------------------------------------------
-\section{LiDAR as an Alternative}
-
-    \subsection{Introduction}
-    Advancements in LiDAR technology have resulted in the technology presenting an alternative and/or complement to existing wind-speed measurement techniques. This allows for the development of new turbine control and assessment strategies, which overcome some of the limitations of traditional wind-speed measurement techniques. 
-
-    Doppler wind LiDAR (DWL) systems measure the line-of-sight velocity of wind by emitting a laser beam into the atmosphere and measuring the Doppler shift of the beam after being backscattered by naturally occurring aerosols and particles (see \autoref{sec:lit-principlesDWL}). There are numerous commercial DWL systems available, such as Qinetiq's ZephIR whose first deployment was on the nacelle of a 2.3\,MW turbine, and with Vaisala's (formerly Leosphere) pulsed WindCube shortly afterwards \cite{hill_remote_nodate} \cite{cariou_leosphere_nodate}. Research has been focused on two areas; ground-based systems for wind-speed measurement (primarily for resource assessment prior to building wind-energy farms), and nacelle-mounted LiDAR (NML) systems \cite{letizia_characterization_2023}. 
-    
-    Letizia et al. identified several promising application areas for NML systems, including load reduction, performance optimization, and performance assessment \cite{letizia_characterization_2023}. NML systems present several advantages over traditional measurement techniques for these ends, including larger field of view and spatial coverage (particularly for scanning LiDARs) and reduced costs and maintenance \cite{letizia_characterization_2023}. The following subsections provide a brief overview of different NML application areas, and progress and limitations in these sectors. These areas of research present viable means to lower the levelized cost of energy (LCOE) for wind-turbines, and are thus well-suited to the growing demands for wind-energy systems globally \cite{letizia_characterization_2023}. 
-
-    \subsection{NML for Load Reduction}
-    Wind gusts can place significant load on a wind-turbine structure - however appropriate control of the turbine's rotor pitch can serve to decrease this load, preserving the structural integrity and longevity of the system.
-    Standard turbine controllers are feedback systems that react to
-    a turbulent gust only after it has loaded the rotor. A lidar preview of
-    the approaching wind-field however would enable feed-forward pitch action \textbf{before} the gust
-    arrives, and there is consensus that load reduction in certain regions of wind-turbine operation is a promising lidar-assisted control
-    (LAC) application \cite{letizia_characterization_2023}. Crucially however, any benefit from feedforward LAC for load-reduction is limited by
-    the coherence between the wind-speed measured by the LiDAR from a distance, and the actual wind-speed which hits the turbine rotors (rotor-effective wind-speed) \cite{letizia_characterization_2023}. The seminal simulation study of Harris et al. reported a 10\% reduction
-    in damage-equivalent load on the flapwise blade root \cite{harris2006}, which spurred on further research into the topic. There is much ongoing research on the topic, particularly with respect to the evolution of the wind-field in between sensing and reaching the turbine, and reported results span a wide range. This lack of consolidation has thus presented a barrier to widespread adoption of LAC for load reduction, however research thus far indicates that this is indeed a promising application of the technology \cite{simley_optimizing_2018} \cite{letizia_characterization_2023}. 
-    
-    \subsection{NML for Performance Optimization}
-    Another application area for LAC is performance optimization, where feedforward control based on NML measurements of the incoming wind-field can be used to yaw and pitch the turbine appropriately, and use torque control to maintain optimal rotor speed, so as to maximise power generation. This has however showed limited results in comparison to load reduction. Simulation studies thus far have found negligible gains in power coefficient from feed-forward torque control for optimising rotor speed, because conventional non-LAC torque controllers are already
-    mature \cite{letizia_characterization_2023}. Where gains are reported they come from yaw correction - a
-    hub-mounted ZephIR used to correct misalignment on a 2\,MW turbine gave
-    an estimated 5\% annual energy production increase \cite{letizia_characterization_2023}. 
-    
-    \subsection{LiDAR for Performance Assessment}
-    Power performance testing is an area in which NML has had greatest success and widespread adoption \cite{letizia_characterization_2023}. A turbine's power curve is conventionally
-    measured against a met-mast's wind-speed measurements. Mikkelsen et al. used a spinner lidar (mounted on the wind turbine blades rather than the nacelle) to reconstruct the low-speed end
-    of a 2.3\,MW turbine's power curve and found less scatter than the met-mast
-    measurement, which they attributed to a more representative
-    rotor-equivalent wind speed \cite{mikkelsen_spinner-integrated_2013}. Wagner et al. achieved similar results, and identified the reasons:
-    because the lidar yaws with the turbine it always measures upwind, so
-    its measured wind-speed correlates better with power fluctuations than the met-mast's; and
-    because it is never in the wake of the turbine under test, the usable wind sector was larger than the undisturbed sector of the cup
-    anemometer \cite{wagner_power_2014}. This shows a direct advantage of a DWL system over traditional in-situ measurements, where the met-mast is fixed. A subsequent uncertainty analysis found
-    the NML estimated annual energy production only 1.1\% more uncertain than the cup-anemometer reference, its
-    higher instrumental uncertainty offset by greater data
-    availability \cite{wagner_uncertainty_2016}.
-    The International Electrotechnical Commission (IEC) formalised the method in 2022 \cite{iec61400-50-3}, and some 500 campaigns
-    per year are projected this decade~\cite{letizia_characterization_2023}.
-    
-    \subsection{Discussion of NML Applications}
-    The three application areas discussed above present results which show some of the use-cases of LiDAR for wind-speed measurement, however they are not exhaustive, and the topic remains an active area of research. What is however clear in the literature is that the widespread adoption of such systems depends on the reliability, accuracy and cost of the LiDAR systems \cite{letizia_characterization_2023}. Traditionally, such systems have been very expensive, and there has been research into methods to reduce the cost \cite{bennett_doppler_2003}. The remainder of this report thus addresses aspects related to the design of such systems, and the costs and tradeoffs involved. 
-% ---------------------------------------------------------------------
-\section{Principles of Doppler Wind LiDAR}
-\label{sec:lit-principlesDWL}
+%\section{Principles of Doppler Wind LiDAR}
+%\label{sec:lit-principlesDWL}
 % Lead-in: single continuous physics narrative from here to the end of
 % the section -- no application material interleaved.
-Doppler wind LiDAR uses a simple working principle in order to determine wind-speed from a distance. The following section details the physics and mathematical concepts which are used in DWL systems.
+%Doppler wind LiDAR uses a simple working principle in order to determine wind-speed from a distance. The following section details the physics and mathematical concepts which are used in DWL systems.
 
-    \subsection{Aerosol Backscatter and the Doppler Shift}
+    \section{Aerosol Backscatter and the Doppler Shift}
     % Mie scattering from ambient aerosol; f_D = 2 v_r / lambda;
     % origin of the factor of two.
     LiDAR systems emit very high-frequency electromagnetic radiation (when compared to its technological cousin - radar), thus, wavelengths of the emitted radiation will be very small. This property makes the technology uniquely suitable for the purposes of wind-speed measurement; the wavelength of the emitted LiDAR beam is comparable to the size of the aerosol particles, and thus the particles scatter some of the emitted beam (Mie scattering) \cite{mikkelsen_spinner-integrated_2013}.
@@ -111,7 +88,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
 
     Thus, by determining the Doppler frequency shift of the received backscatter from aerosol particles, the LOS velocity of those particles can be determined, and from this, the LOS wind-speed can be inferred. Note that this explanation simplifies concepts used in ranging of the wind-speed, which will be discussed in later sections. 
 
-    \subsection{Challenges in Measuring Doppler Shift in DWL} \label{sec:lit-ChallengesDopplerShift}
+    \section{Challenges in Measuring Doppler Shift in DWL} \label{sec:lit-ChallengesDopplerShift}
     A crucial challenge in DWL is the measurement of the Doppler shift itself. LiDAR beam frequencies are of the order of
     $10^{14}\,\text{Hz}$ (hundreds of terahertz) while, from
     equation~\ref{eq:DopplerShift}, the Doppler shift in this THz-range signal, produced by
@@ -121,11 +98,11 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
 
         
     
-    \subsection{LiDAR Detection Modes}
+    \section{LiDAR Detection Modes}
     LiDAR systems are typically grouped into two main types, each with their own distinct advantages, based on how received light is detected - these types are Direct Detection, and Coherent Detection. To varying extents, both of these detection modes have been applied in DWL systems, with significant differences in how the Doppler shift is measured in each. This section gives an overview of the principles of each detection mode, and discusses how this can be utilised to measure the Doppler shift of received backscatter light. 
     
     
-        \subsubsection{Direct Detection}
+        \subsection{Direct Detection}
         \label{sec:lit-directDetection}
         % Edge / fringe-imaging techniques; molecular vs. aerosol regimes.
         % Close with an explicit statement of why this branch is set aside.
@@ -141,7 +118,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
         An advantage that direct detection architectures hold over coherent detection is the ability to use molecular backscattering return (Rayleigh scattering), which gives it better performance in high-altitude regions with less aerosols to give particulate backscattering (Mie scattering, which a coherent detection system relies on) \cite{colberg_diode-laser-based_2026}. However, direct detection DWL systems typically have worse accuracy and spatial resolution than their coherent detection counterparts, which are more technologically mature \cite{werner_doppler_2005}. For these reasons, Direct detection architectures are not as common in the literature on DWL, as compared to coherent detection systems, particularly in typical wind-turbine applications in the aerosol-rich boundary layer, where the primary advantage of direct detection architectures is unnecessary. The remainder of this review will thus focus on coherent detection systems, and the intricacies of their system architecture. 
         
 
-        \subsubsection{Coherent Detection}
+        \subsection{Coherent Detection}
         \label{sec:lit-coherentDetection}
         % Optical mixing with a local oscillator; beat signal; CNR;
         % shot-noise-limited operation and the LO power crossover condition.
@@ -183,7 +160,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
         Aside from the direct measurement of the Doppler shift, the "signal beating" process described above provides several other key advantages. The beating process amplifies the return beam, which allows for shot-noise limited operation (the ideal case for such a system), and extremely high sensitivies \cite{hill_remote_nodate} (elaboration in \ref{sec:lit-BalancedDetection}). This is essential in DWL, as return signals in clear atmospheric conditions are typically very low, due to low backscatter from aerosols. Furthermore, this detection process rejects signals which are not common in spatial mode and polarisation with the LO, meaning that sunlight, or other LiDAR beams will not affect the measurement \cite{hill_remote_nodate}. 
         
 
-    \subsection{Coherent Detection: Homodyne, Heterodyne and Directional Ambiguity}
+    \section{Coherent Detection: Homodyne, Heterodyne and Directional Ambiguity}
     \label{sec:lit-homohetero}
     
     % Zero-IF mixing and the sign ambiguity in the radial velocity.
@@ -192,7 +169,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     % Close by stating which option is adopted and the accepted trade-off.
     The following section discusses two distinct classes of coherent detection methodology, and how the choice of class affects the recovery of the wind direction from the signal.
 
-    \subsubsection{Homodyne}
+    \subsection{Homodyne}
     While not explicitly stated, the previously discussed direct down-conversion of the return signal to the beat signal - via mixing with a local oscillator with the \textbf{same} frequency as the emitted signal (\autoref{eqn:beatSignal} and preceding) - is known as \textbf{homodyne} coherent detection. Homodyne coherent detection down-converts the MHz-range doppler shift in the THz range carrier to a MHz-range beat signal around baseband, i.e. the frequency of the signal is directly the frequency of the Doppler shift. This has significant implications:
 
     Ignoring the DC components in \autoref{eqn:beatSignal}, we get
@@ -215,7 +192,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     currents. Only the magnitude $\lvert \Delta f_D \rvert$ is recoverable, and the
     measured spectrum is symmetric about zero frequency. Note that Abari et. al\cite{abari_all-fiber_2014} demonstrated a methodology for obtaining signed velocity, even with a homodyne coherent detection setup, however this setup is novel and introduces additional complexities and costs which are outside of the scope of this project. 
 
-    \subsubsection{Heterodyne}
+    \subsection{Heterodyne}
     The alternative to this is known as \textbf{heterodyne} coherent detection. In heterodyne architectures, a slight frequency shift is imposed on the laser - crucially however this shift is only applied to one of the fractional outputs, either the local oscillator \textbf{or} the emitted laser (but not both). This means that when the same beating process described previously is applied, the MHz-range doppler shift in the THz range carrier is down-converted to a MHz-range beat signal centered around an intermediate frequency ($f_i$ below), rather than baseband, as with homodyne architectures. This is conventionally achieved with an
     acousto-optic modulator, placed either in the local oscillator arm \cite{harris_role_1998} or in the transmit arm \cite{abdelazim_development_2015}. This has the advantage of allowing for the recovery of the target's direction:
     
@@ -229,7 +206,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     %
     Provided $f_i > \lvert \Delta f \rvert_{\max}$, the sign of $\Delta f$ is recoverable. Approaching targets appear above $f_i$ and receding targets below it, and the sign of the velocity is recovered.
 
-    \subsection{Coherent Detection: Noise Sources and the Shot-Noise Limit}
+    \section{Coherent Detection: Noise Sources and the Shot-Noise Limit}
     \label{sec:lit-noiseSources}
     In a coherent detection DWL system, there are four primary sources of noise which need to be considered, namely electronic noise, shot noise, relative-intensity noise, and phase-induced intensity noise:
 
@@ -277,7 +254,7 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     
     Finally, there is phase-induced intensity noise (PIIN), which is noise which results from non-ideal linewidth effects of the laser source \cite{cariou2006laser}, \cite{jiang_performance_2019}, \cite{harris_role_1998}. PIIN is a significant source of noise in DWL systems, and has been shown to be highly unstable, and to possibly exceed the shot-noise by up to 30dB \cite{harris_role_1998}. Thus, in order to remain as close as possible to the ideal shot-noise limit, PIIN should be reduced. This is possible through the selection of an appropriate laser source, and through careful matching of signal path lengths in the DWL system \cite{harris_role_1998}\cite{cariou2006laser}. PIIN is a complex noise source which can vary significantly in shape and magnitude depending on the laser source and the DWL system. An understanding of laser phase noise and linewidth is required to understand it - a full discussion and mathematical breakdown on these concepts and how they relate to PIIN is provided in \autoref{appendix:PIIN}.
     
-    \subsection{Coherent Detection: Single-Ended vs Balanced Detection} \label{sec:lit-BalancedDetection}
+    \section{Coherent Detection: Single-Ended vs Balanced Detection} \label{sec:lit-BalancedDetection}
     
     As previously discussed, in order to determine the Doppler shift of the received backscatter signal in a coherent detection DWL system, the backscatter signal must be optically mixed with the LO signal, and this mixed signal must then be detected using a photodetector system. This section discusses the two common types of photodetection methodologies - single-ended detection, and balanced detection. Balanced detection holds two key advantages over single-ended detection, which will be discussed here.
 
@@ -290,27 +267,28 @@ Doppler wind LiDAR uses a simple working principle in order to determine wind-sp
     
     
 
-\subsection{Transmit and Receive Optics: Monostatic vs Bistatic}
+\section{Transmit and Receive Optics: Monostatic vs Bistatic}
     For a DWL system there are two optical configurations which are commonly used - bistatic and monostatic. This section discusses the differences between the two.
 
-    \subsubsection{Bistatic}
+    \subsection{Bistatic}
     Bistatic configurations use one lens to emit the laser into the atmosphere, and another to receive the backscatter signal. One distinct advantage of a bistatic configuration, is that back reflections of the beam from the lens used for emission are not coupled into the mixed signal, and thus do not appear at the detector \cite{cariou2006laser}. This serves to reduce phase induced intensity noise (discussed in \autoref{sec:lit-linewidth}. However, this is at the cost of greatly increased complexity, due to additional considerations of alignment of the two lens apertures \cite{harris_role_1998} \cite{bennett_doppler_2003}. 
     
-    \subsubsection{Monostatic}
+    \subsection{Monostatic}
     A monostatic configuration uses a single lens aperture for both the emission of the laser, and the receiving of the backscatter signal. A fiber optic circulator can then be used to ensure the emitted signal and the received signal do not interfere, and are routed appropriately in the system. This has the distinct advantage of not requiring any additional lenses, and alignment considerations, and indeed has become the norm for such systems due to this reduced complexity \cite{hill_remote_nodate}.  
         
 
-    \subsection{Ranging: Pulsed versus Continuous Wave}
+    \section{Ranging: Pulsed versus Continuous Wave}
+    \label{sec:lit-Ranging}
     % Range gating vs. focus-defined probe volume.
     % Pulse length / minimum range and dead-time constraints.
     % Close by justifying CW on physics grounds at the ranges of interest.
     Coherent DWL systems have two distinct methodologies which can be applied in order to determine at what distance from the system a measured wind-speed is occurring. The methodology differs depending on a key architectural choice of the system, namely whether the LiDAR beam is on for longer periods of time - known as continuous wave (CW) - or if it is pulsed. Both of these architectures hold their own advantages and disadvantages, which will be discussed in this section.
 
-    \subsubsection{Pulsed LiDAR}
+    \subsection{Pulsed LiDAR}
     As the name suggests, a pulsed LiDAR system emits its beam in a short pulse. Depending on the pulse duration, a given volume of air - called the probe volume - will be illuminated at an instant of time, and will create backscatter. This volume naturally moves through the air as the beam propagates radially. Thus, by using extremely precise timing on the returned backscatter, it can be determined which distance "slice" of air that backscatter was generated by, and thus, what the wind-speed for that particular "slice" is. The wind-speed for that distance is averaged over the probe volume, thus a shorter pulse will give greater spatial accuracy due to its shorter probe volume. This technique is known as range-gating, and has been widely applied in commercial and scientific DWL systems. \cite{cariou_leosphere_nodate} \cite{wagner_power_2014} \cite{letizia_characterization_2023}. A distinct advantage of range-gating is that the probe volume remains the same at all distances, including longer ones, giving it constant range resolution for longer distances than CW systems \cite{cariou_leosphere_nodate} (described below). However, it must also be noted that typical pulsed systems are ineffective in ranges below tens of metres, because the pulse length is at least as long as the desired range \cite{hill_remote_nodate}. 
 
-    \subsubsection{Continuous-Wave LiDAR}
-    Continuous-wave systems emit a continuous beam through the atmosphere. This simplifies the design cost and complexity of the systems \cite{cariou_leosphere_nodate} \cite{hill_remote_nodate}, and no precise pulse timing or receive timing is required. CW systems achieve ranging by using optics to focus the beam at a specific distance. This gives a Lorentzian spatial weighting function along the beam length, with a peak at the focus point of the beam (the point with highest intensity), thus concentrating the detection sensitivity around the focus, at the expense of contributions from other ranges. However, the effective probe volume varies \textbf{quartically} with the distance of the focal point from the source, thus significantly increasing the volume over which the Doppler shift (and therefore wind-speed) is averaged at longer focal distances. Therefore for longer ranges, spatial resolution severely decreases, and it is not possible to gate the measurements for any specific region of air before the focal point. For this reason, CW systems are not well-suited for long ranges of several hundred meters \cite{hill_remote_nodate}, however at short ranges they can be more effective than pulsed systems, owing to the previously mentioned limitations of pulsed systems, relating to pulse length. 
+    \subsection{Continuous-Wave LiDAR}
+    Continuous-wave systems emit a continuous beam through the atmosphere. This simplifies the design cost and complexity of the systems \cite{cariou_leosphere_nodate} \cite{hill_remote_nodate}, and no precise pulse timing or receive timing is required. CW systems achieve ranging by using optics to focus the beam at a specific distance. This gives a Lorentzian spatial weighting function along the beam length, with a peak at the focus point of the beam (the point with highest intensity), thus concentrating the detection sensitivity around the focus. This means that while the beam is still Doppler-shifted by varying amounts across its entire probe volume (due to variations in wind-speed across its span), the Doppler shift from the points at the focus will be weighted higher than the points not at the focus. However even with this in mind, the effective probe volume varies \textbf{quartically} with the distance of the focal point from the source, thus \textbf{significantly} increasing the volume over which the Doppler shift (and therefore wind-speed) is averaged at longer focal distances. Therefore for longer ranges, spatial resolution severely decreases, and it is not possible to gate the measurements for any specific region of air before the focal point. For this reason, CW systems are not well-suited for long ranges of several hundred meters \cite{hill_remote_nodate}, however at short ranges they can be more effective than pulsed systems, owing to the previously mentioned limitations of pulsed systems, relating to pulse length. 
 
     
     

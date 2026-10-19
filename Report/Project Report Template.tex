@@ -18,10 +18,21 @@
 \usepackage{lscape}
 \usepackage{hyphenat}
 \usepackage{setspace}
+\usepackage{titlesec}
+
+% Keeps the two-line "Chapter N / Title" look, just smaller and tighter
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}          % overall format
+{\Large\chaptertitlename\ \thechapter} % "Chapter 3"
+{8pt}                           % gap between "Chapter 3" and the title
+{\huge}                        % title size
+\titlespacing*{\chapter}{0pt}{0pt}{16pt}  % {left}{space above}{space below}
+
 \usepackage{hyperref}
 \usepackage{pgfplots}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{siunitx}
 \usepackage{subcaption}
 \usetikzlibrary{arrows.meta,positioning,calc,decorations.markings,fit,backgrounds,patterns,decorations.pathmorphing}
@@ -169,7 +180,6 @@ or create new ones.
 \include{System Design}
 \include{Noise Analysis}
 \include{Results}
-\include{Discussion}
 \include{Conclusions}
 \include{Recommendations}
 \bibliographystyle{plain} 

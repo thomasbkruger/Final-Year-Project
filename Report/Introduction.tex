@@ -1,25 +1,43 @@
 \chapter{Introduction}
 
 \section{Background to the study}
-A very brief background to your area of research. Start off with a general introduction to the area and
-then narrow it down to your focus area. Used to set the scene \cite{smt2011}.
-\section{Objectives of this study}
-\subsection{Problems to be investigated}
-Description of the main questions to be investigated in this study.
-\subsection{Purpose of the study}
-Give the significance of investigating these problems. It must be obvious why you are doing this study
-and why it is relevant.
+Wind has become a mainstream source of electricity. A record 165\,GW of
+new wind capacity was installed worldwide in 2025, 40\% more than the
+previous record year, bringing cumulative capacity to roughly 1.3\,TW
+across 138 countries \cite{gwec2026}. Delivering that growth at acceptable cost depends on how well the wind
+resource itself can be characterised, which Veers et al. identify as one
+of the grand challenges of wind energy science \cite{veers_grand_2019}.
+Wind speed is an important factor in analysis of a turbine's economics
+and engineering. The power available in the wind scales with the cube of
+wind speed, so a small error in measured or predicted wind speed becomes
+a much larger error in predicted energy \cite{windenergyhandbook}. Furthermore, wind speed and turbulence significantly affect the structural fatigue on a turbine, and act as an input to controllers which control the pitch and yaw of the turbines appropriately to maximise power generation and minimise stresses on the structure. It is clear that real-time measurement of the wind field around wind-turbines is a critical objective for this industry, and one to which much attention must be given. However, turbines operate in the lower atmospheric boundary layer, where the flow
+is turbulent and shaped by mesoscale circulation, orography, thermal stratification and the wakes of neighbouring turbines, which makes this characterisation of the wind-field difficult \cite{letizia_characterization_2023}.
+
+The traditional instrument for wind-speed measurement for wind-turbines is the meteorological mast (met-mast),
+which holds cup and sonic anemometers at fixed heights, mounted on a long mast. This technology is well established, providing high resolution measurements, and indeed acting as a reference point to which any alternative method is compared \cite{liu_review_2019}, \cite{hill_remote_nodate}. This methodology however holds several limitations:
+
+Erecting a meteorological mast can be costly, particularly for offshore wind-turbines \cite{wagner_uncertainty_2016}. Once constructed, the  met-mast is naturally limited to a single location, which limits spatial coverage - this makes variability in the wind, which occurs over larger areas, difficult to characterise \cite{letizia_characterization_2023}. Furthermore, the wake of the mast itself can corrupt measurements in the anemometer \cite{letizia_characterization_2023}. These constraints motivated the research into a remote sensing alternative to in-situ measurements.
+
+Advancements in LiDAR technology have resulted in the technology presenting an alternative and/or complement to existing wind-speed measurement techniques. This allows for the development of new turbine control and assessment strategies, which overcome some of the limitations of traditional wind-speed measurement techniques. 
+
+Doppler wind LiDAR (DWL) systems measure the line-of-sight velocity of wind by emitting a laser beam into the atmosphere and measuring the Doppler shift of the beam after being backscattered by naturally occurring aerosols and particles (see \autoref{sec:lit-principlesDWL}). There are numerous commercial DWL systems available, such as Qinetiq's ZephIR whose first deployment was on the nacelle of a 2.3\,MW turbine, and with Vaisala's (formerly Leosphere) pulsed WindCube shortly afterwards \cite{hill_remote_nodate} \cite{cariou_leosphere_nodate}. Letizia et al. identified several promising application areas for nacelle-mounted LiDAR (NML) systems, including load reduction, performance optimization, and performance assessment \cite{letizia_characterization_2023}. NML systems present several advantages over traditional measurement techniques for these ends, including larger field of view and spatial coverage (particularly for scanning LiDARs) and reduced costs and maintenance \cite{letizia_characterization_2023}.
+
+Despite this however, scientific access to these systems is limited by high
+costs, with commercially available systems being quote-only, and estimated in the range of tens to hundreds of thousands of USD. Simley et al. identify system cost, alongside availability and reliability, as one of the principal barriers to the wider adoption of LiDAR for wind-turbine applications \cite{simley_optimizing_2018}. Furthermore, commercial instruments are sold as complete, pre-calibrated products, so the design choices within them, and the effect of each choice on the system's noise and sensitivity, are not open to examination by the user. For universities and smaller research groups, this places both the instruments and an understanding of their internal trade-offs largely out of reach. It was these reasons which thus motivated this study into DWL system design within a more resource constrained environment, where there are more limitations on component availability and cost than in a commercial enterprise. Trade-offs in system design and functionality need to be carefully balanced with respect to the resources at hand, so as to gain an understanding of the internal workings and limitations of these systems.
+
+ 
+\section{Objectives}
+The primary objectives of this project are to design, build, and test a Doppler Wind LiDAR system from readily available parts and components. This is done with the intention of illustrating clearly the principles involved in the design of such a system, and to make system performance in test environments attributable to design and component choices. From this a greater scientific understanding of such systems can be gained, particularly with respect to their limitations when designed and built with resource constraints. The system is not intended to form a fully functional, field-ready DWL system, with the final performance objective being limited to a benchtop-scale system, which fulfills performance requirements and illustrates the system's working principles in a constrained lab environment. The tests which are performed on the system must however illustrate a clear upgrade-path for the system, and quantify the degree of performance of the current system, and the degree which is required for real-world use. 
 
 \section{Scope and Limitations}
-Scope indicates to the reader what has and has not been included in the study. Limitations tell the
-reader what factors influenced the study such as sample size, time etc. It is not a section for excuses as
-to why your project may or may not have worked.
+The project's scope chiefly concerns the photonics, optics, and electronics-level design of a DWL system. This includes the overall choice of architecture of the system, as well as the individual components which make up the system. There are however several limitations imposed on the design of the system, and the overall scope of the project:
 
-\section{Plan of development}
-Here you tell the reader how your report has been organised and what is included in each
-chapter.
+\begin{itemize}
+	\item \textbf{Final system performance:} As noted previously, the system is not intended, nor expected, to be usable outside of a controlled lab environment in the form presented at the conclusion of this project. However, system performance in the lab must be quantified and thoroughly investigated. \\
+	\item \textbf{Component cost and availability:} The system will be limited by the cost and availability of the highly specialised components required. While a strict budget is not provided, components costs are evaluated on a case-by-case basis to determine if omission or a lower-cost option is feasible for this benchtop-scale system. The system was thus kept as simple and inexpensive as possible, given the high cost typically associated with photonics equipment. \\
+	\item \textbf{Data acquisition and processing:} Acquisition and processing of the system's outputs are naturally required to test the system, and will be performed. However, this project is not concerned with \textbf{real-time} processing of the data, as indeed, this aspect is of enough complexity to warrant an entirely separate project. Instead, simple lab equipment is to be used for data acquisition to simplify the system and reduce costs, and a laptop is used for post-processing of data. The system may be extended in a future iteration to include real-time processing functionality. \\
+	\item \textbf{Housing:} While a suitable housing and test-rig will be designed for the system to be used in a lab environment, this project is not concerned with the design of a robust housing which would allow for weather protection and mounting on the nacelle of a turbine. \\
+\end{itemize}
 
-\textbf{Factors for architectural choices discussed in lit review
-Factors for component level design choices discussed in design} 
-
-{\bf I recommend that you write this section last. You can then tailor it to your report.}
+\section{Report outline}
+Following this brief introduction to the background and scope of the study, \autoref{sec:litReview} reviews the literature concerned with the principles of DWL systems, including various architectue types and design considerations identified by current research. Thereafter \autoref{sec:systemDesign} details the choice of architecture, the system requirements, and the design decisions made for this project from the reviewed literature and the objectives and scope of the project. \autoref{sec:noiseAnalysis} gives a comprehensive analysis of noise in the system, which informs a substantial component of the system's overall performance. \autoref{sec:functionalTesting} performs various functional tests on the system, and analyses its functional performance in a lab environment. Finally \autoref{sec:conclusionAndRecommendations} gives concluding remarks based on the tested performance of the system, and gives recommendations for future iterations and extensions of the system, particularly with respect to obtaining a system which is capable of wind-speed measurement for application in the wind energy sector. 

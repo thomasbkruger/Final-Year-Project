@@ -24,7 +24,7 @@ velocities, which broadens the Doppler peak.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{../../../../../Downloads/fig_rig_side3d}
+	\includegraphics[width=0.8\linewidth]{../../../../../Downloads/fig_rig_side3d}
 	\caption{Test setup used for hard-target speed measurement}
 	\label{fig:CRig}
 \end{figure}
@@ -46,10 +46,10 @@ is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 %The motor RPM is varied across measurements in order to test the system's ability to resolve various different speeds. The same data acquisition and processing chain as for experiments A and B are used here, with 100 oscilloscope records being obtained for a given motor RPM, their Welch PSDs computed, and averaged to obtain a result. From \autoref{eqn:Doppler}, substituting $\lambda = 1550nm$, it can be obtained that the velocity can be calculated from the Doppler shift, which gives a beat signal frequency of $1.29MHz$ expected per $m/s$ velocity. 
 
 \subsection{Results and Discussion}
-\autoref{fig:CPSD} below shows the PSD of the measurements obtained for different motor RPMs tested. \autoref{tab:doppler_vs_rpm} gives the Doppler peak and local noise floor for each target speed. The Doppler peak, $f_D$, is taken as the power-weighted centroid of the excess PSD at each peak, as compared to the stationary-target reference, and $v_{\mathrm{LOS}} = f_D / (\SI{1.29}{MHz.s/m})$. The noise statistics are taken in a band outside $3\times$FWHM around the centroid, out to \SI{2}{MHz} either side. All PSD values are in the same units, so the PSD at $f_D$ can be compared directly with the detection threshold (mean $+\,5\sigma$). The excess power created at the Doppler frequency is calculated by integrating each peak across the frequencies which it spans. 
+\autoref{fig:CPSD} below shows the PSD of the measurements obtained for different motor RPMs tested. \autoref{tab:doppler_vs_rpm} gives the Doppler peak and local noise floor for each target speed. The Doppler peak, $f_D$, is taken as the power-weighted centroid of the excess PSD at each peak, as compared to the stationary-target reference, and $v_{\mathrm{LOS}} = f_D / (\SI{1.29}{MHz.s/m})$. The noise statistics are taken in a band outside $3\times$FWHM around the centroid, out to \SI{2}{MHz} either side. All PSD values are in the same units, so the PSD at $f_D$ can be compared directly with the detection threshold (mean $+\,5\sigma$). The excess power created at the Doppler frequency is calculated by integrating each peak across the frequencies which it spans. This integrated excess is the mean-square voltage of the beat signal, which Equation~\ref{eq:beat_power} relates directly to the received optical power.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_rpm_overlay"}
+	\includegraphics[width=0.75\linewidth]{"../Data Acquisition/figures/psd_rpm_overlay"}
 	\caption{C: PSD of hard-target speed measurements, at different motor RPMs}
 	\label{fig:CPSD}
 \end{figure}
@@ -105,11 +105,11 @@ power is unchanged and is merely spread over a wider band. At \SI{50}{RPM}
 here however, the \SI{10}{kHz} bin width of the Welch PSD (corresponding to \SI{7.75}{mm/s} of velocity) and the proximity to DC limit the precision,
 which explains why this point does not show the systematic error seen at higher speeds, as discussed below.
 
-It can also be seen that $f_{D}$, the centroid of each Doppler peak, and its corresponding measured velocity, $v_{LOS} = \frac{f_D}{1.29MHz}$, was higher than the predicted Doppler peak, by approximately 10\% for each case, causing the system to fail performance requirement P7 for the hard-target case. This illustrate visually in \autoref{fig:CentroidVSRPM}:
+It can be seen that $f_{D}$, the centroid of each Doppler peak, and its corresponding measured velocity, $v_{LOS} = \frac{f_D}{1.29MHz}$, was higher than the predicted Doppler peak, by approximately 10\% for each case, causing the system to fail performance requirement P7 for the hard-target case. This is illustrated visually in \autoref{fig:CentroidVSRPM}:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{../../../../../Downloads/fig_doppler_vs_rpm}
+	\includegraphics[width=0.75\linewidth]{../../../../../Downloads/fig_doppler_vs_rpm}
 	\caption{C: Measured Doppler peak frequency (from centroid) and expected Doppler peak frequency vs target motor RPM}
 	\label{fig:CentroidVSRPM}
 \end{figure}
@@ -140,81 +140,81 @@ addressed in \autoref{sec:windTesting}.
 \subsection{Experimental Goals}
 Now that the noise analysis of the system is complete, and the speed-measurement principle has been shown to be functional for a hard-target, the system can finally be tested for seeded air wind-speed measurement. The primary subject of investigation for this section is the sensitivity of the system with respect to its noise and the different levels of seeding in the air, as well as its accuracy at different tested speeds. As discussed previously, the range of the system can not be tested in a wind-tunnel environment, and thus this is out of scope for this project. 
 \subsection{Experimental Methodology}
-In order to test wind-speed measurements in a controlled environment, a test-setup was built in an existing wind-tunnel. The wind-tunnel is capable of producing measured, stable flows at 3.5 - 20m/s, with the flow-speed being measured at the centre of the test section. The tunnel has an inlet, where an air seeding device can be placed to seed the tunnel air. Two types of seeding are investigated; "fog" machines, which use mixtures of glycol or glycerin, and distilled water to produce a dense, visible vapour cloud in the air (of the same type typically seen in entertainment venues), and "misters", which simply use water to generate a very fine (barely visible) mist in the air, which is akin to atmospheric conditions on a misty day. It must be noted that at higher tunnel wind-speeds, the atmospheric seeding becomes more diffuse, and it is thus expected that for the same amount of seeding the Doppler return will decrease at higher speeds. 
+In order to test wind-speed measurements in a controlled environment, a test-setup was built in an existing wind-tunnel. The wind-tunnel is capable of producing measured, stable flows at 3 - 20m/s, at the centre of the test section. The tunnel has an inlet, where an air seeding device can be placed to seed the tunnel air. Two types of seeding are investigated; "fog" machines, which use mixtures of glycol or glycerin, and distilled water to produce a dense, visible vapour cloud in the air (of the same type typically seen in entertainment venues), and "misters", which simply use water to generate a very fine (barely visible) mist in the air. 
 
 The test setup used in the wind-tunnel is shown in \autoref{fig:DRig}:
 
 \begin{figure}[H]
-\label{fig:DRig}
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[x=0.25mm, y=0.25mm, font=\small,
-	blk/.style={draw, thick, rounded corners=2pt, align=center, fill=gray!8, inner sep=5pt},
-	flow/.style={-{Stealth[length=6pt]}, thick, blue!60!black},
-	lbl/.style={font=\footnotesize, align=center}]
-	
-	% ---------------- wind-tunnel test section ----------------
-	\fill[pattern=north east lines, pattern color=brown!70] (0,250) rectangle (500,262);
-	\fill[pattern=north east lines, pattern color=brown!70] (0,-12) rectangle (500,0);
-	\draw[very thick] (0,250) -- (500,250);
-	\draw[very thick] (0,0) -- (500,0);
-	\draw[dashed, gray] (0,0) -- (0,250);
-	\draw[dashed, gray] (500,0) -- (500,250);
-	\node[lbl, anchor=south] at (250,264) {MDF ceiling panel (beam terminates here)};
-	\node[lbl, anchor=north west, gray!40!black] at (3,246) {inlet};
-	\node[lbl, anchor=north east, gray!40!black] at (497,246) {outlet};
-	\node[lbl, gray!40!black] at (395,70) {Wind-tunnel test section\\[-1pt]$500 \times 250 \times 250$~mm};
-	
-	% air-flow arrows
-	\foreach \y in {95,150,205} \draw[flow] (12,\y) -- (72,\y);
-	\node[lbl, blue!60!black, anchor=west] at (78,150) {air flow};
-	
-	% ---------------- seeding ----------------
-	\node[blk, fill=gray!15] (seed) at (-120,165) {Seeding\\fog/mist};
-	\draw[-{Stealth[length=6pt]}, thick, decorate,
-	decoration={snake, amplitude=2pt, segment length=8pt, post length=6pt}]
-	(seed.east) -- (-4,165);
-	
-	% ---------------- wedge and collimator ----------------
-	% printed PLA wedge (side profile), lens centre at (105,26)
-	\filldraw[fill=orange!35, draw=black, thick]
-	(43.2,0) -- (43.2,1.0) -- (96.4,38.3) -- (123.2,0) -- cycle;
-	% collimator body along the beam axis (35 deg), lens face at (105,26)
-	\begin{scope}[shift={(105,26)}, rotate=35]
-		\filldraw[fill=gray!60, draw=black] (-46.8,-6) rectangle (0,6);
-		\filldraw[fill=gray!30, draw=black] (-62,-3) rectangle (-46.8,3);   % FC/APC connector
-	\end{scope}
-	\draw[thin] (200,8) -- (118,8);
-	\node[lbl, anchor=west] at (202,8) {PLA wedge + collimator};
-	
-	% ---------------- beam ----------------
-	\draw[red!80!black, very thick] (105,26) -- (425.3,250);
-	\fill[red!80!black] (425.3,250) circle (3.5);
-	\path (105,26) -- (425.3,250) node[pos=0.62, sloped, above, lbl, red!70!black] {beam, $\lambda = \SI{1550}{nm}$};
-	
-	% angle to the flow
-	\draw[dashed, gray] (105,26) -- (190,26);
-	\draw[thick] (160,26) arc[start angle=0, end angle=35, radius=55];
-	\node[lbl] at (180,44) {$35^\circ$};
-	
-	% ---------------- fibre and lidar system ----------------
-	\node[blk, minimum width=150, minimum height=46] (sys) at (105,-120)
-	{Lidar system\\[-1pt]{\footnotesize laser, circulator, LO, balanced detector, DAQ}};
-	\coordinate (rear) at ($(105,26)+(215:62)$);
-	\draw[orange!80!black, very thick] (rear) -- (rear |- sys.north);
-	\node[lbl, orange!50!black, anchor=west] at (60,-58) {single-mode fibre (FC/APC)};
-\end{tikzpicture}
-}
-\caption{D: Wind-tunnel experimental setup diagram}
+	\centering
+	\resizebox{0.8\textwidth}{!}{%
+		\begin{tikzpicture}[x=0.25mm, y=0.25mm, font=\small,
+			blk/.style={draw, thick, rounded corners=2pt, align=center, fill=gray!8, inner sep=5pt},
+			flow/.style={-{Stealth[length=6pt]}, thick, blue!60!black},
+			lbl/.style={font=\footnotesize, align=center}]
+			
+			% ---------------- wind-tunnel test section ----------------
+			\fill[pattern=north east lines, pattern color=brown!70] (0,250) rectangle (500,262);
+			\fill[pattern=north east lines, pattern color=brown!70] (0,-12) rectangle (500,0);
+			\draw[very thick] (0,250) -- (500,250);
+			\draw[very thick] (0,0) -- (500,0);
+			\draw[dashed, gray] (0,0) -- (0,250);
+			\draw[dashed, gray] (500,0) -- (500,250);
+			\node[lbl, anchor=south] at (250,264) {MDF ceiling panel (beam terminates here)};
+			\node[lbl, anchor=north west, gray!40!black] at (3,246) {inlet};
+			\node[lbl, anchor=north east, gray!40!black] at (497,246) {outlet};
+			\node[lbl, gray!40!black] at (395,70) {Wind-tunnel test section\\[-1pt]$500 \times 250 \times 250$~mm};
+			
+			% air-flow arrows
+			\foreach \y in {95,150,205} \draw[flow] (12,\y) -- (72,\y);
+			\node[lbl, blue!60!black, anchor=west] at (78,150) {air flow};
+			
+			% ---------------- seeding ----------------
+			\node[blk, fill=gray!15] (seed) at (-120,165) {Seeding\\fog/mist};
+			\draw[-{Stealth[length=6pt]}, thick, decorate,
+			decoration={snake, amplitude=2pt, segment length=8pt, post length=6pt}]
+			(seed.east) -- (-4,165);
+			
+			% ---------------- wedge and collimator ----------------
+			\filldraw[fill=orange!35, draw=black, thick]
+			(43.2,0) -- (43.2,1.0) -- (96.4,38.3) -- (123.2,0) -- cycle;
+			\begin{scope}[shift={(105,26)}, rotate=35]
+				\filldraw[fill=gray!60, draw=black] (-46.8,-6) rectangle (0,6);
+				\filldraw[fill=gray!30, draw=black] (-62,-3) rectangle (-46.8,3);   % FC/APC connector
+			\end{scope}
+			\draw[thin] (200,8) -- (118,8);
+			\node[lbl, anchor=west] at (202,8) {PLA wedge + collimator};
+			
+			% ---------------- beam ----------------
+			\draw[red!80!black, very thick] (105,26) -- (425.3,250);
+			\fill[red!80!black] (425.3,250) circle (3.5);
+			\path (105,26) -- (425.3,250) node[pos=0.62, sloped, above, lbl, red!70!black] {beam, $\lambda = \SI{1550}{nm}$};
+			
+			% angle to the flow
+			\draw[dashed, gray] (105,26) -- (190,26);
+			\draw[thick] (160,26) arc[start angle=0, end angle=35, radius=55];
+			\node[lbl] at (180,44) {$35^\circ$};
+			
+			% ---------------- fibre and lidar system (moved up beside the fibre) ----------------
+			\coordinate (rear) at ($(105,26)+(215:62)$);
+			\node[blk, anchor=west, inner sep=4pt] (sys) at (240,-48)
+			{Lidar system {\footnotesize(laser, circulator, LO, balanced detector, DAQ)}};
+			\draw[orange!80!black, very thick] (rear) |- (sys.west);
+			\node[lbl, orange!50!black, anchor=south] at (150,-48) {single-mode fibre (FC/APC)};
+		\end{tikzpicture}
+	}
+	\caption{D: Wind-tunnel experimental setup diagram}
+	\label{fig:DRig}
 \end{figure}
 
-A small wedge which fits the collimator and which can be attached to the floor of the wind-tunnel was designed and 3D printed. The collimator is pointed in the direction of the flow, so as to minimise any residue buildup from seeded air hitting the collimator lens from front-on. The consequence of this however, is that the collimator has to be placed at an angle (35 degrees in this design), rather than straight in the direction of flow, so as to avoid the collimator and the housing from disturbing the flow and causing excessive turbulence, immediately prior to the measurement line-of-sight. This would indeed not as heavily be the case if the collimator was pointed \textbf{opposing} the flow, as measurements would then be taken in a line-of-sight \textbf{before} the housing. The angled wedge however also provides the advantage of allowing the beam to terminate on a stationary angled surface (the MDF ceiling of the wind-tunnel), rather than continuing on through the tunnel to hit the rotor which generates the flow, which would generate additional Doppler components at the radial velocity of the rotor-blades in the direction of the beam. The angled beam termination surface also serves to absorb and reflect unwanted stationary (non-Doppler shifted) beam components away from the system, so that there is minimal additional PIIN - this mimics the setup of \autoref{sec:PIINTesting}.
+
+
+A small wedge which fits the collimator and which can be attached to the floor of the wind-tunnel was designed and 3D printed. The collimator is pointed downstream of the flow, so as to minimise any residue buildup from seeded air hitting the collimator lens from front-on. The consequence of this however, is that the collimator has to be placed at an angle (35 degrees in this design), rather than straight in the direction of flow, so as to avoid the collimator and the housing from disturbing the flow and causing excessive turbulence, immediately prior to the measurement line-of-sight. The angled wedge also provides the advantage of allowing the beam to terminate on a stationary angled surface (the MDF ceiling of the wind-tunnel), rather than continuing on through the tunnel to hit the rotor which generates the flow, which would generate additional Doppler components at the radial velocity of the rotor-blades in the direction of the beam. The angled beam termination surface also serves to absorb and reflect unwanted stationary (non-Doppler shifted) beam components away from the system, so that there is minimal additional PIIN - this mimics the setup of \autoref{sec:PIINTesting}.
 
  It must be noted from the rig geometry, that the system only measures the component of the velocity which is in the direction of the beam. Assuming no vertical flow in the tunnel, the velocity "seen" by the beam is:
  \begin{equation}
  	 v_{los}=cos(35)\times U
  \end{equation}
- Where $U$ is the horizontal flow-speed in the wind-tunnel, as measured by its sensor. As previously derived, a 1550nm beam will be Doppler shifted by approximately $1.29MHz$ per $m/s$ of flow in the direction of the beam. Thus, for this test setup, a Doppler shift of
+ Where $U$ is the horizontal flow-speed in the wind-tunnel, as measured by its sensor. As previously calculated, a 1550nm beam will be Doppler shifted by approximately $1.29MHz$ per $m/s$ of flow in the direction of the beam. Thus, for this test setup, a Doppler shift of
  \begin{equation}
  	\Delta F = 1.29MHz \times cos(35) \times U = 1.057MHz \times U
  \end{equation} 
@@ -224,14 +224,17 @@ A small wedge which fits the collimator and which can be attached to the floor o
  
  Even with this high amount of averages, the 500 records of \num{25000} samples at \SI{125}{MSa/s} represent only \SI{100}{ms} of sampled data, which is comparable to the \SIrange{4}{41}{ms} integration times of established CW lidars\cite{hill_remote_nodate}\cite{bennett_doppler_2003}. Each \SI{200}{\micro s} record is short enough that the flow is effectively frozen within it, so with a continuously streaming digitiser, with an FPGA (or similar) to process the data in real-time, the same averaging would give a new velocity estimate every \SI{0.1}{s}. This \SI{10}{Hz} update rate is well above the \SIrange{0.5}{1}{Hz} found to be
  sufficient for lidar-assisted wind turbine control \cite{letizia_characterization_2023} \cite{simley_optimizing_2018}, though below the \SI{50}{Hz} of the commercial ZephIR \cite{hill_remote_nodate}. In
- this set-up, however, the oscilloscope's transfer bottleneck spreads the records over roughly \SI{35}{s}, so each PSD is an average of the flow over that period. This is acceptable here because the tunnel speed is held constant during each capture, but in a field-deployed iteration of the system an FPGA based acquisition chain should certainly be investigated.
+ this set-up, however, the oscilloscope's transfer bottleneck spreads the records over roughly \SI{60}{s}, so each PSD is an average of the flow over that period. This is acceptable here because the tunnel speed is held constant during each capture, but in a field-deployed iteration of the system an FPGA based acquisition chain should certainly be investigated.
 
 \subsection{Results and Discussion}
-\autoref{fig:psdwindtunneloverlaypair} below shows the PSD of the data obtained for different wind-tunnel setpoints, with dense fog-seeded air. It can be seen that there is a large variation in the noise floor between the experiments, making it difficult to clearly distinguish the different curves, thus a second plot is provided alongside the raw PSD, where each PSD is normalised by its respective noise floor, so as to make the results more clear. See \autoref{appendix:FullWTResults} for the raw PSDs of each case plotted on their own axes. \autoref{tab:doppler_vs_windspeed} gives the Doppler peak and local noise floor for each wind-tunnel setpoint, using the same method of computation for the noise floor as was used in the hard-target case in \autoref{sec:hardTargetTesting}.
+
+% Requires: siunitx, float. Main-text tables for Section D; full tables go in Appendix D.
+\subsubsection{Sensitivity and SNR}
+\autoref{fig:psdwindtunneloverlaypair} below shows the PSD of the data obtained for different wind-tunnel setpoints, with dense fog-seeded air. It can be seen that there is a large variation in the noise floor between the experiments, and even within single experiments (presenting as a slope in the floor's curve), making it difficult to clearly distinguish the different curves, thus a second plot is provided alongside the raw PSD, where each PSD is normalised by its respective noise floor, so as to make the results more clear. Normalisation is done by dividing the PSD by its own running median (61 bins). \autoref{tab:D_snr} shows the location of the Doppler peak, $f_D$, for each wind-tunnel setpoint, as well as the noise PSD statistics, the PSD at $f_D$, and the excess power from each peak (calculated by integrating the peak across the frequency it spans). Note that the data in \autoref{tab:D_snr} is also taken with the PSD normalised to the noise floor. See Appendix \ref{appendix:FullWTResults} for the raw PSDs of each case plotted on their own axes, and full tables of raw results. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.1\linewidth]{"../Data Acquisition/figures/psd_windtunnel_overlay_pair"}
+	\includegraphics[width=0.7\linewidth]{"../Data Acquisition/figures/psd_windtunnel_overlay_pair"}
 	\caption{D: PSD for wind-speed measurements, at different wind-tunnel setpoints, with dense fog-seeded air}
 	\label{fig:psdwindtunneloverlaypair}
 \end{figure}
@@ -239,110 +242,161 @@ A small wedge which fits the collimator and which can be attached to the floor o
 \begin{table}[H]
 	\centering
 	\small
-	\setlength{\tabcolsep}{3.5pt}
-	\label{tab:doppler_vs_windspeed}
-	\smallskip
-	
-	\begin{tabular}{
-			|S[table-format=2.1]   % tunnel speed
-			|S[table-format=2.3]   % f_D (centroid)
-			|S[table-format=2.3]   % v_LOS measured
-			|S[table-format=2.3]   % v_LOS expected
-			|S[table-format=1.2]   % mean noise
-			|S[table-format=1.2]   % mean + 5 sigma
-			|S[table-format=1.2]   % PSD at f_D
-			|S[table-format=1.2]   % PSD/mean
-			|S[table-format=2.2]|  % integrated excess power
-		}
+	\caption{Normalised PSD of Doppler peak relative to noise for dense fog-seeded air. Full raw statistics are given in \autoref{appendix:FullWTResults}.}
+	\label{tab:D_snr}
+	\begin{tabular}{|S[table-format=2.1]|S[table-format=2.3]|S[table-format=1.3]|S[table-format=1.3]|S[table-format=2.2]|}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Setpoint}} & \multicolumn{1}{c|}{\boldmath$f_D$}
-		& \multicolumn{2}{c|}{\boldmath$v_{\mathrm{LOS}}$ (\si{m/s})}
-		& \multicolumn{3}{c|}{\textbf{PSD} (\num{e-12}\,\si{V^2/Hz})} & \multicolumn{1}{c|}{\textbf{Peak PSD/}} & \multicolumn{1}{c|}{\textbf{Excess power}} \\ \cline{3-4} \cline{5-7}
+		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\boldmath$f_D$}
+		& \multicolumn{2}{c|}{\textbf{PSD/floor} (dB)} & \multicolumn{1}{c|}{\textbf{Excess}} \\ \cline{3-4}
 		\multicolumn{1}{|c|}{(\si{m/s})} & \multicolumn{1}{c|}{(\si{MHz})}
-		& \multicolumn{1}{c|}{Measured} & \multicolumn{1}{c|}{Expected}
-		& \multicolumn{1}{c|}{Mean} & \multicolumn{1}{c|}{Mean $+\,5\sigma$}
-		& \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}} & \multicolumn{1}{c|}{\textbf{mean} (\si{dB})} & \multicolumn{1}{c|}{(\num{e-7}\,\si{V^2})} \\ \hline
-		3.1 &  3.637 &  2.819 &  2.539 & 3.01 & 3.41 & 4.73 & 1.96 & 10.25 \\ \hline
-		5.0 &  5.868 &  4.548 &  4.096 & 3.45 & 3.82 & 4.79 & 1.43 &  8.87 \\ \hline
-		6.0 &  6.892 &  5.341 &  4.915 & 2.44 & 2.59 & 3.78 & 1.90 &  7.55 \\ \hline
-		7.0 &  7.997 &  6.198 &  5.734 & 2.30 & 2.50 & 3.49 & 1.82 &  7.04 \\ \hline
-		8.0 &  9.280 &  7.192 &  6.553 & 4.30 & 4.71 & 5.36 & 0.95 &  5.99 \\ \hline
-		9.0 & 10.611 &  8.224 &  7.372 & 2.74 & 2.95 & 3.60 & 1.19 &  6.08 \\ \hline
-		10.0 & 11.664 &  9.040 &  8.192 & 4.20 & 4.46 & 5.18 & 0.92 &  6.00 \\ \hline
-		11.8 & 13.837 & 10.723 &  9.666 & 3.94 & 4.20 & 4.51 & 0.59 &  5.27 \\ \hline
-		21.0 & 24.674 & 19.122 & 17.202 & 3.69 & 3.95 & 4.22 & 0.59 &  4.01 \\ \hline
+		& \multicolumn{1}{c|}{Mean $+\,5\sigma$} & \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}}
+		& \multicolumn{1}{c|}{(\num{e-7}\,\si{V^2})} \\ \hline
+		3.1 &  3.637 & 0.226 & 1.815 & 10.25 \\ \hline
+		5.0 &  5.868 & 0.295 & 1.340 &  8.87 \\ \hline
+		6.0 &  6.892 & 0.217 & 1.843 &  7.55 \\ \hline
+		7.0 &  7.997 & 0.304 & 1.749 &  7.04 \\ \hline
+		8.0 &  9.280 & 0.320 & 0.868 &  5.99 \\ \hline
+		9.0 & 10.611 & 0.322 & 1.099 &  6.08 \\ \hline
+		10.0 & 11.664 & 0.214 & 0.855 &  6.00 \\ \hline
+		11.8 & 13.837 & 0.254 & 0.526 &  5.27 \\ \hline
+		21.0 & 24.674 & 0.262 & 0.502 &  4.01 \\ \hline
 	\end{tabular}
-	\caption{D: PSD Doppler peak and noise statistics for each wind-tunnel setpoint, with dense fog-seeded air}
 	
 	\vspace{2pt}
 	\raggedright\footnotesize
-	Expected $v_{\mathrm{LOS}} = U\cos\ang{35}$; measured $v_{\mathrm{LOS}} = f_D\lambda/2$.
-	Noise statistics are taken over a $3\times$FWHM region either side of the peak out to
-	\SI{2}{MHz}, excluding bins below \SI{50}{kHz}.
 \end{table}
 
-It can be seen that a distinct Doppler peak was obtained for every wind-tunnel setpoint, which has a power above the noise floor's mean $+ 5\sigma$ threshold, thus satisfying performance requirement P6. The peaks were significantly lower than for the hard-target case, as expected, ranging from only 0.59 - 1.96dB above the mean of the noise. It can also be seen that the Doppler peak power decreases with increased wind-tunnel speed - this is because the increased wind-speed makes the seeding in the air more diffuse, resulting in lower returned power, and thus giving a smaller distinguishable peak. Indeed, integrating the excess power of each peak (shown in the last column of the table) supports this explanation, as the excess power decreases with increased wind-speed. 
+It can be seen that at every speed tested in dense fog, a clear Doppler peak was detected above the mean $+5\sigma$ threshold, with a test setup which gives less than 10 000 averages, thus fulfilling performance requirement P6. It can also be seen that at higher speeds, the excess power at the Doppler peak decreases; this is because the seeding becomes more diffuse in the air at higher speeds, thus making the returned signal smaller, and making the peak clear the detection threshold with less margin. 
 
-It can be seen that each peak corresponds to a line-of-sight velocity, $v_{LOS}$, which is consistently 8.1 - 11.6\% higher than the expected line-of-sight velocity at that wind-tunnel speed setpoint. The wind-tunnel's wind-speed sensor was compared against an accurate pitot-tube anemometer in order to verify that the tunnel's setpoints are accurate, and it was found that this was the case, thus ruling setpoint error out as a possible cause of the DWL system's approximate 10\% overshoot in all measurements. 
+After measuring the system's sensitivity performance in the dense-fog seeded air, the system was tested using the same test setup, but this time using very light mist seeding, which is more akin to real-world atmospheric conditions. Since the significantly lighter seeding gives a smaller return signal, particularly in faster wind-tunnel speeds, more than one capture is obtained at each speed, so that more averages can be taken. A capture here is defined as 500 oscilloscope records, as discussed in the methodology. The results of this variation in the experiment are detailed in \autoref{tab:D_mist_avg}, and \autoref{fig:psd5mpsmistaveraging} shows the PSD near the peak for different numbers of averaged captures (e.g. 2 captures averaged = 1000 records averaged = 14 400 total independent averages after taking Welch PSD as described in \autoref{sec:design-DataAcquisition}). 
 
-
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/peak_vs_windtunnel_speed"}
-	\caption{D: Measured Doppler peak frequency (from centroid) and expected Doppler peak frequency vs wind-tunnel speed setpoint}
-	\label{fig:peakvswindtunnelspeed}
-\end{figure}
+	\small
+	\label{tab:D_mist_avg}
+	\begin{tabular}{|S[table-format=1.1]|S[table-format=1.0]|S[table-format=1.3]|S[table-format=1.3]|S[table-format=2.2]|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\textbf{Captures}}
+		& \multicolumn{2}{c|}{\textbf{Normalised PSD} (\si{dB})} & \multicolumn{1}{c|}{\textbf{Excess}} \\ \cline{3-4}
+		\multicolumn{1}{|c|}{(\si{m/s})} & \multicolumn{1}{c|}{\textbf{averaged}}
+		& \multicolumn{1}{c|}{Mean $+\,5\sigma$} & \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}}
+		& \multicolumn{1}{c|}{(\num{e-7}\,\si{V^2})} \\ \hline
+		5.0 & 1 & 0.255 & {0.141\textsuperscript{\ddag}} & 4.38 \\ \hline
+		5.0 & 2 & 0.131 & {0.114\textsuperscript{\ddag}} & 4.45 \\ \hline
+		5.0 & 3 & 0.116 & 0.160 & 3.75 \\ \hline
+	\end{tabular}
+	
+	\vspace{2pt}
+	\caption{Normalised PSD of Doppler peak relative to noise for light mist-seeded air. Full raw statistics are given in \autoref{appendix:FullWTResults}}
+	\raggedright\footnotesize
+	PSD/floor, $\sigma$ and excess as in \autoref{tab:D_snr}.\\
+	\textsuperscript{\ddag}\,Below the mean $+\,5\sigma$ detection threshold.
+\end{table}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"../Data Acquisition/figures/psd_5mps_mist_averaging"}
-	\caption{D: PSD for 5m/s wind-speed measurement, with light mist-seeded air. Subfigures show PSD for different numbers of averaged records to illustrate reduction in noise variance.}
+	\caption{Normalised PSD near $f_D$ for different numbers of averages}
 	\label{fig:psd5mpsmistaveraging}
 \end{figure}
-% Requires in the preamble: \usepackage{siunitx} \usepackage{float}
+
+It can be seen in \autoref{tab:D_mist_avg} that at \SI{5}{m/s} the light mist
+gives a substantially weaker signal return than dense fog at the same tunnel speed:
+its excess power is approximately half the \num{8.87e-7}\,\si{V^2} measured in
+fog (\autoref{tab:D_snr}), a reduction of about \SIrange[range-phrase=--,
+range-units=single]{3}{4}{dB}. As a result, with a single 500-record capture
+(about \num{7200} independent averages, see \autoref{sec:design-DataAcquisition}) the peak lies below the mean $+\,5\sigma$ detection threshold. With two captures it becomes visible in \autoref{fig:psd5mpsmistaveraging}, but its value at the centroid (\SI{0.114}{dB}) still falls just short of the
+\SI{0.131}{dB} threshold, making this a marginal case. With three captures
+(about \num{21600} independent averages) the peak clears the threshold
+unambiguously. \autoref{fig:psd5mpsmistaveraging} shows that averaging does
+not raise the Doppler peak, which remains at approximately \SI{0.14}{dB} (its
+variation between captures is within the noise of a single bin), but reduces
+the fluctuation of the noise floor, lowering the threshold from
+\SI{0.255}{dB} to \SI{0.116}{dB} and so increasing the size of the peak
+\textbf{relative} to the noise. This illustrates how averaging increases the
+sensitivity of a system that, lacking an optical power amplifier
+(\autoref{sec:design-ComponentChoices}), has a weak aerosol return.
+
+%The narrow spur near \SI{12.5}{MHz} exceeds the threshold line in every panel, but it is not a Doppler return: its frequency does not change with tunnel speed or averaging, it is only a few bins wide compared with the \SIrange[range-phrase=--, range-units=single]{0.75}{1.0}{MHz} width of the aerosol peak. It is expected that this spur comes from a noise source in the data acquisition chain. For this test, the $5\sigma$ threshold is evaluated only within the local noise band around $f_D$, and it guards against random noise giving false detection. However, in a real world system where it is not known where the peak is anticipated, spurs such as this must instead be identified from a reference spectrum when no wind-speed is present, so as to avoid false detection of particular wind-speeds. This problem will indeed however be less prevalent if a power amplifier is used to give larger detectable peaks, with respect to spurious peaks like this one. 
+
+Although the light-mist case does not meet P6 within 10\,000 averages, it
+illustrates both the benefit and the limit of averaging. At 5\,m/s the Doppler
+peak lies only $\approx$0.14\,dB (3.3\,\%) above the noise floor, whereas the
+mean\,+\,$5\sigma$ threshold at $N = 10\,000$ is 5\,\% above it. A further $\approx$2\,dB of
+signal-to-noise ratio is therefore needed to meet P6, consistent with the
+$\approx$23\,000 averages found necessary in practice. However, because
+$\sigma \propto 1/\sqrt{N}$ (see \autoref{sec:design-DataAcquisition}), each doubling of $N$ gains only 1.5\,dB, so
+averaging cannot practically close larger gaps, and measurement in unseeded, clean air is such a gap:
+
+Converting the integrated excess power of the 5\,m/s peak to optical power
+using Equation~\ref{eq:beat_power} gives an effective received power here of
+roughly 0.1\,pW, for a transmitted beam of $\approx$12mW. In open air, where the beam is not cut short by the tunnel
+ceiling and \autoref{eqn:backscatterPower} applies, clear air
+($\beta(\pi) \approx 10^{-8}$\,m$^{-1}$sr$^{-1}$ \cite{hill_remote_nodate}) would return only
+$\approx$0.6\,fW from the transmitted beam by this system in its current form, which is 23--26\,dB lower than the light mist-seeded case. A clean-air measurement would therefore require roughly 25--30\,dB of signal increase or noise reduction, equivalent to about $10^5$ times more averaging. This is approximately what an
+erbium-doped fibre amplifier (see discussion on laser power level in \autoref{sec:design-ComponentChoices}) raising the transmit power to 1\,W (+19\,dB above 12mW),
+combined with removing the residual PIIN to reach the shot-noise limit
+(+5.7\,dB, \autoref{sec:PIINTesting}), would provide. Thus, these measurements in seeded air give a clear upgrade-path to the system, and are able to quantify how much more sensitivity is required in the system in order to measure wind-speed in unseeded air. It also illustrates that simply taking more averages to increase the sensitivity is unviable to achieve wind-speed detection in unseeded air. 
+
+
+
+\subsubsection{Velocity accuracy}
+
+\autoref{tab:D_velocity_summary} gives a summarised set of results for the velocity accuracy of the DWL measurements, after converting the detected peak centroids from a frequency to a velocity using \autoref{eqn:DopplerSimple}. A full table of the peak centroid-frequencies and corresponding velocities  compared to the wind-tunnel setpoint can be viewed in Appendix \ref{appendix}. 
+
 \begin{table}[H]
 	\centering
 	\small
-	\setlength{\tabcolsep}{3.5pt}
-	\caption{}
-	\label{tab:doppler_mist}
-	\smallskip
-	
-	\begin{tabular}{
-			|S[table-format=1.1]   % tunnel speed
-			|S[table-format=1.0]   % captures averaged
-			|S[table-format=1.3]   % f_D (centroid)
-			|S[table-format=1.2]   % FWHM
-			|S[table-format=1.3]   % v_LOS measured
-			|S[table-format=1.3]   % v_LOS expected
-			|S[table-format=1.3]   % peak (dB)
-			|S[table-format=-1.3]  % band mean (dB)
-			|S[table-format=1.4]   % band sd (dB)
-			|S[table-format=2.1]|  % (peak - mean)/sd
-		}
+	\caption{Velocity accuracy in dense fog (collimator facing downstream, 9 speeds).}
+	\label{tab:D_velocity_summary}
+	\begin{tabular}{|l|c|}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\textbf{Captures}}
-		& \multicolumn{1}{c|}{\boldmath$f_D$} & \multicolumn{1}{c|}{\textbf{FWHM}}
-		& \multicolumn{2}{c|}{\boldmath$v_{\mathrm{LOS}}$ (\si{m/s})}
-		& \multicolumn{3}{c|}{\textbf{PSD/floor} (\si{dB})} & \multicolumn{1}{c|}{\textbf{Peak}} \\ \cline{5-6} \cline{7-9}
-		\multicolumn{1}{|c|}{(\si{m/s})} & \multicolumn{1}{c|}{\textbf{averaged}}
-		& \multicolumn{1}{c|}{(\si{MHz})} & \multicolumn{1}{c|}{(\si{MHz})}
-		& \multicolumn{1}{c|}{Measured} & \multicolumn{1}{c|}{Expected}
-		& \multicolumn{1}{c|}{At $f_D$} & \multicolumn{1}{c|}{Mean} & \multicolumn{1}{c|}{$\sigma$}
-		& \multicolumn{1}{c|}{\textbf{(}\boldmath$\sigma$\textbf{)}} \\ \hline
-		3.5 & 1 & 3.938 & 0.85 & 3.052 & 2.867 & 0.695 & -0.050 & 0.0709 & 10.5 \\ \hline
-		3.5 & 2 & 3.956 & 0.90 & 3.066 & 2.867 & 0.694 & -0.042 & 0.0480 & 15.3 \\ \hline
-		5.0 & 1 & 5.730 & 0.80 & 4.441 & 4.096 & 0.141 & -0.017 & 0.0543 & {2.9\textsuperscript{\ddag}} \\ \hline
-		5.0 & 2 & 5.716 & 1.00 & 4.430 & 4.096 & 0.114 & -0.000 & 0.0262 & {4.4\textsuperscript{\ddag}} \\ \hline
-		5.0 & 3 & 5.726 & 0.75 & 4.438 & 4.096 & 0.160 & -0.005 & 0.0243 & 6.8 \\ \hline
+		\textbf{Quantity} & \textbf{Value} \\ \hline
+		Tunnel speed range & \SIrange[range-phrase=--, range-units=single]{3.1}{21}{m/s} \\ \hline
+		Speed error & \SI[retain-explicit-plus]{+10.7}{\percent} \\ \hline
+		Error per speed & $+8.1$ to \SI[retain-explicit-plus]{+11.6}{\percent} \\ \hline
+		Linearity, $R^2$ (free intercept) & 0.9998 \\ \hline
+		Speed error after one-factor calibration, RMS (max) & \SI{0.08}{m/s} (\SI{0.17}{m/s}), \SI{1.1}{\percent} \\ \hline
+		Doppler peak FWHM & \SIrange[range-phrase=--, range-units=single]{0.45}{0.65}{MHz} (\SIrange[range-phrase=--, range-units=single]{0.35}{0.50}{m/s} LOS) \\ \hline
 	\end{tabular}
-	
-	\vspace{2pt}
-	\raggedright\footnotesize
-	PSD/floor is each PSD divided by its own running median (61 bins); captures are averaged in power.
-	Expected $v_{\mathrm{LOS}} = U\cos\ang{35}$; measured $v_{\mathrm{LOS}} = f_D\lambda/2$.
-	Noise band as in \autoref{tab:doppler_vs_windspeed}. Peak ($\sigma$) is (peak $-$ mean)$/\sigma$.\\
-	\textsuperscript{\ddag}\,Below the $5\sigma$ detection threshold.
 \end{table}
+
+It was found that using the original test setup detailed in the methodology for this section (downstream facing collimator and wedge), an average overshoot of approximately 10.7\% was consistently observed between the DWL measured velocity (as calculated from the peak's frequency), and the wind-tunnel's velocity setpoint. However, the data showed very good linearity, with $R^2=0.9998$, thus the overshoot offset can easily be removed via a single-point calibration, to give an error of approximately 1.1\%. Without this calibration, the system fails performance requirement P7 on velocity accuracy within $5\%$, but after the calibration it passes. Thus, it is important to investigate whether the calibration, which assumes error from the test setup, is valid.
+
+% It can also be seen that the Doppler peak had a width of approximately 0.45 - 0.65MHz at its half-maximum value, corresponding to a velocity range of 0.35 - 0.5m/s across the beam's volume - this is expected, given that the Doppler peak represents the equally-weighted Doppler shift from velocity components along the entire beam (rather than just at the center), since no focusing is used (see \autoref{sec:lit-Ranging} and \autoref{sec:design-ComponentChoices}), and naturally the wind-speed will vary across the tunnel's area and give varying Doppler shifts near the setpoint.
+
+The cause of the 10.7\% overshoot was therefore further investigated: The laser's frequency is stable at the expected 1550nm (a drift causing 10\% error would require a drifted wavelength of 1400nm, which is not possible for a DFB diode), the data acquisition chain was validated against a signal generated by a signal generator, and the wind-tunnel's setpoint speeds were validated against a calibrated anemometer. Thus it is hypothesised that this error is due to the turbulence and blockage caused by the test-rig geometry, which may redirect a significant component of the flow over the top of the wedge, and thus into the line of sight of the collimator, so as to cause an overshoot in its measurement relative to the wind-tunnel setpoint. The test setup was modified to investigate this, so as to have the wedge and collimator now pointing upstream of the wind. The results of this setup are plotted in \autoref{fig:figvelocityboth} alongside the "expected" measurement from the wind-tunnel setpoint, and the results from the original downstream setup.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{../../../../../Downloads/fig_velocity_both}
+	\caption{Measured vs predicted velocity at different wind-tunnel setpoints}
+	\label{fig:figvelocityboth}
+\end{figure}
+
+It can be seen that with this new setup, the overshoot was reduced to an average of 6.9\%, while retaining the linearity of the original setup. It is thus clear that at least some component of the overshoot is due to the test-rig geometry, and that it is thus valid to remove the offset using a single-point calibration. While a test setup which attempts to account for turbulence and variation in the flow may be constructed to more rigorously test this hypothesis, it was decided that this would not be done within the scope of this report owing to significant complexities in modelling the wind-tunnel's flow, and obtaining the necessary instruments to do so. It is however recommended that for a future setup, the wind-tunnel's flow be rigorously profiled for a given test-setup, so that the velocity accuracy of the DWL system can be better tested. 
+
+\subsubsection{Summary of results}
+In dense fog, a Doppler peak was detected above the mean\,$+\,5\sigma$
+threshold at every tunnel speed from \SIrange[range-phrase=--,
+range-units=single]{3.1}{21}{m/s} within \num{10000} averages, meeting P6. In
+light mist at \SI{5}{m/s}, where the return was approximately half that in
+fog, detection required approximately \num{21600} averages, so P6 is not met
+in this case. The measured velocity was highly linear with tunnel speed
+($R^2 = 0.9998$) but overshot by \SI{10.7}{\percent}, failing P7 as built. A
+single-factor calibration reduces the error to \SI{1.1}{\percent}, meeting P7.
+The overshoot is at least partly attributable to the test-rig geometry, and
+the calibration is therefore specific to the installation. Finally,
+measurement in clean air is estimated to require a further
+\SIrange[range-phrase=--, range-units=single]{25}{30}{dB} of sensitivity,
+dominated by transmit power and residual PIIN, which averaging alone cannot
+practically provide.
+
+
+
+
+
+
+
+
 
 

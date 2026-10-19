@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  15 OCT 2026 16:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  19 OCT 2026 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -202,6 +202,17 @@ Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
 LaTeX Info: Redefining \_ on input line 43.
 ) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
+) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box55
+\beforetitleunit=\skip71
+\aftertitleunit=\skip72
+\ttl@plus=\dimen168
+\ttl@minus=\dimen169
+\ttl@toksa=\toks31
+\titlewidth=\dimen170
+\titlewidthlast=\dimen171
+\titlewidthfirst=\dimen172
 ) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -259,7 +270,7 @@ ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen168
+\@linkdim=\dimen173
 \Hy@linkcounter=\count302
 \Hy@pagecounter=\count303
  (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
@@ -289,7 +300,7 @@ Package hyperref Info: Bookmarks ON on input line 4462.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen169
+\XeTeXLinkMargin=\dimen174
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -300,8 +311,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count306
-\Field@Width=\dimen170
-\Fld@charsize=\dimen171
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -331,7 +342,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip71
+\Hy@SectionHShift=\skip73
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.rev
@@ -345,13 +356,13 @@ sty
 y
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
-\pgfutil@everybye=\toks31
-\pgfutil@tempdima=\dimen172
-\pgfutil@tempdimb=\dimen173
+\pgfutil@everybye=\toks32
+\pgfutil@tempdima=\dimen177
+\pgfutil@tempdimb=\dimen178
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -latex.def
-\pgfutil@abb=\box55
+\pgfutil@abb=\box56
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
 code.tex
@@ -370,32 +381,32 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
 .code.tex
-\pgfkeys@pathtoks=\toks32
-\pgfkeys@temptoks=\toks33
+\pgfkeys@pathtoks=\toks33
+\pgfkeys@temptoks=\toks34
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
 libraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks34
+\pgfkeys@tmptoks=\toks35
 ))
-\pgf@x=\dimen174
-\pgf@y=\dimen175
-\pgf@xa=\dimen176
-\pgf@ya=\dimen177
-\pgf@xb=\dimen178
-\pgf@yb=\dimen179
-\pgf@xc=\dimen180
-\pgf@yc=\dimen181
-\pgf@xd=\dimen182
-\pgf@yd=\dimen183
+\pgf@x=\dimen179
+\pgf@y=\dimen180
+\pgf@xa=\dimen181
+\pgf@ya=\dimen182
+\pgf@xb=\dimen183
+\pgf@yb=\dimen184
+\pgf@xc=\dimen185
+\pgf@yc=\dimen186
+\pgf@xd=\dimen187
+\pgf@yd=\dimen188
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
 \c@pgf@counta=\count312
 \c@pgf@countb=\count313
 \c@pgf@countc=\count314
 \c@pgf@countd=\count315
-\t@pgf@toka=\toks35
-\t@pgf@tokb=\toks36
-\t@pgf@tokc=\toks37
+\t@pgf@toka=\toks36
+\t@pgf@tokb=\toks37
+\t@pgf@tokc=\toks38
 \pgf@sys@id@count=\count316
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
@@ -450,12 +461,12 @@ Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
 r.code.tex
-\pgfmath@dimen=\dimen184
+\pgfmath@dimen=\dimen189
 \pgfmath@count=\count319
-\pgfmath@box=\box56
-\pgfmath@toks=\toks38
-\pgfmath@stack@operand=\toks39
-\pgfmath@stack@operation=\toks40
+\pgfmath@box=\box57
+\pgfmath@toks=\toks39
+\pgfmath@stack@operand=\toks40
+\pgfmath@stack@operation=\toks41
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
 ions.code.tex)
@@ -486,52 +497,52 @@ tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen185
-\pgf@picmaxx=\dimen186
-\pgf@picminy=\dimen187
-\pgf@picmaxy=\dimen188
-\pgf@pathminx=\dimen189
-\pgf@pathmaxx=\dimen190
-\pgf@pathminy=\dimen191
-\pgf@pathmaxy=\dimen192
-\pgf@xx=\dimen193
-\pgf@xy=\dimen194
-\pgf@yx=\dimen195
-\pgf@yy=\dimen196
-\pgf@zx=\dimen197
-\pgf@zy=\dimen198
+\pgf@picminx=\dimen190
+\pgf@picmaxx=\dimen191
+\pgf@picminy=\dimen192
+\pgf@picmaxy=\dimen193
+\pgf@pathminx=\dimen194
+\pgf@pathmaxx=\dimen195
+\pgf@pathminy=\dimen196
+\pgf@pathmaxy=\dimen197
+\pgf@xx=\dimen198
+\pgf@xy=\dimen199
+\pgf@yx=\dimen256
+\pgf@yy=\dimen257
+\pgf@zx=\dimen258
+\pgf@zy=\dimen259
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen199
-\pgf@path@lasty=\dimen256
+\pgf@path@lastx=\dimen260
+\pgf@path@lasty=\dimen261
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen257
-\pgf@shorten@start@additional=\dimen258
+\pgf@shorten@end@additional=\dimen262
+\pgf@shorten@start@additional=\dimen263
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 escopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfpic=\box57
-\pgf@hbox=\box58
-\pgf@layerbox@main=\box59
+\pgfpic=\box58
+\pgf@hbox=\box59
+\pgf@layerbox@main=\box60
 \pgf@picture@serial@count=\count321
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen259
+\pgflinewidth=\dimen264
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 etransformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen260
-\pgf@pt@y=\dimen261
-\pgf@pt@temp=\dimen262
+\pgf@pt@x=\dimen265
+\pgf@pt@y=\dimen266
+\pgf@pt@temp=\dimen267
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 equick.code.tex
@@ -548,12 +559,12 @@ File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 earrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen263
+\pgfarrowsep=\dimen268
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen264
+\pgf@max=\dimen269
 \pgf@sys@shading@range@num=\count322
 \pgf@shadingcount=\count323
 )
@@ -564,7 +575,7 @@ File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfexternal@startupbox=\box60
+\pgfexternal@startupbox=\box61
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 elayers.code.tex
@@ -585,7 +596,7 @@ File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 shapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box61
+\pgfnodeparttextbox=\box62
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 plot.code.tex
@@ -594,8 +605,8 @@ File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen265
-\pgf@nodesepend=\dimen266
+\pgf@nodesepstart=\dimen270
+\pgf@nodesepend=\dimen271
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-1-18.sty
@@ -613,10 +624,10 @@ ty
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
 code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen267
-\pgffor@skip=\dimen268
-\pgffor@stack=\toks41
-\pgffor@toks=\toks42
+\pgffor@iter=\dimen272
+\pgffor@skip=\dimen273
+\pgffor@stack=\toks42
+\pgffor@toks=\toks43
 ))
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z\tikz.code.tex
@@ -626,20 +637,20 @@ Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@plot@mark@count=\count324
-\pgfplotmarksize=\dimen269
+\pgfplotmarksize=\dimen274
 )
-\tikz@lastx=\dimen270
-\tikz@lasty=\dimen271
-\tikz@lastxsaved=\dimen272
-\tikz@lastysaved=\dimen273
-\tikz@lastmovetox=\dimen274
-\tikz@lastmovetoy=\dimen275
-\tikzleveldistance=\dimen276
-\tikzsiblingdistance=\dimen277
-\tikz@figbox=\box62
-\tikz@figbox@bg=\box63
-\tikz@tempbox=\box64
-\tikz@tempbox@bg=\box65
+\tikz@lastx=\dimen275
+\tikz@lasty=\dimen276
+\tikz@lastxsaved=\dimen277
+\tikz@lastysaved=\dimen278
+\tikz@lastmovetox=\dimen279
+\tikz@lastmovetoy=\dimen280
+\tikzleveldistance=\dimen281
+\tikzsiblingdistance=\dimen282
+\tikz@figbox=\box63
+\tikz@figbox@bg=\box64
+\tikz@tempbox=\box65
+\tikz@tempbox@bg=\box66
 \tikztreelevel=\count325
 \tikznumberofchildren=\count326
 \tikznumberofcurrentchild=\count327
@@ -662,10 +673,10 @@ File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 e.tex
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore
 .code.tex
-\t@pgfplots@toka=\toks43
-\t@pgfplots@tokb=\toks44
-\t@pgfplots@tokc=\toks45
-\pgfplots@tmpa=\dimen278
+\t@pgfplots@toka=\toks44
+\t@pgfplots@tokb=\toks45
+\t@pgfplots@tokc=\toks46
+\pgfplots@tmpa=\dimen283
 \c@pgfplots@coordindex=\count333
 \c@pgfplots@scanlineindex=\count334
 
@@ -678,9 +689,9 @@ ib\pgfplotsoldpgfsupp_loader.code.tex
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks46
-\t@pgf@tokb=\toks47
-\t@pgf@tokc=\toks48
+\t@pgf@toka=\toks47
+\t@pgf@tokb=\toks48
+\t@pgf@tokc=\toks49
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
 ib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
@@ -699,7 +710,7 @@ e\pgfplotsmatrix.code.tex)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
 plotstableshared.code.tex
 \c@pgfplotstable@counta=\count336
-\t@pgfplotstable@a=\toks49
+\t@pgfplotstable@a=\toks50
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
 e\pgfplotsdeque.code.tex)
@@ -743,16 +754,16 @@ hs.code.tex)
 z/libraries\tikzlibrarydecorations.code.tex
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 decorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen279
-\pgfdecoratedremainingdistance=\dimen280
-\pgfdecoratedinputsegmentcompleteddistance=\dimen281
-\pgfdecoratedinputsegmentremainingdistance=\dimen282
-\pgf@decorate@distancetomove=\dimen283
+\pgfdecoratedcompleteddistance=\dimen284
+\pgfdecoratedremainingdistance=\dimen285
+\pgfdecoratedinputsegmentcompleteddistance=\dimen286
+\pgfdecoratedinputsegmentremainingdistance=\dimen287
+\pgf@decorate@distancetomove=\dimen288
 \pgf@decorate@repeatstate=\count338
-\pgfdecorationsegmentamplitude=\dimen284
-\pgfdecorationsegmentlength=\dimen285
+\pgfdecorationsegmentamplitude=\dimen289
+\pgfdecorationsegmentlength=\dimen290
 )
-\tikz@lib@dec@box=\box66
+\tikz@lib@dec@box=\box67
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarydecorations.pathmorphing.code.tex
@@ -765,12 +776,12 @@ ions\pgflibrarydecorations.pathreplacing.code.tex))
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
 rarypgfplots.contourlua.code.tex)
 \pgfplots@numplots=\count339
-\pgfplots@xmin@reg=\dimen286
-\pgfplots@xmax@reg=\dimen287
-\pgfplots@ymin@reg=\dimen288
-\pgfplots@ymax@reg=\dimen289
-\pgfplots@zmin@reg=\dimen290
-\pgfplots@zmax@reg=\dimen291
+\pgfplots@xmin@reg=\dimen291
+\pgfplots@xmax@reg=\dimen292
+\pgfplots@ymin@reg=\dimen293
+\pgfplots@ymax@reg=\dimen294
+\pgfplots@zmin@reg=\dimen295
+\pgfplots@zmax@reg=\dimen296
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibraryplotmarks.code.tex
@@ -783,45 +794,64 @@ File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count340
-\float@exts=\toks50
-\float@box=\box67
-\@float@everytoks=\toks51
-\@floatcapt=\box68
+\float@exts=\toks51
+\float@box=\box68
+\@float@everytoks=\toks52
+\@floatcapt=\box69
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen292
-\lightrulewidth=\dimen293
-\cmidrulewidth=\dimen294
-\belowrulesep=\dimen295
-\belowbottomsep=\dimen296
-\aboverulesep=\dimen297
-\abovetopsep=\dimen298
-\cmidrulesep=\dimen299
-\cmidrulekern=\dimen300
-\defaultaddspace=\dimen301
+\heavyrulewidth=\dimen297
+\lightrulewidth=\dimen298
+\cmidrulewidth=\dimen299
+\belowrulesep=\dimen300
+\belowbottomsep=\dimen301
+\aboverulesep=\dimen302
+\abovetopsep=\dimen303
+\cmidrulesep=\dimen304
+\cmidrulekern=\dimen305
+\defaultaddspace=\dimen306
 \@cmidla=\count341
 \@cmidlb=\count342
-\@aboverulesep=\dimen302
-\@belowrulesep=\dimen303
+\@aboverulesep=\dimen307
+\@belowrulesep=\dimen308
 \@thisruleclass=\count343
 \@lastruleclass=\count344
-\@thisrulewidth=\dimen304
+\@thisrulewidth=\dimen309
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip74
+\LTright=\skip75
+\LTpre=\skip76
+\LTpost=\skip77
+\LTchunksize=\count345
+\LTcapwidth=\dimen310
+\LT@head=\box70
+\LT@firsthead=\box71
+\LT@foot=\box72
+\LT@lastfoot=\box73
+\LT@gbox=\box74
+\LT@cols=\count346
+\LT@rows=\count347
+\c@LT@tables=\count348
+\c@LT@chunks=\count349
+\LT@p@ftn=\toks53
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2026-09-18 v3.6.2 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count345
-\l__siunitx_number_exponent_fixed_int=\count346
-\l__siunitx_number_min_decimal_int=\count347
-\l__siunitx_number_min_integer_int=\count348
-\l__siunitx_number_round_precision_int=\count349
-\l__siunitx_number_lower_threshold_int=\count350
-\l__siunitx_number_upper_threshold_int=\count351
-\l__siunitx_number_group_first_int=\count352
-\l__siunitx_number_group_size_int=\count353
-\l__siunitx_number_group_min_int=\count354
-\l__siunitx_number_group_minimum_int=\count355
-\l__siunitx_compound_count_int=\count356
+\l__siunitx_number_uncert_offset_int=\count350
+\l__siunitx_number_exponent_fixed_int=\count351
+\l__siunitx_number_min_decimal_int=\count352
+\l__siunitx_number_min_integer_int=\count353
+\l__siunitx_number_round_precision_int=\count354
+\l__siunitx_number_lower_threshold_int=\count355
+\l__siunitx_number_upper_threshold_int=\count356
+\l__siunitx_number_group_first_int=\count357
+\l__siunitx_number_group_size_int=\count358
+\l__siunitx_number_group_min_int=\count359
+\l__siunitx_number_group_minimum_int=\count360
+\l__siunitx_compound_count_int=\count361
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/translations\translatio
 ns.sty
@@ -829,31 +859,31 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
  (CN)
 )
 Include code introduced on 2026-09-12
-\l__siunitx_table_tmp_box=\box69
-\l__siunitx_table_tmp_dim=\dimen305
-\l__siunitx_table_column_width_dim=\dimen306
-\l__siunitx_table_integer_box=\box70
-\l__siunitx_table_decimal_box=\box71
-\l__siunitx_table_uncert_box=\box72
-\l__siunitx_table_before_box=\box73
-\l__siunitx_table_after_box=\box74
-\l__siunitx_table_before_dim=\dimen307
-\l__siunitx_table_carry_dim=\dimen308
-\l__siunitx_unit_tmp_int=\count357
-\l__siunitx_unit_position_int=\count358
-\l__siunitx_unit_total_int=\count359
-\l__siunitx_sexagesimal_tmp_dim=\dimen309
-\l__siunitx_sexagesimal_marker_box=\box75
-\l__siunitx_sexagesimal_unit_box=\box76
+\l__siunitx_table_tmp_box=\box75
+\l__siunitx_table_tmp_dim=\dimen311
+\l__siunitx_table_column_width_dim=\dimen312
+\l__siunitx_table_integer_box=\box76
+\l__siunitx_table_decimal_box=\box77
+\l__siunitx_table_uncert_box=\box78
+\l__siunitx_table_before_box=\box79
+\l__siunitx_table_after_box=\box80
+\l__siunitx_table_before_dim=\dimen313
+\l__siunitx_table_carry_dim=\dimen314
+\l__siunitx_unit_tmp_int=\count362
+\l__siunitx_unit_position_int=\count363
+\l__siunitx_unit_total_int=\count364
+\l__siunitx_sexagesimal_tmp_dim=\dimen315
+\l__siunitx_sexagesimal_marker_box=\box81
+\l__siunitx_sexagesimal_unit_box=\box82
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen310
-\ar@mcellbox=\box77
-\extrarowheight=\dimen311
-\NC@list=\toks52
-\extratabsurround=\skip72
-\backup@length=\skip73
-\ar@cellbox=\box78
+\col@sep=\dimen316
+\ar@mcellbox=\box83
+\extrarowheight=\dimen317
+\NC@list=\toks54
+\extratabsurround=\skip78
+\backup@length=\skip79
+\ar@cellbox=\box84
 ))
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
@@ -863,33 +893,37 @@ Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen312
-\captionmargin=\dimen313
-\caption@leftmargin=\dimen314
-\caption@rightmargin=\dimen315
-\caption@width=\dimen316
-\caption@indent=\dimen317
-\caption@parindent=\dimen318
-\caption@hangindent=\dimen319
+\caption@tempdima=\dimen318
+\captionmargin=\dimen319
+\caption@leftmargin=\dimen320
+\caption@rightmargin=\dimen321
+\caption@width=\dimen322
+\caption@indent=\dimen323
+\caption@parindent=\dimen324
+\caption@hangindent=\dimen325
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count360
-\c@continuedfloat=\count361
+\c@caption@flags=\count365
+\c@continuedfloat=\count366
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
-)
+Package caption Info: longtable package is loaded.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+))
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count362
+\c@subfigure=\count367
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count363
+\c@subtable=\count368
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen320
-\pgfarrowlength=\dimen321
-\pgfarrowwidth=\dimen322
-\pgfarrowlinewidth=\dimen323
+\pgfarrowinset=\dimen326
+\pgfarrowlength=\dimen327
+\pgfarrowwidth=\dimen328
+\pgfarrowlinewidth=\dimen329
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypositioning.code.tex
@@ -910,8 +944,8 @@ File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@layerbox@background=\box79
-\pgf@layerboxsaved@background=\box80
+\pgf@layerbox@background=\box85
+\pgf@layerboxsaved@background=\box86
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypatterns.code.tex
@@ -922,39 +956,35 @@ arypatterns.code.tex
 File: pgflibrarypatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 39.
+h' as default language. on input line 50.
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count364
+\l__color_backend_stack_int=\count369
 ) (Project Report Template.aux (Introduction.aux) (Literature.aux)
-(System Design.aux
-
-LaTeX Warning: Label `sec:design-sysArch' multiply defined.
-
-) (Noise Analysis.aux) (Results.aux) (Discussion.aux) (Conclusions.aux)
+(System Design.aux) (Noise Analysis.aux) (Results.aux) (Conclusions.aux)
 (Recommendations.aux) (appendixa.aux) (appendixb.aux))
 \openout1 = `"Project Report Template.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -994,17 +1024,17 @@ LaTeX Font Info:    ... okay on input line 39.
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count365
-\scratchdimen=\dimen324
-\scratchbox=\box81
-\nofMPsegments=\count366
-\nofMParguments=\count367
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count368
-\MPscratchDim=\dimen325
-\MPnumerator=\count369
-\makeMPintoPDFobject=\count370
-\everyMPtoPDFconversion=\toks54
+\scratchcounter=\count370
+\scratchdimen=\dimen330
+\scratchbox=\box87
+\nofMPsegments=\count371
+\nofMParguments=\count372
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count373
+\MPscratchDim=\dimen331
+\MPnumerator=\count374
+\makeMPintoPDFobject=\count375
+\everyMPtoPDFconversion=\toks56
 )
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1016,7 +1046,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 39.
+Package hyperref Info: Link coloring OFF on input line 50.
  (Project Report Template.out) (Project Report Template.out)
 \@outlinefile=\write4
 \openout4 = `"Project Report Template.out"'.
@@ -1032,34 +1062,34 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 39.
+or `english'. on input line 50.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<uctLogo.png, id=310, 418.56375pt x 425.59pt>
+<uctLogo.png, id=266, 418.56375pt x 425.59pt>
 File: uctLogo.png Graphic file (type png)
 <use uctLogo.png>
-Package pdftex.def Info: uctLogo.png  used on input line 53.
+Package pdftex.def Info: uctLogo.png  used on input line 64.
 (pdftex.def)             Requested size: 125.57008pt x 127.67798pt.
  [1
 
 {C:/Users/thoma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./uctLogo.pn
 g>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
@@ -1076,305 +1106,364 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [3
 
-] [4] [5])
+] [4])
 \tf@toc=\write5
 \openout5 = `"Project Report Template.toc"'.
 
- [6]
+ [5]
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 159.
+ine 170.
 
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 160.
+ine 171.
 
 \openout2 = `Introduction.aux'.
 
 (Introduction.tex
 Chapter 1.
 
-LaTeX Warning: Citation `smt2011' on page 1 undefined on input line 5.
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23 ... level design choices discussed in design}
-                                                   [1
+l.22 
+      [1
 
 
-])
+]
+
+LaTeX Warning: Reference `sec:lit-principlesDWL' on page 2 undefined on input l
+ine 23.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.167 \include{Introduction}
-                             [2]
-\openout2 = `Literature.aux'.
+l.31 
+      [2]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
- (Literature.tex
-Chapter 2.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.27 
-      [3
+l.40 \end{itemize}
+                   [3]
+
+LaTeX Warning: Reference `sec:systemDesign' on page 4 undefined on input line 4
+3.
+
+
+LaTeX Warning: Reference `sec:noiseAnalysis' on page 4 undefined on input line 
+43.
+
+
+LaTeX Warning: Reference `sec:conclusionAndRecommendations' on page 4 undefined
+ on input line 43.
+
+)
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.178 \include{Introduction}
+                             [4]
+\openout2 = `Literature.aux'.
+
+ (Literature.tex
+Chapter 2.
+[5
+
+
+
+
+] [6] [7] [8]
+Overfull \hbox (3.75761pt too wide) in paragraph at lines 163--163
+|[]\OT1/cmr/bx/n/17.28 Coherent De-tec-tion: Ho-mo-dyne, Het-ero-dyne and
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.05003pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.05003pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.05003pt}.
+
+[9]
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 27.05003pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.05003pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.05003pt}.
+
+[10] [11] [12]
+
+LaTeX Warning: Citation `Abdelazim2015' on page 13 undefined on input line 266.
+
+
+
+Overfull \hbox (29.48573pt too wide) in paragraph at lines 270--270
+|[]\OT1/cmr/bx/n/17.28 Transmit and Re-ceive Op-tics: Mono-s-tatic vs Bistatic|
+ 
+ []
+
+[13] [14]) [15]
+\openout2 = `"System Design.aux"'.
+
+ (System Design.tex
+Chapter 3.
+
+Overfull \hbox (2.40736pt too wide) in paragraph at lines 67--67
+[]|\OT1/cmr/bx/n/10 Alternative|  
+ []
+
+
+LaTeX Warning: Reference `sec:lit-pulsedCW' on page 16 undefined on input line 
+87.
+
+[16
 
 
 
 
 ]
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.40 
-      [4]
-Overfull \hbox (7.09981pt too wide) in paragraph at lines 58--72
-\OT1/cmr/m/n/12 Power per-for-mance test-ing is an area in which NML has had gr
-eat-est suc-cess and widespread
- []
-
-[5] [6] [7] [8] [9] [10] [11] [12] [13]
-
-LaTeX Warning: Citation `Abdelazim2015' on page 14 undefined on input line 289.
-
-
-[14] [15] [16]) [17]
-\openout2 = `"System Design.aux"'.
-
- (System Design.tex
-Chapter 3.
-[18
-
-
-
-
-] [19]
-
-LaTeX Warning: Reference `sec:lit-pulsedCW' on page 20 undefined on input line 
-44.
-
-[20]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 5
-4.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 9
+9.
  (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
 File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 54.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 99.
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 137--137
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
 []|\OT1/cmr/bx/n/10.95 Verified
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
 []|\OT1/cmr/m/n/10.95 Phase-induced
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
 \OT1/cmr/m/n/10.95 in-ten-sity noise
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 []|\OT1/cmr/m/n/10.95 Total sys-tem
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--148
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
 []|\OT1/cmr/m/n/10.95 Detection of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--148
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
 \OT1/cmr/m/n/10.95 wind-speed in
  []
 
-[22] [23] [24]
+[19] [20] [21]
 
-LaTeX Warning: Reference `sec:noiseAnalysis' on page 25 undefined on input line
- 192.
+LaTeX Warning: Reference `sec:noiseAnalysis' on page 22 undefined on input line
+ 237.
 
-[25]
-Overfull \hbox (1.2599pt too wide) in paragraph at lines 204--204
+
+Overfull \hbox (1.2599pt too wide) in paragraph at lines 249--249
 []|\OT1/cmr/bx/n/10.95 Linewidth
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--204
+Underfull \hbox (badness 10000) in paragraph at lines 249--249
 []|\OT1/cmr/bx/n/10.95 Power,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--204
+Underfull \hbox (badness 10000) in paragraph at lines 249--249
 \OT1/cmr/bx/n/10.95 un-am-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
 []|\OT1/cmr/bx/n/10.95 Indicative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--206
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
 []|\OT1/cmr/m/n/10.95 Fabry--P^^Serot
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
 []|\OT1/cmr/m/n/10.95 multi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
 \OT1/cmr/m/n/10.95 single-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--212
+Underfull \hbox (badness 10000) in paragraph at lines 257--257
 []|\OT1/cmr/m/n/10.95 DFB laser
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--218
+Underfull \hbox (badness 10000) in paragraph at lines 263--263
 []|\OT1/cmr/m/n/10.95 Planar
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--218
+Underfull \hbox (badness 10000) in paragraph at lines 263--263
 \OT1/cmr/m/n/10.95 external-cavity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--219
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
 []|$\OML/cmm/m/it/10.95 < \OT1/cmr/m/n/10.95 1$ to
  []
 
 
-Underfull \hbox (badness 4967) in paragraph at lines 221--221
+Underfull \hbox (badness 4967) in paragraph at lines 266--266
 []|\OT1/cmr/m/n/10.95 Integrated driver, mar-keted for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 []|\OT1/cmr/m/n/10.95 quote only;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 \OT1/cmr/m/n/10.95 low thou-
  []
 
 
-Underfull \hbox (badness 3000) in paragraph at lines 225--225
+Underfull \hbox (badness 3000) in paragraph at lines 270--270
 []|$\OML/cmm/m/it/10.95 < \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n
 /10.95 1$ to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--227
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 []|\OT1/cmr/m/n/10.95 Common source of choice for
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 227--227
+Underfull \hbox (badness 1406) in paragraph at lines 272--272
 \OT1/cmr/m/n/10.95 CW anemom-e-try due to nar-row
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 273--274
 []|\OT1/cmr/m/n/10.95 quote only;
  []
 
 
-Overfull \hbox (16.8753pt too wide) in paragraph at lines 202--231
+Overfull \hbox (16.8753pt too wide) in paragraph at lines 247--276
  [][] 
  []
 
-[26]
+[22]
 
-LaTeX Warning: Reference `sec:testingPIIN' on page 27 undefined on input line 2
-35.
-
-
-LaTeX Warning: Reference `appendix:laser' on page 27 undefined on input line 25
-4.
+LaTeX Warning: Reference `sec:testingPIIN' on page 23 undefined on input line 2
+80.
 
 
-LaTeX Warning: Reference `appendix:laser' on page 27 undefined on input line 25
-4.
-
-[27]
-
-LaTeX Warning: Citation `Gwinner2024' on page 28 undefined on input line 258.
-
-
-LaTeX Warning: Citation `Gwinner2024' on page 28 undefined on input line 260.
-
-[28]
-
-Package caption Warning: \label without proper reference on input line 310.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:pd100b' on page 29 undefined on input line 306.
-
-
-LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
-24.
-
-
-LaTeX Warning: Reference `appendix:pd100b' on page 29 undefined on input line 3
-24.
-
-[29] [30]
-
-LaTeX Warning: Reference `sec:testingA' on page 31 undefined on input line 366.
-
-
-
-LaTeX Warning: Reference `sec:lit-Optics' on page 31 undefined on input line 36
+LaTeX Warning: Reference `appendix:laser' on page 23 undefined on input line 29
 9.
 
 
-Package caption Warning: \label without proper reference on input line 384.
+LaTeX Warning: Reference `appendix:laser' on page 23 undefined on input line 29
+9.
+
+[23]
+
+LaTeX Warning: Citation `Gwinner2024' on page 24 undefined on input line 303.
+
+
+LaTeX Warning: Citation `Gwinner2024' on page 24 undefined on input line 305.
+
+[24]
+
+Package caption Warning: \label without proper reference on input line 355.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:collimator' on page 31 undefined on input line 37
-1.
+LaTeX Warning: Reference `tab:pd100b' on page 25 undefined on input line 351.
 
-[31] [32]) [33] [34]
+
+LaTeX Warning: Reference `appendix:pd100b' on page 25 undefined on input line 3
+69.
+
+
+LaTeX Warning: Reference `appendix:pd100b' on page 25 undefined on input line 3
+69.
+
+[25] [26]
+
+LaTeX Warning: Reference `sec:testingA' on page 27 undefined on input line 411.
+
+
+
+LaTeX Warning: Reference `sec:lit-Optics' on page 27 undefined on input line 41
+4.
+
+
+Package caption Warning: \label without proper reference on input line 427.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:collimator' on page 27 undefined on input line 41
+6.
+
+[27] [28]) [29] [30]
 \openout2 = `"Noise Analysis.aux"'.
 
  (Noise Analysis.tex
 Chapter 4.
 
-LaTeX Warning: Reference `sec:functionalAnalysis' on page 35 undefined on input
+LaTeX Warning: Reference `sec:functionalAnalysis' on page 31 undefined on input
  line 4.
 
 
-LaTeX Warning: Reference `sec:functionalAnalysis' on page 35 undefined on input
+LaTeX Warning: Reference `sec:functionalAnalysis' on page 31 undefined on input
  line 4.
 
-[35
+[31
 
 
 
 
-] [36]
+]
 Underfull \hbox (badness 5622) in paragraph at lines 150--150
 []|\OT1/cmr/m/n/12 Electronic noise + shot
  []
@@ -1389,193 +1478,166 @@ Overfull \hbox (23.37357pt too wide) in paragraph at lines 146--153
  [][] 
  []
 
-[37]
+[32]
 
-LaTeX Warning: Citation `Koheron PD100B' on page 38 undefined on input line 178
+LaTeX Warning: Citation `Koheron PD100B' on page 33 undefined on input line 178
 .
 
-<../Data Acquisition/figures/psd_overlay.png, id=849, 650.43pt x 397.485pt>
+[33]
+<../Data Acquisition/figures/psd_overlay.png, id=752, 426.8748pt x 252.2223pt>
 File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
 nput line 187.
-(pdftex.def)             Requested size: 455.24411pt x 278.21333pt.
-[38 <../Data Acquisition/figures/psd_overlay.png>]
-<psd_vs_current.png, id=859, 607.068pt x 390.258pt>
+(pdftex.def)             Requested size: 341.43307pt x 201.75116pt.
+<psd_vs_current.png, id=754, 428.0793pt x 237.7683pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
 Package pdftex.def Info: psd_vs_current.png  used on input line 196.
-(pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [39 <./psd_vs_current.png>]
+(pdftex.def)             Requested size: 341.43307pt x 189.6489pt.
+ [34 <../Data Acquisition/figures/psd_overlay.png>] [35 <./psd_vs_current.png>]
 
-LaTeX Warning: Citation `detector datasheet' on page 40 undefined on input line
+
+LaTeX Warning: Citation `detector datasheet' on page 36 undefined on input line
  233.
 
 
-LaTeX Warning: Citation `laser datasheet' on page 40 undefined on input line 23
+LaTeX Warning: Citation `laser datasheet' on page 36 undefined on input line 23
 3.
 
-[40]
+[36] [37]
 
-LaTeX Warning: Reference `ch:functional' on page 41 undefined on input line 255
-.
-
-[41]
-
-LaTeX Warning: Reference `fig:piin' on page 42 undefined on input line 259.
+Package caption Warning: \label without proper reference on input line 265.
+See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:piin_cables' on page 42 undefined on input line 2
-59.
+LaTeX Warning: Reference `tab:piin_matching' on page 38 undefined on input line
+ 259.
 
-[42]
-<../Data Acquisition/figures/psd_piin_lengths.png, id=904, 766.062pt x 404.712p
-t>
+[38]
+<../Data Acquisition/figures/psd_piin_lengths.png, id=811, 426.393pt x 265.2309
+pt>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin_lengths.png  used
  on input line 288.
-(pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
+(pdftex.def)             Requested size: 341.43307pt x 212.38734pt.
 
 
-LaTeX Warning: Reference `app:linewidth' on page 43 undefined on input line 294
+LaTeX Warning: Reference `app:linewidth' on page 39 undefined on input line 294
 .
 
 
-LaTeX Warning: Citation `harris1998' on page 43 undefined on input line 296.
+LaTeX Warning: Citation `harris1998' on page 39 undefined on input line 296.
 
-) [43 <../Data Acquisition/figures/psd_piin_lengths.png>] [44]
+) [39 <../Data Acquisition/figures/psd_piin_lengths.png>]
 \openout2 = `Results.aux'.
 
  (Results.tex
 Chapter 5.
-[45
+
+LaTeX Warning: Citation `f810 apc datasheet' on page 40 undefined on input line
+ 22.
+
+<../../../../../Downloads/fig_rig_side3d.pdf, id=821, 909.34059pt x 353.66838pt
+>
+File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
+<use ../../../../../Downloads/fig_rig_side3d.pdf>
+Package pdftex.def Info: ../../../../../Downloads/fig_rig_side3d.pdf  used on i
+nput line 27.
+(pdftex.def)             Requested size: 364.19667pt x 141.64832pt.
+[40
 
 
 
 
 ]
 
-LaTeX Warning: Citation `f810 apc datasheet' on page 46 undefined on input line
- 22.
-
-<../../../../../Downloads/fig_rig_side3d.pdf, id=926, 909.34059pt x 353.66838pt
->
-File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
-<use ../../../../../Downloads/fig_rig_side3d.pdf>
-Package pdftex.def Info: ../../../../../Downloads/fig_rig_side3d.pdf  used on i
-nput line 27.
-(pdftex.def)             Requested size: 455.24411pt x 177.06041pt.
-
-LaTeX Warning: Reference `(' on page 46 undefined on input line 37.
+LaTeX Warning: Reference `(' on page 41 undefined on input line 37.
 
 
 Package caption Warning: \label without proper reference on input line 61.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:doppler_vs_rpm' on page 46 undefined on input lin
+LaTeX Warning: Reference `tab:doppler_vs_rpm' on page 41 undefined on input lin
 e 49.
 
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=931, 766.062pt x 404.712pt
->
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=834, 430.7292pt x 237.5274
+pt>
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_rpm_overlay.png  used 
 on input line 52.
-(pdftex.def)             Requested size: 455.24411pt x 240.51329pt.
-[46 <../../../../../Downloads/fig_rig_side3d.pdf>]
+(pdftex.def)             Requested size: 341.43307pt x 188.28609pt.
+[41 <../../../../../Downloads/fig_rig_side3d.pdf>]
 Overfull \hbox (16.21693pt too wide) in paragraph at lines 64--90
  [][] 
  []
 
-[47 <../Data Acquisition/figures/psd_rpm_overlay.png>]
-<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=989, 758.835pt x 448.07399
-pt>
+[42 <../Data Acquisition/figures/psd_rpm_overlay.png>]
+<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=893, 429.50526pt x 238.213
+09pt>
 File: ../../../../../Downloads/fig_doppler_vs_rpm.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_doppler_vs_rpm.pdf>
 Package pdftex.def Info: ../../../../../Downloads/fig_doppler_vs_rpm.pdf  used 
 on input line 112.
-(pdftex.def)             Requested size: 455.24411pt x 268.81227pt.
- [48 <../../../../../Downloads/fig_doppler_vs_rpm.pdf>]
-
-Package caption Warning: \label without proper reference on input line 148.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:DRig' on page 49 undefined on input line 145.
-
-[49] [50]
-
-Package caption Warning: \label without proper reference on input line 243.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:doppler_vs_windspeed' on page 51 undefined on inp
-ut line 230.
-
-[51]
-<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=1090, 1156.32p
-t x 549.252pt>
+(pdftex.def)             Requested size: 341.43307pt x 189.36758pt.
+ [43 <../../../../../Downloads/fig_doppler_vs_rpm.pdf>] [44] [45]
+<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=986, 481.5591p
+t x 281.853pt>
 File: ../Data Acquisition/figures/psd_windtunnel_overlay_pair.png Graphic file 
 (type png)
 <use ../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_windtunnel_overlay_pai
-r.png  used on input line 234.
-(pdftex.def)             Requested size: 500.77129pt x 237.8667pt.
+r.png  used on input line 237.
+(pdftex.def)             Requested size: 318.66948pt x 186.52243pt.
+ [46 <../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>]
 
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 234--235
- [][] 
- []
+Package caption Warning: \label without proper reference on input line 276.
+See the caption package documentation for explanation.
 
 
-Overfull \hbox (28.49728pt too wide) in paragraph at lines 246--275
- [][] 
- []
+LaTeX Warning: Reference `tab:D_mist_avg' on page 47 undefined on input line 27
+1.
 
-[52 <../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>]
-<../Data Acquisition/figures/peak_vs_windtunnel_speed.png, id=1099, 621.522pt x
- 375.804pt>
-File: ../Data Acquisition/figures/peak_vs_windtunnel_speed.png Graphic file (ty
-pe png)
-<use ../Data Acquisition/figures/peak_vs_windtunnel_speed.png>
-Package pdftex.def Info: ../Data Acquisition/figures/peak_vs_windtunnel_speed.p
-ng  used on input line 291.
-(pdftex.def)             Requested size: 455.24411pt x 275.26933pt.
-<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1100, 953.964pt x 
-332.442pt>
+[47]
+<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1010, 476.982pt x 
+221.8689pt>
 File: ../Data Acquisition/figures/psd_5mps_mist_averaging.png Graphic file (typ
 e png)
 <use ../Data Acquisition/figures/psd_5mps_mist_averaging.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_5mps_mist_averaging.pn
 g  used on input line 298.
-(pdftex.def)             Requested size: 455.24411pt x 158.64711pt.
+(pdftex.def)             Requested size: 455.24411pt x 211.76279pt.
 
 
-Package caption Warning: \label without proper reference on input line 243.
+Package caption Warning: \label without proper reference on input line 276.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:doppler_vs_windspeed' on page 53 undefined on inp
-ut line 344.
+LaTeX Warning: Reference `tab:D_mist_avg' on page 48 undefined on input line 30
+3.
 
-[53 <../Data Acquisition/figures/peak_vs_windtunnel_speed.png>]) [54 <../Data A
-cquisition/figures/psd_5mps_mist_averaging.png>]
-\openout2 = `Discussion.aux'.
+[48 <../Data Acquisition/figures/psd_5mps_mist_averaging.png>]
 
- (Discussion.tex
-Chapter 6.
-) [55
+LaTeX Warning: Reference `appendix' on page 49 undefined on input line 345.
 
-
-
-
-]
+[49]
+<../../../../../Downloads/fig_velocity_both.pdf, id=1038, 520.34402pt x 317.987
+99pt>
+File: ../../../../../Downloads/fig_velocity_both.pdf Graphic file (type pdf)
+<use ../../../../../Downloads/fig_velocity_both.pdf>
+Package pdftex.def Info: ../../../../../Downloads/fig_velocity_both.pdf  used o
+n input line 371.
+(pdftex.def)             Requested size: 341.43307pt x 208.66454pt.
+ [50 <../../../../../Downloads/fig_velocity_both.pdf>]) [51]
 \openout2 = `Conclusions.aux'.
 
- (Conclusions.tex
-Chapter 7.
-) [56
+
+(Conclusions.tex
+Chapter 6.
+) [52
 
 
 
@@ -1584,13 +1646,13 @@ Chapter 7.
 \openout2 = `Recommendations.aux'.
 
  (Recommendations.tex
-Chapter 8.
-) [57
+Chapter 7.
+) [53
 
 
 
 
-] (Project Report Template.bbl [58
+] (Project Report Template.bbl [54
 
 
 
@@ -1600,7 +1662,7 @@ Underfull \hbox (badness 1092) in paragraph at lines 123--128
 is, C. Slinger,
  []
 
-[59]
+[55]
 Underfull \hbox (badness 6592) in paragraph at lines 165--171
 \OT1/cmr/m/n/12 Davoust.  Un-cer-tainty of power curve mea-sure-ment with a two
 -beam
@@ -1612,46 +1674,46 @@ Underfull \hbox (badness 5504) in paragraph at lines 165--171
 m/n/12 , 19(7):1269--1287, 2016.  []-eprint:
  []
 
-) [60]
+) [56]
 \openout2 = `appendixa.aux'.
 
  (appendixa.tex
 Appendix A.
-[61
+[57
 
 
-] [62]
-<psd_vs_current_single.png, id=1161, 607.068pt x 390.258pt>
+] [58]
+<psd_vs_current_single.png, id=1155, 428.0793pt x 237.7683pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
-Package pdftex.def Info: psd_vs_current_single.png  used on input line 80.
-(pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
- [63 <./psd_vs_current_single.png>] [64] [65] [66]
-<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1207, 1214.136pt x 78
-0.516pt>
+Package pdftex.def Info: psd_vs_current_single.png  used on input line 99.
+(pdftex.def)             Requested size: 455.24411pt x 252.864pt.
+ [59 <./psd_vs_current_single.png>] [60] [61] [62]
+<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1200, 471.6822pt x 61
+1.1633pt>
 File: ../Data Acquisition/figures/psd_windtunnel_cases.png Graphic file (type p
 ng)
 <use ../Data Acquisition/figures/psd_windtunnel_cases.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_windtunnel_cases.png  
-used on input line 219.
-(pdftex.def)             Requested size: 455.24411pt x 292.65704pt.
+used on input line 238.
+(pdftex.def)             Requested size: 455.24411pt x 589.8901pt.
 
-Underfull \hbox (badness 3098) in paragraph at lines 232--232
+Underfull \hbox (badness 3098) in paragraph at lines 251--251
 []|\OT1/cmr/m/n/12 Investigations, ex-per-i-ments and
  []
 
 
-Overfull \hbox (21.90134pt too wide) in paragraph at lines 226--243
+Overfull \hbox (21.90134pt too wide) in paragraph at lines 245--262
  [] 
  []
 
-[67 <../Data Acquisition/figures/psd_windtunnel_cases.png>]) [68]
+) [63] [64 <../Data Acquisition/figures/psd_windtunnel_cases.png>]
 \openout2 = `appendixb.aux'.
 
 
 (appendixb.tex
 Appendix B.
-) [69
+) [65
 
 
 
@@ -1659,8 +1721,8 @@ Appendix B.
 ] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (Project Report Template.aux (Introduction.aux) (Literature.aux)
-(System Design.aux) (Noise Analysis.aux) (Results.aux) (Discussion.aux)
-(Conclusions.aux) (Recommendations.aux) (appendixa.aux) (appendixb.aux))
+(System Design.aux) (Noise Analysis.aux) (Results.aux) (Conclusions.aux)
+(Recommendations.aux) (appendixa.aux) (appendixb.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1669,21 +1731,18 @@ L3 programming layer <2025-12-24>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 9708898E99136D0ADAFD8CE7D344A190;14155.
+(rerunfilecheck)             Checksum: 75E454437E7B0A91855B2E5523A3C12B;11455.
  ) 
 Here is how much of TeX's memory you used:
- 39256 strings out of 467871
- 957008 string characters out of 5418376
- 1529078 words of memory out of 5000000
- 67232 multiletter control sequences out of 15000+600000
- 644114 words of font info for 100 fonts, out of 8000000 for 9000
+ 39651 strings out of 467871
+ 962225 string characters out of 5418376
+ 1543385 words of memory out of 5000000
+ 67641 multiletter control sequences out of 15000+600000
+ 644460 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,23n,118p,1676b,2059s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,23n,118p,1676b,2051s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0700.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm0800.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1696,24 +1755,24 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/thoma
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
 ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pf
 b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmi7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmib10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/thoma/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thoma/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thoma/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/tho
-ma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Us
-ers/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
-><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on "Project Report Template.pdf" (79 pages, 2775613 bytes).
+cmmi8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmib10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cmextra/cmmib8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/thoma/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thoma/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thoma/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/thom
+a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
+rs/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on "Project Report Template.pdf" (74 pages, 2623896 bytes).
 PDF statistics:
- 1384 PDF objects out of 1440 (max. 8388607)
- 264 named destinations out of 1000 (max. 500000)
- 685 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1374 PDF objects out of 1440 (max. 8388607)
+ 247 named destinations out of 1000 (max. 500000)
+ 597 words of extra memory for PDF output out of 10000 (max. 10000000)
 

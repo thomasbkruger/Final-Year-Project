@@ -1,54 +1,99 @@
 \chapter{System Design}
+ 
 
 \section{Introduction}
-This chapter details the design of a Doppler wind LiDAR system. As discussed in the introduction and scope of this report, the system is a benchtop prototype whose purpose is to make the sensitivity of a DWL measurable and attributable to specific component and architecture choices. As such, the primary considerations will be noise-levels, sensitivity, and the overarching principles of physics governing DWL systems. This system design will thus not include the design of housing for field deployment, nor will it be concerned with real-time post-processing pipelines for the system's data (which would be required in a field-deployed system). Furthermore, several key components that would be typical in a scientific- or industry-grade, field-deployable DWL system are deliberately omitted in order to reduce costs, at little functional expense for a benchtop system. Where possible, the system was made extensible for future iterations and field deployment.
+This chapter details the design of a benchtop prototype Doppler wind LiDAR system, whose purpose is to make the sensitivity and overall capability of a DWL measurable and attributable to specific component and architecture choices. As such, the primary considerations will be noise-levels, sensitivity, and the overarching principles of physics governing DWL systems. The design of housing for field deployment and real-time processing pipelines are thus not considered part of the scope here. Several components typical of a field-deployable DWL system are deliberately omitted in order to reduce costs, at little functional expense for a benchtop system, though where possible the system was made extensible for future iterations.
 
-First \autoref{sec:design-sysArch} gives an overview of the architecture chosen, as synthesised from the various architecture types reviewed in \autoref{sec:litReview}, and with respect to the project's overarching goals. Thereafter, \autoref{sec:design-sysReqs} discusses the functional and performance requirements of the system. Finally, section \ref{sec:design-ComponentChoices} details the specific components chosen to meet these requirements. 
+First \autoref{sec:design-sysArch} gives the chosen architecture, synthesised from the architectural considerations reviewed in \autoref{sec:litReview}. \autoref{sec:design-sysReqs} the functional and performance requirements specific to this architecture, and \autoref{sec:design-ComponentChoices} details the components chosen to build the system, based on the chosen architecture.
 
 \section{System Architecture}
 \label{sec:design-sysArch}
-From the reviewed literature in \autoref{sec:litReview}, it was decided that an \textbf{all-fibre, coherent detection, continuous-wave, monostatic} DWL system with \textbf{balanced detection} would be built, with sampling and digitisation to be handled by a benchtop oscilloscope, and post-processing done on a laptop computer. This section details why these architectural choices were made, using summarised information from \autoref{sec:litReview} with respect to the project goals, and discusses any significant implications for the system. 
+From the reviewed literature in \autoref{sec:litReview}, an architecture of \textbf{all-fibre, coherent detection, continuous-wave, monostatic, homodyne} DWL system with \textbf{balanced detection} was chosen, with sampling and digitisation handled by a benchtop oscilloscope, and post-processing done on a laptop computer. \autoref{tab:arch} summarises why each choice was made, and the tradeoffs accepted.
 
-\subsection{Coherent detection}
-\label{sec:design-sysArch}
-The direct detection technique requires the
-Rayleigh/Mie scattering ratio and temperature, an absolutely stabilised laser, etalon
-control to 1 milli-Kelvin, and very precise physical alignment and calibration
-\cite{korb_theory_1998,colberg_diode-laser-based_2026,werner_doppler_2005}. These present substantial challenges to an undergraduate project, particularly the stabilised laser and etalon temperature control. The one advantage which direct detection holds, which is the capability of using molecular backscatter when aerosol backscatter is not available, is irrelevant in an aerosol-rich controlled lab environment, which is the only environment this system will be tested in.
+%\section{System Architecture}
+%\label{sec:design-sysArch}
+%From the reviewed literature in \autoref{sec:litReview}, it was decided that an \textbf{all-fibre, coherent detection, continuous-wave, monostatic} DWL system with \textbf{balanced detection} would be built, with sampling and digitisation to be handled by a benchtop oscilloscope, and post-processing done on a laptop computer. This section details why these architectural choices were made, using summarised information from \autoref{sec:litReview} with respect to the project goals, and discusses any significant implications for the system. 
+%
+%\subsection{Coherent detection}
+%\label{sec:design-sysArch}
+%The direct detection technique requires the
+%Rayleigh/Mie scattering ratio and temperature, an absolutely stabilised laser, etalon
+%control to 1 milli-Kelvin, and very precise physical alignment and calibration
+%\cite{korb_theory_1998,colberg_diode-laser-based_2026,werner_doppler_2005}. These present substantial challenges to an undergraduate project, particularly the stabilised laser and etalon temperature control. The one advantage which direct detection holds, which is the capability of using molecular backscatter when aerosol backscatter is not available, is irrelevant in an aerosol-rich controlled lab environment, which is the only environment this system will be tested in.
+%
+%By contrast, coherent detection is far more common in the literature, and thus has more practical information and sources for components. Furthermore, mixing with the LO also permits shot-noise-limited operation through the effective amplification of the return signal, and rejects unwanted light not
+%mode-matched to the LO \cite{hill_remote_nodate} (e.g. other LiDAR systems, or the sun), thus reducing sources of potential interference. The architecture thus lends itself to a more elegant, direct method of measuring the Doppler shift, via optical mixing and subsequent detection. 
+%
+%For these reasons, a coherent detection system was chosen for this project build. 
+%
+%\subsection{Homodyne mixing}
+%Homodyne mixing places the Doppler shift at baseband with no additional frequency shift, and no additional components necessary, whereas heterodyne operation requires an acousto-optic
+%modulator (AOM) in the LO or transmit arm
+%\cite{harris_role_1998,abdelazim_development_2015}. The tradeoff  is the sign ambiguity as discussed in \autoref{sec:lit-homohetero}, where only the velocity \textbf{magnitude} is
+%measured in a homodyne system, whereas a heterodyne system can resolve the direction.
+%
+%For a benchtop-scale system which primarily aims to present the working principles of a DWL system and a sensitivity analysis, and where the direction of the flow being measured will always be known, it is not necessary to recover signed velocity. Adding an AOM thus adds needless complexity, and adds an additional unnecessary cost to a budget-constrained project. Crucially however, the addition of an AOM for a future iteration of the system is simple, and does not require the redesign of any parts of the current system. For these reasons it was thus decided to omit the AOM, and to therefore construct a \textbf{homodyne} coherent detection system.
+%
+%\subsection{Balanced detection}
+%As discussed in \autoref{sec:lit-BalancedDetection}, balanced detection holds the advantage of providing a 3dB improvement in SNR (in shot-noise limited operation) as compared to single ended detection. It also allows RIN to be largely cancelled, further allowing SNR improvement, and allowing the system to better approach the shot-noise limit (see Appendix \ref{appendix:RIN}). For these reasons, it was decided that a balanced detection setup would be used.
+%
+%\subsection{Monostatic optics}
+%For this project, it was decided to use a monostatic optical configuration - where a single aperture serves both transmit and receive, separated by a fibre
+%circulator, with no second lens and no alignment of two lenses necessary. A bistatic arrangement would
+%keep transmit-optics back-reflections away from the detector, at the cost of greatly increased alignment complexity
+%\cite{cariou2006laser,harris_role_1998,bennett_doppler_2003}, as well as the additional cost of 2 sets of optics, and equipment needed for alignment. The accepted
+%tradeoff here is thus that back-reflections from the transmit path reach the detector and
+%raise the noise floor through PIIN (see \autoref{sec:lit-linewidth}).
+%
+%\subsection{Continuous-wave operation}
+%Pulsed systems are ineffective below tens of metres because the pulse length is typically at least as long as this range \cite{hill_remote_nodate}. a CW system needs no pulse or receive timing, which simplifies design and can reduce costs (due to lower component count). It is also the more effective of the two at short range. One of the significant performance costs of a CW system however is reduced spatial resolution, particularly at long ranges, as spatial resolution is defined by focus rather than gating with timing (see \autoref{sec:lit-pulsedCW}). Seeing as a benchtop system requires operation at short ranges in the order of tens of centimeters to one or two meters, a CW system will be best suited here due to its simplicity, and its advantages at short range, as well as the irrelevance of long-range limitations.
+%
+%\subsection{All-fibre construction}
+%For this project it was decided that an all-fibre construction would be used - meaning that fibre optic cables would be used to transmit the LO and emission beams, and return signals, rather than transmitting the beams through free-space. Single-mode fibre makes the mode-matching between LO and return that coherent detection requires automatic, removes free-space alignment complexities, and gives access
+%to widely and cheaply available telecom components
+%\cite{bennett_doppler_2003,abari_all-fiber_2014,abdelazim_development_2015}. Non polarisation-maintaining fibre is used, owing to cost considerations as compared to polarisation-maintaining fibre.
+%The accepted tradeoff of standard (non-polarisation-maintaining) fibre is that the polarisation of LO and return is not fixed, which will reduce the heterodyne efficiency of the system, and thus reduce the measureable Doppler peak \cite{cariou2006laser}. 
 
-By contrast, coherent detection is far more common in the literature, and thus has more practical information and sources for components. Furthermore, mixing with the LO also permits shot-noise-limited operation through the effective amplification of the return signal, and rejects unwanted light not
-mode-matched to the LO \cite{hill_remote_nodate} (e.g. other LiDAR systems, or the sun), thus reducing sources of potential interference. The architecture thus lends itself to a more elegant, direct method of measuring the Doppler shift, via optical mixing and subsequent detection. 
-
-For these reasons, a coherent detection system was chosen for this project build. 
-
-\subsection{Homodyne mixing}
-Homodyne mixing places the Doppler shift at baseband with no additional frequency shift, and no additional components necessary, whereas heterodyne operation requires an acousto-optic
-modulator (AOM) in the LO or transmit arm
-\cite{harris_role_1998,abdelazim_development_2015}. The tradeoff  is the sign ambiguity as discussed in \autoref{sec:lit-homohetero}, where only the velocity \textbf{magnitude} is
-measured in a homodyne system, whereas a heterodyne system can resolve the direction.
-
-For a benchtop-scale system which primarily aims to present the working principles of a DWL system and a sensitivity analysis, and where the direction of the flow being measured will always be known, it is not necessary to recover signed velocity. Adding an AOM thus adds needless complexity, and adds an additional unnecessary cost to a budget-constrained project. Crucially however, the addition of an AOM for a future iteration of the system is simple, and does not require the redesign of any parts of the current system. For these reasons it was thus decided to omit the AOM, and to therefore construct a \textbf{homodyne} coherent detection system.
-
-\subsection{Balanced detection}
-As discussed in \autoref{sec:lit-BalancedDetection}, balanced detection holds the advantage of providing a 3dB improvement in SNR (in shot-noise limited operation) as compared to single ended detection. It also allows RIN to be largely cancelled, further allowing SNR improvement, and allowing the system to better approach the shot-noise limit (see Appendix \ref{appendix:RIN}). For these reasons, it was decided that a balanced detection setup would be used.
-
-\subsection{Monostatic optics}
-For this project, it was decided to use a monostatic optical configuration - where a single aperture serves both transmit and receive, separated by a fibre
-circulator, with no second lens and no alignment of two lenses necessary. A bistatic arrangement would
-keep transmit-optics back-reflections away from the detector, at the cost of greatly increased alignment complexity
-\cite{cariou2006laser,harris_role_1998,bennett_doppler_2003}, as well as the additional cost of 2 sets of optics, and equipment needed for alignment. The accepted
-tradeoff here is thus that back-reflections from the transmit path reach the detector and
-raise the noise floor through PIIN (see \autoref{sec:lit-linewidth}).
-
-\subsection{Continuous-wave operation}
-Pulsed systems are ineffective below tens of metres because the pulse length is typically at least as long as this range \cite{hill_remote_nodate}. a CW system needs no pulse or receive timing, which simplifies design and can reduce costs (due to lower component count). It is also the more effective of the two at short range. One of the significant performance costs of a CW system however is reduced spatial resolution, particularly at long ranges, as spatial resolution is defined by focus rather than gating with timing (see \autoref{sec:lit-pulsedCW}). Seeing as a benchtop system requires operation at short ranges in the order of tens of centimeters to one or two meters, a CW system will be best suited here due to its simplicity, and its advantages at short range, as well as the irrelevance of long-range limitations.
-
-\subsection{All-fibre construction}
-For this project it was decided that an all-fibre construction would be used - meaning that fibre optic cables would be used to transmit the LO and emission beams, and return signals, rather than transmitting the beams through free-space. Single-mode fibre makes the mode-matching between LO and return that coherent detection requires automatic, removes free-space alignment complexities, and gives access
-to widely and cheaply available telecom components
-\cite{bennett_doppler_2003,abari_all-fiber_2014,abdelazim_development_2015}. Non polarisation-maintaining fibre is used, owing to cost considerations as compared to polarisation-maintaining fibre.
-The accepted tradeoff of standard (non-polarisation-maintaining) fibre is that the polarisation of LO and return is not fixed, which will reduce the heterodyne efficiency of the system, and thus reduce the measureable Doppler peak \cite{cariou2006laser}. 
-
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\setlength{\tabcolsep}{4pt}
+	\renewcommand{\arraystretch}{1.15}
+	\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.11\textwidth}
+			>{\raggedright\arraybackslash}p{0.12\textwidth}
+			>{\raggedright\arraybackslash}p{0.43\textwidth}
+			>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+		\toprule
+		\textbf{Choice} & \textbf{Alternative} & \textbf{Reason for choice} & \textbf{Accepted tradeoff} \\
+		\midrule
+		Coherent detection & Direct detection &
+		Direct detection requires the Rayleigh/Mie scattering ratio and temperature, an absolutely stabilised laser, etalon control to 1\,mK, and very precise alignment and calibration \cite{korb_theory_1998,colberg_diode-laser-based_2026,werner_doppler_2005}, which are substantial challenges to an undergraduate project. Coherent detection is far more common in the literature, permits shot-noise-limited operation, and rejects unwanted light not mode-matched to the LO (e.g.\ other LiDAR systems, or the sun) \cite{hill_remote_nodate}. &
+		Cannot use molecular backscatter when aerosol backscatter is not available; irrelevant in an aerosol-rich, controlled lab environment. \\
+		\addlinespace[3pt]
+		Homodyne & Heterodyne (AOM in LO or transmit arm) \cite{harris_role_1998,abdelazim_development_2015} &
+		Places the Doppler shift at baseband with no additional components; an AOM adds needless complexity and cost to a budget-constrained project. &
+		Only the velocity \emph{magnitude} is measured (\autoref{sec:lit-homohetero}); acceptable as the flow direction will always be known. An AOM can be added in a future iteration without redesign. \\
+		\addlinespace[3pt]
+		Balanced detection & Single-ended detection &
+		3\,dB SNR improvement in shot-noise-limited operation (\autoref{sec:lit-BalancedDetection}), and RIN is largely cancelled, allowing the system to better approach the shot-noise limit (Appendix~\ref{appendix:RIN}). &
+		-- \\
+		\addlinespace[3pt]
+		Monostatic optics & Bistatic optics &
+		A single aperture serves both transmit and receive, separated by a fibre circulator; avoids the greatly increased alignment complexity, and cost of a second set of optics and alignment equipment \cite{cariou2006laser,harris_role_1998,bennett_doppler_2003}. &
+		Back-reflections from the transmit path reach the detector and raise the noise floor through PIIN (\autoref{sec:lit-linewidth}). \\
+		\addlinespace[3pt]
+		Continuous wave & Pulsed &
+		Needs no pulse or receive timing, which simplifies design and reduces costs, and is more effective at the short ranges (tens of cm to 1--2\,m) of a benchtop system, as pulsed systems are ineffective below tens of metres \cite{hill_remote_nodate}. &
+		Reduced spatial resolution at long ranges, as resolution is defined by focus rather than gating (\autoref{sec:lit-pulsedCW}); irrelevant at benchtop range. \\
+		\addlinespace[3pt]
+		All-fibre, non-PM & Free-space; PM fibre &
+		Single-mode fibre makes LO--return mode-matching automatic, removes free-space alignment complexities, and gives access to widely and cheaply available telecom components \cite{bennett_doppler_2003,abari_all-fiber_2014,abdelazim_development_2015}. Non-PM fibre is used owing to cost. &
+		LO and return polarisation is not fixed, reducing the heterodyne efficiency and the measurable Doppler peak \cite{cariou2006laser}. \\
+		\bottomrule
+	\end{tabular}
+	\caption{Architectural choices, with reasons and accepted tradeoffs, as synthesised from the literature in \autoref{sec:litReview}. PM: polarisation-maintaining.}
+	\label{tab:arch}
+\end{table}
 
 \subsection{System Architecture Diagram}
 \autoref{fig:design-architecture} below shows a functional block-diagram of the system's decided-upon architecture. In this diagram, the signal path can clearly be seen from laser source, through the splitter (splitting into LO and transmit beam). Thereafter the transmit beam gets routed via port 1 --\textgreater 2 of the circulator to the monostatic optics, which also receives the backscatter signal to be routed via port 2 --\textgreater 3 of the circulator. The local oscillator and backscatter signals are mixed in the optical mixer, and then detected by a balanced photodetector, from which the final output beat signal can be sampled and processed. 
@@ -156,7 +201,7 @@ P7 & Velocity accuracy & Doppler velocity within 5\% of ground-truth velocity of
 
 \section{Component Choices}
 \label{sec:design-ComponentChoices}
-This section details the specific component selections which were made for the system. These selections were made to best suit the functional and performance requirements of the system. It must be noted that this project is constrained when compared to typical scientific or industrial DWL systems. As such, many component choices were driven by cost, availability, and time-frame considerations, rather than simply their suitability for the system. This is however a suitable approach for the goals of the project, which are to illustrate the principles and physics involved in a DWL system, and to quantify system performance with respect to component choices. 
+This section details the specific component selections which were made for the chosen architecture. These selections were made to best suit the functional and performance requirements of the system. It must be noted that this project is constrained when compared to typical scientific or industrial DWL systems. As such, many component choices were driven by cost, availability, and time-frame considerations, rather than simply their suitability for the system. This is however a suitable approach for the goals of the project, which are to illustrate the principles and physics involved in a DWL system, and to quantify system performance with respect to component choices. 
 \subsection{Laser Source}
     The selection of an appropriate laser source is critical to ensure good performance of a DWL system. There are numerous properties of a laser source which should be considered, and which will be detailed in this section. After discussion on these properties, a suitable laser source is selected. 
 
@@ -181,7 +226,7 @@ This section details the specific component selections which were made for the s
 
     A setup commonly used to achieve higher emitted laser power here is the master-oscillator power-amplifier (MOPA) configuration \cite{cariou2006laser}, \cite{bennett_doppler_2003}. This separates the functions of the laser source - allowing for a low-power, highly coherent, narrow linewidth laser source to be used as a master-oscillator and an amplifier to increase the power levels of the master oscillator beam, while maintaining its spectral purity. This also allows the local oscillator to be derived from the master oscillator, eliminating the need to have two separate laser sources - one for LO, one for output - which would need to have a stable frequency relationship \cite{cariou2006laser}, something which requires careful design to achieve, as illustrated by Colberg et al. \cite{colberg_diode-laser-based_2026}.  
 
-    As noted by Bennett, such power amplifiers (commonly Erbium-doped fiber amplifiers; EDFAs) make up a significant portion of the cost of a DWL system. Indeed, more than 20 years after the writing of Bennett's paper, the cost of EDFAs remain prohibitively expensive for a project at this scale. For EDFA systems which are able to amplify signals to hundreds of milli-Watts or multiple Watts (which is a typical power level for such a system \cite{abdelazim_development_2015}\cite{cariou_leosphere_nodate}\cite{cariou2006laser}), current prices range in the thousands to tens of thousands of USD (see Appendix). 
+    As noted by Bennett, such power amplifiers (commonly Erbium-doped fiber amplifiers; EDFAs) make up a significant portion of the cost of a DWL system. Indeed, more than 20 years after the writing of Bennett's paper, the cost of EDFAs remain prohibitively expensive for a project at this scale. For EDFA systems which are able to amplify signals to hundreds of milli-Watts or multiple Watts (which is a typical power level for such a system \cite{abdelazim_development_2015}\cite{cariou_leosphere_nodate}\cite{cariou2006laser}), current prices range in the thousands to tens of thousands of USD. 
     
      For this reason, the use of a power amplifier for the laser source is disqualified for this project on the grounds of cost. The system was however designed such that the addition of such an amplifier would be possible at a later stage.
      
@@ -372,9 +417,7 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  collimated beam of approximately 7~mm diameter, with a Rayleigh range of
  approximately 25~m - meaning that the diameter does not significantly change over 25m. In a small wind-tunnel which is much shorter than 25m, the beam diameter, and hence the
  receiver sensitivity, is effectively constant along the beam. The measured
- Doppler spectrum therefore represents the line-of-sight velocity weighted by the
- backscatter along the beam path within the seeded flow, rather than at a single
- point. This removes the need to consider range in the constrained tunnel
+ Doppler spectrum therefore represents the line-of-sight velocity averaged across the beam's probe volume, rather than at a single point. This removes the need to consider range in the constrained tunnel
  environment. In a future iteration, focusing optics could be used to select a
  measurement range, which would also concentrate the receiver sensitivity within
  the probe volume and improve the SNR.
@@ -426,7 +469,7 @@ these correspond to about 245 and \num{7200} independent averages respectively. 
 Gaussian noise, the standard deviation of each averaged PSD bin is
 $\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the noise PSD and $N_{\mathrm{eff}}$
 is the number of independent averages. This equation gives about $0.064\,S$ for the default settings and $0.012\,S$ for
-the wind-tunnel settings, illustrating that in the wind-tunnel case the noise variance will be approximately $5\times$ lower. The absolute fluctuation of the noise therefore scales with the noise floor, while its
+the wind-tunnel settings, illustrating that in the wind-tunnel case the noise standard deviation will be approximately $5\times$ lower. The absolute fluctuation of the noise therefore scales with the noise floor, while its
 relative size is set by the number of averages.
 \section{Final Design}
 The final design of the system using the architecture and components discussed above is given in \autoref{fig:finalDesign} below.

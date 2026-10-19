@@ -22,7 +22,26 @@ Thereafter, the two signals enter the balanced detector, which consists of two m
 
 Comparing this to \autoref{eqn:beatSignal}, it can be seen that the DC terms $P_{LO}$ and $P_{RS}$ are no longer present due to them being common-mode in both $I_1$ and $I_2$ and thus being canceled by the subtraction. This therefore lowers the noise floor, as the RIN contained in these terms is also eliminated. 
 
-\autoref{fig:balanceddetector} depicts this process graphically:
+Writing in the photodiode responsivity $R$ and the transimpedance gain $G$ of
+the balanced detector, the output voltage of the detector is
+\begin{equation}
+	V(t) = G\,(I_1 - I_2) = 2GR\sqrt{P_{LO}P_{RS}}\,\cos(2\pi\Delta f\,t),
+	\label{eq:beat_voltage}
+\end{equation}
+where $P_{LO}$ and $P_{RS}$ are the total LO and received powers entering the
+coupler. 
+
+It must also be noted that since the mean of $\cos^2$ is $\tfrac{1}{2}$, the mean-square voltage of the beat signal is
+\begin{equation}
+	\langle V^2 \rangle = 2G^2R^2P_{LO}P_{RS}.
+	\label{eq:beat_power}
+\end{equation}
+Thus, by Parseval's theorem, $\langle V^2 \rangle$ equals the PSD integrated across
+the Doppler peak, so a measured excess power can allow one to estimate the received signal power:
+$P_{RS} = \langle V^2 \rangle / (2G^2R^2P_{LO})$. 
+
+
+\autoref{fig:balanceddetector} depicts the balanced detection process graphically:
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[font=\small, line width=0.7pt]
