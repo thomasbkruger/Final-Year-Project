@@ -145,13 +145,17 @@ def main() -> int:
         f"to {args.window/1e6:g} MHz either side,\n"
         f"           nothing below {args.noise_fmin/1e3:g} kHz (near-DC spike)\n"
         f"units:     V^2/Hz"
-        + (", except the mist table (dB relative to the floor)" if mist
-           else ", except the last table (dB relative to the floor)")
+        + ", except the last table (dB relative to the floor)"
         + f"\n\n{cfg['name']}, raw PSD:\n"
     )
     width = max(len(r["x"]) for r in rows + mist)
     text = report(head, rows, "", ("U", ""), width=width)
     if mist:
+        # The mist rows on the raw test too, for comparison with dense fog; the
+        # floor-relative table after it is the one they are judged by.
+        text += report("\n\nmist runs, raw PSD (xN = the first N captures of that "
+                       "speed, averaged in power):\n", mist, "", ("U", ""),
+                       width=width)
         text += relative_to_floor(mist, width)
     else:
         # No mist runs to put there, but the weakest returns (21 m/s rotated)

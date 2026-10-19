@@ -424,7 +424,12 @@ def plot_averaging(caps: list[dict], f: np.ndarray, out: Path,
                        "noise_sd_dB": sd, "sigmas": sig})
 
         ax.set_facecolor(C_SURFACE)
-        ax.axvline(p["centroid"], color=C_MUTED, lw=1, ls=(0, (2, 3)), zorder=2)
+        ax.axvline(p["centroid"], color=C_MUTED, lw=1, ls=(0, (2, 3)), zorder=2,
+                   label="peak centroid")
+        # The detection threshold of noise_vs_windspeed.txt: the noise band's
+        # mean plus five of its standard deviations, in the same dB units.
+        ax.axhline(n["rel_mean_dB"] + 5 * sd, color=CAT[1], lw=1.2,
+                   ls=(0, (5, 4)), zorder=4, label=r"mean + 5$\sigma$ threshold")
         ax.plot(f[m], db[m], color=CAT[0], lw=1.4, zorder=3)
         # Stats go in the title: a spur at 12.5 MHz leaves no clear corner.
         # Kept to two short lines so three panels fit across the page; the
@@ -443,7 +448,13 @@ def plot_averaging(caps: list[dict], f: np.ndarray, out: Path,
         # 5 MHz ticks crowd a narrow panel past 15 MHz.
         ax.set_xticks(range(0, int(fmax) + 1,
                             5_000_000 if fmax <= 15e6 else 10_000_000))
-    finish(ax, fig, out)
+    # One legend for every panel, beneath them: the panels have no free corner.
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, frameon=False, ncol=len(labels), loc="lower center",
+               labelcolor=C_INK, fontsize=figstyle.FS_NOTE, handlelength=1.8)
+    fig.tight_layout(rect=(0, 0.35 / (3.3 * nrows + 0.35), 1, 1))
+    fig.savefig(out, facecolor=fig.get_facecolor())
+    print(f"plot -> {out}")
     plt.close(fig)
     return panels
 

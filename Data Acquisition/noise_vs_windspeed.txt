@@ -1,5 +1,5 @@
 Doppler peak power and local noise, D series (wind tunnel)
-generated: 2026-10-16 10:36:46 South Africa Standard Time
+generated: 2026-10-18 15:36:03 South Africa Standard Time
 captures:  20261012, unrotated rig (plus 20261009), one per speed setpoint;
            Welch nperseg=2500 (df = 50 kHz)
 peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over the PSD's
@@ -8,7 +8,7 @@ peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over the 
            the integral under the peak
 noise:     3 x FWHM guard around the centroid, out to 2 MHz either side,
            nothing below 50 kHz (near-DC spike)
-units:     V^2/Hz, except the mist table (dB relative to the floor)
+units:     V^2/Hz, except the last table (dB relative to the floor)
 
 dense fog, raw PSD:
 
@@ -48,6 +48,34 @@ centroid against the largest bin, as a check on how far the two disagree:
            10 m/s  centroid 11.664 MHz  argmax 11.650 MHz  offset   +14.3 kHz
          11.8 m/s  centroid 13.837 MHz  argmax 13.850 MHz  offset   -13.3 kHz
            21 m/s  centroid 24.674 MHz  argmax 24.650 MHz  offset   +24.1 kHz
+
+
+mist runs, raw PSD (xN = the first N captures of that speed, averaged in power):
+
+              U  centroid     FWHM       PSD at   mean noise          std      5 x std     mean+5sd  cent/mean   bins
+                    (MHz)    (MHz)     centroid     (V^2/Hz)     (V^2/Hz)     (V^2/Hz)     (V^2/Hz)       (dB)       
+-----------------------------------------------------------------------------------------------------------------------------
+3.5 m/s mist x1     3.938    0.850   4.0554e-12   3.2039e-12   5.3764e-14   2.6882e-13   3.4728e-12        1.0     29
+3.5 m/s mist x2     3.956    0.900   3.6977e-12   2.9049e-12   4.1309e-14   2.0654e-13   3.1114e-12        1.0     26
+  5 m/s mist x1     5.730    0.800   4.8022e-12   4.4774e-12   9.0028e-14   4.5014e-13   4.9276e-12        0.3     32
+  5 m/s mist x2     5.716    1.000   4.0814e-12   3.8288e-12   8.7312e-14   4.3656e-13   4.2653e-12        0.3     20
+  5 m/s mist x3     5.726    0.750   4.2943e-12   4.0042e-12   8.0766e-14   4.0383e-13   4.4081e-12        0.3     35
+
+centroids NOT clearing mean + 5 sd: 5 m/s mist x1, 5 m/s mist x2, 5 m/s mist x3
+
+integrated excess power under each peak, above the local noise:
+  3.5 m/s mist x1  1.0841e-06 V^2  (guard +/-1.275 MHz, capture 20261012_155822)
+  3.5 m/s mist x2  1.0377e-06 V^2  (guard +/-1.350 MHz, capture 20261012_155822..160505)
+    5 m/s mist x1  4.3823e-07 V^2  (guard +/-1.200 MHz, capture 20261012_160034)
+    5 m/s mist x2  4.4463e-07 V^2  (guard +/-1.500 MHz, capture 20261012_160034..160156)
+    5 m/s mist x3  3.7500e-07 V^2  (guard +/-1.125 MHz, capture 20261012_160034..160316)
+
+centroid against the largest bin, as a check on how far the two disagree:
+  3.5 m/s mist x1  centroid  3.938 MHz  argmax  4.050 MHz  offset  -112.4 kHz
+  3.5 m/s mist x2  centroid  3.956 MHz  argmax  4.100 MHz  offset  -144.1 kHz
+    5 m/s mist x1  centroid  5.730 MHz  argmax  5.600 MHz  offset  +129.8 kHz
+    5 m/s mist x2  centroid  5.716 MHz  argmax  5.850 MHz  offset  -133.5 kHz
+    5 m/s mist x3  centroid  5.726 MHz  argmax  5.850 MHz  offset  -124.0 kHz
 
 
 mist runs, relative to each PSD's own noise floor (PSD / running median, in dB,

@@ -1,5 +1,5 @@
 Doppler peak power and local noise, D series (wind tunnel)
-generated: 2026-10-16 10:36:23 South Africa Standard Time
+generated: 2026-10-18 15:36:23 South Africa Standard Time
 captures:  20261016, rotated rig, 0.2 V/div only, repeats at a speed averaged in power (xN);
            Welch nperseg=2500 (df = 50 kHz)
 peak:      power-weighted centroid (peak_vs_rpm.peak_of) of the excess over the PSD's
