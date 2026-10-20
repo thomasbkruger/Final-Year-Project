@@ -1,38 +1,178 @@
 \chapter{Component Datasheets}
 \label{appendix:datasheets}
-% Referenced from: Table 3.4 caption (\autoref{appendix:laser}) and
-% Table 3.7 caption (\autoref{appendix:pd100b}). The driver, TEC and
-% collimator sections are not referenced yet; either add "Full specifications
-% are given in \autoref{appendix:driver}" etc. to their captions, or delete the
-% sections you don't want.
-%
-% For each component either \includegraphics the datasheet page(s) or use
-%   \includepdf[pages=-]{...}   (needs \usepackage{pdfpages})
-% The datasheet files are in the project:
-%   Laser Diode Datasheet.jpeg
-%   koheron_drv200s-laser-diode-driver.pdf
-%   koheron_tec100l-tec-controller.pdf
-%   koheron_btf100-butterfly-laser-diode-mount.pdf
-%   koheron_pd100b-photodetection.pdf
-%   (collimator: Thorlabs F810APC-1550 spec sheet, not yet in the project)
+The following sections give expanded specifications of the components used in this project. To see the full datasheets, visit the manufacturers' websites, or view the Github repository for this project at \href{https://github.com/thomasbkruger/Final-Year-Project}{https://github.com/thomasbkruger/Final-Year-Project}. 
 
+\label{appendix:driver}
 \section{DFB Laser Diode (BFLD-1550-20SM-FA2)}
 \label{appendix:laser}
-% TODO: insert laser diode datasheet (Laser Diode Datasheet.jpeg)
+The laser diode was supplied with the manufacturer's test report reproduced below (serial number 2630553009, tested 21 August 2026). General specifications: operating temperature \SI{25}{\celsius} (15--\SI{35}{\celsius}); wavelength range $1550 \pm 2$\,nm; output power $\geq \SI{20}{\milli\watt}$; operating current $< \SI{100}{\milli\ampere}$; single-mode fibre pigtail with FC/APC connector; 14-pin butterfly package.
 
-\section{Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100D)}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}llr@{}}
+		\toprule
+		\textbf{Parameter} & \textbf{Symbol} & \textbf{Measured value} \\
+		\midrule
+		Centre wavelength            & $\lambda_p$          & \SI{1550.13}{\nano\metre} \\
+		Operating current (at \SI{20}{\milli\watt}) & $I_o$ & \SI{58.07}{\milli\ampere} \\
+		Threshold current            & $I_{\mathrm{TH}}$    & \SI{4.86}{\milli\ampere} \\
+		Bias (forward) voltage       & $V_f$                & \SI{1.46}{\volt} \\
+		Monitor photodiode current   & $I_m$                & \SI{290}{\micro\ampere} \\
+		Side-mode suppression ratio  & SMSR                 & \SI{50.68}{\decibel} \\
+		TEC voltage                  & $V_{\mathrm{TEC}}$   & \SI{50}{\milli\volt} \\
+		TEC current                  & $I_{\mathrm{TEC}}$   & \SI{120}{\milli\ampere} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Manufacturer test-report values for the BFLD-1550-20SM-FA2 laser diode (S/N 2630553009) at \SI{25}{\celsius}.}
+	\label{tab:laser-testreport}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}cl@{\qquad}cl@{}}
+		\toprule
+		\textbf{Pin} & \textbf{Function} & \textbf{Pin} & \textbf{Function} \\
+		\midrule
+		1 & TEC ($+$)                  & 14 & TEC ($-$) \\
+		2 & Thermistor                 & 13 & Case ground \\
+		3 & PD monitor anode ($-$)     & 12 & NC \\
+		4 & PD monitor cathode ($+$)   & 11 & Laser cathode ($-$) \\
+		5 & Thermistor                 & 10 & Laser anode ($+$) \\
+		6 & NC                         &  9 & NC \\
+		7 & NC                         &  8 & NC \\
+		\bottomrule
+	\end{tabular}
+	\caption{Pin definition of the 14-pin butterfly package (thermistor \SI{10}{\kilo\ohm}).}
+	\label{tab:laser-pins}
+\end{table}
+
+The test report also gives the measured P--I--V curve and the optical spectrum (\SI{1500}{}--\SI{1600}{\nano\metre}), reproduced in \autoref{fig:laser-piv}. 
+
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pgfplotsset{
+			piv/.style={
+				width=0.72\textwidth, height=7cm,
+				xmin=0, xmax=100,
+				xlabel={Drive current $I$ (mA)},
+				grid=major, grid style={gray!30},
+				tick label style={font=\small}, label style={font=\small},
+			}
+		}
+		% --- axis 1: optical power (left) ---
+		\begin{axis}[piv,
+			ymin=0, ymax=35, ylabel={Optical power $P$ (mW)},
+			axis y line*=left, axis x line*=bottom,
+			legend style={at={(0.03,0.97)}, anchor=north west, font=\small, draw=none, fill=white},
+			legend cell align=left,
+			]
+			\addplot[thick, red!70!black] coordinates {
+				(0,0) (4.86,0) (10,1.5) (20,5.5) (30,9.5) (40,12.5) (50,16.0)
+				(60,19.5) (70,23.0) (80,26.0) (90,29.0) (100,32.0)};
+			\addlegendentry{$P$--$I$ (left axis)}
+			\addlegendimage{thick, blue!70!black}\addlegendentry{$V$--$I$ (right axis)}
+			\addlegendimage{thick, black}\addlegendentry{$I_m$--$I$ (outer right axis)}
+		\end{axis}
+		% --- axis 2: forward voltage (right) ---
+		\begin{axis}[piv,
+			ymin=0, ymax=2, ylabel={Forward voltage $V_f$ (V)},
+			axis y line*=right, hide x axis, grid=none,
+			]
+			\addplot[thick, blue!70!black] coordinates {
+				(0,0.80) (20,0.95) (40,1.07) (60,1.19) (80,1.30) (100,1.40)};
+		\end{axis}
+		% --- axis 3: monitor photodiode current (right, offset) ---
+		\begin{axis}[piv,
+			ymin=0, ymax=600, ylabel={Monitor current $I_m$ ($\mu$A)},
+			axis y line*=right, hide x axis, grid=none,
+			ylabel style={xshift=-2pt},
+			y axis line style={xshift=1.45cm}, ytick style={xshift=1.45cm},
+			yticklabel style={xshift=1.45cm}, ylabel shift=1.45cm,
+			]
+			\addplot[thick, black] coordinates {(0,0) (4.86,0) (100,520)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{P--I--V characteristic of the supplied BFLD-1550-20SM-FA2 diode at
+		\SI{25}{\celsius}, redrawn from the manufacturer's test report
+		(values read from the printed curve to about $\pm$\SI{0.5}{\milli\watt}).}
+	\label{fig:laser-piv}
+\end{figure}
+
+\section{Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100)}
 \label{appendix:driver}
-% TODO: insert driver datasheet (koheron_drv200s-laser-diode-driver.pdf) and
-% mount datasheet (koheron_btf100-butterfly-laser-diode-mount.pdf)
+The DRV200S is an ultra-low-noise constant-current driver whose setpoint is controlled by an externally applied voltage, with an adjustable current limit and compliance voltage. The -A-200 variant was chosen to match the \SI{58}{\milli\ampere} operating current of the diode. It also provides a DC--\SI{6}{\mega\hertz} modulation input, which is unused in this project.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}lr@{}}
+		\toprule
+		\textbf{Parameter} & \textbf{DRV200S-A-200} \\
+		\midrule
+		Laser current range            & \SIrange{0}{200}{\milli\ampere} \\
+		Current limit (adjustable)     & \SIrange{65}{300}{\milli\ampere} \\
+		Compliance voltage             & \SI{15.5}{\volt} (at $V_{SL} = \SI{19}{\volt}$) \\
+		Current noise density (\SI{1}{\kilo\hertz}) & \SI{270}{\pico\ampere\per\sqrt\hertz} \\
+		RMS current noise (\SI{10}{\hertz}--\SI{1}{\mega\hertz}) & \SI{265}{\nano\ampere} \\
+		Temperature coefficient        & \SI{30}{ppm\per\celsius} \\
+		Current monitor gain           & \SI{10}{\volt\per\ampere} \\
+		Modulation bandwidth (\SI{3}{\decibel}) & \SI{6}{\mega\hertz} \\
+		Supply voltages                & internal \SIrange{4.8}{6}{\volt}; laser \SIrange{3}{19}{\volt} \\
+		Compatible lasers              & floating diodes \\
+		\bottomrule
+	\end{tabular}
+	\caption{Key specifications of the Koheron DRV200S-A-200 laser diode driver.}
+	\label{tab:drv200s-full}
+\end{table}
+
+The diode is housed in a Koheron BTF100 mount for 14-pin butterfly packages (\SI{2}{\ampere} per pin maximum, $51 \times 42 \times 32$\,\si{\milli\metre}), which breaks out the laser anode/cathode and their voltage-sense pins, the monitor photodiode, the thermistor and the TEC to a terminal block.
 
 \section{Temperature Controller (Koheron TEC100L-50)}
 \label{appendix:tec}
-% TODO: insert TEC controller datasheet (koheron_tec100l-tec-controller.pdf)
+The TEC100L is a compact high-stability temperature controller with a precision analogue front end and adjustable PID gains. The temperature setpoint is set as a thermistor resistance; the diode's \SI{10}{\kilo\ohm} thermistor falls in the middle of its range.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}lr@{}}
+		\toprule
+		\textbf{Parameter} & \textbf{TEC100L-50} \\
+		\midrule
+		TEC current                       & \SI{-1.15}{} to \SI{1.15}{\ampere} \\
+		Setpoint (thermistor) range       & \SIrange{5}{20}{\kilo\ohm} (\SI{40}{\celsius} to \SI{10}{\celsius}) \\
+		Compliance voltage at \SI{1}{\ampere} & \SI{\pm 4.5}{\volt} \\
+		24-hour stability                 & \SI{0.005}{\celsius} \\
+		Temperature coefficient           & \SI{0.002}{\celsius\per\celsius} \\
+		Supply                            & \SIrange{4.5}{5.5}{\volt} (nom. \SI{5}{\volt}), \SI{1.3}{\ampere} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Key specifications of the Koheron TEC100L-50 temperature controller.}
+	\label{tab:tec100l-full}
+\end{table}
+
 
 \section{Balanced Photodetector (Koheron PD100B-AC)}
 \label{appendix:pd100b}
-% TODO: insert detector datasheet (koheron_pd100b-photodetection.pdf)
+The PD100B is an amplified balanced detector with two mounted InGaAs photodiodes feeding a differential transimpedance amplifier. The AC-coupled version was used, so the DC photocurrent from the LO is blocked above \SI{160}{\hertz}.
 
-\section{Fibre Collimator (Thorlabs F810APC-1550)}
-\label{appendix:collimator}
-% TODO: insert collimator spec sheet
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}lr@{}}
+		\toprule
+		\textbf{Parameter} & \textbf{PD100B-AC} \\
+		\midrule
+		Photodiodes                      & InGaAs, \SI{300}{\micro\metre} active diameter, FC connectors \\
+		Wavelength range                 & \SIrange{900}{1700}{\nano\metre} \\
+		Peak responsivity                & \SI{0.9}{\ampere\per\watt} \\
+		Optical input power (per diode)  & \SIrange{0}{1.5}{\milli\watt} \\
+		Transimpedance gain              & \SI{39}{\kilo\volt\per\ampere} \\
+		Small-signal bandwidth (\SI{3}{\decibel}) & \SIrange{160}{100e6}{\hertz} \\
+		Input current noise density (\SI{10}{\mega\hertz}) & \SI{8}{\pico\ampere\per\sqrt\hertz} \\
+		CMRR (\SI{1}{\mega\hertz})       & \SI{35}{\decibel} \\
+		Output                           & \SI{\pm 3}{\volt} range, \SI{50}{\ohm}, SMA \\
+		Supplies                         & \SI{\pm 6}{\volt} nominal (\SIrange{5.5}{12}{\volt}) \\
+		\bottomrule
+	\end{tabular}
+	\caption{Key specifications of the Koheron PD100B-AC balanced photodetector.}
+	\label{tab:pd100b-full}
+\end{table}

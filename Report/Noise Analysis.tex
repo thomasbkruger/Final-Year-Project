@@ -25,7 +25,7 @@
  	
  	\item \textbf{Choose the operating point.} From the A2 results, find the LO power at which
  	shot noise overtakes the electronic floor, and choose a laser operating point at which the
- 	system is close enough to the shot-noise limit to meet requirement P2
+ 	system is close enough to the shot-noise limit to meet requirement P1
  	(\autoref{tab:requirements}).
  	
  	\item \textbf{Quantify RIN and validate balanced detection (A3).} Repeat the measurement
@@ -201,7 +201,7 @@ It can be seen that the total noise increases with increased laser current - thi
 
 It can clearly be seen in \autoref{fig:A2PSDvsCurrent} and \autoref{fig:A2PSD} that the shot-noise exceeds the electronic noise floor at even the lowest measured laser currents, thus making the system shot-noise limited. As the current is increased, the system approaches the ideal shot-noise limit, as shot noise increasingly swamps out the electronic noise floor. 
 
-Performance requirement P2 in \autoref{tab:requirements} requires that the total detector noise is within 1dB of the shot-noise limit. This requirement can be decomposed as follows:
+Performance requirement P1 in \autoref{tab:requirements} requires that the total detector noise is within 1dB of the shot-noise limit. This requirement can be decomposed as follows:
 
 Noise power adds in linear units, so letting $S$ be shot noise, and $E$ be every other noise source present here. The total noise floor, $T$ is given by:
 \begin{equation}
@@ -231,10 +231,10 @@ Substituting the obtained electronic noise floor obtained in A1 into \autoref{eq
 
 Noting that \autoref{fig:A2PSD} and \autoref{fig:A2PSDvsCurrent} both give the \textbf{total} detector noise floor (shot \textbf{and} electronic noise), we require the total noise to be above $3.906 \times 10^{-13}V^2/Hz$ to give a shot noise value of $3.1 \times 10^{-13}V^2/Hz$. This can be seen to be reached at a laser current of approximately 32mA. Above 32mA, the total detector noise floor is within 1dB of the ideal shot-noise limit, and the ideal shot-noise limit is further approached as the current is increased. 
 
-From this, it can be seen that an operating current of 48mA for the laser allows P2 in \autoref{tab:requirements} to be met with the highest margin, giving a shot noise value of $4.49\times 10^{-13}V^2/Hz$, and a total combined noise of $5.29\times 10^{-13}V^2/Hz$, and this will thus be used as the laser current for the remainder of this project. While a higher laser current still may be used, to even further approach the ideal shot-noise limit, this risks saturating the detector. The detector has a maximum incident power rating of 1.5mW on each photodiode \cite{detector  datasheet}. From the laser datasheet \cite{laser datasheet}, a current of 48mA gives approximately 17mW at the laser output, which will result in approximately 0.85mW at each detector from the LO alone. This allows the detector to thus remain comfortably far away from its saturation point, even if returned signal is high and results in a higher incident power at the photodiode after mixing with the LO. 
+From this, it can be seen that an operating current of 48mA for the laser allows P1 in \autoref{tab:requirements} to be met with the highest margin, giving a shot noise value of $4.49\times 10^{-13}V^2/Hz$, and a total combined noise of $5.29\times 10^{-13}V^2/Hz$, and this will thus be used as the laser current for the remainder of this project. While a higher laser current still may be used, to even further approach the ideal shot-noise limit, this risks saturating the detector. The detector has a maximum incident power rating of 1.5mW on each photodiode \cite{detector  datasheet}. From the laser datasheet \cite{laser datasheet}, a current of 48mA gives approximately 17mW at the laser output, which will result in approximately 0.85mW at each detector from the LO alone. This allows the detector to thus remain comfortably far away from its saturation point, even if returned signal is high and results in a higher incident power at the photodiode after mixing with the LO. 
 
 \subsubsection{A3: Relative Intensity Noise}
-Experiment A3 serves only for completeness, to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. It was found that indeed 0.6125dB of RIN was cancelled by using the balanced detection setup. See Appendix \ref{appendix:RINValidation} for the full results and discussion of this supplementary experiment.  
+Experiment A3 serves only for completeness, to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. It was found that only \SI{0.6125}{\decibel} of excess RIN was present at the \SI{48}{\milli\ampere} operating point, which balanced detection then cancelled. This low level is consistent with the choice of a DFB diode (\autoref{sec:design-laserSelection}), whose relaxation-oscillation peak lies far above the 5--\SI{20}{\mega\hertz} measurement band, and confirms that RIN is not a significant noise source in this system; PIIN, discussed next, is. See Appendix~\ref{appendix:RINValidation} for the full results and discussion of this supplementary experiment.
 
 \section{B: Phase-induced Intensity Noise}
 \label{sec:PIINTesting}

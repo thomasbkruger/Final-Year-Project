@@ -70,10 +70,22 @@
 \contentsline {chapter}{\numberline {6}Conclusions and Recommendations}{48}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Conclusions}{48}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Recommendations}{49}{section.6.2}%
-\contentsline {chapter}{\numberline {A}Appendix A}{54}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Balanced Detection: RIN Cancellation}{54}{section.A.1}%
-\contentsline {section}{\numberline {A.2}A3: Supplementary Experiment on RIN Cancellation}{56}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Linewidth, PIIN and Doppler peak broadening}{57}{section.A.3}%
-\contentsline {section}{\numberline {A.4}D: Wind-tunnel tests full results}{60}{section.A.4}%
-\contentsline {chapter}{\numberline {B}Addenda}{62}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Ethics Forms}{62}{section.B.1}%
+\contentsline {chapter}{\numberline {A}Graduate Attributes}{54}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Linewidth, PIIN and Doppler Peak Broadening}{55}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Balanced Detection}{58}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Laser Source Classes: Noise and Practical Notes}{60}{appendix.D}%
+\contentsline {chapter}{\numberline {E}Component Datasheets}{61}{appendix.E}%
+\contentsline {section}{\numberline {E.1}DFB Laser Diode (BFLD-1550-20SM-FA2)}{61}{section.E.1}%
+\contentsline {section}{\numberline {E.2}Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100)}{62}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Temperature Controller (Koheron TEC100L-50)}{63}{section.E.3}%
+\contentsline {section}{\numberline {E.4}Balanced Photodetector (Koheron PD100B-AC)}{64}{section.E.4}%
+\contentsline {chapter}{\numberline {F}Supplementary Results: Experiment A}{65}{appendix.F}%
+\contentsline {section}{\numberline {F.1}A2: 5--20\,MHz Band-averaged PSD per Laser Current}{65}{section.F.1}%
+\contentsline {section}{\numberline {F.2}A3: Supplementary Experiment on RIN Cancellation}{66}{section.F.2}%
+\contentsline {chapter}{\numberline {G}Supplementary Results: Experiment D}{68}{appendix.G}%
+\contentsline {section}{\numberline {G.1}Raw PSDs per Wind-tunnel Setpoint}{68}{section.G.1}%
+\contentsline {section}{\numberline {G.2}Raw Noise and Peak Statistics}{69}{section.G.2}%
+\contentsline {section}{\numberline {G.3}Velocity Accuracy: Peak Centroid vs Setpoint}{69}{section.G.3}%
+\contentsline {chapter}{\numberline {H}Use of AI Tools}{71}{appendix.H}%
+\contentsline {chapter}{\numberline {I}Code and Additional Materials}{72}{appendix.I}%
+\contentsline {chapter}{\numberline {J}Ethics Forms}{73}{appendix.J}%

@@ -4,7 +4,7 @@
 \section{Introduction}
 This chapter details the design of a benchtop prototype Doppler wind LiDAR system, whose purpose is to make the sensitivity and overall capability of a DWL measurable and attributable to specific component and architecture choices. As such, the primary considerations will be noise-levels, sensitivity, and the overarching principles of physics governing DWL systems. The design of housing for field deployment and real-time processing pipelines are thus not considered part of the scope here. Several components typical of a field-deployable DWL system are deliberately omitted in order to reduce costs, at little functional expense for a benchtop system, though where possible the system was made extensible for future iterations.
 
-First \autoref{sec:design-sysArch} gives the chosen architecture, synthesised from the architectural considerations reviewed in \autoref{sec:litReview}. \autoref{sec:design-sysReqs} the functional and performance requirements specific to this architecture, and \autoref{sec:design-ComponentChoices} details the components chosen to build the system, based on the chosen architecture.
+First \autoref{sec:design-sysArch} gives the chosen architecture, synthesised from the architectural considerations reviewed in \autoref{sec:litReview}. \autoref{sec:design-sysReqs} gives the functional and performance requirements specific to this architecture, and \autoref{sec:design-ComponentChoices} details the components chosen to build the system, based on the chosen architecture.
 
 \section{System Architecture}
 \label{sec:design-sysArch}
@@ -181,7 +181,7 @@ From the desired functional requirements, a set of performance requirements can 
 \hline
 \textbf{ID} & \textbf{Requirement} & \textbf{Value} & \textbf{Verified by} \\ \hline
 %P2
-P1 & Detector noise & approaching ideal shot-noise-limited behaviour: total
+P1 & Detector noise & Approaching ideal shot-noise-limited behaviour: total
      detector noise (electronic noise + residual RIN after balanced
      detection) within \SI{1}{\decibel} of the shot-noise limit
     & A1, A2 \\ \hline
@@ -189,7 +189,7 @@ P1 & Detector noise & approaching ideal shot-noise-limited behaviour: total
  P2 & Phase-induced intensity noise (PIIN) & Level (in dB) and spectral shape measured; Low enough to facilitate measurements for P6 & B \\ \hline
 P3 & Total system noise & Total noise floor (shot + electronic + residual RIN + PIIN) quantified with respect to the shot-noise limit, and sources of excess noise described and characterised & B \\ \hline
  P4 & Velocity detection on a hard target & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
-P5 & Velocity detection range & Minimum resolvable LOS speed of $\leq$ \SI{0.1}{\metre\per\second}, maximum resolvable LOS speed of $\geq \SI{20}{\metre\per\second}$ & C, D \\ \hline
+P5 & Velocity detection range & Minimum resolvable LOS speed of $\leq$ 0.1m/s, maximum resolvable LOS speed of $\geq$ 20m/s & C, D \\ \hline
 P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 10 000$ averages 
 & D \\ \hline
 P7 & Velocity accuracy & Doppler velocity within 5\% of ground-truth velocity of target (hard target and seeded flow) & C, D \\
@@ -233,7 +233,7 @@ This section details the specific component selections which were made for the c
     
 
     \subsubsection{Laser source selection}
-    There are many types of laser sources available on the market. In the selection of a laser source for this project, the primary driver was cost and availability, with the design goals being to maximise power level and minimise linewidth, while fixing the wavelength at 1550nm. \autoref{tab:design-laser-sources} summarises some of the available laser sources (expanded information in Appendix \ref{appendix:laserSources}):
+    There are many types of laser sources available on the market. In the selection of a laser source for this project, the primary driver was cost and availability, with the design goals being to maximise power level and minimise linewidth, while fixing the wavelength at 1550nm. \autoref{tab:design-laser-sources} summarises some of the available laser sources (expanded information in Appendix \ref{appendix:laserSourceNotes}):
 
 \begin{table}[H]
 	\centering\small
@@ -253,10 +253,10 @@ This section details the specific component selections which were made for the c
 	\label{tab:design-laser-sources}
 \end{table}
 
-From these available laser source options, it was decided that a DFB laser diode would be used. While the wider linewidth, as compared to Planar external-cavity semiconductor diodes or Er-doped DFB fibre lasers is likely to substantially increase PIIN, measures such as fiber length matching will be investigated to reduce PIIN for lower-range, tabletop operation (see \autoref{sec:testingPIIN}), and these narrow linewidth sources are out of budget for this project. The specifications of the obtained laser diode are as follows:
+From these available laser source options, it was decided that a DFB laser diode would be used. While the wider linewidth, as compared to Planar external-cavity semiconductor diodes or Er-doped DFB fibre lasers is likely to substantially increase PIIN, measures such as fiber length matching will be investigated to reduce PIIN for lower-range, tabletop operation (see \autoref{sec:PIINTesting}), and these narrow linewidth sources are out of budget for this project. The DFB diode does however hold one advantage over the Er-doped fibre laser with respect to noise: its relaxation-oscillation peak lies at approximately \SI{1}{\giga\hertz}, far above the frequency band in which the Doppler peaks of interest fall (around 5 - 20MHz), so its RIN is flat and low in the band of interest, whereas the fibre laser's relaxation peak near \SI{1}{\mega\hertz} places its RIN directly in the frequency band of interest \cite{cariou2006laser}. RIN is thus expected to be a minor contributor to the noise floor of this system, even before balanced detection cancels it. The specifications of the obtained laser diode are as follows:
 \begin{table}[H]
 	\centering
-	\label{tab:dfb-laser}
+	
 	\begin{tabular}{@{}ll@{}}
 		\toprule
 		\textbf{Parameter} & \textbf{Value} \\
@@ -268,9 +268,12 @@ From these available laser source options, it was decided that a DFB laser diode
 		\bottomrule
 	\end{tabular}
 	\caption{Key properties of the selected DFB laser diode
-		(BFLD-1550-20SM-FA2). Full specifications are given in
-		\autoref{appendix:laser}.}
+		(BFLD-1550-20SM-FA2). Full specifications are given in Appendix
+		\ref{appendix:laser}.}
+		\label{tab:dfb-laser}
 \end{table}
+
+
 
 \subsection{Laser driver and temperature control}
 In order to keep the laser diode at a constant operating point, a constant current source must be used to drive it, and a temperature controller should be used. Temperature and current fluctuations present in the laser output as fluctuations in wavelength and output power \cite{Gwinner2024}, which can have a significant effect on the noise in measurements, particularly in a sensing system, such as a DWL, for which measurements of very small signals is required.
@@ -283,7 +286,7 @@ In order to keep the laser diode at a constant operating point, a constant curre
  	\centering
  	\begin{minipage}[t]{0.48\textwidth}
  		\centering
- 		\label{tab:drv200s}
+ 		
  		\begin{tabular}{@{}ll@{}}
  			\toprule
  			\textbf{Parameter} & \textbf{Value} \\
@@ -296,12 +299,13 @@ In order to keep the laser diode at a constant operating point, a constant curre
  			\bottomrule
  		\end{tabular}
  		\caption{Key specifications of the Koheron DRV200S-A-200
- 			laser diode driver.}
+ 			laser diode driver. Full specs in Appendix \ref{appendix:driver}.}
+ 			\label{tab:drv200s}
  	\end{minipage}
  	\hfill
  	\begin{minipage}[t]{0.48\textwidth}
  		\centering
- 		\label{tab:tec100l}
+ 		
  		\begin{tabular}{@{}ll@{}}
  			\toprule
  			\textbf{Parameter} & \textbf{Value} \\
@@ -314,12 +318,13 @@ In order to keep the laser diode at a constant operating point, a constant curre
  			\bottomrule
  		\end{tabular}
  		\caption{Key specifications of the Koheron TEC100L-50
- 			temperature controller.}
+ 			temperature controller. Full specs in Appendix \ref{appendix:tec}.}
+ 			\label{tab:tec100l}
  	\end{minipage}
  \end{table}
  
  \subsection{Detector}
- Balanced detectors consist of two matched photodiodes, connected differentially to a low-noise transimpedance amplifier which converts the photodiode current into a measurable voltage. Since the beat signal is in the order of mega-Hertz, parasitic effects such as stray capacitance and inductance can cause amplifier instability, limit bandwidth, and introduce susceptibility to electromagnetic interference. Given the difficulty of achieving high bandwidth, low noise and high common-mode rejection in a custom RF design, a commercial balanced detector was selected so that project effort could be focused on the lidar system itself: the Koheron PD100B, with key specifications given in \autoref{tab:pd100b}.
+ Balanced detectors consist of two matched photodiodes, connected differentially to a low-noise transimpedance amplifier which converts the photodiode current into a measurable voltage. Since the beat signal is in the order of mega-Hertz, parasitic effects such as stray capacitance and inductance can cause amplifier instability, limit bandwidth, and introduce susceptibility to electromagnetic interference. Given the difficulty of achieving high bandwidth, low noise and high common-mode rejection in a custom RF design, a commercial balanced detector was selected so that project effort could be focused on the lidar system itself. The Koheron PD100B is used in this project, with key specifications given \autoref{tab:pd100b}.
  
  \begin{table}[H]
  	\centering
@@ -336,9 +341,9 @@ In order to keep the laser diode at a constant operating point, a constant curre
  		CMRR (1~MHz)                  & 35~dB \\
  		\bottomrule
  	\end{tabular}
+ 	
+ 	\caption{Key specifications of the Koheron PD100B-AC balanced photodetector. Full specs in Appendix \ref{appendix:pd100b}.}
  	\label{tab:pd100b}
- 	\caption{Key specifications of the Koheron PD100B-AC balanced photodetector.
- 		Full specifications are given in \autoref{appendix:pd100b}.}
  \end{table}
  
  The photodetector has a bandwidth of 160Hz - 100MHz, thus DC photocurrent is blocked (this is desired, seeing as the measured quantity of interest is the frequency power at MHz-range frequencies). This will also allow signals of up to 100MHz to be effectively detected. A beat frequency of 100MHz corresponds to a wind-speed of approximately 129m/s (464km/h), which is clearly far above any wind-speed which the system would reasonably need to detect. It can also be seen that the detector has a very low electronic noise floor of 8pA/$\sqrt{Hz}$, which can easily be swamped out by the shot-noise from the LO to achieve shot-noise limited behaviour, and the CMRR is high, allowing RIN to be very effectively cancelled. 
@@ -380,10 +385,10 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  power to 3~mW. A 99:1 splitter would provide only 0.2~mW of LO at full laser
  power, leaving the system electronic-noise-limited across its entire operating
  range. The 90:10 ratio was therefore selected, as it keeps the LO power within
- the shot-noise-limited window across the full range of laser drive currents. This also makes it possible to vary the LO power by adjusting the laser power across its full range, when later investigating the effect of LO power on the  system's noise (see \autoref{sec:testingA}). 
+ the shot-noise-limited window across the full range of laser drive currents. This also makes it possible to vary the LO power by adjusting the laser power across its full range, when later investigating the effect of LO power on the  system's noise (see \autoref{sec:noiseAnalysis}). 
  
  \subsection{Optics}
- A transmit/receive optic is required to emit the laser output into free space and to collect the backscattered light, which the circulator then routes to the detector. Since the system is a continuous-wave system and not pulsed (see \autoref{sec:lit-Optics}), any ranging must come from the focusing of the output beam. However, owing to the scope of the project, which is primarily to investigate the design considerations in a \textbf{benchtop} DWL system, with a lower power laser which will only be used in a controlled, seeded air-flow in a wind-tunnel, ranging is not a primary point of investigation for the project. 
+ A transmit/receive optic is required to emit the laser output into free space and to collect the backscattered light, which the circulator then routes to the detector. Since the system is a continuous-wave system and not pulsed (see \autoref{sec:lit-Ranging}), any ranging must come from the focusing of the output beam. However, owing to the scope of the project, which is primarily to investigate the design considerations in a \textbf{benchtop} DWL system, with a lower power laser which will only be used in a controlled, seeded air-flow in a wind-tunnel, ranging is not a primary point of investigation for the project. 
  
  A collimator was thus selected (\autoref{tab:collimator}). This produces a
  collimated beam of approximately 7~mm diameter, with a Rayleigh range of
@@ -396,7 +401,7 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  
  \begin{table}[H]
  	\centering
- 	\label{tab:collimator}
+ 	
  	\begin{tabular}{@{}ll@{}}
  		\toprule
  		\textbf{Parameter} & \textbf{Value} \\
@@ -409,6 +414,7 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  		\bottomrule
  	\end{tabular}
  	\caption{Key specifications of the Thorlabs F810APC-1550 fibre collimator. Beam diameter and divergence are theoretical values for SMF-28 fibre}
+ 	\label{tab:collimator}
  \end{table}
  
  \section{Data Acquisition and Processing}

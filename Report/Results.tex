@@ -5,7 +5,7 @@ This chapter details the testing which was done on the system's primary function
 \section{C: Hard-target Speed Measurement}
 \label{sec:hardTargetTesting}
 \subsection{Experimental Goals}
-Before attempting wind-speed measurement, where the aerosol return signal is very weak, the working principle of the system is first to be validated on a hard target, whose return signal is far stronger and whose velocity can be set precisely. This isolates set-up and processing problems from the difficulties of a weak signal, and tests performance requirements P1 (hard-target SNR),
+Before attempting wind-speed measurement, where the aerosol return signal is very weak, the working principle of the system is first to be validated on a hard target, whose return signal is far stronger and whose velocity can be set precisely. This isolates set-up and processing problems from the difficulties of a weak signal, and tests performance requirements P4 (hard-target SNR),
 P5 (low-speed detection) and P7 (velocity accuracy).
 
 \subsection{Experimental Methodology}
@@ -90,7 +90,7 @@ is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 	
 A distinct Doppler peak was obtained at every speed, between \SIlist{16.9;25.9}{dB} above
 the local noise floor and well clear of the mean $+\,5\sigma$ detection threshold in every
-case, satisfying P1. The peak height falls and its width grows with speed because the
+case, satisfying P4. The peak height falls and its width grows with speed because the
 velocity spread across the beam spot scales with $N$. However, the integrated excess power
 stays constant at $(3.6 \pm 0.1)\times10^{-5}\,\si{V^2}$, which shows that the returned
 power is unchanged and is merely spread over a wider band. At \SI{50}{RPM}
@@ -266,7 +266,6 @@ After measuring the system's sensitivity performance in the dense-fog seeded air
 \begin{table}[H]
 	\centering
 	\small
-	\label{tab:D_mist_avg}
 	\begin{tabular}{|S[table-format=1.1]|S[table-format=1.0]|S[table-format=1.3]|S[table-format=1.3]|S[table-format=2.2]|}
 		\hline
 		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\textbf{Captures}}
@@ -280,7 +279,9 @@ After measuring the system's sensitivity performance in the dense-fog seeded air
 	\end{tabular}
 	
 	\vspace{2pt}
-	\caption{Normalised PSD of Doppler peak relative to noise for light mist-seeded air. Full raw statistics are given in \autoref{appendix:FullWTResults}}
+	\caption{Normalised PSD of Doppler peak relative to noise for light mist-seeded air. Full raw statistics are given in
+		 \autoref{appendix:FullWTResults}}
+		 \label{tab:D_mist_avg}
 \end{table}
 
 \begin{figure}[H]
@@ -332,7 +333,7 @@ combined with removing the residual PIIN to reach the shot-noise limit
 
 \subsubsection{Velocity accuracy}
 
-\autoref{tab:D_velocity_summary} gives a summarised set of results for the velocity accuracy of the DWL measurements, after converting the detected peak centroids from a frequency to a velocity using \autoref{eqn:DopplerSimple}. A full table of the peak centroid-frequencies and corresponding velocities  compared to the wind-tunnel setpoint can be viewed in Appendix \ref{appendix}. 
+\autoref{tab:D_velocity_summary} gives a summarised set of results for the velocity accuracy of the DWL measurements, after converting the detected peak centroids from a frequency to a velocity using \autoref{eqn:DopplerSimple}. A full table of the peak centroid-frequencies and corresponding velocities  compared to the wind-tunnel setpoint can be viewed in Appendix \ref{appendix:velocityTable}. 
 
 \begin{table}[H]
 	\centering
