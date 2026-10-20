@@ -1,5 +1,5 @@
 \chapter{System Design}
- 
+ \label{sec:systemDesign}
 
 \section{Introduction}
 This chapter details the design of a benchtop prototype Doppler wind LiDAR system, whose purpose is to make the sensitivity and overall capability of a DWL measurable and attributable to specific component and architecture choices. As such, the primary considerations will be noise-levels, sensitivity, and the overarching principles of physics governing DWL systems. The design of housing for field deployment and real-time processing pipelines are thus not considered part of the scope here. Several components typical of a field-deployable DWL system are deliberately omitted in order to reduce costs, at little functional expense for a benchtop system, though where possible the system was made extensible for future iterations.
@@ -180,16 +180,16 @@ From the desired functional requirements, a set of performance requirements can 
 \begin{tabular}{|p{0.5cm}|p{3cm}|p{9cm}|p{1.7cm}|}
 \hline
 \textbf{ID} & \textbf{Requirement} & \textbf{Value} & \textbf{Verified by} \\ \hline
-P2 & Detector noise & approaching ideal shot-noise-limited behaviour: total
+%P2
+P1 & Detector noise & approaching ideal shot-noise-limited behaviour: total
      detector noise (electronic noise + residual RIN after balanced
      detection) within \SI{1}{\decibel} of the shot-noise limit
     & A1, A2 \\ \hline
- P4 & Phase-induced intensity noise (PIIN) & Level (in dB) and spectral shape measured;
- agreement with the path-mismatch model of \cite{harris_role_1998}
-    within \SI{6}{\decibel} & B \\ \hline
+%Formerly P4
+ P2 & Phase-induced intensity noise (PIIN) & Level (in dB) and spectral shape measured; Low enough to facilitate measurements for P6 & B \\ \hline
 P3 & Total system noise & Total noise floor (shot + electronic + residual RIN + PIIN) quantified with respect to the shot-noise limit, and sources of excess noise described and characterised & B \\ \hline
- P1 & Velocity detection on a hard target & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
-P5 & Low-velocity limit & Minimum resolvable LOS speed of $\leq$ \SI{0.1}{\metre\per\second} on a hard target & C \\ \hline
+ P4 & Velocity detection on a hard target & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
+P5 & Velocity detection range & Minimum resolvable LOS speed of $\leq$ \SI{0.1}{\metre\per\second}, maximum resolvable LOS speed of $\geq \SI{20}{\metre\per\second}$ & C, D \\ \hline
 P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 10 000$ averages 
 & D \\ \hline
 P7 & Velocity accuracy & Doppler velocity within 5\% of ground-truth velocity of target (hard target and seeded flow) & C, D \\
@@ -208,11 +208,7 @@ This section details the specific component selections which were made for the c
     \subsubsection{Wavelength}
     There are many suitable wavelengths for DWL systems, as detailed by Cariou et. al \cite{cariou2006laser}. There is much discussion around SNR optimisation and backscatter maximisation for varying wavelengths \cite{bennett_doppler_2003}, however owing largely to practical advantages, a wavelength of 1550nm has emerged as a common choice for both commercial and scientific DWL systems \cite{abari_all-fiber_2014}. Fiber optics telecommunications  commonly operate at this wavelength - thus making components designed for this wavelength readily commercially available and significantly cheaper than alternatives \cite{cariou2006laser}, \cite{abdelazim_development_2015}, \cite{hill_remote_nodate}. Additionally, laser beams at 1550nm are eye-safe at significantly higher power levels (up to multiple Watts), compared to shorter wavelengths \cite{cariou2006laser}, reducing safety concerns. For this reason it was decided that a 1550nm laser source would be used for this project. 
     
-    \subsubsection{Power Level}
-    % EDFAs
-    % Backscatter intensity 
-    As previously discussed, the ability of a DWL system to measure wind-speed depends on the measurement of aerosol backscatter of the emitted beam. 
-    
+    \subsubsection{Power Level} 
     The time-averaged power of the backscatter signal into a receiver can be expressed as \cite{hill_remote_nodate}:
     
         \begin{equation}
@@ -220,15 +216,13 @@ This section details the specific component selections which were made for the c
             \label{eqn:backscatterPower}
         \end{equation}
 
-    Where $P_s$ is the time averaged backscatter signal power, $\beta(\pi)$ is the atmospheric scattering coefficient (evaluated at $\pi$, i.e. scattering at $\pi$ radians, back towards the source), and $\lambda$ is the wavelength of the transmitted light. Note that $\beta(\pi)$ also holds a wavelength dependence, and thus $P_s$ does not necessarily scale linearly with increasing wavelength, as the equation may suggest, but instead resolves to a near cancellation of the wavelength dependence between some frequency ranges \cite{bennett_doppler_2003}.
+    Where $P_s$ is the time averaged backscatter signal power, $\beta(\pi)$ is the atmospheric scattering coefficient (evaluated at $\pi$, i.e. scattering at $\pi$ radians, back towards the source), and $\lambda$ is the wavelength of the transmitted light.
     
     It can be seen in \autoref{eqn:backscatterPower} that there is a linear dependence on $P_t$, the power of the transmitted beam. Thus, a higher-powered transmit laser source would give a larger return signal to be measured, increasing the sensitivity of the system by increasing the SNR of the system \cite{bennett_doppler_2003}. 
 
     A setup commonly used to achieve higher emitted laser power here is the master-oscillator power-amplifier (MOPA) configuration \cite{cariou2006laser}, \cite{bennett_doppler_2003}. This separates the functions of the laser source - allowing for a low-power, highly coherent, narrow linewidth laser source to be used as a master-oscillator and an amplifier to increase the power levels of the master oscillator beam, while maintaining its spectral purity. This also allows the local oscillator to be derived from the master oscillator, eliminating the need to have two separate laser sources - one for LO, one for output - which would need to have a stable frequency relationship \cite{cariou2006laser}, something which requires careful design to achieve, as illustrated by Colberg et al. \cite{colberg_diode-laser-based_2026}.  
 
-    As noted by Bennett, such power amplifiers (commonly Erbium-doped fiber amplifiers; EDFAs) make up a significant portion of the cost of a DWL system. Indeed, more than 20 years after the writing of Bennett's paper, the cost of EDFAs remain prohibitively expensive for a project at this scale. For EDFA systems which are able to amplify signals to hundreds of milli-Watts or multiple Watts (which is a typical power level for such a system \cite{abdelazim_development_2015}\cite{cariou_leosphere_nodate}\cite{cariou2006laser}), current prices range in the thousands to tens of thousands of USD. 
-    
-     For this reason, the use of a power amplifier for the laser source is disqualified for this project on the grounds of cost. The system was however designed such that the addition of such an amplifier would be possible at a later stage.
+    As noted by Bennett, such power amplifiers (commonly Erbium-doped fiber amplifiers; EDFAs) make up a significant portion of the cost of a DWL system. Indeed, more than 20 years after the writing of Bennett's paper, the cost of EDFAs remain prohibitively expensive for a project at this scale. For EDFA systems which are able to amplify signals to hundreds of milli-Watts or multiple Watts (which is a typical power level for such a system \cite{abdelazim_development_2015}\cite{cariou_leosphere_nodate}\cite{cariou2006laser}), current prices range in the thousands to tens of thousands of USD. For this reason, the use of a power amplifier for the laser source is disqualified for this project on the grounds of cost. The system was however designed such that the addition of such an amplifier would be possible at a later stage.
      
      Due to the relatively low powers available for laser sources without power amplification (in the tens of milli-Watts), other avenues to improve detection sensitivity will be required. Bennett identifies another option for increasing the sensitivity of a DWL system - which is to average over many returns \cite{bennett_doppler_2003}. This is the approach which will be taken for this project. Additionally, owing to this constraint in laser source power, all tests which concern wind-speed measurement in air will be performed using air seeded with smoke and/or fog. This will increase backscatter levels by increasing $\beta(\pi)$ in \autoref{eqn:backscatterPower}, and thus reduces the need for the power amplifier for this benchtop-scale system. The level of seeding required for a lower-power laser source to detect wind-speed is one of the investigations of this project.
 
@@ -238,48 +232,28 @@ This section details the specific component selections which were made for the c
     
     
 
-    \subsubsection{Laser source types and selection}
-    There are many types of laser sources available on the market. In the selection of a laser source for this project, the primary driver was cost and availability, with the design goals being to maximise power level and minimise linewidth, while fixing the wavelength at 1550nm. After selecting the best available laser source for these parameters, the performance of the laser source will then be analysed, and recommendations based on its properties and performance can then be made. 
+    \subsubsection{Laser source selection}
+    There are many types of laser sources available on the market. In the selection of a laser source for this project, the primary driver was cost and availability, with the design goals being to maximise power level and minimise linewidth, while fixing the wavelength at 1550nm. \autoref{tab:design-laser-sources} summarises some of the available laser sources (expanded information in Appendix \ref{appendix:laserSources}):
 
 \begin{table}[H]
-\centering\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{@{}|p{2.6cm}|p{1.9cm}|p{1.7cm}|p{6.0cm}|p{2.2cm}|@{}}
-\hline
-\textbf{Source type} & \textbf{Linewidth (typ.)} & \textbf{Power, unamplified} & \textbf{Noise and practical notes} & \textbf{Indicative cost (USD)} \\
-\hline
-Fabry--P\'erot laser diode &
-multi-mode; not single-frequency &
-\SIrange{10}{100}{\milli\watt} &
-Multi-mode, Unsuitable for coherent detection due to this. \cite{harris_role_1998}.  &
-$<100$ \\
-\hline
-DFB laser diode &
-\SIrange{0.5}{5}{\mega\hertz} &
-\SIrange{10}{40}{\milli\watt} &
-Relaxation peak \SI{\sim1}{\giga\hertz}, far above the Doppler band, thus is RIN flat and low in the frequency band of interest \cite{cariou2006laser}. Needs external driver and temperature controller. &
-\numrange{100}{1000} (module) \\
-\hline
-Planar external-cavity semiconductor &
-$<1$ to \SI{15}{\kilo\hertz} &
-\SIrange{10}{30}{\milli\watt} &
-Integrated driver, marketed for wind lidar.&
-quote only; low thousands \\
-\hline
-Er-doped DFB fibre laser &
-$<0.1$ to \SI{10}{\kilo\hertz} \cite{harris_role_1998} &
-\SIrange{10}{40}{\milli\watt} &
-Common source of choice for CW anemometry due to narrow linewidth \cite{cariou2006laser,hill_remote_nodate, abdelazim_development_2015}. Relaxation peak near \SI{1}{\mega\hertz}, so higher RIN in the frequency band of interest \cite{cariou2006laser}. &
-quote only; tens of thousands \\
-\hline
-\end{tabular}
-\caption{Laser source classes at \SI{1550}{\nano\metre}. Linewidths and powers are typical of commercial devices; approximate costs are as of September 2026 and exclude drivers, controllers and import costs.}
-\label{tab:design-laser-sources}
+	\centering\small
+	\renewcommand{\arraystretch}{1.15}
+	\setlength{\tabcolsep}{5pt}
+	\begin{tabular}{|p{5cm}|p{3cm}|p{3.5cm}|p{3cm}|}
+		\hline
+		\textbf{Source type} & \textbf{Linewidth (typ.)} & \textbf{Power (unamplified)} & \textbf{Cost (USD)} \\
+		\hline
+		Fabry--P\'erot laser diode           & multi-mode                      & \SIrange{10}{100}{\milli\watt} & $<100$ \\ \hline
+		DFB laser diode                      & \SIrange{0.5}{5}{\mega\hertz}   & \SIrange{10}{40}{\milli\watt}  & \numrange{100}{1000} \\ \hline
+		Planar external-cavity semiconductor & $<1$ to \SI{15}{\kilo\hertz}    & \SIrange{10}{30}{\milli\watt}  & low thousands \\ \hline
+		Er-doped DFB fibre laser             & $<0.1$ to \SI{10}{\kilo\hertz}  & \SIrange{10}{40}{\milli\watt}  & tens of thousands \\ \hline
+	
+	\end{tabular}
+	\caption{Laser source classes at \SI{1550}{\nano\metre}. Linewidths and powers are typical of commercial devices; costs are approximate as of September 2026 and are quote-only for the last two classes.}
+	\label{tab:design-laser-sources}
 \end{table}
 
-From these available laser source options, it was decided that a DFB laser diode would be used. While the wider linewidth, as compared to Planar external-cavity semiconductor diodes or Er-doped DFB fibre lasers is likely to substantially increase PIIN, measures such as fiber length matching will be investigated to reduce PIIN for lower-range, tabletop operation (see \autoref{sec:testingPIIN}), and these narrow linewidth sources are out of budget for this project. 
-
-The final specifications of the obtained laser diode are as follows:
+From these available laser source options, it was decided that a DFB laser diode would be used. While the wider linewidth, as compared to Planar external-cavity semiconductor diodes or Er-doped DFB fibre lasers is likely to substantially increase PIIN, measures such as fiber length matching will be investigated to reduce PIIN for lower-range, tabletop operation (see \autoref{sec:testingPIIN}), and these narrow linewidth sources are out of budget for this project. The specifications of the obtained laser diode are as follows:
 \begin{table}[H]
 	\centering
 	\label{tab:dfb-laser}
@@ -291,7 +265,6 @@ The final specifications of the obtained laser diode are as follows:
 		Rated output power          & 20~mW \\
 		Linewidth                   & 2~MHz \\
 		Operating current at 20mW & 58~mA \\
-		Fibre output                & Single-mode, FC/APC \\
 		\bottomrule
 	\end{tabular}
 	\caption{Key properties of the selected DFB laser diode
@@ -346,13 +319,11 @@ In order to keep the laser diode at a constant operating point, a constant curre
  \end{table}
  
  \subsection{Detector}
- Balanced detectors typically include two matched photodiodes, connected differentially to a low-noise transimpedance amplifier which converts the photodiode current into a measurable voltage. Seeing as the beat signal which will be measured is in the order of mega-Hertz in frequency, much care needs to be taken when designing the electronic circuitry of the detector to avoid parasitic effects, such as stray capacitance and inductance, which can cause amplifier instability and limit bandwidth, as well as susceptibility to electromagnetic interference. Given the difficulty of proper RF design, to simultaneously achieve high bandwidth, low noise and high common-mode rejection in a custom design, a commercial balanced detector was selected so that project effort could be focused on the lidar system itself.
- 
- The Koheron PD100B Balanced Photodetector was selected for use in this project, with the key specifications given in \autoref{tab:pd100b} below:
+ Balanced detectors consist of two matched photodiodes, connected differentially to a low-noise transimpedance amplifier which converts the photodiode current into a measurable voltage. Since the beat signal is in the order of mega-Hertz, parasitic effects such as stray capacitance and inductance can cause amplifier instability, limit bandwidth, and introduce susceptibility to electromagnetic interference. Given the difficulty of achieving high bandwidth, low noise and high common-mode rejection in a custom RF design, a commercial balanced detector was selected so that project effort could be focused on the lidar system itself: the Koheron PD100B, with key specifications given in \autoref{tab:pd100b}.
  
  \begin{table}[H]
  	\centering
- 	\label{tab:pd100b}
+ 	
  	\begin{tabular}{@{}ll@{}}
  		\toprule
  		\textbf{Parameter} & \textbf{Value} \\
@@ -365,6 +336,7 @@ In order to keep the laser diode at a constant operating point, a constant curre
  		CMRR (1~MHz)                  & 35~dB \\
  		\bottomrule
  	\end{tabular}
+ 	\label{tab:pd100b}
  	\caption{Key specifications of the Koheron PD100B-AC balanced photodetector.
  		Full specifications are given in \autoref{appendix:pd100b}.}
  \end{table}
@@ -434,43 +406,21 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  		Numerical aperture             & 0.24 \\
  		Output beam diameter ($1/e^2$) & $\approx$7.0~mm \\
  		Full-angle divergence          & $\approx$0.28~mrad (0.016$^\circ$) \\
- 		Connector                      & FC/APC \\
  		\bottomrule
  	\end{tabular}
  	\caption{Key specifications of the Thorlabs F810APC-1550 fibre collimator. Beam diameter and divergence are theoretical values for SMF-28 fibre}
  \end{table}
  
- 
  \section{Data Acquisition and Processing}
  \label{sec:design-DataAcquisition}
- As discussed in the introduction to this section, this project is not concerned with real-time processing of the data, which typically involves the use of high sampling-rate ADCs, and FPGAs which are programmed to be able to perform FFTs of the sampled data very quickly. Instead, data is obtained via a Keysight EDU1002X oscilloscope and post-processed on a laptop. The sampling rate of the oscilloscope is set to 125MHz, giving a Nyquist frequency of 62.5MHz. A beat signal at 62.5MHz would correspond to a speed of approximately 80m/s, which is far above any speed that will be measured, thus making the oscilloscope sampling rate more than sufficient. 
+ Since real-time processing is out of scope (this typically requires high sampling-rate ADCs and FPGAs programmed to perform FFTs of the sampled data), data is obtained via a Keysight EDUX1002G oscilloscope at \SI{125}{MSa/s} and post-processed on a laptop. The \SI{62.5}{MHz} Nyquist frequency in a beat signal corresponds to approximately \SI{80}{m/s}, far above any speed that will be measured.
  
- Data is transferred from the oscilloscope to the laptop in discrete "records". Each oscilloscope record obtained is 25 000 samples long, corresponding to $200\mu s $ of data, however the oscilloscope can only obtain and transfer at a rate of approximately 8 records/second, while approximately 5000 records worth of data points are available for the same time period, meaning that only 0.2\% of data for the data acquisition period is effectively used. By contrast, systems utilising FPGAs and high sampling-rate ADCs can sample up to 100\% of the data in a given time period \cite{hill_remote_nodate}. Thus, when considering the acquisition time for a measurement, the oscilloscope record obtaining bottleneck is not considered, and only the total amount of time which the data represents is considered. This is of importance, because in a real-world setup this time period determines how many wind-speed measurements the system can make over a given time-period, and thus determines how well it can detect rapid changes in wind-speed. 
+ Data is transferred to the laptop in discrete ``records'' of \num{25000} samples (\SI{200}{\micro\second} of data). The oscilloscope can only transfer approximately 8 records/second, while approximately 5000 records' worth of data is available in the same period, so only \SI{0.2}{\percent} of the data in an acquisition period is used; FPGA-based systems can use up to \SI{100}{\percent} \cite{hill_remote_nodate}. The acquisition time for a measurement is therefore taken as the total time the data represents, ignoring the transfer bottleneck, as this is what determines the measurement rate in a real-world setup.
  
-Using Python scripts, the power spectral density (PSD) of each capture is obtained with
-Welch's method. Each record is divided into segments of $N_{\mathrm{seg}}$ samples that overlap
-by \SI{50}{\percent}, and each segment is multiplied by a Hann window to suppress spectral leakage
-from its edges. The FFT of each windowed segment is then taken, and its squared magnitude gives a
-periodogram. Finally, the periodograms from all segments of all records are averaged to give the
-PSD. Averaging after the FFT in this manner reduces the variance of the noise floor, so that a weak Doppler peak can be distinguished from random fluctuations, with the tradeoff being that more data has to be acquired, over a longer time period.
-
-The segment length sets the frequency resolution, $\Delta f = f_s/N_{\mathrm{seg}}$, and, for a
-fixed record length, the number of segments, and hence the number of averages that are taken. Thus, for a fixed record length and number of records, there is a tradeoff between frequency resolution and number of averages (which help to reduce variance). For experiments
-A, B and C, $N_{\mathrm{seg}} = \num{12500}$ samples and 100 records of \num{25000} samples are
-used, giving $\Delta f = \SI{10}{kHz}$ at $f_s = \SI{125}{MSa/s}$ (a velocity resolution of
-\SI{7.75}{mm/s}). Each record then yields 3 overlapping segments, so a capture averages 300
-periodograms. For the final wind-tunnel tests in \autoref{sec:windTesting}, where the weak aerosol return calls
-for more averaging rather than finer resolution, $N_{\mathrm{seg}} = \num{2500}$ and 500 records
-are used instead. This gives $\Delta f = \SI{50}{kHz}$ (\SI{3.9}{cm/s}), 19 segments per record,
-and \num{9500} periodograms in total.
-
-Because the \SI{50}{\percent} overlap makes adjacent Hann-windowed segments partially correlated,
-these correspond to about 245 and \num{7200} independent averages respectively. For stationary
-Gaussian noise, the standard deviation of each averaged PSD bin is
-$\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the noise PSD and $N_{\mathrm{eff}}$
-is the number of independent averages. This equation gives about $0.064\,S$ for the default settings and $0.012\,S$ for
-the wind-tunnel settings, illustrating that in the wind-tunnel case the noise standard deviation will be approximately $5\times$ lower. The absolute fluctuation of the noise therefore scales with the noise floor, while its
-relative size is set by the number of averages.
+ Using Python scripts, the power spectral density (PSD) of each capture is obtained with Welch's method: each record is divided into segments of $N_{\mathrm{seg}}$ samples with \SI{50}{\percent} overlap, each segment is Hann-windowed to suppress spectral leakage, and the squared magnitude of each segment's FFT (a periodogram) is averaged over all segments of all records. Averaging after the FFT reduces the variance of the noise floor, so that a weak Doppler peak can be distinguished from random fluctuations, at the cost of acquiring more data over a longer period. The segment length sets the frequency resolution, $\Delta f = f_s/N_{\mathrm{seg}}$, and, for a fixed record length, the number of averages, so there is a tradeoff between resolution and variance. For experiments A, B and C, $N_{\mathrm{seg}} = \num{12500}$ and 100 records are used, giving a resolution of $\Delta f = \SI{10}{kHz}$ (\SI{7.75}{mm/s}) and 300 averaged periodograms per capture. For the wind-tunnel tests in \autoref{sec:windTesting}, where the weak aerosol return calls for more averaging rather than finer resolution, $N_{\mathrm{seg}} = \num{2500}$ and 500 records are used, giving a worse (but still acceptable) resolution of $\Delta f = \SI{50}{kHz}$ (\SI{3.9}{cm/s}) and \num{9500} averaged periodograms.
+ 
+ Because the \SI{50}{\percent} overlap makes adjacent segments partially correlated, these correspond to only roughly 245 and \num{7200} \textbf{independent} averages respectively. For stationary Gaussian noise the standard deviation of each averaged PSD bin is $\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the noise PSD and $N_{\mathrm{eff}}$ the number of independent averages, giving $0.064\,S$ and $0.012\,S$ respectively. Thus, the absolute fluctuation of the noise scales with the noise floor's magnitude, while its relative size is set by the number of averages.
+ 
 \section{Final Design}
 The final design of the system using the architecture and components discussed above is given in \autoref{fig:finalDesign} below.
 

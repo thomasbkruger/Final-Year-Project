@@ -1,5 +1,41 @@
-\chapter{Conclusions}
+\chapter{Conclusions and Recommendations}
+\label{sec:conclusionsAndRecommendations}
+This report has demonstrated a working benchtop-scale Doppler wind LiDAR,
+built from readily available components. The conclusions from each
+experiment are given first, followed by recommendations for improving the
+system; each conclusion refers to the recommendations that address it.
 
-These are the conclusions from the investivation and how the investigation changes things in this field or contributes to current knowledge...
+\section{Conclusions}
 
-Draw suitable and intelligent conclusions from your results and subsequent discussion.
+ Firstly, it can be seen in the noise analysis that while the system was able to achieve shot-noise limited operation with respect to the electronic noise of the detector (thus meeting requirement P1), this was not maintained once PIIN was introduced. The final system was PIIN limited; after matching fiber path lengths, internal PIIN was measured at an average of approximately 5.7dB above the shot-noise level, with significant variation and instability in this noise being seen across measurements. Prior to matching fiber path lengths, PIIN was measured at 22.1dB above shot noise. This illustrates the importance of path-length matching in reducing PIIN to acceptable levels, but also highlights that despite matching the path-lengths, the system is still 5.7dB above the optimal sensitivity which can be reached, which is the shot-noise limit. See recommendation R1 for suggested improvements on this. 
+
+Thereafter, the functional analysis yielded several important results. It was firstly verified that the system is capable of hard target velocimetry, with Doppler peaks detected at 16.9 - 25.9dB above the noise floor, at less than 1000 PSD averages (thus meeting P4). While the wind-tunnel could not be used for testing the minimum resolvable LOS speed, a hard-target speed of 0.056m/s was measured in Experiment C, thus meeting the low-end requirement of P5.
+
+ After validating the system's working principle on a hard-target, testing of wind-speed measurement was conducted. It was found that the system produced measurable Doppler peaks above the detection threshold at all tested wind-speeds between 3 - 21m/s, for dense fog seeded air, at less than 10 000 PSD averages, thus meeting P6 and the high-end requirement of P5. The time taken to acquire this amount of averages to obtain a result is shown to be in line with acquisition times in commercial systems when the oscilloscope's bottleneck is ignored, however recommendation R2 discusses the implementation of a data acquisition chain which does not have this same bottleneck. The system was also tested using lighter mist-seeded air. For this test case, it was found that the returned signal power was far lower, and that the system only reached the detection threshold after approximately 21 600 independent PSD averages. This illustrates the benefits of increased averages in lowering the detection threshold by lowering noise variance. However, crucially, it was found that the system built as is would require an impractical $10^5$ times more averages for peak detection in unseeded air with yet still lower signal return power. This is attributed to the lack of an optical power amplifier in the system, and the high PIIN. Recommendation R1 and R3 discuss improvement paths relating to this. 
+ 
+ It was also found that the system's Doppler peak measurements, when converted to velocity, overshot the expected velocity values relative to the wind-tunnel setpoint by approximately 10\%, thus failing requirement P7 on velocity error being within 5\%. Further experimentation however showed that this error could partially be contributed to the test-rig geometry, and could be reduced via a single-point calibration. After the calibration, the error was approximately 1.1\%, and thus within the bounds to meet P7. Recommendation R4 discusses this matter further.
+ 
+ Ultimately, the contents of this report effectively demonstrate the working principles of a Doppler wind LiDAR system and quantifies its detection sensitivity and velocity accuracy with respect to the noise in the system and the components used.
+ 
+
+\section{Recommendations}
+From the concluded results discussed above, a number of recommendations can be made for future work on this system. These recommendations form an essential part of the project's work, as they are derived from quantified limitations in the current system. 
+
+\begin{enumerate}[label=\textbf{R\arabic*}]
+	\item \textbf{Narrow linewidth laser source: } It is recommended that a narrower linewidth laser source in the order of 50 - 100kHz is obtained. This serves to reduce PIIN, which currently raises the noise floor to approximately 5.7dB above the noise floor, and which is highly unstable, so that the total noise of the system is reduced to approximately 0.5dB above the optimal shot-noise level. This will increase the detection sensitivity of the system, and increase its ability to resolve turbulence via a narrower Doppler peak. \\
+	
+	\item  \textbf{High sample-rate ADC and FPGA processing chain:} The current setup uses an oscilloscope and laptop as the processing chain. While the oscilloscope can sample at a high enough rate, it has a data transfer bottleneck which results in measurements being taken across a time period of 30 - 60 seconds, with only approximately 0.2\% of data in this period actually being sampled and used. It is thus recommended that instead an ADC and FPGA processing chain can be developed, which samples continuously and performs the necessary FFT calculations at a high rate. This can increase the data usage for a given time period up to 100\% \cite{hill_remote_nodate}, thus reducing the acquisition time to be in the order of 100ms, and giving the system a sample rate of up to 10Hz, which is in line with commercial systems and real-world wind conditions.\\
+	
+	\item \textbf{Optical power amplifier: } The system as is does not emit a very high power laser beam (approximately 15mW), and the returned backscatter power is thus very low, limiting the system's ability to measure Doppler peaks in clear, unseeded air. It is recommended that an optical power amplifier (ideally an EDFA) be added so as to increase the emitted power, and thus increase the system's sensitivity and detection ability. \\
+	
+	\item \textbf{Test environment flow-profiling: } It is recommended that a wind-tunnel test environment's flow is comprehensively profiled, and that a test-rig which minimally interferes with this flow is designed, so that the accuracy of the system can be better tested and quantified and does not rely on calibration for accurate measurements in a controlled environment. \\
+	
+	\item  \textbf{Focusing optics: } It is recommended that focusing optics are added after the collimator lens. This would allow the system to achieve ranging of the measured wind-speeds, rather than averaging the flow equally over the entire beam. \\
+	
+	\item \textbf{Acousto-optic modulator: } It is recommended that an acousto-optic modulator be added to the system. This converts the system to a heterodyne, rather than homodyne detection system, and would thus allow for the resolution of the direction of the velocity, rather than just the magnitude. This is essential for real-world applications where the flow direction is not known, as it was in this report's test environment.
+
+\end{enumerate}
+
+
+ 
+

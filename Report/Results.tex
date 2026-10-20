@@ -24,7 +24,7 @@ velocities, which broadens the Doppler peak.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{../../../../../Downloads/fig_rig_side3d}
+	\includegraphics[width=0.7\linewidth]{../../../../../Downloads/fig_rig_side3d}
 	\caption{Test setup used for hard-target speed measurement}
 	\label{fig:CRig}
 \end{figure}
@@ -36,14 +36,6 @@ rest of the system was configured as in \autoref{fig:finalDesign}, with the lase
 100 oscilloscope records were captured, and their Welch PSDs averaged, using the same
 processing chain as experiments A and B, as detailed in \autoref(sec:design-DataAcquisition). From \autoref{eqn:DopplerSimple}, the expected Doppler shift
 is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
-
-%As shown in the figure, an angle of 45 degrees is used between the collimator and the motor axis, and the beam is aimed approximately $d = 15mm$ from the centre of the disc. The line of sight velocity of the beam is thus: $v_{los}=sin(45)2\pi N \times d$, where $N$ is the RPM of the motor, and $d$ is the radius from the centre of the disc to the beam spot. While care was taken in the design to precisely align the collimator with the intended point at $d=15mm$, any error in this alignment will translate directly into a measured velocity which is different from the calculated velocity. Furthermore, the beam spot has a finite size which has a diameter of approximately 7mm (from the F810-APC datasheet \cite{f810 apc datasheet}) - thus the measurement will also have contributions from other points on the disc radius which move at a different angular velocity to the intended target point. These contributions are likely to appear as a broadening of the Doppler peak. 
-
-%It must also be noted that the PLA plastic used reflects very little light at 1550nm, and thus standard white paper was attached to the spinning disc to increase the reflectivity. 
-
-%The rest of the system is set up as in \autoref{fig:finalDesign}, with all components fully connected. The laser is driven at a constant 48mA.
-
-%The motor RPM is varied across measurements in order to test the system's ability to resolve various different speeds. The same data acquisition and processing chain as for experiments A and B are used here, with 100 oscilloscope records being obtained for a given motor RPM, their Welch PSDs computed, and averaged to obtain a result. From \autoref{eqn:Doppler}, substituting $\lambda = 1550nm$, it can be obtained that the velocity can be calculated from the Doppler shift, which gives a beat signal frequency of $1.29MHz$ expected per $m/s$ velocity. 
 
 \subsection{Results and Discussion}
 \autoref{fig:CPSD} below shows the PSD of the measurements obtained for different motor RPMs tested. \autoref{tab:doppler_vs_rpm} gives the Doppler peak and local noise floor for each target speed. The Doppler peak, $f_D$, is taken as the power-weighted centroid of the excess PSD at each peak, as compared to the stationary-target reference, and $v_{\mathrm{LOS}} = f_D / (\SI{1.29}{MHz.s/m})$. The noise statistics are taken in a band outside $3\times$FWHM around the centroid, out to \SI{2}{MHz} either side. All PSD values are in the same units, so the PSD at $f_D$ can be compared directly with the detection threshold (mean $+\,5\sigma$). The excess power created at the Doppler frequency is calculated by integrating each peak across the frequencies which it spans. This integrated excess is the mean-square voltage of the beat signal, which Equation~\ref{eq:beat_power} relates directly to the received optical power.
@@ -87,12 +79,13 @@ is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 		1000 & 1.577 & 1.222 & 1.111 & 1.84 & 3.03 & 126.2 & 18.4 & 3.61 \\ \hline
 		2000 & 3.174 & 2.460 & 2.221 & 1.39 & 2.54 & 68.0 & 16.9 & 3.50 \\ \hline
 	\end{tabular}
+	
 	\caption{C: PSD Doppler peak and noise statistics for each motor RPM tested}
 	\vspace{2pt}
 	\raggedright\footnotesize
-	Noise statistics exclude bins below \SI{50}{kHz} (near-DC residual from disc imperfections).\\
 	\textsuperscript{\dag}\,Peak too close to DC for a full noise band below it; the floor is taken
 	mostly or entirely from the high-frequency side and is likely a slight underestimate.
+	
 \end{table}
 	
 A distinct Doppler peak was obtained at every speed, between \SIlist{16.9;25.9}{dB} above
@@ -223,7 +216,7 @@ A small wedge which fits the collimator and which can be attached to the floor o
  Again, the system is fully set up for these experiments as for C, as shown in \autoref{fig:finalDesign} and with a laser drive current of 48mA. The Welch method for calculating PSD was again used here, as for experiments A, B, and C, however in this case 500 oscilloscope records are obtained, and each segment length is set to 2500, giving a total of approximately 7200 independent averages (see \autoref{sec:design-DataAcquisition}). This gives a lower noise variance which will make the detection of a smaller Doppler peak easier, in the absence of a laser power amplifier which would increase the aerosol return, and thus increase the size of the Doppler peak.
  
  Even with this high amount of averages, the 500 records of \num{25000} samples at \SI{125}{MSa/s} represent only \SI{100}{ms} of sampled data, which is comparable to the \SIrange{4}{41}{ms} integration times of established CW lidars\cite{hill_remote_nodate}\cite{bennett_doppler_2003}. Each \SI{200}{\micro s} record is short enough that the flow is effectively frozen within it, so with a continuously streaming digitiser, with an FPGA (or similar) to process the data in real-time, the same averaging would give a new velocity estimate every \SI{0.1}{s}. This \SI{10}{Hz} update rate is well above the \SIrange{0.5}{1}{Hz} found to be
- sufficient for lidar-assisted wind turbine control \cite{letizia_characterization_2023} \cite{simley_optimizing_2018}, though below the \SI{50}{Hz} of the commercial ZephIR \cite{hill_remote_nodate}. In
+ sufficient for lidar-assisted wind turbine control \cite{simley_optimizing_2018}, though below the \SI{50}{Hz} of the commercial ZephIR \cite{hill_remote_nodate}. In
  this set-up, however, the oscilloscope's transfer bottleneck spreads the records over roughly \SI{60}{s}, so each PSD is an average of the flow over that period. This is acceptable here because the tunnel speed is held constant during each capture, but in a field-deployed iteration of the system an FPGA based acquisition chain should certainly be investigated.
 
 \subsection{Results and Discussion}
@@ -288,9 +281,6 @@ After measuring the system's sensitivity performance in the dense-fog seeded air
 	
 	\vspace{2pt}
 	\caption{Normalised PSD of Doppler peak relative to noise for light mist-seeded air. Full raw statistics are given in \autoref{appendix:FullWTResults}}
-	\raggedright\footnotesize
-	PSD/floor, $\sigma$ and excess as in \autoref{tab:D_snr}.\\
-	\textsuperscript{\ddag}\,Below the mean $+\,5\sigma$ detection threshold.
 \end{table}
 
 \begin{figure}[H]
@@ -328,15 +318,15 @@ $\approx$23\,000 averages found necessary in practice. However, because
 $\sigma \propto 1/\sqrt{N}$ (see \autoref{sec:design-DataAcquisition}), each doubling of $N$ gains only 1.5\,dB, so
 averaging cannot practically close larger gaps, and measurement in unseeded, clean air is such a gap:
 
-Converting the integrated excess power of the 5\,m/s peak to optical power
+The current laser power emitted is estimated at approximately 15mW - from the 17mW at the diode output for a current of 48mA (see result of experiment A2), only 90\% is directed at the atmospheric emission, and power loss in the fiber is ignored here. Converting the integrated excess power of the 5\,m/s peak to optical power
 using Equation~\ref{eq:beat_power} gives an effective received power here of
-roughly 0.1\,pW, for a transmitted beam of $\approx$12mW. In open air, where the beam is not cut short by the tunnel
+roughly 0.1\,pW, from the 15mW emitted power. In open air, where the beam is not cut short by the tunnel
 ceiling and \autoref{eqn:backscatterPower} applies, clear air
 ($\beta(\pi) \approx 10^{-8}$\,m$^{-1}$sr$^{-1}$ \cite{hill_remote_nodate}) would return only
-$\approx$0.6\,fW from the transmitted beam by this system in its current form, which is 23--26\,dB lower than the light mist-seeded case. A clean-air measurement would therefore require roughly 25--30\,dB of signal increase or noise reduction, equivalent to about $10^5$ times more averaging. This is approximately what an
-erbium-doped fibre amplifier (see discussion on laser power level in \autoref{sec:design-ComponentChoices}) raising the transmit power to 1\,W (+19\,dB above 12mW),
+$\approx$0.7\,fW from the transmitted beam by this system in its current form, which is 22--25\,dB lower than the light mist-seeded case. A clean-air measurement would therefore require roughly 25--30\,dB of signal increase or noise reduction, equivalent to about $10^5$ times more averaging. This is approximately what an
+erbium-doped fibre amplifier (see discussion on laser power level in \autoref{sec:design-ComponentChoices}) raising the transmit power to 1\,W (+18\,dB above 15mW),
 combined with removing the residual PIIN to reach the shot-noise limit
-(+5.7\,dB, \autoref{sec:PIINTesting}), would provide. Thus, these measurements in seeded air give a clear upgrade-path to the system, and are able to quantify how much more sensitivity is required in the system in order to measure wind-speed in unseeded air. It also illustrates that simply taking more averages to increase the sensitivity is unviable to achieve wind-speed detection in unseeded air. 
+(+5.7\,dB, \autoref{sec:PIINTesting}), would provide. Thus, these measurements in seeded air give a clear upgrade-path to the system, and are able to quantify how much more sensitivity is required in the system in order to measure wind-speed in unseeded air. It also illustrates that simply taking more averages to increase the sensitivity is not viable to achieve wind-speed detection in unseeded air. 
 
 
 
@@ -365,7 +355,7 @@ It was found that using the original test setup detailed in the methodology for 
 
 % It can also be seen that the Doppler peak had a width of approximately 0.45 - 0.65MHz at its half-maximum value, corresponding to a velocity range of 0.35 - 0.5m/s across the beam's volume - this is expected, given that the Doppler peak represents the equally-weighted Doppler shift from velocity components along the entire beam (rather than just at the center), since no focusing is used (see \autoref{sec:lit-Ranging} and \autoref{sec:design-ComponentChoices}), and naturally the wind-speed will vary across the tunnel's area and give varying Doppler shifts near the setpoint.
 
-The cause of the 10.7\% overshoot was therefore further investigated: The laser's frequency is stable at the expected 1550nm (a drift causing 10\% error would require a drifted wavelength of 1400nm, which is not possible for a DFB diode), the data acquisition chain was validated against a signal generated by a signal generator, and the wind-tunnel's setpoint speeds were validated against a calibrated anemometer. Thus it is hypothesised that this error is due to the turbulence and blockage caused by the test-rig geometry, which may redirect a significant component of the flow over the top of the wedge, and thus into the line of sight of the collimator, so as to cause an overshoot in its measurement relative to the wind-tunnel setpoint. The test setup was modified to investigate this, so as to have the wedge and collimator now pointing upstream of the wind. The results of this setup are plotted in \autoref{fig:figvelocityboth} alongside the "expected" measurement from the wind-tunnel setpoint, and the results from the original downstream setup.
+The cause of the 10.7\% overshoot was therefore further investigated: The laser's frequency is stable at the expected 1550nm (a drift causing 10\% error would require a drifted wavelength of 1400nm, which is not possible for a DFB diode), the data acquisition chain was validated against a signal generated by a signal generator, and the wind-tunnel's setpoint speeds were validated against a calibrated anemometer. Thus it is hypothesised that this error is due to the turbulence and blockage caused by the test-rig geometry, which may redirect a significant component of the flow over the top of the wedge, and thus into the line of sight of the collimator, so as to cause an overshoot in its measurement relative to the wind-tunnel setpoint. The test setup was modified to investigate this, so as to have the wedge and collimator now pointing upstream of the wind. The results of this setup are plotted in \autoref{fig:figvelocityboth} alongside the "expected" measurement from the wind-tunnel setpoint, and the results from the original downstream setup. Note here that the system is homodyne, and thus downstream and upstream velocity appear the same at the output (the recovered velocity is not signed, see \autoref{sec:lit-homohetero}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{../../../../../Downloads/fig_velocity_both}
@@ -373,23 +363,23 @@ The cause of the 10.7\% overshoot was therefore further investigated: The laser'
 	\label{fig:figvelocityboth}
 \end{figure}
 
-It can be seen that with this new setup, the overshoot was reduced to an average of 6.9\%, while retaining the linearity of the original setup. It is thus clear that at least some component of the overshoot is due to the test-rig geometry, and that it is thus valid to remove the offset using a single-point calibration. While a test setup which attempts to account for turbulence and variation in the flow may be constructed to more rigorously test this hypothesis, it was decided that this would not be done within the scope of this report owing to significant complexities in modelling the wind-tunnel's flow, and obtaining the necessary instruments to do so. It is however recommended that for a future setup, the wind-tunnel's flow be rigorously profiled for a given test-setup, so that the velocity accuracy of the DWL system can be better tested. 
+It can be seen that with this new setup, the overshoot was reduced to an average of 6.9\%, while retaining the linearity of the original setup. It is thus clear that at least some component of the overshoot is due to the test-rig geometry, and that it is thus valid to remove the offset using a single-point calibration. Rigorously profiling the tunnel flow for a given test rig would however be needed to test this hypothesis, and the velocity accuracy further (see recommendation R4).
 
-\subsubsection{Summary of results}
-In dense fog, a Doppler peak was detected above the mean\,$+\,5\sigma$
-threshold at every tunnel speed from \SIrange[range-phrase=--,
-range-units=single]{3.1}{21}{m/s} within \num{10000} averages, meeting P6. In
-light mist at \SI{5}{m/s}, where the return was approximately half that in
-fog, detection required approximately \num{21600} averages, so P6 is not met
-in this case. The measured velocity was highly linear with tunnel speed
-($R^2 = 0.9998$) but overshot by \SI{10.7}{\percent}, failing P7 as built. A
-single-factor calibration reduces the error to \SI{1.1}{\percent}, meeting P7.
-The overshoot is at least partly attributable to the test-rig geometry, and
-the calibration is therefore specific to the installation. Finally,
-measurement in clean air is estimated to require a further
-\SIrange[range-phrase=--, range-units=single]{25}{30}{dB} of sensitivity,
-dominated by transmit power and residual PIIN, which averaging alone cannot
-practically provide.
+%\subsubsection{Summary of results}
+%In dense fog, a Doppler peak was detected above the mean\,$+\,5\sigma$
+%threshold at every tunnel speed from \SIrange[range-phrase=--,
+%range-units=single]{3.1}{21}{m/s} within \num{10000} averages, meeting P6. In
+%light mist at \SI{5}{m/s}, where the return was approximately half that in
+%fog, detection required approximately \num{21600} averages, so P6 is not met
+%in this case. The measured velocity was highly linear with tunnel speed
+%($R^2 = 0.9998$) but overshot by \SI{10.7}{\percent}, failing P7 as built. A
+%single-factor calibration reduces the error to \SI{1.1}{\percent}, meeting P7.
+%The overshoot is at least partly attributable to the test-rig geometry, and
+%the calibration is therefore specific to the installation. Finally,
+%measurement in clean air is estimated to require a further
+%\SIrange[range-phrase=--, range-units=single]{25}{30}{dB} of sensitivity,
+%dominated by transmit power and residual PIIN, which averaging alone cannot
+%practically provide.
 
 
 
