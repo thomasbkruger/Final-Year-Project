@@ -29,15 +29,15 @@
 \contentsline {subsection}{\numberline {3.3.2}Performance requirements}{18}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Component Choices}{19}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Laser Source}{19}{subsection.3.4.1}%
-\contentsline {subsubsection}{Wavelength}{19}{subsubsection*.5}%
-\contentsline {subsubsection}{Power Level}{19}{subsubsection*.6}%
-\contentsline {subsubsection}{Linewidth}{21}{subsubsection*.7}%
-\contentsline {subsubsection}{Laser source selection}{21}{subsubsection*.8}%
+\contentsline {subsubsection}{Wavelength}{19}{subsubsection*.7}%
+\contentsline {subsubsection}{Power Level}{19}{subsubsection*.8}%
+\contentsline {subsubsection}{Linewidth}{21}{subsubsection*.9}%
+\contentsline {subsubsection}{Laser source selection}{21}{subsubsection*.10}%
 \contentsline {subsection}{\numberline {3.4.2}Laser driver and temperature control}{22}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Detector}{23}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}Fiber Optics}{24}{subsection.3.4.4}%
-\contentsline {subsubsection}{Optical Mixer, Circulator}{24}{subsubsection*.13}%
-\contentsline {subsubsection}{Fiber Splitter}{24}{subsubsection*.14}%
+\contentsline {subsubsection}{Optical Mixer, Circulator}{24}{subsubsection*.15}%
+\contentsline {subsubsection}{Fiber Splitter}{24}{subsubsection*.16}%
 \contentsline {subsection}{\numberline {3.4.5}Optics}{25}{subsection.3.4.5}%
 \contentsline {section}{\numberline {3.5}Data Acquisition and Processing}{26}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Final Design}{27}{section.3.6}%
@@ -47,15 +47,15 @@
 \contentsline {subsection}{\numberline {4.2.1}Experimental Goals}{28}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{29}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Results and Discussion}{30}{subsection.4.2.3}%
-\contentsline {subsubsection}{A1: Electronic Noise}{30}{subsubsection*.19}%
-\contentsline {subsubsection}{A2: Electronic Noise \& Shot Noise}{31}{subsubsection*.20}%
-\contentsline {subsubsection}{A3: Relative Intensity Noise}{33}{subsubsection*.23}%
+\contentsline {subsubsection}{A1: Electronic Noise}{30}{subsubsection*.21}%
+\contentsline {subsubsection}{A2: Electronic Noise \& Shot Noise}{31}{subsubsection*.22}%
+\contentsline {subsubsection}{A3: Relative Intensity Noise}{33}{subsubsection*.25}%
 \contentsline {section}{\numberline {4.3}B: Phase-induced Intensity Noise}{34}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Experimental Goals}{34}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Experimental Methodology}{34}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Results and Discussion}{35}{subsection.4.3.3}%
-\contentsline {subsubsection}{Initial Results}{35}{subsubsection*.24}%
-\contentsline {subsubsection}{Reducing PIIN: Methodology and Results}{35}{subsubsection*.25}%
+\contentsline {subsubsection}{Initial Results}{35}{subsubsection*.26}%
+\contentsline {subsubsection}{Reducing PIIN: Methodology and Results}{35}{subsubsection*.27}%
 \contentsline {chapter}{\numberline {5}Functional Testing}{37}{chapter.5}%
 \contentsline {section}{\numberline {5.1}C: Hard-target Speed Measurement}{37}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Experimental Goals}{37}{subsection.5.1.1}%
@@ -65,27 +65,45 @@
 \contentsline {subsection}{\numberline {5.2.1}Experimental Goals}{41}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Experimental Methodology}{41}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}Results and Discussion}{43}{subsection.5.2.3}%
-\contentsline {subsubsection}{Sensitivity and SNR}{43}{subsubsection*.33}%
-\contentsline {subsubsection}{Velocity accuracy}{46}{subsubsection*.38}%
+\contentsline {subsubsection}{Sensitivity and SNR}{43}{subsubsection*.35}%
+\contentsline {subsubsection}{Velocity accuracy}{46}{subsubsection*.40}%
 \contentsline {chapter}{\numberline {6}Conclusions and Recommendations}{48}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Conclusions}{48}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Recommendations}{49}{section.6.2}%
 \contentsline {chapter}{\numberline {A}Graduate Attributes}{54}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Linewidth, PIIN and Doppler Peak Broadening}{55}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Balanced Detection}{58}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Laser Source Classes: Noise and Practical Notes}{60}{appendix.D}%
-\contentsline {chapter}{\numberline {E}Component Datasheets}{61}{appendix.E}%
-\contentsline {section}{\numberline {E.1}DFB Laser Diode (BFLD-1550-20SM-FA2)}{61}{section.E.1}%
-\contentsline {section}{\numberline {E.2}Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100)}{62}{section.E.2}%
-\contentsline {section}{\numberline {E.3}Temperature Controller (Koheron TEC100L-50)}{63}{section.E.3}%
-\contentsline {section}{\numberline {E.4}Balanced Photodetector (Koheron PD100B-AC)}{64}{section.E.4}%
-\contentsline {chapter}{\numberline {F}Supplementary Results: Experiment A}{65}{appendix.F}%
-\contentsline {section}{\numberline {F.1}A2: 5--20\,MHz Band-averaged PSD per Laser Current}{65}{section.F.1}%
-\contentsline {section}{\numberline {F.2}A3: Supplementary Experiment on RIN Cancellation}{66}{section.F.2}%
-\contentsline {chapter}{\numberline {G}Supplementary Results: Experiment D}{68}{appendix.G}%
-\contentsline {section}{\numberline {G.1}Raw PSDs per Wind-tunnel Setpoint}{68}{section.G.1}%
-\contentsline {section}{\numberline {G.2}Raw Noise and Peak Statistics}{69}{section.G.2}%
-\contentsline {section}{\numberline {G.3}Velocity Accuracy: Peak Centroid vs Setpoint}{69}{section.G.3}%
-\contentsline {chapter}{\numberline {H}Use of AI Tools}{71}{appendix.H}%
-\contentsline {chapter}{\numberline {I}Code and Additional Materials}{72}{appendix.I}%
-\contentsline {chapter}{\numberline {J}Ethics Forms}{73}{appendix.J}%
+\contentsline {chapter}{\numberline {B}Linewidth, PIIN and Doppler Peak Broadening}{58}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Balanced Detection}{61}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Laser Source Classes: Noise and Practical Notes}{63}{appendix.D}%
+\contentsline {chapter}{\numberline {E}Component Datasheets}{64}{appendix.E}%
+\contentsline {section}{\numberline {E.1}DFB Laser Diode (BFLD-1550-20SM-FA2)}{64}{section.E.1}%
+\contentsline {section}{\numberline {E.2}Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100)}{65}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Temperature Controller (Koheron TEC100L-50)}{66}{section.E.3}%
+\contentsline {section}{\numberline {E.4}Balanced Photodetector (Koheron PD100B-AC)}{67}{section.E.4}%
+\contentsline {chapter}{\numberline {F}Supplementary Results: Experiment A}{68}{appendix.F}%
+\contentsline {section}{\numberline {F.1}A2: 5--20\,MHz Band-averaged PSD per Laser Current}{68}{section.F.1}%
+\contentsline {section}{\numberline {F.2}A3: Supplementary Experiment on RIN Cancellation}{69}{section.F.2}%
+\contentsline {chapter}{\numberline {G}Supplementary Results: Experiment D}{71}{appendix.G}%
+\contentsline {section}{\numberline {G.1}Raw PSDs per Wind-tunnel Setpoint}{71}{section.G.1}%
+\contentsline {section}{\numberline {G.2}Raw Noise and Peak Statistics}{72}{section.G.2}%
+\contentsline {section}{\numberline {G.3}Velocity Accuracy: Peak Centroid vs Setpoint}{72}{section.G.3}%
+\contentsline {chapter}{\numberline {H}Declaration on use of AI tools}{74}{appendix.H}%
+\contentsline {section}{\numberline {H.1}Report writing}{74}{section.H.1}%
+\contentsline {subsection}{\numberline {H.1.1}Formatting of tables, figures and plots}{74}{subsection.H.1.1}%
+\contentsline {subsubsection}{Prompt}{74}{subsubsection*.60}%
+\contentsline {subsubsection}{Response}{75}{subsubsection*.62}%
+\contentsline {subsection}{\numberline {H.1.2}Improvements in clarity and conciseness}{76}{subsection.H.1.2}%
+\contentsline {subsubsection}{Prompt}{76}{subsubsection*.63}%
+\contentsline {subsubsection}{Response}{77}{subsubsection*.65}%
+\contentsline {section}{\numberline {H.2}Conceptual understanding}{79}{section.H.2}%
+\contentsline {subsection}{\numberline {H.2.1}Conceptual understanding of PIIN}{79}{subsection.H.2.1}%
+\contentsline {subsubsection}{Prompt}{79}{subsubsection*.66}%
+\contentsline {subsubsection}{Response}{79}{subsubsection*.68}%
+\contentsline {section}{\numberline {H.3}Data acquisition and processing scripts}{81}{section.H.3}%
+\contentsline {subsection}{\numberline {H.3.1}Plotting of PIIN results}{82}{subsection.H.3.1}%
+\contentsline {subsubsection}{Prompt}{82}{subsubsection*.69}%
+\contentsline {subsubsection}{Response}{82}{subsubsection*.71}%
+\contentsline {subsection}{\numberline {H.3.2}Windtunnel data acquisition script}{84}{subsection.H.3.2}%
+\contentsline {subsubsection}{Prompt}{84}{subsubsection*.72}%
+\contentsline {subsubsection}{Response}{84}{subsubsection*.74}%
+\contentsline {chapter}{\numberline {I}Code and Additional Materials}{87}{appendix.I}%
+\contentsline {chapter}{\numberline {J}Ethics Forms}{88}{appendix.J}%

@@ -20,6 +20,8 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{listings}
 
 % Keeps the two-line "Chapter N / Title" look, just smaller and tighter
 \titleformat{\chapter}[display]
@@ -54,10 +56,10 @@
 \thispagestyle{empty}
 {\Huge \begin{center}
 % Modify the line below to insert your title.
-Insert your title here
+LiDAR-based Wind Speed Measurement
 \hrule 
 % Modify the line below to insert your subtitle.
-{\Large Insert a subtitle here (if applicable)}
+{\Large Constrained Coherent Doppler Wind LiDAR System Development}
 \end{center}}
 
 \vskip 5mm
@@ -68,13 +70,13 @@ Insert your title here
 \vskip 5mm
 \begin{center}
 Presented by:\\
-Mohohlo Samuel T\v soeu		% Insert your name here
+Thomas Kruger
 \end{center}
 
 \vskip 10mm
 \begin{center}
 Prepared for:\\
-M. S. T\v soeu\\ 		% Insert your supervisor's name here.
+Prof. Azeem Khan\\ 		
 Dept. of Electrical and Electronics Engineering\\University of Cape Town
 \end{center}
 
@@ -82,8 +84,7 @@ Dept. of Electrical and Electronics Engineering\\University of Cape Town
 \vskip 10mm
 \begin{center}
 Submitted to the Department of Electrical Engineering at the University of Cape Town in partial
-fulfilment of the academic requirements for a Bachelor of Science degree in ***INSERT DEGREE
-NAME HERE (Electrical Engineering; Mechatronics or Electrical and Computer Engineering)
+fulfillment of the academic requirements for a Bachelor of Science degree in Electrical and Computer Engineering
 
 \end{center}
 
@@ -127,7 +128,7 @@ Date: \today.
 {\Large Terms of Reference}\\
 \hrule
 
-The terms of reference page is an agreement between yourself and your supervisor outlining what is expected of you in your final year project. Please make sure that this is discussed and written at the beginning of your thesis project. 
+%The terms of reference page is an agreement between yourself and your supervisor outlining what is expected of you in your final year project. Please make sure that this is discussed and written at the beginning of your thesis project. 
 
 
 \fancyfoot[C]{\thepage}
@@ -136,28 +137,38 @@ The terms of reference page is an agreement between yourself and your supervisor
 \pagenumbering{roman}
 {\Large Acknowledgments}\\
 \hrule
-Make relevant acknowledgements to people who have helped you complete or conduct this work, including sponsors or research funders.
+Prof. Azeem Khan for supervising this project with great enthusiasm, interest, and trust, and availing himself during very busy periods for consultations and advice.
 
+Maysam Soltanian for assistance in sourcing and ordering the necessary components for the project.
+
+Warren Crowhurst for kindly allowing me the use of his wind-tunnel (custom built as part of his MSc.), and assisting in data collection. Thank you for your interest in this project. 
+
+Prof. Wei Hua Ho for the assistance in connecting me with Warren, and the use of your department's fog machine and anemometers. 
+
+Throughout this challenging and sometimes intimidating project I relied heavily on the support of my friends and family. Thank you in particular to the following:  
+
+My partner Megan Walls, for lovingly supporting me throughout this project, and listening to my many concerns and later breakthroughs with great interest and care
+
+My parents, Gert and Trienchen Kruger, for their unconditional, loving support throughout the course of my degree, and for providing helpful advice and a caring home. 
 
 \newpage
 
 {\Large Abstract}\\
 \hrule
 
-% Place your abstract here.
-\begin{itemize}
+Characterisation of the wind field around wind turbines is an important objective in the wind-energy sector. Current methods which use anemometers mounted on met-masts are limited to single points in space, can be costly to erect, and suffer from the effects of the mast’s wake on measurements. LiDAR systems mounted on wind-turbine nacelles present a remote-sensing alternative which allows for wind-speed measurement from a distance, thus providing greater spatial coverage. Doppler wind LiDAR (DWL) systems emit a beam which is backscattered by aerosols and small particles, and measure the Doppler shift of the backscatter, from which the speed of the particles, and hence the wind speed, is determined. Due to inherent challenges in measuring the small backscattered signal, these instruments are complex and require much design consideration, and for smaller research groups, scientific access is limited by the high cost of quote-only commercial systems.
 
-\end{itemize}
+In this study, an all-fibre, continuous-wave, homodyne coherent DWL system with balanced detection is designed, built and tested, with constraints on component cost and availability, particularly in the absence of an optical power amplifier. The study demonstrates the principles involved in these systems, and makes performance (primarily in terms of sensitivity) attributable to component and architecture choice. Of particular importance in the investigation is the shot-noise limit, which is the quantum limit on the system’s noise, and therefore sets the best sensitivity a coherent system can achieve. The detector is shown to operate within 0.7 dB of this limit; however, phase-induced intensity noise arising from spurious reflections in the fibre paths dominates in the full system, initially raising the noise floor 22 dB above the shot-noise limit. Matching the fibre path lengths of the local oscillator and return signal reduces this to approximately 5.7 dB, though this is unstable between measurements. With this, the system is found capable of measuring wind speed at all tested flow rates (3–21 m/s) in air seeded with dense fog to account for the lower emitted optical power, with a 10.7\% overshoot before calibration, attributed in part to the test rig, and an error of 1.1\% after it. Recommendations are made for potential improvements of the system, particularly the addition of an optical power amplifier, a narrower-linewidth laser source, focusing optics and real-time processing.
 
 
 \newpage
 \tableofcontents
 
-%\newpage
-%\listoffigures
+\newpage
+\listoffigures
 
-%\newpage
-%\listoftables
+\newpage
+\listoftables
 
 % Page formatting, to place section titles as headers of odd pages and Chapter titles as headers of even pages.
 \newpage

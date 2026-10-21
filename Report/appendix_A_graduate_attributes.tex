@@ -1,31 +1,84 @@
 \chapter{Graduate Attributes}
 \label{appendix:GA}
-% TODO: Fill in the justification column. Each row should name the section(s)
-% of the report where the evidence for that GA can be found, e.g.
-%   GA 1  -> Chapter 3 (architecture + component trade-offs), Sec 4.3.4 (PIIN reduction)
-%   GA 4  -> Chapters 4 and 5 (experiments A-D), Sec 5.2.3 (calibration investigation)
-%   GA 5  -> Sec 3.5 (Python / Welch PSD pipeline), oscilloscope, TikZ/CAD rigs
-%   GA 6  -> this report
-%   GA 8  -> Declaration, Sec 1.2
-%   GA 9  -> Chapter 2 (literature review), Appendix B
+
 The table below summarises how the graduate attributes (GAs) associated with this course have been met, and where in the report the evidence can be found.
 
-\begin{center}
-\begin{tabular}{||p{2em} |p{15em} |p{20em}||}
- \hline
- \textbf{GA} & \textbf{Requirement} & \textbf{Justification and section in the report}  \\ [0.5ex]
- \hline\hline
- 1 & Problem-solving & Description here  \\
- \hline
- 4 & Investigations, experiments and data analysis & Description here  \\
- \hline
- 5 & Use of engineering tools & Description here \\
- \hline
- 6 & Professional and technical communication (Long report) & Description here \\
- \hline
- 8 & Individual work & Description here \\
- \hline
- 9 & Independent learning ability & Description here \\ [1ex]
- \hline
-\end{tabular}
-\end{center}
+\setlength{\LTcapwidth}{\linewidth}
+\begin{longtable}{|>{\centering\arraybackslash}p{0.05\linewidth}
+		|>{\raggedright\arraybackslash}p{0.17\linewidth}
+		|p{0.66\linewidth}||}
+	\caption{Graduate attributes and where they are addressed in this report}
+	\label{tab:GAs}\\
+	\hline
+	\textbf{GA} & \textbf{Requirement} & \textbf{Justification and section in the report} \\ [0.5ex]
+	\hline\hline
+	\endfirsthead
+	
+	\multicolumn{3}{l}{\small\itshape \tablename~\thetable{} (continued)}\\
+	\hline
+	\textbf{GA} & \textbf{Requirement} & \textbf{Justification and section in the report} \\ [0.5ex]
+	\hline\hline
+	\endhead
+	
+	\hline
+	\multicolumn{3}{r}{\small\itshape Continued on next page}\\
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	1 & Problem-solving & My project concerns the field of LiDAR for wind-speed measurement. Specifically, my project deals
+	with the problem of designing a prototype benchtop-scale version of a Doppler wind LiDAR system. I
+	consulted various sources of literature in order to first understand what the key use-cases and goals of
+	Doppler wind LiDAR systems are (mostly with respect to wind-turbines, and the use of such systems to
+	control the turbines optimally). Thereafter, with the end-use in mind, I reviewed sources which discuss
+	common types/classes of such systems (\autoref{sec:litReview}), and identified a system type which would be suitable for this
+	project, given the time-frame and budget -- this type being coherent detection Doppler LiDAR (\autoref{sec:design-sysArch}).
+	After identifying this suitable class of system, I reviewed the various design considerations of such a
+	system in the available literature (\autoref{sec:litReview}). This included mathematical and physical descriptions of how the
+	system operates, with respect to signal theory, optics, electronics, and relevant physics phenomena
+	(including Rayleigh and Mie scattering, coherent detection methodology, balanced detection, and
+	laser source physics). From this, I synthesised a list of parts which would be suitable for use in the project, and used the relevant mathematics to validate these choices in terms of the final
+	requirements (\autoref{sec:design-ComponentChoices}, \autoref{sec:design-sysReqs}).
+	\\
+	\hline
+	4 & Investigations, experiments and data analysis & I conducted a thorough investigation into the various types of Doppler wind LiDAR systems which are
+	used in industry and scientific research. After doing so, I conducted more specific research into
+	coherent detection Doppler LiDAR systems, and the physics, signal processing and optics which
+	underpin these systems (\autoref{sec:litReview}, \autoref{sec:design-ComponentChoices}). From this, I was able to recommend to my supervisor a course of action for
+	the class of system to be designed, and substantiate this choice through the research done.
+	I formulated various experiments to conduct on the system once it
+	was built, which validate the signal theory, mathematics and electronics principles
+	concerned, and validate the system's workings (\autoref{sec:noiseAnalysis}, \autoref{sec:functionalTesting}). The primary consideration in these experiments is a thorough noise analysis (\autoref{sec:noiseAnalysis}), which
+	serves to quantify the sensitivity of the system. Furthermore, the effects of various design decisions on the
+	performance (e.g.\ source laser linewidth and power, or the use of balanced detection over single-ended detection) are analysed in these experiments, and optimal requirements for such systems
+	are thus experimentally shown and discussed, and suitable recommendations for upgrades are made. \\
+	\hline
+	5 & Use of engineering tools & Engineering mathematics was used in the system's design in order to determine the optimal components to use (e.g.\ the fibre-optic splitter ratio in \autoref{sec:design-ComponentChoices}). Reasoning based on the reviewed literature was applied to predict performance outcomes and to determine how the system should be tested (e.g.\ the prediction that the system will require seeded air for wind-speed measurement due to the lack of optical power amplification, \autoref{sec:design-ComponentChoices}). Once the system was built, an oscilloscope was used in conjunction with Python scripts to acquire data from the system (setup described in \autoref{sec:design-DataAcquisition}, used in \autoref{sec:noiseAnalysis} and \autoref{sec:functionalTesting}). The data was also post-processed using Python scripts so as to gain useful information from it, and to generate plots and tables which show the obtained data in a readable manner. \\
+	\hline
+	6 & Professional and technical communication (long report) & I have attended scheduled meetings (and scheduled further follow-up meetings) with my supervisor in
+	order to discuss the route which the project should take, as well as budget and technological
+	considerations. I have also consulted with Maysam Soltanian to obtain suitable sources for components
+	which are required for the project.
+	
+	This written project report serves to communicate the technical details of the system's development and testing to an engineering audience. The abstract and conclusion of this report serve to communicate basic ideas (e.g.\ the need for system upgrades in order to perform wind-speed measurements in clean air) to a non-engineering or management audience. \\
+	\hline
+	8 & Individual work & I have maintained goals and suggested timeframes for my work on the project. While meetings
+	with my supervisor and Maysam helped guide the sourcing and budget constraints for the project
+	components, all of the specific components were selected by me, and suitable sourcing suggestions
+	were made to Maysam. While the supervisor provided the overarching topic of Doppler wind LiDAR, I
+	used my own research into the area to select an appropriate subclass of LiDAR system to build for the
+	project, synthesising the constraints of the project and the desired requirements. All experimental work was synthesised individually. Appendix \ref{appendix:AIUse} shows a knowledge of professional ethics and norms in its declaration of how and where artificial intelligence was used in this project. \\
+	\hline
+	9 & Independent learning ability & I have independently learnt concepts in photonics (laser source characteristics), atmospheric sciences
+	(Rayleigh and Mie scattering) and signal theory (coherent detection and balanced detection), in order
+	to understand and synthesise the design of a Doppler wind LiDAR system.
+	
+	The initial problem was ill-defined and the decision to take the route of designing a benchtop-scale
+	Doppler wind LiDAR system was not immediately obvious. It was only after learning more about the
+	field and evaluating areas of research in it that this decision was made, after reaching out to my
+	supervisor to consult on this. Throughout the project I have had to manage the scope of the project to
+	suit my abilities and constraints, given that the field of research contains many complexities which are
+	beyond an undergraduate skill-level and time-frame. This therefore shows my ability to synthesise
+	meaningful objectives, knowledge and outcomes from an ill-posed problem. \\ [1ex]
+\end{longtable}

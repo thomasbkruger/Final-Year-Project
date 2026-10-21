@@ -1,8 +1,376 @@
-\chapter{Use of AI Tools}
+\chapter{Declaration on use of AI tools}
 \label{appendix:AIUse}
-% Template requirement: "If you have used AI in writing your report, you need
-% to provide details in one of the appendices of how you used it."
-% TODO: describe which tools were used and for what (e.g. editing for length
-% and clarity, LaTeX/TikZ formatting of figures and tables, checking
-% calculations, CAD scripts for the test rigs), and state that all design
-% decisions, experiments, data and conclusions are your own.
+\section{Report writing}
+The contents of this report are my own work. Artificial intelligence use was limited to formatting of tables, figures and plots, and was used to proofread contents for possible errors and improvements in clarity and conciseness. Example prompts for these use cases are given below. Note that this is not exhaustive, but serves as an example for some of the use cases.
+
+\subsection{Formatting of tables, figures and plots}
+\subsubsection{Prompt}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot001}
+	\caption{Example prompt to format tables and figures for the laser datasheet appendix}
+	\label{fig:screenshot001}
+\end{figure}
+\subsubsection{Response}
+% ============================================================
+% AI-use appendix: example prompt and response
+% Preamble needs:
+   
+% ============================================================
+\lstdefinestyle{airesponse}{
+	basicstyle=\ttfamily\scriptsize,
+	breaklines=true, breakatwhitespace=false,
+	columns=fullflexible, keepspaces=true,
+	frame=none, xleftmargin=0pt,
+	literate={–}{{--}}1 {—}{{---}}1 {’}{{'}}1 {≈}{{$\approx$}}1
+}
+
+\begin{tcolorbox}[breakable, colback=gray!4, colframe=gray!50,
+	boxrule=0.4pt, arc=2pt, fontupper=\small,
+	left=6pt, right=6pt, top=4pt, bottom=4pt]
+	Here's the test report transcribed as two tables plus a note on the curves, ready to drop into the \texttt{appendix:laser} section of \texttt{appendix\_E\_datasheets.tex}. The two plots can't be transcribed, so I've suggested keeping a cropped photo of them.
+	
+	\begin{lstlisting}[style=airesponse]
+		\section{DFB Laser Diode (BFLD-1550-20SM-FA2)}
+		\label{appendix:laser}
+		The laser diode was supplied with the manufacturer's test report reproduced below (serial number 2630553009, tested 21 August 2026). General specifications: operating temperature \SI{25}{\celsius} (15--\SI{35}{\celsius}); wavelength range $1550 \pm 2$\,nm; output power $\geq \SI{20}{\milli\watt}$; operating current $< \SI{100}{\milli\ampere}$; single-mode fibre pigtail with FC/APC connector; 14-pin butterfly package.
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{@{}llr@{}}
+				\toprule
+				\textbf{Parameter} & \textbf{Symbol} & \textbf{Measured value} \\
+				\midrule
+				Centre wavelength            & $\lambda_p$          & \SI{1550.13}{\nano\metre} \\
+				Operating current (at \SI{20}{\milli\watt}) & $I_o$ & \SI{58.07}{\milli\ampere} \\
+				Threshold current            & $I_{\mathrm{TH}}$    & \SI{4.86}{\milli\ampere} \\
+				Bias (forward) voltage       & $V_f$                & \SI{1.46}{\volt} \\
+				Monitor photodiode current   & $I_m$                & \SI{290}{\micro\ampere} \\
+				Side-mode suppression ratio  & SMSR                 & \SI{50.68}{\decibel} \\
+				TEC voltage                  & $V_{\mathrm{TEC}}$   & \SI{50}{\milli\volt} \\
+				TEC current                  & $I_{\mathrm{TEC}}$   & \SI{120}{\milli\ampere} \\
+				\bottomrule
+			\end{tabular}
+			\caption{Manufacturer test-report values for the BFLD-1550-20SM-FA2 laser diode (S/N 2630553009) at \SI{25}{\celsius}.}
+			\label{tab:laser-testreport}
+		\end{table}
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{@{}cl@{\qquad}cl@{}}
+				\toprule
+				\textbf{Pin} & \textbf{Function} & \textbf{Pin} & \textbf{Function} \\
+				\midrule
+				1 & TEC ($+$)                  & 14 & TEC ($-$) \\
+				2 & Thermistor                 & 13 & Case ground \\
+				3 & PD monitor anode ($-$)     & 12 & NC \\
+				4 & PD monitor cathode ($+$)   & 11 & Laser cathode ($-$) \\
+				5 & Thermistor                 & 10 & Laser anode ($+$) \\
+				6 & NC                         &  9 & NC \\
+				7 & NC                         &  8 & NC \\
+				\bottomrule
+			\end{tabular}
+			\caption{Pin definition of the 14-pin butterfly package (thermistor \SI{10}{\kilo\ohm}).}
+			\label{tab:laser-pins}
+		\end{table}
+		
+		The test report also gives the measured P--I--V curve and the optical spectrum (\SI{1500}{}--\SI{1600}{\nano\metre}), reproduced in \autoref{fig:laser-testreport-curves}. The P--I curve is linear above threshold at approximately \SI{0.35}{\milli\watt\per\milli\ampere}, giving roughly \SI{17}{\milli\watt} at the \SI{48}{\milli\ampere} operating point used in this project (\autoref{sec:testingA}).
+		
+		\begin{figure}[H]
+			\centering
+			% TODO: crop the two plots (PIV curve and optical mapping) from the photo of
+			% the test report and save as laser_testreport_curves.png
+			\includegraphics[width=0.9\linewidth]{laser_testreport_curves.png}
+			\caption{Manufacturer P--I--V curve (left) and optical spectrum (right) for the supplied diode, from the test report.}
+			\label{fig:laser-testreport-curves}
+		\end{figure}
+	\end{lstlisting}
+	
+
+\end{tcolorbox}
+
+This response was then checked against the original datasheet and added as part of the appendix. 
+
+\subsection{Improvements in clarity and conciseness}
+\subsubsection{Prompt}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot002}
+	\caption{Example prompt to improve clarity and conciseness of architecture decisions}
+	\label{fig:screenshot002}
+\end{figure}
+\subsubsection{Response}
+
+\begin{tcolorbox}[breakable, colback=gray!4, colframe=gray!50,
+	boxrule=0.4pt, arc=2pt, fontupper=\small,
+	left=6pt, right=6pt, top=4pt, bottom=4pt]
+	Here's the section as a single table in LaTeX, reusing your wording and citations throughout. It needs \texttt{tabularx} and \texttt{booktabs} in the preamble.
+	
+	\begin{lstlisting}[style=airesponse]
+		% Preamble: \usepackage{tabularx,booktabs}
+		% Optional: \newcolumntype{Y}{>{\raggedright\arraybackslash}X}  (stops wide word gaps in narrow columns)
+		
+		\section{System Architecture}
+		\label{sec:design-sysArch}
+		From the reviewed literature in \autoref{sec:litReview}, it was decided that an \textbf{all-fibre, coherent detection, continuous-wave, monostatic, homodyne} DWL system with \textbf{balanced detection} would be built, with sampling and digitisation handled by a benchtop oscilloscope, and post-processing done on a laptop computer. \autoref{tab:arch} summarises why each architectural choice was made with respect to the project goals, and the tradeoffs accepted.
+		
+		\begin{table}[htbp]
+			\centering
+			\small
+			\renewcommand{\arraystretch}{1.25}
+			\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.2cm} Y Y@{}}
+				\toprule
+				\textbf{Choice} & \textbf{Alternative} & \textbf{Reason for choice} & \textbf{Accepted tradeoff} \\
+				\midrule
+				Coherent detection & Direct detection &
+				Direct detection requires the Rayleigh/Mie scattering ratio and temperature, an absolutely stabilised laser, etalon control to 1\,mK, and very precise alignment and calibration \cite{korb_theory_1998,colberg_diode-laser-based_2026,werner_doppler_2005}, which are substantial challenges to an undergraduate project. Coherent detection is far more common in the literature, permits shot-noise-limited operation, and rejects unwanted light not mode-matched to the LO (e.g.\ other LiDAR systems, or the sun) \cite{hill_remote_nodate}. &
+				Cannot use molecular backscatter when aerosol backscatter is not available; irrelevant in an aerosol-rich, controlled lab environment. \\
+				\addlinespace
+				Homodyne & Heterodyne (AOM in LO or transmit arm) \cite{harris_role_1998,abdelazim_development_2015} &
+				Places the Doppler shift at baseband with no additional components; an AOM adds needless complexity and cost to a budget-constrained project. &
+				Only the velocity \emph{magnitude} is measured (\autoref{sec:lit-homohetero}); acceptable as the flow direction will always be known. An AOM can be added in a future iteration without redesign. \\
+				\addlinespace
+				Balanced detection & Single-ended detection &
+				3\,dB SNR improvement in shot-noise-limited operation (\autoref{sec:lit-BalancedDetection}), and RIN is largely cancelled, allowing the system to better approach the shot-noise limit (Appendix~\ref{appendix:RIN}). &
+				-- \\
+				\addlinespace
+				Monostatic optics & Bistatic optics &
+				A single aperture serves both transmit and receive, separated by a fibre circulator; avoids the greatly increased alignment complexity, and cost of a second set of optics and alignment equipment \cite{cariou2006laser,harris_role_1998,bennett_doppler_2003}. &
+				Back-reflections from the transmit path reach the detector and raise the noise floor through PIIN (\autoref{sec:lit-linewidth}). \\
+				\addlinespace
+				Continuous wave & Pulsed &
+				Needs no pulse or receive timing, which simplifies design and reduces costs, and is more effective at the short ranges (tens of cm to 1--2\,m) of a benchtop system, as pulsed systems are ineffective below tens of metres \cite{hill_remote_nodate}. &
+				Reduced spatial resolution at long ranges, as resolution is defined by focus rather than gating (\autoref{sec:lit-pulsedCW}); irrelevant at benchtop range. \\
+				\addlinespace
+				All-fibre, non-PM & Free-space; PM fibre &
+				Single-mode fibre makes LO--return mode-matching automatic, removes free-space alignment complexities, and gives access to widely and cheaply available telecom components \cite{bennett_doppler_2003,abari_all-fiber_2014,abdelazim_development_2015}. Non-PM fibre is used owing to cost. &
+				LO and return polarisation is not fixed, reducing the heterodyne efficiency and the measurable Doppler peak \cite{cariou2006laser}. \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Architectural choices, with reasons and accepted tradeoffs, as synthesised from the literature in \autoref{sec:litReview}. PM: polarisation-maintaining.}
+			\label{tab:arch}
+		\end{table}
+	\end{lstlisting}
+	
+	A few notes:
+	\begin{itemize}
+		\item \textbf{Homodyne in the opening sentence:} I added it to the bolded list. That isn't new information, since the section already concluded homodyne, but it was missing from the original list.
+		\item \textbf{Balanced detection trade-off:} your text didn't give one, so the cell is a dash rather than something I made up.
+		\item \textbf{Removed subsection labels:} the ``Coherent detection'' subsection reused \texttt{sec:design-sysArch}, which clashed with the section's own label. It's gone now. If anything else in the report referenced the deleted subsections, for example the \texttt{??} in \S3.4.5 pointing to CW, change those references to \texttt{\textbackslash autoref\{tab:arch\}}.
+		\item \textbf{Length:} this should come out at about two-thirds of a page, compared with roughly 2.5 pages before.
+	\end{itemize}
+\end{tcolorbox}
+
+Initially, \autoref{tab:arch} was written as prose over 3 - 4 pages. This response was then used so as to reduce it to a single page table, maintaining my own wording used in the section originally. The table was checked against the writing originally used, and was then inserted into the report.
+
+\section{Conceptual understanding}
+An artificial intelligence model was used to assist in conceptual understanding of design considerations and results of the testing. The model was given access to all of the research papers in the literature review, as well as a document detailing my testing plans and work so far. All responses were checked against the relevant sources which they cite for correctness. An example of a prompt used for this, and the response is given below.
+
+\subsection{Conceptual understanding of PIIN}
+
+\subsubsection{Prompt}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot003}
+	\caption{Example prompt used to assist in conceptual understanding of PIIN and PIIN roll-off}
+	\label{fig:screenshot003}
+\end{figure}
+
+\subsubsection{Response}
+
+\begin{tcolorbox}[breakable, colback=gray!4, colframe=gray!50,
+	boxrule=0.4pt, arc=2pt, fontupper=\small,
+	left=6pt, right=6pt, top=4pt, bottom=4pt]
+	Let me check what Harris et al.\ and Jiang et al.\ say about the spectral shape before answering.
+	
+	\textit{[Searches the Harris et al.\ (1998) paper for its discussion of delay, coherence and spurious reflections, and reads Section~5.]}
+	
+	Yes. Harris et al.\ (1998), your coherence-length paper, covers this almost exactly in its Section~5, ``Excess local oscillator noise''. Jiang et al.\ (2019) supports it. The roll-off doesn't come from the laser linewidth. It comes from the \textbf{delay between the LO and the reflected light}, and its frequency tells you how long that delay is.
+	
+	\subsubsection*{What Harris says}
+	\begin{itemize}
+		\item In a monostatic fibre lidar, weak reflections ``from within the coupler and from fibre connectors'' interfere with the LO. Because they travel different distances, ``this gives rise to delayed self-heterodyne spectra'', and the noise floor ``has essentially the same origin as the incoherent component in the delayed self-heterodyne spectra'' of their Section~3.
+		\item The broadband part of that spectrum has ``ripples\ldots{} separated by the inverse of the delay time'', and ``the relative distances can be inferred from the shape of the spectra''. In other words, the shape of the spectrum encodes the path mismatch.
+		\item For delays much shorter than the coherence length, the low-frequency excess noise scales with the \textbf{square of the fibre-path mismatch} and inversely with the coherence length (their Eqs.~3--5). Adding 4\,m of fibre made the excess noise rise ``dramatically''.
+		\item They saw excess LO noise 5--30\,dB above shot noise that was ``extremely unstable and very sensitive to small disturbances of the optical fibres''. That describes your 4-capture spread.
+	\end{itemize}
+	
+	Jiang et al.\ add the observation that PIIN is strongest near zero frequency and can sit orders of magnitude above shot noise. That is qualitatively what your plot shows: a flat region at low frequency that is well above the A2 floor.
+	
+	\subsubsection*{The mechanism, and why the roll-off appears where it does}
+	The reflection interferes with the LO at a slowly drifting static phase $\varphi_0$. The laser's phase noise over the delay $\tau$, $\Delta\varphi(t) = \varphi(t) - \varphi(t-\tau)$, turns into intensity noise. For a laser with a Lorentzian linewidth $\Delta\nu$ and $\tau$ much shorter than the coherence time:
+	\[
+	S_{\mathrm{PIIN}}(f) \propto P_{\mathrm{LO}}\,P_r\,\sin^2\!\varphi_0\,\Delta\nu\,\frac{\sin^2(\pi f\tau)}{f^2}
+	= S_{\mathrm{PIIN}}(0)\,\mathrm{sinc}^2(f\tau),
+	\qquad S_{\mathrm{PIIN}}(0) \propto \Delta\nu\,\tau^2
+	\]
+	\begin{itemize}
+		\item It is \textbf{flat} at low frequencies, starts to fall above about $1/(4\tau)$, is \textbf{3\,dB down at about $0.44/\tau$}, and has its first null at $\mathbf{1/\tau}$. The nulls are Harris's ``ripples''.
+		\item The $\Delta\nu\,\tau^2$ factor is Harris's ``$\propto$ (fibre length)$^2$ / coherence length''.
+		\item It is \textbf{not} a Lorentzian with a 2\,MHz width. That shape only applies when $\tau$ is much longer than the coherence time, and here $\tau_c = 1/(\pi\Delta\nu) \approx 160$\,ns, or about 33\,m of fibre. Your flat region extends well past 2\,MHz, which confirms you're in the short-delay regime Harris describes.
+	\end{itemize}
+	
+	\subsubsection*{What your curve implies}
+	I read your plot approximately. I removed the A2 floor in power and normalised by the A2 shot-noise excess, which is white at the diode, so dividing by it cancels the detector's gain peaking and the scope's roll-off. The PIIN then falls by about $-2.3$\,dB at 20\,MHz, $-6.6$\,dB at 40\,MHz and $-12$\,dB at 60\,MHz. A sinc$^2$ fit to those points gives $\boldsymbol{\tau \approx 13\text{--}20}$\,\textbf{ns}, which is a path mismatch of about \textbf{3--4\,m of fibre} (at 0.204\,m per ns). That's plausible given the circulator pigtails, the collimator patch cord and the coupler leads. The spread in the fitted $\tau$ across frequency suggests that several reflections with different delays are contributing, which Harris also describes.
+	
+	This gives you a good check for the report. Add up the fibre lengths from the splitter to the coupler along the LO path, and along the path through the circulator to the collimator and back. Their difference should give $\tau$, and its sinc$^2$ prediction should match the measured roll-off. Worth remembering: the 10\,cm of free space to your matte surface adds only about 0.7\,ns, so the delay is dominated by fibre.
+	
+	\subsubsection*{Why the 4 captures differ so much}
+	The $\sin^2\varphi_0$ term explains it. The interferometric phase between the LO and the reflection wanders with temperature and with fibre movement. Near quadrature ($\varphi_0 = 90^\circ$) PIIN is at its maximum; near $\varphi_0 = 0$ it almost vanishes. Your min--max band is about $2\times$ in voltage (6\,dB in power) at low frequency and keeps the same shape across frequency. That is what a phase factor would do: change the amplitude and leave the shape alone. (Harris's lidar used an 80\,MHz frequency offset, which averages this phase out; your homodyne system doesn't, which is why yours fluctuates.)
+	
+	For the analysis:
+	\begin{itemize}
+		\item \textbf{Four captures are too few} to average over a random $\sin^2\varphi_0$. Take 20--50 captures spread over several minutes. Report the \textbf{mean} (which tends to half the maximum) as typical performance, and the \textbf{maximum} as the worst case (quadrature).
+		\item \textbf{Fit the shape rather than the level.} Normalise each capture by its own low-frequency value; the curves should collapse onto one sinc$^2$, and $\tau$ is the robust result.
+		\item \textbf{Check which reflection dominates} with the B0--B3 breakdown from before. Note that $S_{\mathrm{PIIN}}(0)$ scales with $\tau^2$, so a reflection at the end of a long fibre path matters far more than an equally strong one close to the coupler.
+	\end{itemize}
+\end{tcolorbox}
+ 
+ \section{Data acquisition and processing scripts}
+ An artificial intelligence model was used for assistance in writing Python scripts for data acquisition and subsequent processing of that data. Examples of prompts given and responses to those prompts are given below.
+ 
+ \subsection{Plotting of PIIN results}
+ \subsubsection{Prompt}
+ 
+ \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{screenshot004}
+ 	\caption{Example prompt given to generate plots for PIIN test results from raw data}
+ 	\label{fig:screenshot004}
+ \end{figure}
+ 
+ \subsubsection{Response}
+ \begin{tcolorbox}[breakable, colback=gray!4, colframe=gray!50,
+ 	boxrule=0.4pt, arc=2pt, fontupper=\small,
+ 	left=6pt, right=6pt, top=4pt, bottom=4pt]
+ 	\textit{[Lists the project files and the most recent captures, and searches for the plotting script.]}
+ 	
+ 	\textit{[Reads \texttt{psd\_piin.py} and the metadata of one PIIN run, then checks the A1 and A2 capture settings and the loader and Welch code.]}
+ 	
+ 	\textit{[Loads its plotting guidelines and reads the reference colour palette.]}
+ 	
+ 	Checking the run data for outliers, then extending \texttt{psd\_piin.py} to plot several series.
+ 	
+ 	\textit{[Computes the 5--20\,MHz band level, clipping, interruption flag, scope scale and laser current for each of the 40 runs.]}
+ 	
+ 	All 40 runs are clean (no clipping, none interrupted, all at 48\,mA). Now generalising \texttt{psd\_piin.py} to take several series.
+ 	
+ 	\textit{[Checks that \texttt{psd\_piin.py} has no uncommitted changes, then rewrites it to accept several series.]}
+ 	
+ 	\textit{[Runs the original single-series plot as a regression check, and the new overlay plot. Both fail on a file with no raw records.]}
+ 	
+ 	The data folder now has non-capture \texttt{.npz} files (the \texttt{*\_stack.npz}) that the loader trips on --- a pre-existing issue. I'll filter on the filename tag before loading, which also skips loading hundreds of unrelated captures.
+ 	
+ 	\textit{[Edits the file selection, reruns both plots, and views the resulting figure.]}
+ 	
+ 	I averaged each set of 10 runs and plotted all four on one figure, with the laser-off electronic floor (A1) and the A2 shot noise (balanced, 48\,mA) underneath: \texttt{figures/psd\_piin\_lengths.png}.
+ 	
+ 	\textit{[Embeds the figure.]}
+ 	
+ 	I found \texttt{psd\_piin.py} (the ``piin\_plot'' script); it only handled one series, so I extended it rather than writing a new script. Run this to regenerate the figure:
+ 	
+ 	\texttt{python psd\_piin.py --series PIIN\_ref PIIN\_2m PIIN\_3m PIIN\_4m --label ref 2m 3m 4m --ref-label "A2 shot noise (balanced, 48 mA)" --out figures/psd\_piin\_lengths.png}
+ 	
+ 	\textbf{Changes to \texttt{psd\_piin.py}:}
+ 	\begin{itemize}
+ 		\item \textbf{Several series:} \texttt{--series} and \texttt{--label} now take one entry per series. Each series gets its own mean curve, a light min-max band showing the spread between runs (\texttt{--no-spread} turns the bands off), and its own printed statistics.
+ 		\item \textbf{\texttt{--ref-label}:} sets the legend text for the A2 curve.
+ 		\item \textbf{Crash fix:} the script crashed on the \texttt{*\_stack.npz} files now in \texttt{data/}, because they hold no raw records. It now picks files by the tag in the filename before loading them, which also means it doesn't load every unrelated capture. The original \texttt{python psd\_piin.py} still runs; its numbers are below and the figure is in the scratchpad.
+ 	\end{itemize}
+ 	
+ 	\textbf{Data checks:} all 40 runs are clean, with no clipping, none interrupted, and all at 48\,mA. Two filenames are mislabelled: \texttt{PIIN\_ref6} appears twice with no \texttt{ref7}, and \texttt{PIIN\_4m\_1} appears twice with no \texttt{4m\_2}. Each set still has 10 runs, and all were included.
+ 	
+ 	\textbf{Results in the 5--20\,MHz band:}
+ 	
+ 	\begin{center}
+ 		\begin{tabular}{lrrr}
+ 			\hline
+ 			Series & Amplitude (nV/$\sqrt{\mathrm{Hz}}$) & Power vs A2 & Spread between runs (1 SD) \\
+ 			\hline
+ 			A1 floor      & 284  & ---            & ---           \\
+ 			A2 shot noise & 728  & 1$\times$      & ---           \\
+ 			ref           & 9247 & 161$\times$    & $\pm$30\%     \\
+ 			2m            & 5279 & 53$\times$     & $\pm$14\%     \\
+ 			3m            & 4288 & 35$\times$     & $\pm$17\%     \\
+ 			4m            & 1407 & 3.7$\times$    & $\pm$28\%     \\
+ 			\hline
+ 		\end{tabular}
+ 	\end{center}
+ 	
+ 	Two things stand out:
+ 	\begin{itemize}
+ 		\item \textbf{4m:} it is far lower than 3m, close to the shot-noise level. That's a much bigger step than 2m$\rightarrow$3m.
+ 		\item \textbf{ref:} it is the only curve that falls off sharply above about 25\,MHz, down to around the 2m/3m level near 45\,MHz.
+ 	\end{itemize}
+ 	
+ 	Both may come from the setup rather than the analysis, so they're worth checking before you write them up. Nothing is committed.
+ \end{tcolorbox}
+ 
+ The plots generated here were then checked against the raw data obtained and were used in the report. 
+ 
+ \subsection{Windtunnel data acquisition script}
+ \subsubsection{Prompt}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot005}
+	\caption{Example prompt for generating an acquisition script for acquiring oscilloscope data for wind-tunnel testing}
+	\label{fig:screenshot005}
+\end{figure}
+
+ \subsubsection{Response}
+ \begin{tcolorbox}[breakable, colback=gray!4, colframe=gray!50,
+ 	boxrule=0.4pt, arc=2pt, fontupper=\small,
+ 	left=6pt, right=6pt, top=4pt, bottom=4pt]
+ 	\textit{[Reads the acquisition script and its configuration file, and checks the PSD output format of \texttt{run\_welch.py}.]}
+ 	
+ 	\textit{[Writes \texttt{acquire\_windtunnel.py}.]}
+ 	
+ 	I'll swap that hand-rolled \texttt{--config} lookup for a small parser, then test it.
+ 	
+ 	\textit{[Edits the argument handling, then tests the PSD-only path on an existing capture with a reference.]}
+ 	
+ 	\textit{[Removes the test outputs and runs the full flow with a simulated scope.]}
+ 	
+ 	The test caught a real bug. argparse treats \texttt{--n} as an abbreviation of \texttt{--nperseg}/\texttt{--no-psd}, so \texttt{--n 50} would never reach \texttt{Acquisition.py}. The fix is to turn off abbreviation matching.
+ 	
+ 	\textit{[Disables abbreviation matching and reruns the simulated full flow.]}
+ 	
+ 	\textit{[Changes the script to save only the averaged PSD, then rechecks the file size and the \texttt{--dry-run} path.]}
+ 	
+ 	The PSD file is now 63\,kB instead of 47\,MB, and \texttt{--dry-run} correctly saves nothing and skips the PSD. Checking the plot:
+ 	
+ 	\textit{[Views the test plot.]}
+ 	
+ 	I've written \texttt{acquire\_windtunnel.py}, which captures 1000 records and then automatically makes the PSD and plot. I couldn't test it on the scope itself; I ran it end to end with a simulated scope instead.
+ 	
+ 	\texttt{python acquire\_windtunnel.py --tag WT\_noflow}\\
+ 	\texttt{python acquire\_windtunnel.py --tag WT\_10mps --ref WT\_noflow --note "fan 40 \%"}
+ 	
+ 	\textbf{How it works}
+ 	\begin{itemize}
+ 		\item \textbf{Capture:} it calls \texttt{Acquisition.py} unchanged, so the scope setup, \texttt{daq\_config.yaml}, the \texttt{.npz}/\texttt{.json} files and the progress output are all the same. The only difference is that the record count defaults to 1000. All \texttt{Acquisition.py} options still work (\texttt{--tag}, \texttt{--note}, \texttt{--dry-run}, \texttt{--no-configure}, \texttt{--list}), and \texttt{--n} still overrides the 1000. Ctrl-C still stops early and saves; the PSD is then computed from whatever records were captured.
+ 		\item \textbf{PSD:} it uses the same method as \texttt{psd\_rpm.py}: Welch with a Hann window and 50\,\% overlap, each record transformed separately, averaged in V$^2$/Hz, with \texttt{nperseg} 12500 (10\,kHz bins). 1000 records give 3000 averages, so the curve scatters about 0.08\,dB per bin, against 0.24\,dB at 100 records.
+ 		\item \textbf{Plot:} it's styled like the per-RPM plots: log-log in nV/$\sqrt{\mathrm{Hz}}$, with a dashed reference line if you pass \texttt{--ref} (it uses the most recent capture with that tag). It's saved next to the capture as \texttt{<stem>\_psd.png}, along with \texttt{<stem>\_psd.npz} holding the frequencies, the PSD, the sample rate and the settings used.
+ 		\item \textbf{Re-plotting:} if the PSD step ever fails, the capture is still saved. You can redo the PSD on any file with \texttt{python acquire\_windtunnel.py --psd data/<file>.npz --ref WT\_noflow}.
+ 	\end{itemize}
+ 	
+ 	\textbf{Differences from \texttt{run\_welch.py}}
+ 	\begin{itemize}
+ 		\item \textbf{Chunked PSD:} it's computed 100 records at a time, because all 1000 at once would need about 1\,GB of RAM. The result is identical.
+ 		\item \textbf{No per-record PSDs saved:} at 1000 records they made the file 47\,MB, bigger than the raw capture. Without them it's 63\,kB, and they can be recomputed from the raw file.
+ 	\end{itemize}
+ 	
+ 	\textbf{Test results with the simulated scope}
+ 	\begin{itemize}
+ 		\item The full run (capture, save, PSD, reference overlay, plot) worked. A simulated 20\,mV rms of noise plus a 4\,mV tone came out at the expected total.
+ 		\item \texttt{--dry-run} saves nothing and skips the PSD, as before.
+ 		\item I fixed one bug the test found: \texttt{--n 50} was being read as the new script's \texttt{--nperseg} instead of reaching \texttt{Acquisition.py}.
+ 		\item One test run wrote two files into your real \texttt{data/} folder; I deleted them straight away. The other test files are only in the scratchpad.
+ 	\end{itemize}
+ 	
+ 	Each run will take about 100\,s and write about 42\,MB of raw data.
+ 	
+ 	\textbf{Check the Doppler frequency range before you start:} at 1550\,nm the shift is 1.29\,MHz per m/s along the beam. In the RPM data the detector starts rolling off around 20\,MHz, so flows above about 15\,m/s along the beam will fall into the roll-off. A beam angle to the flow lowers the shift.
+ \end{tcolorbox}
+ 
+ The script generated by the response was then modified, e.g. to only use 500 records rather than 1000, and to use nperseg = 2500 instead of 12 500. The script's functionality was verified by testing the acquisition of a ground-truth signal from a function generator and verifying the correct output, and was thereafter used in data acquisition in the wind-tunnel testing phase. 
