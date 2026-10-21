@@ -2,7 +2,7 @@
 \label{sec:noiseAnalysis}
 
  \section{Introduction}
- This chapter gives a comprehensive account of the testing which was done on the completed DWL system to account for the various sources of noise. The purpose of the noise analysis is to quantify the noise observed in the system and attribute it to the appropriate sources, while investigating how component, architecture, and operating point choice affects this. This chapter is separate from the functional testing of \autoref{sec:functionalAnalysis}, as the experimental setup differs significantly, and the results from these experiments will indeed be used to inform the expected results of the experiments in \autoref{sec:functionalAnalysis}, and to construct an optimal experimental setup in those cases.
+ This chapter gives a comprehensive account of the testing which was done on the completed DWL system to account for the various sources of noise. The purpose of the noise analysis is to quantify the noise observed in the system and attribute it to the appropriate sources, while investigating how component, architecture, and operating point choice affects this. This chapter is separate from the functional testing of \autoref{sec:functionalTesting}, as the experimental setup differs significantly, and the results from these experiments will indeed be used to inform the expected results of the experiments in \autoref{sec:functionalTesting}, and to construct an optimal experimental setup in those cases.
 
  \section{A: Electronic and Shot Noise}
  
@@ -176,7 +176,7 @@ Using the PD100B detector's gain value of 39kV/A, this can be converted into an 
     I_{input} = \frac{8.06\times 10^{-14}V^2/Hz}{(39kV/A)^2}=7.28pA/\sqrt{Hz}
 \end{equation}
 
-Input noise current density can be seen as the equivalent of injecting this noise current at the detector input. The calculated average of $7.28pA/\sqrt{Hz}$ across 5 - 20MHz agrees closely with the PD100B's datasheet value of $8pA/\sqrt{Hz}$, measured at 10MHz \cite{Koheron PD100B}. Thus, this level of electronic noise is expected, and the measurement and post processing chain is validated. 
+Input noise current density can be seen as the equivalent of injecting this noise current at the detector input. The calculated average of $7.28pA/\sqrt{Hz}$ across 5 - 20MHz agrees closely with the PD100B's datasheet value of $8pA/\sqrt{Hz}$, measured at 10MHz (Appendix \ref{appendix:pd100b}). Thus, this level of electronic noise is expected, and the measurement and post processing chain is validated. 
 
 In order to achieve shot-noise limited operation, the average PSD of the shot-noise over this region must thus be $\gg8.06\times 10^{-14}V^2/Hz$.
 
@@ -186,11 +186,11 @@ In order to achieve shot-noise limited operation, the average PSD of the shot-no
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{"../Data Acquisition/figures/psd_overlay"}
-	\caption{PSD of total noise (shot, electronic and relative intensity noise) for different laser source currents}
+	\caption{PSD of total noise (shot and electronic) for different laser source currents}
 	\label{fig:A2PSD}
 \end{figure}
 
-It can be seen that the total noise increases with increased laser current - this is expected, due to the linear relationship between shot noise and LO power (which is related to laser current which is varied here). In order to compare the PSDs for the various laser currents, the average PSD across the 5 - 20MHz range can again be taken here, for each laser current. \autoref{fig:A2PSDvsCurrent} gives these averages plotted against laser current (table of results in Appendix \ref{appendix:shotTable}):
+It can be seen that the total noise increases with increased laser current - this is expected, due to the linear relationship between shot noise and LO power (which is related to laser current which is varied here). In order to compare the PSDs for the various laser currents, the average PSD across the 5 - 20MHz range can again be taken here, for each laser current. \autoref{fig:A2PSDvsCurrent} gives these averages plotted against laser current (table of results in Appendix \ref{appendix:A2Table}):
 
 \begin{figure}[H]
     \centering
@@ -231,10 +231,10 @@ Substituting the obtained electronic noise floor obtained in A1 into \autoref{eq
 
 Noting that \autoref{fig:A2PSD} and \autoref{fig:A2PSDvsCurrent} both give the \textbf{total} detector noise floor (shot \textbf{and} electronic noise), we require the total noise to be above $3.906 \times 10^{-13}V^2/Hz$ to give a shot noise value of $3.1 \times 10^{-13}V^2/Hz$. This can be seen to be reached at a laser current of approximately 32mA. Above 32mA, the total detector noise floor is within 1dB of the ideal shot-noise limit, and the ideal shot-noise limit is further approached as the current is increased. 
 
-From this, it can be seen that an operating current of 48mA for the laser allows P1 in \autoref{tab:requirements} to be met with the highest margin, giving a shot noise value of $4.49\times 10^{-13}V^2/Hz$, and a total combined noise of $5.29\times 10^{-13}V^2/Hz$, and this will thus be used as the laser current for the remainder of this project. While a higher laser current still may be used, to even further approach the ideal shot-noise limit, this risks saturating the detector. The detector has a maximum incident power rating of 1.5mW on each photodiode \cite{detector  datasheet}. From the laser datasheet \cite{laser datasheet}, a current of 48mA gives approximately 17mW at the laser output, which will result in approximately 0.85mW at each detector from the LO alone. This allows the detector to thus remain comfortably far away from its saturation point, even if returned signal is high and results in a higher incident power at the photodiode after mixing with the LO. 
+From this, it can be seen that an operating current of 48mA for the laser allows P1 in \autoref{tab:requirements} to be met with the highest margin, giving a shot noise value of $4.49\times 10^{-13}V^2/Hz$, and a total combined noise of $5.29\times 10^{-13}V^2/Hz$, and this will thus be used as the laser current for the remainder of this project. While a higher laser current still may be used, to even further approach the ideal shot-noise limit, this risks saturating the detector. The detector has a maximum incident power rating of 1.5mW on each photodiode (Appendix \ref{appendix:pd100b}). From the laser datasheet (Appendix \ref{appendix:laser}), a current of 48mA gives approximately 17mW at the laser output, which will result in approximately 0.85mW at each detector from the LO alone. This allows the detector to thus remain comfortably far away from its saturation point, even if returned signal is high and results in a higher incident power at the photodiode after mixing with the LO. 
 
 \subsubsection{A3: Relative Intensity Noise}
-Experiment A3 serves only for completeness, to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. It was found that only \SI{0.6125}{\decibel} of excess RIN was present at the \SI{48}{\milli\ampere} operating point, which balanced detection then cancelled. This low level is consistent with the choice of a DFB diode (\autoref{sec:design-laserSelection}), whose relaxation-oscillation peak lies far above the 5--\SI{20}{\mega\hertz} measurement band, and confirms that RIN is not a significant noise source in this system; PIIN, discussed next, is. See Appendix~\ref{appendix:RINValidation} for the full results and discussion of this supplementary experiment.
+Experiment A3 serves only for completeness, to illustrate the effectiveness of balanced detection in removing relative intensity noise at the detector output. It was found that only \SI{0.79}{\decibel} of excess RIN was present at the \SI{48}{\milli\ampere} operating point, which balanced detection then cancelled. This low level is consistent with the choice of a DFB diode (\autoref{sec:design-ComponentChoices}), whose relaxation-oscillation peak lies far above the 5--\SI{20}{\mega\hertz} measurement band, and confirms that RIN is not a significant noise source in this system; PIIN, discussed next, is. See Appendix~\ref{appendix:RINValidation} for the full results and discussion of this supplementary experiment.
 
 \section{B: Phase-induced Intensity Noise}
 \label{sec:PIINTesting}
@@ -291,15 +291,13 @@ The total noise was found to be significantly above that measured in A2, owing t
 \end{figure}
 
 
-As expected from the theory of Harris et al. and Jiang et al. \cite{harris_role_1998} \cite{jiang_performance_2019}, PIIN varied significantly, even between measurements with the same setup. It can also be observed that the shape of the PIIN corresponds to the $L_c \gg \Delta L$ regime described in Appendix~\ref{app:linewidth}, as it is a flat floor and does not contain a Lorentzian peak at baseband.
+As expected from the theory of Harris et al. and Jiang et al. \cite{harris_role_1998} \cite{jiang_performance_2019}, PIIN varied significantly, even between measurements with the same setup. It can also be observed that the shape of the PIIN corresponds to the $L_c \gg \Delta L$ regime described in Appendix \ref{appendix:PIIN}, as it is a flat floor and does not contain a Lorentzian peak at baseband.
 
-It was found that increasing the patch cable length (and thus increasing the fibre path matching) significantly reduced the total noise, with the PIIN reduction loosely matching the $\Delta L^2$ dependence identified by Harris et al. \cite{harris1998}. The 4m patch cable gave a remarkable 17.7dB reduction in PIIN, bringing the total noise to just 5.7dB above shot noise. While the system is still PIIN-limited, it is far closer to the ideal shot-noise limit, and this gain in sensitivity is what made the wind-speed measurements of Experiment D possible. The 4m patch cable is therefore kept in the system for all results reported in \autoref{sec:functionalTesting}.
+It was found that increasing the patch cable length (and thus increasing the fibre path matching) significantly reduced the total noise, with the PIIN reduction loosely matching the $\Delta L^2$ dependence identified by Harris et al. \cite{harris_role_1998}. The 4m patch cable gave a remarkable 17.7dB reduction in PIIN, bringing the total noise to just 5.7dB above shot noise. While the system is still PIIN-limited, it is far closer to the ideal shot-noise limit, and this gain in sensitivity is what made the wind-speed measurements of Experiment D possible. The 4m patch cable is therefore kept in the system for all results reported in \autoref{sec:functionalTesting}.
 
 Further reduction through path matching alone is limited, since the PIIN
 arises from several reflections at different points in the transmit path,
-and a single LO patch cable can match the path length of only one of these;
-the shortfall of the measured reduction relative to the predicted
-\SI{26.4}{dB} for the \SI{4}{m} cable is consistent with this. In the $L_c \gg \Delta L$ regime observed
+and a single LO patch cable can match the path length of only one of these; resulting in there still being some residual PIIN. In the $L_c \gg \Delta L$ regime observed
 here, the PIIN level is also however proportional to the laser linewidth $\Delta f$
 (Appendix \ref{appendix:PIIN}) \cite{harris_role_1998}. Thus, replacing the
 \SI{2}{MHz} DFB with a \SI{100}{kHz} source (for example an external-cavity

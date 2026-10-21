@@ -29,16 +29,21 @@ Tony~L. Burton, Nick Jenkins, Ervin Bossanyi, David Sharpe, and Michael Graham.
 \newblock {\em Wind Energy Handbook}.
 \newblock John Wiley \& Sons, Chichester, UK, 3rd edition, 2021.
 
-\bibitem{cariou_leosphere_nodate}
-Jean-Pierre Cariou.
-\newblock {LEOSPHERE} {Pulsed} {Lidar} {Principles}.
-
 \bibitem{cariou2006laser}
 Jean-Pierre Cariou, B{\'e}atrice Augere, and Matthieu Valla.
 \newblock Laser source requirements for coherent lidars based on fiber
   technology.
 \newblock {\em Comptes Rendus Physique}, 7(2):213--223, March 2006.
 \newblock High power fiber lasers and amplifiers.
+
+\bibitem{cariou_leosphere_nodate}
+Jean-Pierre Cariou and Matthieu Boquet.
+\newblock {LEOSPHERE} pulsed lidar principles: Contribution to {UpWind} {WP6}
+  on remote sensing devices.
+\newblock Technical report, LEOSPHERE, Orsay, France, 2010.
+\newblock Project {UpWind} WP6 deliverable 6.1.1; undated, internal references
+  indicate 2010. \url{https://www.upwind.eu/images/d6.1.1.pdf}, accessed 21
+  October 2026.
 
 \bibitem{colberg_diode-laser-based_2026}
 Luke Colberg, Dylan~J. Maxwell, and Kevin~S. Repasky.
@@ -59,7 +64,14 @@ Christian Doppler.
 {Global Wind Energy Council}.
 \newblock Global wind report 2026.
 \newblock Technical report, Global Wind Energy Council, April 2026.
-\newblock Accessed DD Month 2026.
+\newblock Accessed 03/09/2026.
+
+\bibitem{gwinner2024}
+Stephen Gwinner.
+\newblock Laser diode driver basics and circuit design fundamentals.
+\newblock LaserDiodeControl.com (Laser Lab Source Group), Tech Note, August
+  2024.
+\newblock Updated 5 August 2024. Accessed: 10 October 2026.
 
 \bibitem{harris_role_1998}
 M.~Harris, G.~N. Pearson, J.~M. Vaughan, D.~Letalick, and C.~Karlsson.
@@ -67,35 +79,24 @@ M.~Harris, G.~N. Pearson, J.~M. Vaughan, D.~Letalick, and C.~Karlsson.
   radar.
 \newblock {\em Journal of Modern Optics}, 45(8):1567--1581, August 1998.
 
-\bibitem{harris2006}
-Michael Harris, Maureen~M. Hand, and Alan~D. Wright.
-\newblock Lidar for turbine control.
-\newblock Technical Report NREL/TP-500-39154, National Renewable Energy
-  Laboratory, Golden, CO, January 2006.
-
 \bibitem{hill_remote_nodate}
-Chris Hill.
-\newblock Remote {Sensing} ({UpWind} {WP6}) {QinetiQ} {Lidar} {Measurement}
-  {Report}.
-
-\bibitem{iec61400-50-3}
-{International Electrotechnical Commission}.
-\newblock Wind energy generation systems -- part 50-3: Use of nacelle-mounted
-  lidars for wind measurements.
-\newblock International Standard IEC 61400-50-3:2022, International
-  Electrotechnical Commission, Geneva, January 2022.
-\newblock Edition 1.0.
+Chris Hill and Michael Harris.
+\newblock Remote sensing ({UpWind} {WP6}): {QinetiQ} lidar measurement report.
+\newblock Technical Report QINETIQ/TS/FPPS/TR0900813, QinetiQ, Malvern, UK,
+  September 2010.
+\newblock Project {UpWind} deliverable 6.1.1, EC contract 019945 (SES6).
+  \url{https://www.upwind.eu/images/d6.1.1-b.pdf}, accessed 21 October 2026.
 
 \bibitem{jiang_performance_2019}
 Shan Jiang, Dongsong Sun, Yuli Han, Fei Han, Anran Zhou, and Jun Zheng.
-\newblock Performance of continuous-wave coherent doppler lidar for wind
+\newblock Performance of continuous-wave coherent {Doppler} lidar for wind
   measurement.
-\newblock {\em Current Optics and Photonics}, 3(5):466--472, oct 2019.
+\newblock {\em Current Optics and Photonics}, 3(5):466--472, October 2019.
 
 \bibitem{kikuchi_fundamentals_2016}
 Kazuro Kikuchi.
 \newblock Fundamentals of coherent optical fiber communications.
-\newblock {\em Journal of Lightwave Technology}, 34(1):157--179, jan 2016.
+\newblock {\em Journal of Lightwave Technology}, 34(1):157--179, January 2016.
 \newblock Tutorial Review.
 
 \bibitem{korb_theory_1998}
@@ -155,7 +156,7 @@ Paul Veers, Katherine Dykes, Eric Lantz, Stephan Barth, Carlo~L. Bottasso, Ola
 \newblock {\em Science}, 366(6464):eaau2027, October 2019.
 
 \bibitem{wagner_power_2014}
-R.~Wagner, T.f. Pedersen, M.~Courtney, I.~Antoniou, S.~Davoust, and R.l.
+R.~Wagner, T.F. Pedersen, M.~Courtney, I.~Antoniou, S.~Davoust, and R.L.
   Rivera.
 \newblock Power curve measurement with a nacelle mounted lidar.
 \newblock {\em Wind Energy}, 17(9):1441--1453, 2014.

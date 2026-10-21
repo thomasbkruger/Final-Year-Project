@@ -25,17 +25,19 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {D.1}{\ignorespaces Noise and practical notes for the laser source classes compared in \autoref {tab:design-laser-sources}.}}{63}{table.caption.47}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {E.1}{\ignorespaces Manufacturer test-report values for the BFLD-1550-20SM-FA2 laser diode (S/N 2630553009) at \SI {25}{\celsius }.}}{64}{table.caption.48}%
-\contentsline {table}{\numberline {E.2}{\ignorespaces Pin definition of the 14-pin butterfly package (thermistor \SI {10}{\kilo \ohm }).}}{65}{table.caption.49}%
-\contentsline {table}{\numberline {E.3}{\ignorespaces Key specifications of the Koheron DRV200S-A-200 laser diode driver.}}{66}{table.caption.51}%
-\contentsline {table}{\numberline {E.4}{\ignorespaces Key specifications of the Koheron TEC100L-50 temperature controller.}}{66}{table.caption.52}%
-\contentsline {table}{\numberline {E.5}{\ignorespaces Key specifications of the Koheron PD100B-AC balanced photodetector.}}{67}{table.caption.53}%
+\contentsline {table}{\numberline {E.1}{\ignorespaces Approximate cost of the components in the final system. Prices exclude VAT, shipping and import duties.}}{64}{table.caption.48}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{\ignorespaces A2: band-averaged (5--\SI {20}{\mega \hertz }) detector PSD with balanced detection versus laser drive current. $E = \SI {8.061e-14}{\volt \squared \per \hertz }$ is the laser-off electronic floor.}}{68}{table.caption.54}%
+\contentsline {table}{\numberline {F.1}{\ignorespaces Manufacturer test-report values for the BFLD-1550-20SM-FA2 laser diode (S/N 2630553009) at \SI {25}{\celsius }.}}{65}{table.caption.49}%
+\contentsline {table}{\numberline {F.2}{\ignorespaces Pin definition of the 14-pin butterfly package (thermistor \SI {10}{\kilo \ohm }).}}{66}{table.caption.50}%
+\contentsline {table}{\numberline {F.3}{\ignorespaces Key specifications of the Koheron DRV200S-A-200 laser diode driver.}}{67}{table.caption.52}%
+\contentsline {table}{\numberline {F.4}{\ignorespaces Key specifications of the Koheron TEC100L-50 temperature controller.}}{67}{table.caption.53}%
+\contentsline {table}{\numberline {F.5}{\ignorespaces Key specifications of the Koheron PD100B-AC balanced photodetector.}}{68}{table.caption.54}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {G.1}{\ignorespaces D: raw (un-normalised) noise and Doppler-peak statistics for dense fog-seeded air}}{72}{table.caption.57}%
-\contentsline {table}{\numberline {G.2}{\ignorespaces D: raw (un-normalised) noise and Doppler-peak statistics for light mist-seeded air.}}{72}{table.caption.58}%
-\contentsline {table}{\numberline {G.3}{\ignorespaces D: Doppler-peak centroid and line-of-sight velocity against the wind-tunnel setpoint for both rig orientations, in dense fog-seeded air}}{73}{table.caption.59}%
+\contentsline {table}{\numberline {G.1}{\ignorespaces A2: band-averaged (5--\SI {20}{\mega \hertz }) detector PSD with balanced detection versus laser drive current. $E = \SI {8.061e-14}{\volt \squared \per \hertz }$ is the laser-off electronic floor.}}{69}{table.caption.55}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {H.1}{\ignorespaces D: raw (un-normalised) noise and Doppler-peak statistics for dense fog-seeded air}}{73}{table.caption.58}%
+\contentsline {table}{\numberline {H.2}{\ignorespaces D: raw (un-normalised) noise and Doppler-peak statistics for light mist-seeded air.}}{73}{table.caption.59}%
+\contentsline {table}{\numberline {H.3}{\ignorespaces D: Doppler-peak centroid and line-of-sight velocity against the wind-tunnel setpoint for both rig orientations, in dense fog-seeded air}}{74}{table.caption.60}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

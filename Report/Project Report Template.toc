@@ -74,36 +74,37 @@
 \contentsline {chapter}{\numberline {B}Linewidth, PIIN and Doppler Peak Broadening}{58}{appendix.B}%
 \contentsline {chapter}{\numberline {C}Balanced Detection}{61}{appendix.C}%
 \contentsline {chapter}{\numberline {D}Laser Source Classes: Noise and Practical Notes}{63}{appendix.D}%
-\contentsline {chapter}{\numberline {E}Component Datasheets}{64}{appendix.E}%
-\contentsline {section}{\numberline {E.1}DFB Laser Diode (BFLD-1550-20SM-FA2)}{64}{section.E.1}%
-\contentsline {section}{\numberline {E.2}Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100)}{65}{section.E.2}%
-\contentsline {section}{\numberline {E.3}Temperature Controller (Koheron TEC100L-50)}{66}{section.E.3}%
-\contentsline {section}{\numberline {E.4}Balanced Photodetector (Koheron PD100B-AC)}{67}{section.E.4}%
-\contentsline {chapter}{\numberline {F}Supplementary Results: Experiment A}{68}{appendix.F}%
-\contentsline {section}{\numberline {F.1}A2: 5--20\,MHz Band-averaged PSD per Laser Current}{68}{section.F.1}%
-\contentsline {section}{\numberline {F.2}A3: Supplementary Experiment on RIN Cancellation}{69}{section.F.2}%
-\contentsline {chapter}{\numberline {G}Supplementary Results: Experiment D}{71}{appendix.G}%
-\contentsline {section}{\numberline {G.1}Raw PSDs per Wind-tunnel Setpoint}{71}{section.G.1}%
-\contentsline {section}{\numberline {G.2}Raw Noise and Peak Statistics}{72}{section.G.2}%
-\contentsline {section}{\numberline {G.3}Velocity Accuracy: Peak Centroid vs Setpoint}{72}{section.G.3}%
-\contentsline {chapter}{\numberline {H}Declaration on use of AI tools}{74}{appendix.H}%
-\contentsline {section}{\numberline {H.1}Report writing}{74}{section.H.1}%
-\contentsline {subsection}{\numberline {H.1.1}Formatting of tables, figures and plots}{74}{subsection.H.1.1}%
-\contentsline {subsubsection}{Prompt}{74}{subsubsection*.60}%
-\contentsline {subsubsection}{Response}{75}{subsubsection*.62}%
-\contentsline {subsection}{\numberline {H.1.2}Improvements in clarity and conciseness}{76}{subsection.H.1.2}%
-\contentsline {subsubsection}{Prompt}{76}{subsubsection*.63}%
-\contentsline {subsubsection}{Response}{77}{subsubsection*.65}%
-\contentsline {section}{\numberline {H.2}Conceptual understanding}{79}{section.H.2}%
-\contentsline {subsection}{\numberline {H.2.1}Conceptual understanding of PIIN}{79}{subsection.H.2.1}%
-\contentsline {subsubsection}{Prompt}{79}{subsubsection*.66}%
-\contentsline {subsubsection}{Response}{79}{subsubsection*.68}%
-\contentsline {section}{\numberline {H.3}Data acquisition and processing scripts}{81}{section.H.3}%
-\contentsline {subsection}{\numberline {H.3.1}Plotting of PIIN results}{82}{subsection.H.3.1}%
-\contentsline {subsubsection}{Prompt}{82}{subsubsection*.69}%
-\contentsline {subsubsection}{Response}{82}{subsubsection*.71}%
-\contentsline {subsection}{\numberline {H.3.2}Windtunnel data acquisition script}{84}{subsection.H.3.2}%
-\contentsline {subsubsection}{Prompt}{84}{subsubsection*.72}%
-\contentsline {subsubsection}{Response}{84}{subsubsection*.74}%
-\contentsline {chapter}{\numberline {I}Code and Additional Materials}{87}{appendix.I}%
-\contentsline {chapter}{\numberline {J}Ethics Forms}{88}{appendix.J}%
+\contentsline {chapter}{\numberline {E}Bill of Materials}{64}{appendix.E}%
+\contentsline {chapter}{\numberline {F}Component Datasheets}{65}{appendix.F}%
+\contentsline {section}{\numberline {F.1}DFB Laser Diode (BFLD-1550-20SM-FA2)}{65}{section.F.1}%
+\contentsline {section}{\numberline {F.2}Laser Driver (Koheron DRV200S-A-200) and Butterfly Mount (BTF100)}{66}{section.F.2}%
+\contentsline {section}{\numberline {F.3}Temperature Controller (Koheron TEC100L-50)}{67}{section.F.3}%
+\contentsline {section}{\numberline {F.4}Balanced Photodetector (Koheron PD100B-AC)}{68}{section.F.4}%
+\contentsline {chapter}{\numberline {G}Supplementary Results: Experiment A}{69}{appendix.G}%
+\contentsline {section}{\numberline {G.1}A2: 5--20\,MHz Band-averaged PSD per Laser Current}{69}{section.G.1}%
+\contentsline {section}{\numberline {G.2}A3: Supplementary Experiment on RIN Cancellation}{70}{section.G.2}%
+\contentsline {chapter}{\numberline {H}Supplementary Results: Experiment D}{72}{appendix.H}%
+\contentsline {section}{\numberline {H.1}Raw PSDs per Wind-tunnel Setpoint}{72}{section.H.1}%
+\contentsline {section}{\numberline {H.2}Raw Noise and Peak Statistics}{73}{section.H.2}%
+\contentsline {section}{\numberline {H.3}Velocity Accuracy: Peak Centroid vs Setpoint}{73}{section.H.3}%
+\contentsline {chapter}{\numberline {I}Declaration on use of AI tools}{75}{appendix.I}%
+\contentsline {section}{\numberline {I.1}Report writing}{75}{section.I.1}%
+\contentsline {subsection}{\numberline {I.1.1}Formatting of tables, figures and plots}{75}{subsection.I.1.1}%
+\contentsline {subsubsection}{Prompt}{75}{subsubsection*.61}%
+\contentsline {subsubsection}{Response}{76}{subsubsection*.63}%
+\contentsline {subsection}{\numberline {I.1.2}Improvements in clarity and conciseness}{77}{subsection.I.1.2}%
+\contentsline {subsubsection}{Prompt}{77}{subsubsection*.64}%
+\contentsline {subsubsection}{Response}{78}{subsubsection*.66}%
+\contentsline {section}{\numberline {I.2}Conceptual understanding}{80}{section.I.2}%
+\contentsline {subsection}{\numberline {I.2.1}Conceptual understanding of PIIN}{80}{subsection.I.2.1}%
+\contentsline {subsubsection}{Prompt}{80}{subsubsection*.67}%
+\contentsline {subsubsection}{Response}{80}{subsubsection*.69}%
+\contentsline {section}{\numberline {I.3}Data acquisition and processing scripts}{82}{section.I.3}%
+\contentsline {subsection}{\numberline {I.3.1}Plotting of PIIN results}{83}{subsection.I.3.1}%
+\contentsline {subsubsection}{Prompt}{83}{subsubsection*.70}%
+\contentsline {subsubsection}{Response}{83}{subsubsection*.72}%
+\contentsline {subsection}{\numberline {I.3.2}Windtunnel data acquisition script}{85}{subsection.I.3.2}%
+\contentsline {subsubsection}{Prompt}{85}{subsubsection*.73}%
+\contentsline {subsubsection}{Response}{85}{subsubsection*.75}%
+\contentsline {chapter}{\numberline {J}Code and Additional Materials}{88}{appendix.J}%
+\contentsline {chapter}{\numberline {K}Ethics Forms}{89}{appendix.K}%

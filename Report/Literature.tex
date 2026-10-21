@@ -64,7 +64,7 @@
     The backscattered light can be detected by the LiDAR system's photodetector. The backscattered light, however, will be shifted in frequency relative to the incident LiDAR beam, by a magnitude which depends on the velocity of the particle itself - this is due to the Doppler effect \cite{Doppler1842}. Specifically, the shift in frequency of the backscattered light is directly proportional to the  line-of-sight (LOS) velocity of the particle - that is, the component of the particle's velocity in the direction of the line of the LiDAR beam - through the following equation \cite{letizia_characterization_2023}:
 
     \begin{equation}
-        v_{LOS} = \frac{c}{2}\frac{f_{beam}-f_{scatter}}{f_{scatter}} = 
+        v_{LOS} = \frac{c}{2}\frac{f_{beam}-f_{scatter}}{f_{scatter}} 
         \label{eq:DopplerShift}
     \end{equation}
     
@@ -111,7 +111,7 @@
        As discussed in Section \ref{sec:lit-ChallengesDopplerShift}, photodetectors by themselves can not be directly used to determine the Doppler shift, as they can not follow THz frequency light signals. Multiple modified direct detection DWL system architectures have been developed to address this problem. Most common is the "double-edge technique" illustrated by Korb et al. \cite{korb_theory_1998}. Two Fabry-Pérot Interferometers (etalons) tuned symmetrically around the transmit laser frequency are used to split the backscatter signals - and thereafter the Doppler shift may be obtained from the ratio between the intensity of the two signals, as measured by photodetectors \cite{colberg_diode-laser-based_2026}. 
        
        Crucially for this method, the ratio between scattering types (Rayleigh and Mie) for the aerosols, as well as temperature must be known in order to produce accurate measurements - this can vary significantly with altitude \cite{werner_doppler_2005}. These factors, and strict requirements on etalon tuning, temperature, and laser stability present a considerable challenge in the implementation of this architecture \cite{colberg_diode-laser-based_2026}. In the double-edge technique any drift of the laser relative to the etalon edge is
-        indistinguishable from a Doppler shift, so the transmit laser must be absolutely stable to roughly 100KHz of its nominal frequency, which in practice requires an active lock to an atomic transition \cite{colberg_diode-laser-based_2026}.
+        indistinguishable from a Doppler shift, so the transmit laser must be absolutely stable to roughly 100kHz of its nominal frequency, which in practice requires an active lock to an atomic transition \cite{colberg_diode-laser-based_2026}.
         The etalon itself must be temperature controlled to about 1 milli-Kelvin, since a 1 milli-Kelvin
         drift produces a $0.95m/s$ error, and mechanical drift of the mount can produce biases of $1.5-2m/s$ per week, requiring weekly recalibration \cite{colberg_diode-laser-based_2026}.
         
@@ -157,7 +157,7 @@
 
         Thus, if the frequency of this beat signal is measured, the Doppler shift, $\Delta f$, is obtained. In this way it can be seen that coherent detection allows for direct measurement of the Doppler shift, and therefore the velocity of the target. 
 
-        Aside from the direct measurement of the Doppler shift, the "signal beating" process described above provides several other key advantages. The beating process amplifies the return beam, which allows for shot-noise limited operation (the ideal case for such a system), and extremely high sensitivies \cite{hill_remote_nodate} (elaboration in \ref{sec:lit-BalancedDetection}). This is essential in DWL, as return signals in clear atmospheric conditions are typically very low, due to low backscatter from aerosols. Furthermore, this detection process rejects signals which are not common in spatial mode and polarisation with the LO, meaning that sunlight, or other LiDAR beams will not affect the measurement \cite{hill_remote_nodate}. 
+        Aside from the direct measurement of the Doppler shift, the "signal beating" process described above provides several other key advantages. The beating process amplifies the return beam, which allows for shot-noise limited operation (the ideal case for such a system), and extremely high sensitivities \cite{hill_remote_nodate} (elaboration in \ref{sec:lit-noiseSources}). This is essential in DWL, as return signals in clear atmospheric conditions are typically very low, due to low backscatter from aerosols. Furthermore, this detection process rejects signals which are not common in spatial mode and polarisation with the LO, meaning that sunlight, or other LiDAR beams will not affect the measurement \cite{hill_remote_nodate}. 
         
 
     \section{Coherent Detection: Homodyne, Heterodyne and Directional Ambiguity}
@@ -170,7 +170,7 @@
     The following section discusses two distinct classes of coherent detection methodology, and how the choice of class affects the recovery of the wind direction from the signal.
 
     \subsection{Homodyne}
-    While not explicitly stated, the previously discussed direct down-conversion of the return signal to the beat signal - via mixing with a local oscillator with the \textbf{same} frequency as the emitted signal (\autoref{eqn:beatSignal} and preceding) - is known as \textbf{homodyne} coherent detection. Homodyne coherent detection down-converts the MHz-range doppler shift in the THz range carrier to a MHz-range beat signal around baseband, i.e. the frequency of the signal is directly the frequency of the Doppler shift. This has significant implications:
+    While not explicitly stated, the previously discussed direct down-conversion of the return signal to the beat signal - via mixing with a local oscillator with the \textbf{same} frequency as the emitted signal (\autoref{eqn:beatSignal} and preceding) - is known as \textbf{homodyne} coherent detection. Homodyne coherent detection down-converts the MHz-range Doppler shift in the THz range carrier to a MHz-range beat signal around baseband, i.e. the frequency of the signal is directly the frequency of the Doppler shift. This has significant implications:
 
     Ignoring the DC components in \autoref{eqn:beatSignal}, we get
     %
@@ -190,10 +190,10 @@
     %
     Therefore, noting that $\Delta f$ is signed based on whether the target is approaching or receding, it can be seen that approaching and receding targets of equal speed produce identical detector
     currents. Only the magnitude $\lvert \Delta f_D \rvert$ is recoverable, and the
-    measured spectrum is symmetric about zero frequency. Note that Abari et. al\cite{abari_all-fiber_2014} demonstrated a methodology for obtaining signed velocity, even with a homodyne coherent detection setup, however this setup is novel and introduces additional complexities and costs which are outside of the scope of this project. 
+    measured spectrum is symmetric about zero frequency. Note that Abari et al. \cite{abari_all-fiber_2014} demonstrated a methodology for obtaining signed velocity, even with a homodyne coherent detection setup, however this setup is novel and introduces additional complexities and costs which are outside of the scope of this project. 
 
     \subsection{Heterodyne}
-    The alternative to this is known as \textbf{heterodyne} coherent detection. In heterodyne architectures, a slight frequency shift is imposed on the laser - crucially however this shift is only applied to one of the fractional outputs, either the local oscillator \textbf{or} the emitted laser (but not both). This means that when the same beating process described previously is applied, the MHz-range doppler shift in the THz range carrier is down-converted to a MHz-range beat signal centered around an intermediate frequency ($f_i$ below), rather than baseband, as with homodyne architectures. This is conventionally achieved with an
+    The alternative to this is known as \textbf{heterodyne} coherent detection. In heterodyne architectures, a slight frequency shift is imposed on the laser - crucially however this shift is only applied to one of the fractional outputs, either the local oscillator \textbf{or} the emitted laser (but not both). This means that when the same beating process described previously is applied, the MHz-range Doppler shift in the THz range carrier is down-converted to a MHz-range beat signal centered around an intermediate frequency ($f_i$ below), rather than baseband, as with homodyne architectures. This is conventionally achieved with an
     acousto-optic modulator, placed either in the local oscillator arm \cite{harris_role_1998} or in the transmit arm \cite{abdelazim_development_2015}. This has the advantage of allowing for the recovery of the target's direction:
     
     Taking the offset in the local oscillator arm, such
@@ -238,7 +238,7 @@
 
     This is called ideal \textbf{shot-noise limited} operation, and it is the best possible operating point for a coherent detection system - the LO has raised the signal (and shot noise) so far above the electronic noise
     floor that the electronic noise floor is swamped out so as to become negligible,
-    and no further sensitivity is available from the receiver. The SNR reaches a constant peak which is proportional only to the received backscatter signal power ($P_{RS}$), and the constant $\alpha$ which governs shot-noise power. 
+    and no further sensitivity is available from the receiver. The SNR reaches a constant peak which is proportional only to the received backscatter signal power ($P_{RS}$), and the constant $\alpha$ which governs shot-noise power 
     \cite{bennett_doppler_2003}. In practice however, the ideal shot-limited operating point can not be fully reached, because two effects prevent $P_{LO}$ from simply being made as large as possible:
     the photodetector saturates \cite{abdelazim_development_2015}, and the
     laser's intensity noise, discussed next, grows faster than the signal.
@@ -263,7 +263,7 @@
     shot noise of the two photodiodes is \textbf{uncorrelated}, the noise power only doubles,
     giving a net 3dB improvement in shot-noise-limited SNR over single-ended
     detection with a 50:50 coupler \cite{Schumaker1984}. Conversely, RIN is common to
-    both outputs and is \textbf{cancelled} by the subtraction \cite{Abbas1983} \cite{abdelazim_development_2015}. This allows the system to better approach the ideal shot-noise limit sensitivity as discussed in \autoref{sec:lit-noiseSources}. For a mathematical description of why this is the case, see \ref{appendix:RIN}. 
+    both outputs and is \textbf{cancelled} by the subtraction \cite{Abbas1983} \cite{abdelazim_development_2015}. This allows the system to better approach the ideal shot-noise limit sensitivity as discussed in \autoref{sec:lit-noiseSources}. For a mathematical description of why this is the case, see Appendix \ref{appendix:RIN}. 
     
     
 
@@ -271,7 +271,7 @@
     For a DWL system there are two optical configurations which are commonly used - bistatic and monostatic. This section discusses the differences between the two.
 
     \subsection{Bistatic}
-    Bistatic configurations use one lens to emit the laser into the atmosphere, and another to receive the backscatter signal. One distinct advantage of a bistatic configuration, is that back reflections of the beam from the lens used for emission are not coupled into the mixed signal, and thus do not appear at the detector \cite{cariou2006laser}. This serves to reduce phase induced intensity noise (discussed in \autoref{sec:lit-linewidth}. However, this is at the cost of greatly increased complexity, due to additional considerations of alignment of the two lens apertures \cite{harris_role_1998} \cite{bennett_doppler_2003}. 
+    Bistatic configurations use one lens to emit the laser into the atmosphere, and another to receive the backscatter signal. One distinct advantage of a bistatic configuration, is that back reflections of the beam from the lens used for emission are not coupled into the mixed signal, and thus do not appear at the detector \cite{cariou2006laser}. This serves to reduce phase induced intensity noise (discussed in \autoref{sec:lit-linewidth}). However, this is at the cost of greatly increased complexity, due to additional considerations of alignment of the two lens apertures \cite{harris_role_1998} \cite{bennett_doppler_2003}. 
     
     \subsection{Monostatic}
     A monostatic configuration uses a single lens aperture for both the emission of the laser, and the receiving of the backscatter signal. A fiber optic circulator can then be used to ensure the emitted signal and the received signal do not interfere, and are routed appropriately in the system. This has the distinct advantage of not requiring any additional lenses, and alignment considerations, and indeed has become the norm for such systems due to this reduced complexity \cite{hill_remote_nodate}.  

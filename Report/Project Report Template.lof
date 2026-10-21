@@ -5,7 +5,7 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Architecture diagram of final system design}}{27}{figure.caption.18}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Experimental setup A}}{29}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces PSD of total noise (shot, electronic and relative intensity noise) for different laser source currents}}{31}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces PSD of total noise (shot and electronic) for different laser source currents}}{31}{figure.caption.23}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces 5 - 20MHz Average PSD vs Laser Current with Balanced Detection}}{32}{figure.caption.24}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Total noise in the system for different inserted patch-cable lengths}}{36}{figure.caption.29}%
 \addvspace {10\p@ }
@@ -25,17 +25,18 @@
 \contentsline {figure}{\numberline {C.1}{\ignorespaces Balanced detection. The 50:50 coupler delivers the sum and difference of the backscatter and LO fields to two matched photodiodes; the output is the difference of their photocurrents, in which the common-mode terms cancel and only the beat term $2\sqrt {P_{LO} P_{RS}}\cos (2\pi \Delta f t)$ remains.}}{62}{figure.caption.46}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces P--I--V characteristic of the supplied BFLD-1550-20SM-FA2 diode at \SI {25}{\celsius }, redrawn from the manufacturer's test report (values read from the printed curve to about $\pm $\SI {0.5}{\milli \watt }).}}{65}{figure.caption.50}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {F.1}{\ignorespaces A3: 5 - 20MHz Average PSD vs Laser Current with Single-Ended Detection}}{69}{figure.caption.55}%
+\contentsline {figure}{\numberline {F.1}{\ignorespaces P--I--V characteristic of the supplied BFLD-1550-20SM-FA2 diode at \SI {25}{\celsius }, redrawn from the manufacturer's test report (values read from the printed curve to about $\pm $\SI {0.5}{\milli \watt }).}}{66}{figure.caption.51}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {G.1}{\ignorespaces Grid of PSD plots for each wind-tunnel setpoint}}{71}{figure.caption.56}%
+\contentsline {figure}{\numberline {G.1}{\ignorespaces A3: 5 - 20MHz Average PSD vs Laser Current with Single-Ended Detection}}{70}{figure.caption.56}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {H.1}{\ignorespaces Example prompt to format tables and figures for the laser datasheet appendix}}{74}{figure.caption.61}%
-\contentsline {figure}{\numberline {H.2}{\ignorespaces Example prompt to improve clarity and conciseness of architecture decisions}}{76}{figure.caption.64}%
-\contentsline {figure}{\numberline {H.3}{\ignorespaces Example prompt used to assist in conceptual understanding of PIIN and PIIN roll-off}}{79}{figure.caption.67}%
-\contentsline {figure}{\numberline {H.4}{\ignorespaces Example prompt given to generate plots for PIIN test results from raw data}}{82}{figure.caption.70}%
-\contentsline {figure}{\numberline {H.5}{\ignorespaces Example prompt for generating an acquisition script for acquiring oscilloscope data for wind-tunnel testing}}{84}{figure.caption.73}%
+\contentsline {figure}{\numberline {H.1}{\ignorespaces Grid of PSD plots for each wind-tunnel setpoint}}{72}{figure.caption.57}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {I.1}{\ignorespaces Example prompt to format tables and figures for the laser datasheet appendix}}{75}{figure.caption.62}%
+\contentsline {figure}{\numberline {I.2}{\ignorespaces Example prompt to improve clarity and conciseness of architecture decisions}}{77}{figure.caption.65}%
+\contentsline {figure}{\numberline {I.3}{\ignorespaces Example prompt used to assist in conceptual understanding of PIIN and PIIN roll-off}}{80}{figure.caption.68}%
+\contentsline {figure}{\numberline {I.4}{\ignorespaces Example prompt given to generate plots for PIIN test results from raw data}}{83}{figure.caption.71}%
+\contentsline {figure}{\numberline {I.5}{\ignorespaces Example prompt for generating an acquisition script for acquiring oscilloscope data for wind-tunnel testing}}{85}{figure.caption.74}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {J.1}{\ignorespaces \relax }}{88}{figure.caption.75}%
+\contentsline {figure}{\numberline {K.1}{\ignorespaces \relax }}{89}{figure.caption.76}%

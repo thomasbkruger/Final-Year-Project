@@ -84,7 +84,7 @@ From the reviewed literature in \autoref{sec:litReview}, an architecture of \tex
 		\addlinespace[3pt]
 		Continuous wave & Pulsed &
 		Needs no pulse or receive timing, which simplifies design and reduces costs, and is more effective at the short ranges (tens of cm to 1--2\,m) of a benchtop system, as pulsed systems are ineffective below tens of metres \cite{hill_remote_nodate}. &
-		Reduced spatial resolution at long ranges, as resolution is defined by focus rather than gating (\autoref{sec:lit-pulsedCW}); irrelevant at benchtop range. \\
+		Reduced spatial resolution at long ranges, as resolution is defined by focus rather than gating (\autoref{sec:lit-Ranging}); irrelevant at benchtop range. \\
 		\addlinespace[3pt]
 		All-fibre, non-PM & Free-space; PM fibre &
 		Single-mode fibre makes LO--return mode-matching automatic, removes free-space alignment complexities, and gives access to widely and cheaply available telecom components \cite{bennett_doppler_2003,abari_all-fiber_2014,abdelazim_development_2015}. Non-PM fibre is used owing to cost. &
@@ -188,9 +188,9 @@ P1 & Detector noise & Approaching ideal shot-noise-limited behaviour: total
 %Formerly P4
  P2 & Phase-induced intensity noise (PIIN) & Level (in dB) and spectral shape measured; Low enough to facilitate measurements for P6 & B \\ \hline
 P3 & Total system noise & Total noise floor (shot + electronic + residual RIN + PIIN) quantified with respect to the shot-noise limit, and sources of excess noise described and characterised & B \\ \hline
- P4 & Velocity detection on a hard target & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
+ P4 & Velocity detection on a hard target & Doppler peak detected at $ \geq 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
 P5 & Velocity detection range & Minimum resolvable LOS speed of $\leq$ 0.1m/s, maximum resolvable LOS speed of $\geq$ 20m/s & C, D \\ \hline
-P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \gg 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 10 000$ averages 
+P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \geq 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 10 000$ averages 
 & D \\ \hline
 P7 & Velocity accuracy & Doppler velocity within 5\% of ground-truth velocity of target (hard target and seeded flow) & C, D \\
 \hline
@@ -206,7 +206,7 @@ This section details the specific component selections which were made for the c
     The selection of an appropriate laser source is critical to ensure good performance of a DWL system. There are numerous properties of a laser source which should be considered, and which will be detailed in this section. After discussion on these properties, a suitable laser source is selected. 
 
     \subsubsection{Wavelength}
-    There are many suitable wavelengths for DWL systems, as detailed by Cariou et. al \cite{cariou2006laser}. There is much discussion around SNR optimisation and backscatter maximisation for varying wavelengths \cite{bennett_doppler_2003}, however owing largely to practical advantages, a wavelength of 1550nm has emerged as a common choice for both commercial and scientific DWL systems \cite{abari_all-fiber_2014}. Fiber optics telecommunications  commonly operate at this wavelength - thus making components designed for this wavelength readily commercially available and significantly cheaper than alternatives \cite{cariou2006laser}, \cite{abdelazim_development_2015}, \cite{hill_remote_nodate}. Additionally, laser beams at 1550nm are eye-safe at significantly higher power levels (up to multiple Watts), compared to shorter wavelengths \cite{cariou2006laser}, reducing safety concerns. For this reason it was decided that a 1550nm laser source would be used for this project. 
+    There are many suitable wavelengths for DWL systems, as detailed by Cariou et al. \cite{cariou2006laser}. There is much discussion around SNR optimisation and backscatter maximisation for varying wavelengths \cite{bennett_doppler_2003}, however owing largely to practical advantages, a wavelength of 1550nm has emerged as a common choice for both commercial and scientific DWL systems \cite{abari_all-fiber_2014}. Fiber optics telecommunications  commonly operate at this wavelength - thus making components designed for this wavelength readily commercially available and significantly cheaper than alternatives \cite{cariou2006laser}, \cite{abdelazim_development_2015}, \cite{hill_remote_nodate}. Additionally, laser beams at 1550nm are eye-safe at significantly higher power levels (up to multiple Watts), compared to shorter wavelengths \cite{cariou2006laser}, reducing safety concerns. For this reason it was decided that a 1550nm laser source would be used for this project. 
     
     \subsubsection{Power Level} 
     The time-averaged power of the backscatter signal into a receiver can be expressed as \cite{hill_remote_nodate}:
@@ -276,9 +276,9 @@ From these available laser source options, it was decided that a DFB laser diode
 
 
 \subsection{Laser driver and temperature control}
-In order to keep the laser diode at a constant operating point, a constant current source must be used to drive it, and a temperature controller should be used. Temperature and current fluctuations present in the laser output as fluctuations in wavelength and output power \cite{Gwinner2024}, which can have a significant effect on the noise in measurements, particularly in a sensing system, such as a DWL, for which measurements of very small signals is required.
+In order to keep the laser diode at a constant operating point, a constant current source must be used to drive it, and a temperature controller should be used. Temperature and current fluctuations present in the laser output as fluctuations in wavelength and output power \cite{gwinner2024}, which can have a significant effect on the noise in measurements, particularly in a sensing system, such as a DWL, for which measurements of very small signals is required.
 
- Perhaps the greater consideration however is the safety of the laser diode. The laser diode chosen forms the single biggest expense in this DWL system, and thus protecting it is of vital importance to this project. Laser diodes are extremely sensitive to transients and overvoltage events, which can easily damage them \cite{Gwinner2024}. Circuitry for these ends may be custom-designed and manufactured as a PCB, however, this is a complex process, and is best-suited to systems where commercially available driver and temperature control circuitry is unsuitable. Thus, for this project it was decided that off-the-shelf circuitry would be used for these ends, so that the expensive laser diode is safeguarded against possible custom design flaws or oversights of a first-time designer. Commercial off-the-shelf units integrate soft-start circuitry, current control, current monitoring, protection against overvoltage and overcurrent events and transients into a single package.
+ Perhaps the greater consideration however is the safety of the laser diode. The laser diode chosen forms the single biggest expense in this DWL system, and thus protecting it is of vital importance to this project. Laser diodes are extremely sensitive to transients and overvoltage events, which can easily damage them \cite{gwinner2024}. Circuitry for these ends may be custom-designed and manufactured as a PCB, however, this is a complex process, and is best-suited to systems where commercially available driver and temperature control circuitry is unsuitable. Thus, for this project it was decided that off-the-shelf circuitry would be used for these ends, so that the expensive laser diode is safeguarded against possible custom design flaws or oversights of a first-time designer. Commercial off-the-shelf units integrate soft-start circuitry, current control, current monitoring, protection against overvoltage and overcurrent events and transients into a single package.
  
  The Koheron DRV200S-A-200 laser driver was chosen, due to its very low noise characteristics, and the suitability of the current range and limit for the BFLD-1550-20SM-FA2 laser diode chosen above. The Koheron TEC100L-50 temperature controller was chosen from the same supplier, and has an adequate setpoint range and stability for the project. The respective specifications of the selected laser driver and  temperature controller are given below:
  
@@ -346,7 +346,7 @@ In order to keep the laser diode at a constant operating point, a constant curre
  	\label{tab:pd100b}
  \end{table}
  
- The photodetector has a bandwidth of 160Hz - 100MHz, thus DC photocurrent is blocked (this is desired, seeing as the measured quantity of interest is the frequency power at MHz-range frequencies). This will also allow signals of up to 100MHz to be effectively detected. A beat frequency of 100MHz corresponds to a wind-speed of approximately 129m/s (464km/h), which is clearly far above any wind-speed which the system would reasonably need to detect. It can also be seen that the detector has a very low electronic noise floor of 8pA/$\sqrt{Hz}$, which can easily be swamped out by the shot-noise from the LO to achieve shot-noise limited behaviour, and the CMRR is high, allowing RIN to be very effectively cancelled. 
+ The photodetector has a bandwidth of 160Hz - 100MHz, thus DC photocurrent is blocked (this is desired, seeing as the measured quantity of interest is the frequency power at MHz-range frequencies). This will also allow signals of up to 100MHz to be effectively detected. A beat frequency of 100MHz corresponds to a wind-speed of approximately 77.5m/s (279km/h), which is clearly far above any wind-speed which the system would reasonably need to detect. It can also be seen that the detector has a very low electronic noise floor of 8pA/$\sqrt{Hz}$, which can easily be swamped out by the shot-noise from the LO to achieve shot-noise limited behaviour, and the CMRR is high, allowing RIN to be very effectively cancelled. 
  
  \subsection{Fiber Optics}
  \subsubsection{Optical Mixer, Circulator}
@@ -419,7 +419,7 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  
  \section{Data Acquisition and Processing}
  \label{sec:design-DataAcquisition}
- Since real-time processing is out of scope (this typically requires high sampling-rate ADCs and FPGAs programmed to perform FFTs of the sampled data), data is obtained via a Keysight EDUX1002G oscilloscope at \SI{125}{MSa/s} and post-processed on a laptop. The \SI{62.5}{MHz} Nyquist frequency in a beat signal corresponds to approximately \SI{80}{m/s}, far above any speed that will be measured.
+ Since real-time processing is out of scope (this typically requires high sampling-rate ADCs and FPGAs programmed to perform FFTs of the sampled data), data is obtained via a Keysight EDUX1002G oscilloscope at \SI{125}{MSa/s} and post-processed on a laptop. The \SI{62.5}{MHz} Nyquist frequency in a beat signal corresponds to approximately \SI{48}{m/s}, far above any speed that will be measured.
  
  Data is transferred to the laptop in discrete ``records'' of \num{25000} samples (\SI{200}{\micro\second} of data). The oscilloscope can only transfer approximately 8 records/second, while approximately 5000 records' worth of data is available in the same period, so only \SI{0.2}{\percent} of the data in an acquisition period is used; FPGA-based systems can use up to \SI{100}{\percent} \cite{hill_remote_nodate}. The acquisition time for a measurement is therefore taken as the total time the data represents, ignoring the transfer bottleneck, as this is what determines the measurement rate in a real-world setup.
  
@@ -428,7 +428,7 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  Because the \SI{50}{\percent} overlap makes adjacent segments partially correlated, these correspond to only roughly 245 and \num{7200} \textbf{independent} averages respectively. For stationary Gaussian noise the standard deviation of each averaged PSD bin is $\sigma \approx S/\sqrt{N_{\mathrm{eff}}}$, where $S$ is the noise PSD and $N_{\mathrm{eff}}$ the number of independent averages, giving $0.064\,S$ and $0.012\,S$ respectively. Thus, the absolute fluctuation of the noise scales with the noise floor's magnitude, while its relative size is set by the number of averages.
  
 \section{Final Design}
-The final design of the system using the architecture and components discussed above is given in \autoref{fig:finalDesign} below.
+The final design of the system using the architecture and components discussed above is given in \autoref{fig:finalDesign} below. A bill of materials is provided in Appendix \ref{appendix:costs}.
 
 \begin{figure}[H]
 \centering

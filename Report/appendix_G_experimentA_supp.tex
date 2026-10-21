@@ -39,17 +39,17 @@
 	\label{fig:A3Plot}
 \end{figure}
 
-It can be seen in \autoref{fig:A3Plot} that indeed, the total noise is lower than in \autoref{fig:A2PSDvsCurrent}, as expected. Observing the total noise at the operating point of 48mA however, it can be seen that a value of approximately $3.5 \times 10^{-13}V^2/Hz$ is obtained, which gives $2.694\times 10^{-13}V^2/Hz$ once electronic noise has been subtracted. In the balanced detection case at the same laser current, a value of $5.49\times10^{-13}V^2/Hz$ was obtained - subtracting electronic noise and halving this gives $2.342\times 10^{-13}V^2/Hz$. This clearly indicates that the noise power in the single-ended case is higher than simply half of the shot-noise in the balanced detection case, thus proving that indeed there is excess RIN present. This excess RIN noise can be calculated:
+It can be seen in \autoref{fig:A3Plot} that indeed, the total noise is lower than in \autoref{fig:A2PSDvsCurrent}, as expected. Observing the total noise at the operating point of 48mA however, it can be seen that a value of approximately $3.5 \times 10^{-13}V^2/Hz$ is obtained, which gives $2.694\times 10^{-13}V^2/Hz$ once electronic noise has been subtracted. In the balanced detection case at the same laser current, a value of $5.2954\times10^{-13}V^2/Hz$ was obtained - subtracting electronic noise and halving this gives $2.245\times 10^{-13}V^2/Hz$. This clearly indicates that the noise power in the single-ended case is higher than simply half of the shot-noise in the balanced detection case, thus proving that indeed there is excess RIN present. This excess RIN noise can be calculated:
 \begin{equation}
-	RIN_{excess}= (2.694 - 2.342)\times 10^{-13} = 0.352\times 10 ^{-13}V^2/Hz
+	RIN_{excess}= (2.694 - 2.245)\times 10^{-13} = 0.449\times 10 ^{-13}V^2/Hz
 \end{equation}
 
 Converting to dB:
 
 \begin{equation}
-	10log_{10}(1+\frac{RIN_{excess}}{S})=10log_{10}(1+\frac{0.352\times 10 ^{-13}}{2.324\times 10^{-13}})= 0.6125dB
+	10log_{10}(1+\frac{RIN_{excess}}{S})=10log_{10}(1+\frac{0.449\times 10 ^{-13}}{2.245\times 10^{-13}})= 0.79dB
 \end{equation}
 
-Thus, RIN contributes an additional 0.6125dB of noise above the ideal shot-noise limit at the 48mA operating point. Balanced detection allows this excess noise to be removed, as illustrated in the results of A2 - allowing for a better SNR.
+Thus, RIN contributes an additional 0.79dB of noise above the ideal shot-noise limit at the 48mA operating point. Balanced detection allows this excess noise to be removed, as illustrated in the results of A2 - allowing for a better SNR.
 
 

@@ -19,7 +19,7 @@ line-of-sight velocity at that point is
 \end{equation}
 where $N$ is the motor speed in RPM. Two features of the geometry affect the measurement.
 Any error in $d$ or $\alpha$ scales $v_{\mathrm{LOS}}$ directly. Additionally, the collimator output beam is \textbf{not} infinitesimally small, and thus the finite beam spot
-(which is about \SI{7}{mm} in diameter \cite{f810 apc datasheet}) covers a range of radii on the disc, and hence covers a number of line-of-sight
+(which is about \SI{7}{mm} in diameter) covers a range of radii on the disc, and hence covers a number of line-of-sight
 velocities, which broadens the Doppler peak.
 
 \begin{figure}[H]
@@ -34,7 +34,7 @@ behind it, so white paper was attached to its face to provide a strong, diffuse 
 rest of the system was configured as in \autoref{fig:finalDesign}, with the laser at
 \SI{48}{mA}. For each motor speed, %% CHECK record count
 100 oscilloscope records were captured, and their Welch PSDs averaged, using the same
-processing chain as experiments A and B, as detailed in \autoref(sec:design-DataAcquisition). From \autoref{eqn:DopplerSimple}, the expected Doppler shift
+processing chain as experiments A and B, as detailed in \autoref{sec:design-DataAcquisition}. From \autoref{eqn:DopplerSimple}, the expected Doppler shift
 is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 
 \subsection{Results and Discussion}
@@ -50,7 +50,6 @@ is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 	\centering
 	\small
 	\setlength{\tabcolsep}{3.5pt}
-	\label{tab:doppler_vs_rpm}
 	\smallskip
 	
 	\begin{tabular}{
@@ -81,6 +80,7 @@ is \SI{1.29}{MHz} per \si{m/s} of $v_{\mathrm{LOS}}$.
 	\end{tabular}
 	
 	\caption{C: PSD Doppler peak and noise statistics for each motor RPM tested}
+	\label{tab:doppler_vs_rpm}
 	\vspace{2pt}
 	\raggedright\footnotesize
 	\textsuperscript{\dag}\,Peak too close to DC for a full noise band below it; the floor is taken
@@ -133,7 +133,7 @@ addressed in \autoref{sec:windTesting}.
 \subsection{Experimental Goals}
 Now that the noise analysis of the system is complete, and the speed-measurement principle has been shown to be functional for a hard-target, the system can finally be tested for seeded air wind-speed measurement. The primary subject of investigation for this section is the sensitivity of the system with respect to its noise and the different levels of seeding in the air, as well as its accuracy at different tested speeds. As discussed previously, the range of the system can not be tested in a wind-tunnel environment, and thus this is out of scope for this project. 
 \subsection{Experimental Methodology}
-In order to test wind-speed measurements in a controlled environment, a test-setup was built in an existing wind-tunnel. The wind-tunnel is capable of producing measured, stable flows at 3 - 20m/s, at the centre of the test section. The tunnel has an inlet, where an air seeding device can be placed to seed the tunnel air. Two types of seeding are investigated; "fog" machines, which use mixtures of glycol or glycerin, and distilled water to produce a dense, visible vapour cloud in the air (of the same type typically seen in entertainment venues), and "misters", which simply use water to generate a very fine (barely visible) mist in the air. 
+In order to test wind-speed measurements in a controlled environment, a test-setup was built in an existing wind-tunnel. The wind-tunnel is capable of producing measured, stable flows at 3 - 21m/s, at the centre of the test section. The tunnel has an inlet, where an air seeding device can be placed to seed the tunnel air. Two types of seeding are investigated; "fog" machines, which use mixtures of glycol or glycerin, and distilled water to produce a dense, visible vapour cloud in the air (of the same type typically seen in entertainment venues), and "misters", which simply use water to generate a very fine (barely visible) mist in the air. 
 
 The test setup used in the wind-tunnel is shown in \autoref{fig:DRig}:
 
@@ -235,8 +235,7 @@ A small wedge which fits the collimator and which can be attached to the floor o
 \begin{table}[H]
 	\centering
 	\small
-	\caption{Normalised PSD of Doppler peak relative to noise for dense fog-seeded air. Full raw statistics are given in \autoref{appendix:FullWTResults}.}
-	\label{tab:D_snr}
+	
 	\begin{tabular}{|S[table-format=2.1]|S[table-format=2.3]|S[table-format=1.3]|S[table-format=1.3]|S[table-format=2.2]|}
 		\hline
 		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\boldmath$f_D$}
@@ -254,9 +253,8 @@ A small wedge which fits the collimator and which can be attached to the floor o
 		11.8 & 13.837 & 0.254 & 0.526 &  5.27 \\ \hline
 		21.0 & 24.674 & 0.262 & 0.502 &  4.01 \\ \hline
 	\end{tabular}
-	
-	\vspace{2pt}
-	\raggedright\footnotesize
+	\caption{Normalised PSD of Doppler peak relative to noise for dense fog-seeded air. Full raw statistics are given in \autoref{appendix:FullWTResults}.}
+	\label{tab:D_snr}
 \end{table}
 
 It can be seen that at every speed tested in dense fog, a clear Doppler peak was detected above the mean $+5\sigma$ threshold, with a test setup which gives less than 10 000 averages, thus fulfilling performance requirement P6. It can also be seen that at higher speeds, the excess power at the Doppler peak decreases; this is because the seeding becomes more diffuse in the air at higher speeds, thus making the returned signal smaller, and making the peak clear the detection threshold with less margin. 
@@ -273,8 +271,8 @@ After measuring the system's sensitivity performance in the dense-fog seeded air
 		\multicolumn{1}{|c|}{(\si{m/s})} & \multicolumn{1}{c|}{\textbf{averaged}}
 		& \multicolumn{1}{c|}{Mean $+\,5\sigma$} & \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}}
 		& \multicolumn{1}{c|}{(\num{e-7}\,\si{V^2})} \\ \hline
-		5.0 & 1 & 0.255 & {0.141\textsuperscript{\ddag}} & 4.38 \\ \hline
-		5.0 & 2 & 0.131 & {0.114\textsuperscript{\ddag}} & 4.45 \\ \hline
+		5.0 & 1 & 0.255 & 0.141 & 4.38 \\ \hline
+		5.0 & 2 & 0.131 & 0.114 & 4.45 \\ \hline
 		5.0 & 3 & 0.116 & 0.160 & 3.75 \\ \hline
 	\end{tabular}
 	
@@ -338,8 +336,6 @@ combined with removing the residual PIIN to reach the shot-noise limit
 \begin{table}[H]
 	\centering
 	\small
-	\caption{Velocity accuracy in dense fog (collimator facing downstream, 9 speeds).}
-	\label{tab:D_velocity_summary}
 	\begin{tabular}{|l|c|}
 		\hline
 		\textbf{Quantity} & \textbf{Value} \\ \hline
@@ -350,6 +346,9 @@ combined with removing the residual PIIN to reach the shot-noise limit
 		Speed error after one-factor calibration, RMS (max) & \SI{0.08}{m/s} (\SI{0.17}{m/s}), \SI{1.1}{\percent} \\ \hline
 		Doppler peak FWHM & \SIrange[range-phrase=--, range-units=single]{0.45}{0.65}{MHz} (\SIrange[range-phrase=--, range-units=single]{0.35}{0.50}{m/s} LOS) \\ \hline
 	\end{tabular}
+	\caption{Velocity accuracy in dense fog (collimator facing downstream, 9 speeds).}
+	\label{tab:D_velocity_summary}
+	
 \end{table}
 
 It was found that using the original test setup detailed in the methodology for this section (downstream facing collimator and wedge), an average overshoot of approximately 10.7\% was consistently observed between the DWL measured velocity (as calculated from the peak's frequency), and the wind-tunnel's velocity setpoint. However, the data showed very good linearity, with $R^2=0.9998$, thus the overshoot offset can easily be removed via a single-point calibration, to give an error of approximately 1.1\%. Without this calibration, the system fails performance requirement P7 on velocity accuracy within $5\%$, but after the calibration it passes. Thus, it is important to investigate whether the calibration, which assumes error from the test setup, is valid.

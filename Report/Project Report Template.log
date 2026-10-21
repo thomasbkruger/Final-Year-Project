@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  21 OCT 2026 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  21 OCT 2026 17:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1135,7 +1135,7 @@ tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count388
 ) (Project Report Template.aux (Introduction.aux) (Literature.aux)
-(System Design.aux) (Noise Analysis.aux) (Results.aux) (Conclusions.aux)
+(System_Design.aux) (Noise_Analysis.aux) (Results.aux) (Conclusions.aux)
 (appendices.aux
 
 LaTeX Warning: Label `appendix:driver' multiply defined.
@@ -1247,7 +1247,7 @@ Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 53.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<uctLogo.png, id=386, 418.56375pt x 425.59pt>
+<uctLogo.png, id=390, 418.56375pt x 425.59pt>
 File: uctLogo.png Graphic file (type png)
 <use uctLogo.png>
 Package pdftex.def Info: uctLogo.png  used on input line 67.
@@ -1288,24 +1288,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [3
 
-] [4] [5])
+] [4] [5] [6])
 \tf@toc=\write5
 \openout5 = `"Project Report Template.toc"'.
 
- [6] (Project Report Template.lof [7
+ [7] (Project Report Template.lof [8
 
 ])
 \tf@lof=\write6
 \openout6 = `"Project Report Template.lof"'.
 
- [8]
-(Project Report Template.lot [9
+ [9]
+(Project Report Template.lot [10
 
 ])
 \tf@lot=\write7
 \openout7 = `"Project Report Template.lot"'.
 
- [10]
+ [11]
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
@@ -1386,18 +1386,14 @@ Overfull \hbox (29.48573pt too wide) in paragraph at lines 270--270
  []
 
 [12] [13]) [14]
-\openout2 = `"System Design.aux"'.
+\openout2 = `System_Design.aux'.
 
- (System Design.tex
+ (System_Design.tex
 Chapter 3.
 
 Overfull \hbox (2.40736pt too wide) in paragraph at lines 67--67
 []|\OT1/cmr/bx/n/10 Alternative|  
  []
-
-
-LaTeX Warning: Reference `sec:lit-pulsedCW' on page 15 undefined on input line 
-87.
 
 [15
 
@@ -1453,26 +1449,11 @@ Underfull \hbox (badness 5105) in paragraph at lines 244--244
 []|\OT1/cmr/bx/n/10.95 Power (un-am-pli-
  []
 
-[21]
+[21] [22] [23] [24] [25] [26]) [27]
+\openout2 = `Noise_Analysis.aux'.
 
-LaTeX Warning: Citation `Gwinner2024' on page 22 undefined on input line 279.
-
-
-LaTeX Warning: Citation `Gwinner2024' on page 22 undefined on input line 281.
-
-[22] [23] [24] [25] [26]) [27]
-\openout2 = `"Noise Analysis.aux"'.
-
- (Noise Analysis.tex
+ (Noise_Analysis.tex
 Chapter 4.
-
-LaTeX Warning: Reference `sec:functionalAnalysis' on page 28 undefined on input
- line 5.
-
-
-LaTeX Warning: Reference `sec:functionalAnalysis' on page 28 undefined on input
- line 5.
-
 [28
 
 
@@ -1493,68 +1474,34 @@ Overfull \hbox (23.37357pt too wide) in paragraph at lines 147--154
  [][] 
  []
 
-[29]
-
-LaTeX Warning: Citation `Koheron PD100B' on page 30 undefined on input line 179
-.
-
-[30]
-<../Data Acquisition/figures/psd_overlay.png, id=1045, 426.8748pt x 252.2223pt>
+[29] [30]
+<../Data Acquisition/figures/psd_overlay.png, id=1064, 426.8748pt x 252.2223pt>
 
 File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_overlay.png  used on i
 nput line 188.
 (pdftex.def)             Requested size: 341.43307pt x 201.75116pt.
-
-
-LaTeX Warning: Reference `appendix:shotTable' on page 31 undefined on input lin
-e 193.
-
-<psd_vs_current.png, id=1047, 428.0793pt x 237.7683pt>
+<psd_vs_current.png, id=1067, 428.0793pt x 237.7683pt>
 File: psd_vs_current.png Graphic file (type png)
 <use psd_vs_current.png>
 Package pdftex.def Info: psd_vs_current.png  used on input line 197.
 (pdftex.def)             Requested size: 341.43307pt x 189.6489pt.
-[31 <../Data Acquisition/figures/psd_overlay.png>] [32 <./psd_vs_current.png>]
-
-LaTeX Warning: Citation `detector datasheet' on page 33 undefined on input line
- 234.
-
-
-LaTeX Warning: Citation `laser datasheet' on page 33 undefined on input line 23
-4.
-
-
-LaTeX Warning: Reference `sec:design-laserSelection' on page 33 undefined on in
-put line 237.
-
-[33] [34]
-<../Data Acquisition/figures/psd_piin_lengths.png, id=1092, 426.393pt x 265.230
+ [31 <../Data Acquisition/figures/psd_overlay.png>] [32 <./psd_vs_current.png>]
+ [33] [34]
+<../Data Acquisition/figures/psd_piin_lengths.png, id=1116, 426.393pt x 265.230
 9pt>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_piin_lengths.png  used
  on input line 288.
 (pdftex.def)             Requested size: 341.43307pt x 212.38734pt.
- [35]
-
-LaTeX Warning: Reference `app:linewidth' on page 36 undefined on input line 294
-.
-
-
-LaTeX Warning: Citation `harris1998' on page 36 undefined on input line 296.
-
-) [36 <../Data Acquisition/figures/psd_piin_lengths.png>]
+ [35]) [36 <../Data Acquisition/figures/psd_piin_lengths.png>]
 \openout2 = `Results.aux'.
 
  (Results.tex
 Chapter 5.
-
-LaTeX Warning: Citation `f810 apc datasheet' on page 37 undefined on input line
- 22.
-
-<../../../../../Downloads/fig_rig_side3d.pdf, id=1112, 909.34059pt x 353.66838p
+<../../../../../Downloads/fig_rig_side3d.pdf, id=1137, 909.34059pt x 353.66838p
 t>
 File: ../../../../../Downloads/fig_rig_side3d.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_rig_side3d.pdf>
@@ -1567,30 +1514,19 @@ nput line 27.
 
 
 ]
-
-LaTeX Warning: Reference `(' on page 38 undefined on input line 37.
-
-
-Package caption Warning: \label without proper reference on input line 53.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:doppler_vs_rpm' on page 38 undefined on input lin
-e 41.
-
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=1123, 430.7292pt x 237.527
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=1149, 430.7292pt x 237.527
 4pt>
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_rpm_overlay.png  used 
 on input line 44.
 (pdftex.def)             Requested size: 341.43307pt x 188.28609pt.
-[38 <../../../../../Downloads/fig_rig_side3d.pdf>]
-Overfull \hbox (16.21693pt too wide) in paragraph at lines 56--82
+ [38 <../../../../../Downloads/fig_rig_side3d.pdf>]
+Overfull \hbox (16.21693pt too wide) in paragraph at lines 55--81
  [][] 
  []
 
-<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=1169, 429.50526pt x 238.21
+<../../../../../Downloads/fig_doppler_vs_rpm.pdf, id=1195, 429.50526pt x 238.21
 309pt>
 File: ../../../../../Downloads/fig_doppler_vs_rpm.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_doppler_vs_rpm.pdf>
@@ -1599,7 +1535,7 @@ on input line 105.
 (pdftex.def)             Requested size: 341.43307pt x 189.36758pt.
 [39 <../Data Acquisition/figures/psd_rpm_overlay.png>] [40 <../../../../../Down
 loads/fig_doppler_vs_rpm.pdf>] [41] [42]
-<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=1271, 481.5591
+<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=1297, 481.5591
 pt x 281.853pt>
 File: ../Data Acquisition/figures/psd_windtunnel_overlay_pair.png Graphic file 
 (type png)
@@ -1608,21 +1544,21 @@ Package pdftex.def Info: ../Data Acquisition/figures/psd_windtunnel_overlay_pai
 r.png  used on input line 230.
 (pdftex.def)             Requested size: 318.66948pt x 186.52243pt.
  [43 <../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>]
-<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1285, 476.982pt x 
+<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1311, 476.982pt x 
 221.8689pt>
 File: ../Data Acquisition/figures/psd_5mps_mist_averaging.png Graphic file (typ
 e png)
 <use ../Data Acquisition/figures/psd_5mps_mist_averaging.png>
 Package pdftex.def Info: ../Data Acquisition/figures/psd_5mps_mist_averaging.pn
-g  used on input line 289.
+g  used on input line 287.
 (pdftex.def)             Requested size: 455.24411pt x 211.76279pt.
  [44] [45 <../Data Acquisition/figures/psd_5mps_mist_averaging.png>] [46]
-<../../../../../Downloads/fig_velocity_both.pdf, id=1317, 520.34402pt x 317.987
+<../../../../../Downloads/fig_velocity_both.pdf, id=1344, 520.34402pt x 317.987
 99pt>
 File: ../../../../../Downloads/fig_velocity_both.pdf Graphic file (type pdf)
 <use ../../../../../Downloads/fig_velocity_both.pdf>
 Package pdftex.def Info: ../../../../../Downloads/fig_velocity_both.pdf  used o
-n input line 362.
+n input line 361.
 (pdftex.def)             Requested size: 341.43307pt x 208.66454pt.
 ) [47 <../../../../../Downloads/fig_velocity_both.pdf>]
 \openout2 = `Conclusions.aux'.
@@ -1665,19 +1601,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
 
 ]
-Underfull \hbox (badness 1092) in paragraph at lines 123--128
+Underfull \hbox (badness 1092) in paragraph at lines 124--129
 []\OT1/cmr/m/n/12 T. Mikkelsen, N. An-gelou, K. Hansen, M. Sj^^?oholm, M. Har-r
 is, C. Slinger,
  []
 
 [52]
-Underfull \hbox (badness 6592) in paragraph at lines 165--171
+Underfull \hbox (badness 6592) in paragraph at lines 166--172
 \OT1/cmr/m/n/12 Davoust.  Un-cer-tainty of power curve mea-sure-ment with a two
 -beam
  []
 
 
-Underfull \hbox (badness 5504) in paragraph at lines 165--171
+Underfull \hbox (badness 5504) in paragraph at lines 166--172
 \OT1/cmr/m/n/12 nacelle-mounted li-dar.  \OT1/cmr/m/it/12 Wind En-ergy\OT1/cmr/
 m/n/12 , 19(7):1269--1287, 2016.  []-eprint:
  []
@@ -1709,22 +1645,22 @@ Overfull \hbox (1.29263pt too wide) in paragraph at lines 1--1
  []
 
 
-LaTeX Warning: Reference `sec:testingPIIN' on page 63 undefined on input line 1
-6.
-
-
 Overfull \hbox (2.89316pt too wide) in paragraph at lines 8--25
  [][] 
  []
 
-) (appendix_E_datasheets.tex [63
+) (appendix_E_component_costs.tex [63
 
 ]
 Appendix E.
-[64
+) (appendix_F_datasheets.tex [64
 
 ]
-Overfull \hbox (10.63371pt too wide) in paragraph at lines 103--103
+Appendix F.
+[65
+
+]
+Overfull \hbox (10.09372pt too wide) in paragraph at lines 103--103
 |[]\OT1/cmr/bx/n/17.28 Laser Driver (Ko-heron DRV200S-A-200) and But-
  []
 
@@ -1735,8 +1671,8 @@ Package fancyhdr Warning: \headheight is too small (15.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.85004pt}.
 
-[65] [66]) (appendix_F_experimentA_supp.tex [67]
-Appendix F.
+[66] [67]) (appendix_G_experimentA_supp.tex [68]
+Appendix G.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\leavevmode@ifvmode' on input line 4.
@@ -1746,18 +1682,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.95872pt
 (hyperref)                removed on input line 4.
 
-[68
+[69
 
 ]
-<psd_vs_current_single.png, id=1540, 428.0793pt x 237.7683pt>
+<psd_vs_current_single.png, id=1573, 428.0793pt x 237.7683pt>
 File: psd_vs_current_single.png Graphic file (type png)
 <use psd_vs_current_single.png>
 Package pdftex.def Info: psd_vs_current_single.png  used on input line 37.
 (pdftex.def)             Requested size: 455.24411pt x 252.864pt.
- [69 <./psd_vs_current_single.png>]) (appendix_G_experimentD_supp.tex
-[70]
-Appendix G.
-<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1554, 487.8225pt x 61
+ [70 <./psd_vs_current_single.png>]) (appendix_H_experimentD_supp.tex
+[71]
+Appendix H.
+<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1588, 487.8225pt x 61
 1.1633pt>
 File: ../Data Acquisition/figures/psd_windtunnel_cases.png Graphic file (type p
 ng)
@@ -1765,20 +1701,20 @@ ng)
 Package pdftex.def Info: ../Data Acquisition/figures/psd_windtunnel_cases.png  
 used on input line 11.
 (pdftex.def)             Requested size: 318.66948pt x 399.2471pt.
-[71
+[72
 
- <../Data Acquisition/figures/psd_windtunnel_cases.png>] [72])
-(appendix_H_ai_use.tex [73]
-Appendix H.
-<screenshot001.png, id=1577, 599.23875pt x 349.90726pt>
+ <../Data Acquisition/figures/psd_windtunnel_cases.png>] [73])
+(appendix_I_ai_use.tex [74]
+Appendix I.
+<screenshot001.png, id=1610, 599.23875pt x 349.90726pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
 Package pdftex.def Info: screenshot001.png  used on input line 10.
 (pdftex.def)             Requested size: 318.66948pt x 186.07997pt.
-[74
+[75
 
- <./screenshot001.png>] [75]
-<screenshot002.png, id=1631, 588.39825pt x 210.7875pt>
+ <./screenshot001.png>] [76]
+<screenshot002.png, id=1665, 588.39825pt x 210.7875pt>
 File: screenshot002.png Graphic file (type png)
 <use screenshot002.png>
 Package pdftex.def Info: screenshot002.png  used on input line 98.
@@ -1798,19 +1734,19 @@ Underfull \hbox (badness 2401) in paragraph at lines 159--160
 -her-ent de-tec-tion'' sub-sec-tion reused
  []
 
-[76 <./screenshot002.png>] [77] [78]
-<screenshot003.png, id=1711, 587.19376pt x 346.29375pt>
+[77 <./screenshot002.png>] [78] [79]
+<screenshot003.png, id=1744, 587.19376pt x 346.29375pt>
 File: screenshot003.png Graphic file (type png)
 <use screenshot003.png>
 Package pdftex.def Info: screenshot003.png  used on input line 174.
 (pdftex.def)             Requested size: 318.66948pt x 187.9311pt.
- [79 <./screenshot003.png>] [80]
-<screenshot004.png, id=1723, 461.92575pt x 106.59825pt>
+ [80 <./screenshot003.png>] [81]
+<screenshot004.png, id=1756, 461.92575pt x 106.59825pt>
 File: screenshot004.png Graphic file (type png)
 <use screenshot004.png>
 Package pdftex.def Info: screenshot004.png  used on input line 237.
 (pdftex.def)             Requested size: 318.66948pt x 73.54147pt.
- [81]
+ [82]
 Underfull \hbox (badness 10000) in paragraph at lines 272--273
 []\OT1/cmtt/m/n/10.95 python psd[]-piin.py --series PIIN[]-ref PIIN[]-2m PIIN[]
 -3m PIIN[]-4m --label ref 2m
@@ -1824,21 +1760,21 @@ igures/psd[]-piin[]-
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 274.
-[82 <./screenshot004.png>]
-<screenshot005.png, id=1737, 455.301pt x 109.6095pt>
+[83 <./screenshot004.png>]
+<screenshot005.png, id=1771, 455.301pt x 109.6095pt>
 File: screenshot005.png Graphic file (type png)
 <use screenshot005.png>
 Package pdftex.def Info: screenshot005.png  used on input line 315.
 (pdftex.def)             Requested size: 318.66948pt x 76.7194pt.
- [83]
+ [84]
 Underfull \hbox (badness 10000) in paragraph at lines 346--348
 \OT1/cmtt/m/n/10.95 python acquire[]-windtunnel.py --tag WT[]-10mps --ref WT[]-
 noflow --note "fan 40
  []
 
-[84 <./screenshot005.png>]) (appendix_I_code.tex [85] [86]
-Appendix I.
-) (appendix_J_ethics.tex
+[85 <./screenshot005.png>]) (appendix_J_code.tex [86] [87]
+Appendix J.
+) (appendix_K_ethics.tex
 Overfull \hbox (12.7955pt too wide) in paragraph at lines 3--1
 \OT1/cmr/m/n/12 GitHub repos-i-tory for this project ([]https://github.com/thom
 asbkruger/Final-Year-Project[]).
@@ -1849,23 +1785,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--1
 
  []
 
-[87
+[88
 
 ]
-Appendix J.
-<../../../../../Downloads/report (1).pdf, id=1763, 614.295pt x 794.97pt>
+Appendix K.
+<../../../../../Downloads/report (1).pdf, id=1797, 614.295pt x 794.97pt>
 File: ../../../../../Downloads/report (1).pdf Graphic file (type pdf)
 <use ../../../../../Downloads/report (1).pdf>
 Package pdftex.def Info: ../../../../../Downloads/report (1).pdf  used on input
  line 6.
 (pdftex.def)             Requested size: 386.96027pt x 500.7731pt.
-)) [88
+)) [89
 
  <../../../../../Downloads/report (1).pdf>]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (Project Report Template.aux (Introduction.aux) (Literature.aux)
-(System Design.aux) (Noise Analysis.aux) (Results.aux) (Conclusions.aux)
+(System_Design.aux) (Noise_Analysis.aux) (Results.aux) (Conclusions.aux)
 (appendices.aux))
  ***********
 LaTeX2e <2025-11-01>
@@ -1876,21 +1812,18 @@ L3 programming layer <2025-12-24>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"Project Report Template".out' has not chang
 ed.
-(rerunfilecheck)             Checksum: DBD9DD9D17453E912776D7D3FB97DC66;16654.
+(rerunfilecheck)             Checksum: 199FADAB3EC407603BEB8116B4E9928C;16790.
  ) 
 Here is how much of TeX's memory you used:
- 47218 strings out of 467871
- 1148459 string characters out of 5418376
- 2274097 words of memory out of 5000000
+ 47225 strings out of 467871
+ 1148742 string characters out of 5418376
+ 2274175 words of memory out of 5000000
  74897 multiletter control sequences out of 15000+600000
- 645948 words of font info for 107 fonts, out of 8000000 for 9000
+ 646117 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,23n,118p,1675b,2223s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
@@ -1927,10 +1860,11 @@ oma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:
 /Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8
 .pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmtt8.pfb>
-Output written on "Project Report Template.pdf" (102 pages, 3212818 bytes).
+amsfonts/cm/cmtt12.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmtt8.pfb>
+Output written on "Project Report Template.pdf" (104 pages, 3227994 bytes).
 PDF statistics:
- 1996 PDF objects out of 2073 (max. 8388607)
- 433 named destinations out of 1000 (max. 500000)
- 939 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2033 PDF objects out of 2073 (max. 8388607)
+ 436 named destinations out of 1000 (max. 500000)
+ 947 words of extra memory for PDF output out of 10000 (max. 10000000)
 

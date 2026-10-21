@@ -5,80 +5,60 @@ Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: Introduction.aux
 Reallocating 'name_of_file' (item size: 1) to 15 items.
 A level-1 auxiliary file: Literature.aux
-White space in argument---line 7 of file Project Report Template.aux
- : \@input{System
- :                Design.aux}
-I'm skipping whatever remains of this command
-White space in argument---line 8 of file Project Report Template.aux
- : \@input{Noise
- :               Analysis.aux}
-I'm skipping whatever remains of this command
+Reallocating 'name_of_file' (item size: 1) to 18 items.
+A level-1 auxiliary file: System_Design.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: Noise_Analysis.aux
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 A level-1 auxiliary file: Results.aux
-White space in argument---line 8 of file Results.aux
- : \citation{f810
- :                apc datasheet}
-I'm skipping whatever remains of this command
-Reallocating 'name_of_file' (item size: 1) to 15 items.
-A level-1 auxiliary file: Discussion.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 A level-1 auxiliary file: Conclusions.aux
-Reallocating 'name_of_file' (item size: 1) to 20 items.
-A level-1 auxiliary file: Recommendations.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 19 items.
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-A level-1 auxiliary file: appendixa.aux
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-A level-1 auxiliary file: appendixb.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+A level-1 auxiliary file: appendices.aux
 Database file #1: Bibliography-25Aug.bib
-Warning--I didn't find a database entry for "smt2011"
-Warning--I didn't find a database entry for "Abdelazim2015"
 Warning--empty booktitle in bennett_doppler_2003
-Warning--empty journal in cariou_leosphere_nodate
-Warning--empty year in cariou_leosphere_nodate
-Warning--empty journal in hill_remote_nodate
-Warning--empty year in hill_remote_nodate
-You've used 27 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            696 strings with 10294 characters,
-and the built_in function-call counts, 10677 in all, are:
-= -- 1010
-> -- 680
-< -- 5
-+ -- 274
-- -- 243
-* -- 928
-:= -- 1856
-add.period$ -- 89
-call.type$ -- 27
-change.case$ -- 203
+            691 strings with 10480 characters,
+and the built_in function-call counts, 10504 in all, are:
+= -- 1001
+> -- 674
+< -- 4
++ -- 271
+- -- 241
+* -- 909
+:= -- 1823
+add.period$ -- 90
+call.type$ -- 26
+change.case$ -- 200
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 307
-empty$ -- 680
-format.name$ -- 243
-if$ -- 2092
+cite$ -- 27
+duplicate$ -- 293
+empty$ -- 668
+format.name$ -- 241
+if$ -- 2067
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 24
-newline$ -- 145
-num.names$ -- 56
-pop$ -- 173
+int.to.str$ -- 26
+missing$ -- 22
+newline$ -- 144
+num.names$ -- 54
+pop$ -- 164
 preamble$ -- 1
-purify$ -- 175
+purify$ -- 172
 quote$ -- 0
-skip$ -- 197
+skip$ -- 193
 stack$ -- 0
-substring$ -- 620
+substring$ -- 615
 swap$ -- 41
-text.length$ -- 5
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 106
-warning$ -- 5
-while$ -- 90
-width$ -- 29
+type$ -- 102
+warning$ -- 1
+while$ -- 88
+width$ -- 28
 write$ -- 314
-(There were 3 error messages)
+(There was 1 warning)
