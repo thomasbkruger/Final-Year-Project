@@ -150,7 +150,7 @@ def main() -> int:
     ap.add_argument("--date", help="YYYYmmdd; default is the latest date with RPM captures")
     ap.add_argument("--capture", type=int, default=1,
                     help="which capture of each RPM to use, in time order")
-    ap.add_argument("--out", type=Path, default=Path("peak_vs_rpm.png"))
+    ap.add_argument("--out", type=Path, default=Path("figures/peak_vs_rpm.png"))
     args = ap.parse_args()
 
     # nperseg only affects the PSD, which is not used here.

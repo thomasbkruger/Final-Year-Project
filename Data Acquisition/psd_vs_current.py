@@ -173,7 +173,7 @@ def main() -> int:
 
     if args.out is None:
         suffix = "" if args.detector == "balanced" else f"_{args.detector}"
-        args.out = Path(f"psd_vs_current{suffix}.png")
+        args.out = Path("figures") / f"psd_vs_current{suffix}.png"
 
     data = collect(args.data_dir, tuple(args.band), args.nperseg)
     floor = data["floor"]

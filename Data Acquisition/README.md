@@ -1,207 +1,161 @@
-# Oscilloscope data acquisition (Keysight EDUX1002G)
+# Data acquisition and processing
 
-Captures raw waveform records from channel 1 over USB and saves them with your
-experiment metadata. No processing is done here.
+Scripts for capturing signals from the oscilloscope and turning them into the
+noise spectra, Doppler peaks and figures used in the report.
 
-## Install
+The workflow is always the same: **capture** a run with the scope, **process**
+it into a spectrum, and **plot** the result. Each script below does one of
+those jobs.
 
-1. Windows: install Keysight IO Libraries Suite (or NI-VISA).
-   Linux/macOS: `pip install pyvisa-py pyusb` and set `visa_backend: "@py"` in the config.
-2. `pip install -r requirements.txt`
+## Setup
 
-## Find the VISA address
+- Python 3 with `numpy`, `scipy`, `matplotlib`, `pyyaml` and `pyvisa`.
+- Windows: install Keysight IO Libraries Suite so the scope is visible over USB.
+  Plug into the scope's rear USB-B port.
+- Before capturing, edit the `metadata:` block in `daq_config.yaml` so the run
+  is saved with a description of the experiment. The scope settings (volts per
+  division, record length, sample rate) live in the same file, with a table of
+  what the scope can do.
 
-```
-python Acquisition.py --list
-```
+Run every script from this folder.
 
-This prints every visible instrument with its identity string. Paste the address into
-`visa_address` in `daq_config.yaml`. Use the rear USB-B port on the scope.
+## Folders
 
-The address for the lab's scope (serial CN58022160) is already in the config:
+| Folder | Contents |
+|---|---|
+| `data/` | Raw captures (`<date>_<time>_<tag>.npz` plus a readable `.json` summary), and the quick-look spectra `acquire_windtunnel.py` writes next to them |
+| `figures/` | Every figure the report uses, plus the per-RPM figures in `figures/psd_rpm/` and three drawings made outside these scripts (`fig_rig_side3d.pdf`, `fig_doppler_vs_rpm.pdf`, `fig_velocity_both.pdf`) |
+| `*.txt` in this folder | Number tables printed by the `noise_vs_*` and `psd_piin` scripts |
 
-```
-USB0::0x2A8D::0x179B::CN58022160::0::INSTR
-```
+## Capturing
 
-## What this scope can actually do
-
-Measured on the EDU-X 1002G with channel 2 off. Memory caps at 25 000 points in
-HRESolution and 50 000 in NORMal, so the sample rate is set by the timebase:
-
-| acquire_type | seconds_per_div | sample rate | points | record | Nyquist |
-|---|---|---|---|---|---|
-| HRESolution | 20.0e-6 | 125 MSa/s | 25000 | 200 us | 62.5 MHz |
-| HRESolution | 100.0e-6 | 25 MSa/s | 25000 | 1 ms | 12.5 MHz |
-| HRESolution | 400.0e-6 | 5 MSa/s | 20001 | 4 ms | 2.5 MHz |
-| HRESolution | 1.0e-3 | 2.5 MSa/s | 25000 | 10 ms | 1.25 MHz |
-| NORMal | 100.0e-6 | 50 MSa/s | 50000 | 1 ms | 25 MHz |
-| NORMal | 400.0e-6 | 10 MSa/s | 40000 | 4 ms | 5 MHz |
-
-Points are capped, so the sample rate is roughly `points / (10 * seconds_per_div)`,
-quantised to 1-2-5 steps. Shortening the timebase buys bandwidth and costs frequency
-resolution: the Welch bin floor is `1 / record length`. Change `seconds_per_div`,
-`points` and `expected_sample_rate` together, using a row above.
-
-Throughput is about 13 records/s, so 100 records takes roughly 8 seconds.
-
-## Use
-
-1. Edit the `metadata:` block in `daq_config.yaml` to describe the run.
-2. Run:
+**`Acquisition.py`** - records waveforms from the scope and saves them. It does
+no processing. `--tag` names the run and ends up in the filename.
 
 ```
-python Acquisition.py --list                                       # find the scope's VISA address
-python Acquisition.py --tag test --dry-run                         # connect, capture one record, print stats
-python Acquisition.py --tag A1_laser_off                           # 100 records (from config)
-python Acquisition.py --tag A1_leg_A_10mA --n 50 --note "leg A"    # override count, add a note
-python Acquisition.py --tag manual --no-configure                  # keep front-panel scope settings
+python Acquisition.py --list                          # find the scope's address
+python Acquisition.py --tag test --dry-run            # one record, print stats, save nothing
+python Acquisition.py --tag A1_laser_off              # 100 records (from the config)
+python Acquisition.py --tag B1_48mA --n 50 --note "..."
+python Acquisition.py --tag manual --no-configure     # keep the scope's front-panel settings
 ```
 
 Ctrl-C stops early and still saves what was captured.
 
-## Output
-
-Each run writes to `data/`:
-
-- `YYYYMMDD_HHMMSS_<tag>.npz` with arrays `raw` (int16, records x points), `t0_unix`,
-  `preamble` (records x 10), `clipped`, and `meta_json`.
-- `YYYYMMDD_HHMMSS_<tag>.json`: the same metadata plus a short summary (record count,
-  rms of first/last record in mV, clipped count). Open this to check a run without loading the data.
-
-Convert to volts in the processing script:
-
-```python
-import numpy as np
-d = np.load("data/....npz")
-pre = d["preamble"]                       # per record: [..., 4=xincrement, ..., 7=yinc, 8=yorig, 9=yref]
-v = (d["raw"] - pre[:, 9:10]) * pre[:, 7:8] + pre[:, 8:9]
-dt = pre[0, 4]
-```
-
-## Feeding the data to Welch.py
-
-`prepare_welch.py` converts a raw capture into volts plus a sample rate. It does
-the conversion only: no windowing, no PSD, no averaging.
-
-Import it from `Welch.py`, which avoids a second copy of the data on disk:
-
-```python
-from scipy.signal import welch
-from prepare_welch import load_run
-
-run = load_run("data/20260925_123928_A1_laser_off.npz")
-f, pxx = welch(run.v, fs=run.fs, nperseg=4096, axis=-1)
-psd = pxx.mean(axis=0)          # ensemble average across records
-```
-
-`run.v` is float64 volts with shape `(n_records, n_samples)`, and `run.fs` is the
-sample rate in Hz. Passing the 2-D array straight to `welch` with `axis=-1` gives
-one periodogram per record; average those rather than concatenating the records,
-since the records are not contiguous in time.
-
-Or convert to a file first:
+**`acquire_windtunnel.py`** - the same capture, but 1000 records by default,
+and it computes and plots the spectrum as soon as the capture finishes. Use it
+for anything that needs many averages. `--ref` overlays an earlier run (a
+no-flow or laser-off capture) for comparison.
 
 ```
-python prepare_welch.py data/20260925_123928_A1_laser_off.npz
-python prepare_welch.py --all --drop-clipped
-python prepare_welch.py --all --describe            # print contents, write nothing
-python prepare_welch.py data/....npz --csv          # also dump record 0 as time_s,volts
+python acquire_windtunnel.py --tag WT_noflow
+python acquire_windtunnel.py --tag WT_10mps --ref WT_noflow
+python acquire_windtunnel.py --tag WT_long --n 10000
+python acquire_windtunnel.py --psd data/<file>.npz    # redo the spectrum of an existing capture
 ```
 
-That writes `<name>_volts.npz` containing:
+All `Acquisition.py` options pass straight through. Add `--no-psd` to capture only.
 
-| key | type | meaning |
-|---|---|---|
-| `v` | float64 (n_records, n_samples) | volts |
-| `fs` | float64 scalar | sample rate, Hz |
-| `dt` | float64 scalar | sample interval, s |
-| `t0_unix` | float64 (n_records,) | wall-clock time of each record |
-| `clipped` | bool (n_records,) | record touched the ADC rail |
-| `meta_json` | str | metadata carried from the capture |
+## Processing (library code)
 
-The converter refuses a file whose sample interval changed mid-run, since Welch
-needs one sample rate. Each record is converted with its own preamble, so a scale
-change between records cannot corrupt the result.
+These are imported by the other scripts rather than run on their own.
 
-## Running the Welch analysis
-
-`Welch.py` is a library plus a synthetic self-test. Running it directly checks the
-scaling end to end against white noise of known density, and prints nothing about
-your data:
-
-```
-python Welch.py
-```
-
-To analyse a real capture, use `run_welch.py`, which loads the file through
-`prepare_welch`, runs `Welch.welch_psd`, and reports the band-averaged floor:
-
-```
-python run_welch.py data/20260925_123928_A1_laser_off.npz
-python run_welch.py --all
-python run_welch.py --all --plot
-python run_welch.py data/....npz --band 1e6 60e6 --nperseg 5000 --save
-python run_welch.py data/....npz --plot-file floor.png
-```
-
-Useful options:
-
-| flag | meaning |
+| Script | Purpose |
 |---|---|
-| `--nperseg` | segment length; resolution is `fs / nperseg` (default 2500) |
-| `--band F_LO F_HI` | band to average, Hz (default 5e6 20e6) |
-| `--gain` | transimpedance V/A; defaults from the capture metadata |
-| `--droop` | apply the HRESolution sinc-squared correction |
-| `--drop-clipped` | exclude records flagged as clipped |
-| `--save` | write `<name>_psd.npz` with `f`, `psd`, `psd_per_record` |
-| `--plot` / `--plot-file` | show or save the floor, nV/sqrt(Hz) and pA/sqrt(Hz) |
+| `prepare_welch.py` | Loads a capture and converts the scope's raw numbers to volts |
+| `prepare_welch_big.py` | The same, a block of records at a time, for captures too big to hold in memory |
+| `Welch.py` | Turns voltage records into a power spectral density: how much noise there is at each frequency |
+| `Welch_big.py` | The same, streaming, for very large captures (used by `acquire_windtunnel.py`) |
+| `figstyle.py` | Figure size and font settings so plots match the report's text |
 
-The transimpedance gain is taken from the capture metadata: 39 kV/A when
-`terminator_50ohm` is false, 19.5 kV/A when true. The gain used is printed on
-every run, because getting it wrong scales the input-referred current noise by two.
+`prepare_welch.py` also works from the command line if you want a converted
+copy of a capture:
 
-This rig currently runs **unterminated**, so the gain is 39 kV/A. The EDU-X 1002G
-has a 1 Mohm input only, confirmed by `:CHANnel1:IMPedance FIFTy` being rejected
-with "Data out of range", so the only way to terminate is an external 50 ohm
-feed-through at the scope input. If you fit one, set `terminator_50ohm: true`.
-
-Running unterminated doubles the signal at the scope, which helps at 5 mV/div, but
-leaves the PD100B's 50 ohm output driving an unmatched 1 Mohm load through the coax.
-The resulting reflections shape the frequency response, so treat the high-frequency
-end of the floor as suspect until a terminated run confirms it.
-
-Choosing `--nperseg` is a trade between resolution and error bar. At 25 000 points
-per record, `--nperseg 2500` gives 19 segments per record; raising it to 12500
-leaves only 3, and the runner warns below 4 segments. For finer resolution,
-lengthen the record with a slower timebase rather than raising `--nperseg`.
-
-To call it from your own code instead:
-
-```python
-from prepare_welch import load_run
-from Welch import welch_psd, band_average, to_input_current
-
-run = load_run("data/20260925_123928_A1_laser_off.npz")
-f, psd, per = welch_psd(run.v, run.fs, nperseg=2500)
-band, sem = band_average(f, per, 5e6, 20e6)
-i_rt = (to_input_current(band, 39e3)) ** 0.5       # A/sqrt(Hz), unterminated
+```
+python prepare_welch.py data/<file>.npz          # writes <file>_volts.npz
+python prepare_welch.py --all --describe         # print what each capture contains
 ```
 
-## Troubleshooting
+**`run_welch.py`** - quick look at one or more captures: prints the noise level
+in a frequency band and can plot it.
 
-- **`VI_ERROR_LIBRARY_NFOUND` on startup**: the script already works around this. Keysight's
-  VISA implementation sits in `System32` but its dependencies live under
-  `C:\Program Files\Keysight\IO Libraries Suite`, and Python 3.8+ no longer searches `PATH`
-  for dependent DLLs. `_enable_keysight_dlls()` at the top of the script adds those folders.
-  If Keysight is installed elsewhere, edit the `root` path in that function.
-  Note `visa_backend: "@py"` does **not** work on Windows here, because the Keysight driver
-  owns the USB device and pyvisa-py cannot claim it. Leave `visa_backend` empty.
-- **Timeout on data transfer**: raise `scope.timeout` in `connect()` (default 20 s); check the USB cable.
-- **Fewer points than expected**: channel 2 must be off (the script turns it off unless `--no-configure`).
-  Also check the table above, since 25 000 points is the hard ceiling in HRESolution.
-- **Wrong sample rate warning**: change `seconds_per_div` and `expected_sample_rate` together
-  using a row from the table above.
-- **Instrument not found**: rear USB-B port, cable, "Remote" shown on the scope, address matches Connection Expert.
-- **Scope stuck in a menu**: press Back/Escape on the front panel and rerun.
-- **Fallback without the PC**: front panel Save > Waveform > CSV to a USB stick (columns: time_s, volts).
+```
+python run_welch.py data/<file>.npz
+python run_welch.py --all --plot
+python run_welch.py data/<file>.npz --band 1e6 10e6 --nperseg 5000
+```
+
+## Plotting, by experiment
+
+Each script picks the right captures out of `data/` by their tags, so they
+normally run with no arguments. Figures go to `figures/`.
+
+### A: noise floor vs laser current
+
+**`psd_vs_current.py`** - how the noise floor grows with laser drive current,
+for the balanced detector (default) or the single-ended one.
+
+```
+python psd_vs_current.py                      # -> figures/psd_vs_current.png
+python psd_vs_current.py --detector single    # -> figures/psd_vs_current_single.png
+```
+
+### B: laser interference noise (PIIN)
+
+**`psd_piin.py`** - the PIIN spectrum against the balanced reference and the
+electronic floor. Several capture series can be overlaid; this is how the
+patch-cable-length figure is made. A `.txt` with the band numbers is written
+alongside.
+
+```
+python psd_piin.py                            # -> figures/psd_piin.png, psd_piin.txt
+python psd_piin.py --series PIIN_ref PIIN_2m PIIN_3m PIIN_4m \
+    --label "no matching" "2m patch cable" "3m patch cable" "4m patch cable" \
+    --out figures/psd_piin_lengths.png
+```
+
+### C: rotating target
+
+**`psd_rpm.py`** - the spectrum at each motor speed on one axis, plus one
+figure per speed in `figures/psd_rpm/`.
+
+```
+python psd_rpm.py                             # latest set of RPM captures
+python psd_rpm.py --series "" --ref PIIN_4m --date 20261009
+```
+
+**`peak_vs_rpm.py`** - where the Doppler peak sits at each speed, with a
+straight-line fit.
+
+```
+python peak_vs_rpm.py                         # -> figures/peak_vs_rpm.png and .csv
+```
+
+**`noise_vs_rpm.py`** - how far each peak stands above the noise around it.
+
+```
+python noise_vs_rpm.py                        # -> noise_vs_rpm.txt
+```
+
+### D: wind tunnel
+
+**`wind_tunnel_doppler.py`** - all the wind-tunnel figures: spectra at each
+tunnel speed, measured peak against set speed, a grid of every test case, and
+the effect of averaging on the weak mist runs. `--set rotated` repeats it for
+the captures taken with the rig turned to face upstream.
+
+```
+python wind_tunnel_doppler.py                 # -> figures/psd_windtunnel_*.png, peak_vs_windtunnel_speed.png
+python wind_tunnel_doppler.py --set rotated   # -> the same with a _rotated suffix
+```
+
+**`noise_vs_windspeed.py`** - peak height against surrounding noise at each
+tunnel speed, for the dense-fog and mist runs.
+
+```
+python noise_vs_windspeed.py                  # -> noise_vs_windspeed.txt
+python noise_vs_windspeed.py --set rotated    # -> noise_vs_windspeed_rotated.txt
+```
+
+```
+

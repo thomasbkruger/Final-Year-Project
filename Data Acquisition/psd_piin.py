@@ -209,7 +209,7 @@ def main() -> int:
                          "(printed breakdown only; the plot pools all repeats)")
     ap.add_argument("--no-spread", action="store_true",
                     help="omit the min-max run-to-run envelopes")
-    ap.add_argument("--out", type=Path, default=Path("psd_piin.png"))
+    ap.add_argument("--out", type=Path, default=Path("figures/psd_piin.png"))
     ap.add_argument("--txt", type=Path, default=None,
                     help="results file (default: the --out name with .txt, in "
                          "the working directory)")

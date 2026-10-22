@@ -329,7 +329,7 @@ def main() -> int:
     ap.add_argument("--fmax", type=float,
                     help="upper frequency on the linear (PSD) axes, Hz; "
                          "default is 1.5x the highest Doppler peak")
-    ap.add_argument("--out-dir", type=Path, default=Path("."),
+    ap.add_argument("--out-dir", type=Path, default=Path("figures"),
                     help="overlays go here, per-RPM figures in psd_rpm/ and fft_rpm/ under it")
     args = ap.parse_args()
 

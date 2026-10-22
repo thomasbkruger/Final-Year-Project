@@ -75,6 +75,10 @@ F_MAX = 40e6                # and stops here: a fixed bump near 60 MHz, close to
 AVERAGING = (("20261012", "5mps_mist", 15e6),
              ("20261016", "21mps_rotated", 30e6))
 
+# Mist cases shown in the appendix grid, psd_windtunnel_cases.png, each with
+# all its captures averaged - one 5 m/s mist capture alone is below threshold.
+GRID_MIST = ("5mps_mist",)
+
 # 5mps, 11-8mps (11.8 m/s), 15ishmps (an approximate setpoint, ~15 m/s)
 SPEED_TAG = re.compile(r"^(\d+)(?:-(\d+))?(ish)?mps$")
 
@@ -295,7 +299,8 @@ def plot_case_grid(rows: list[dict], mist: list[dict], f: np.ndarray,
         # the legend say dense fog or mist in full.
         date = f", {int(r['capture'][6:8])} Oct" if r["extra"] else ""
         short = "fog" if fog == "dense fog" else fog
-        style_axes(ax, "psd", f"{speed_label(r)} {short}{date}\n"
+        avg = f" ({r['n_caps']} avg.)" if r.get("n_caps", 1) > 1 else ""
+        style_axes(ax, "psd", f"{speed_label(r)} {short}{date}{avg}\n"
                               f"{r['centroid']/1e6:.2f} MHz, "
                               f"+{r['ratio_dB']:.2f} dB",
                    ylabel=r"PSD ($10^{-12}$ V$^2$/Hz)")
@@ -465,7 +470,7 @@ def measure_all(rows: list[dict], nperseg: int, f: np.ndarray | None = None
     "paths" gets their PSDs averaged in linear power, weighted by records -
     one long capture."""
     for r in rows:
-        paths = r.get("paths", [r["path"]])
+        paths = r["paths"] if "paths" in r else [r["path"]]
         runs = []
         for p in paths:
             d = psd_of(p, nperseg)
@@ -560,7 +565,10 @@ def main() -> int:
                  f"{args.label} wind-tunnel PSD relative to its own noise floor",
                  y_of=lambda r: 10 * np.log10(r["psd"] / r["floor"]),
                  ylabel="PSD / local noise floor (dB)")
-    plot_case_grid(rows, mist, f, args.out_dir / "psd_windtunnel_cases.png")
+    grid_mist = [{**r, "paths": captures(args.data_dir, date, r["path"].stem[16:])}
+                 for r in mist if r["path"].stem[16:] in GRID_MIST]
+    measure_all(grid_mist, args.nperseg, f)
+    plot_case_grid(rows, grid_mist, f, args.out_dir / "psd_windtunnel_cases.png")
 
     for date, tag, fmax in AVERAGING:
         avg = [{"path": p} for p in captures(args.data_dir, date, tag)]
