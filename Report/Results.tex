@@ -24,7 +24,7 @@ velocities, which broadens the Doppler peak.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{../../../../../Downloads/fig_rig_side3d}
+	\includegraphics[width=0.7\linewidth]{"../Data Acquisition/figures/fig_rig_side3d"}
 	\caption{Test setup used for hard-target speed measurement}
 	\label{fig:CRig}
 \end{figure}
@@ -102,7 +102,7 @@ It can be seen that $f_{D}$, the centroid of each Doppler peak, and its correspo
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{../../../../../Downloads/fig_doppler_vs_rpm}
+	\includegraphics[width=0.75\linewidth]{"../Data Acquisition/figures/fig_doppler_vs_rpm"}
 	\caption{C: Measured Doppler peak frequency (from centroid) and expected Doppler peak frequency vs target motor RPM}
 	\label{fig:CentroidVSRPM}
 \end{figure}
@@ -120,7 +120,7 @@ while it remained constant within each set, which supports this explanation.
 
 In summary, the experiment validates the Doppler measurement principle: the system resolves
 speeds from \SIrange{0.06}{2.5}{m/s}, with a linear response and a large SNR margin on a hard
-target. The \SI{10.6}{\percent} offset is a calibration error in the rig geometry, which a
+target, thus meeting P4 and the low-end velocity detection range of P5. The \SI{10.6}{\percent} velocity offset is a calibration error in the rig geometry, which a
 single-point calibration would remove. The aerosol return in experiment D is expected to be
 far weaker, so this margin does not by itself guarantee wind-speed measurement, which is
 addressed in \autoref{sec:windTesting}.
@@ -203,7 +203,7 @@ The test setup used in the wind-tunnel is shown in \autoref{fig:DRig}:
 
 A small wedge which fits the collimator and which can be attached to the floor of the wind-tunnel was designed and 3D printed. The collimator is pointed downstream of the flow, so as to minimise any residue buildup from seeded air hitting the collimator lens from front-on. The consequence of this however, is that the collimator has to be placed at an angle (35 degrees in this design), rather than straight in the direction of flow, so as to avoid the collimator and the housing from disturbing the flow and causing excessive turbulence, immediately prior to the measurement line-of-sight. The angled wedge also provides the advantage of allowing the beam to terminate on a stationary angled surface (the MDF ceiling of the wind-tunnel), rather than continuing on through the tunnel to hit the rotor which generates the flow, which would generate additional Doppler components at the radial velocity of the rotor-blades in the direction of the beam. The angled beam termination surface also serves to absorb and reflect unwanted stationary (non-Doppler shifted) beam components away from the system, so that there is minimal additional PIIN - this mimics the setup of \autoref{sec:PIINTesting}.
 
- It must be noted from the rig geometry, that the system only measures the component of the velocity which is in the direction of the beam. Assuming no vertical flow in the tunnel, the velocity "seen" by the beam is:
+ It must be noted from the rig geometry, that the system only measures the component of the velocity which is in the direction of the beam. Assuming no vertical flow in the tunnel, the line-of-sight velocity "seen" by the beam is:
  \begin{equation}
  	 v_{los}=cos(35)\times U
  \end{equation}
@@ -227,7 +227,7 @@ A small wedge which fits the collimator and which can be attached to the floor o
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{"../Data Acquisition/figures/psd_windtunnel_overlay_pair"}
+	\includegraphics[width=0.85\linewidth]{"../Data Acquisition/figures/psd_windtunnel_overlay_pair"}
 	\caption{D: PSD for wind-speed measurements, at different wind-tunnel setpoints, with dense fog-seeded air}
 	\label{fig:psdwindtunneloverlaypair}
 \end{figure}
@@ -238,7 +238,7 @@ A small wedge which fits the collimator and which can be attached to the floor o
 	
 	\begin{tabular}{|S[table-format=2.1]|S[table-format=2.3]|S[table-format=1.3]|S[table-format=1.3]|S[table-format=2.2]|}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\boldmath$f_D$}
+		\multicolumn{1}{|c|}{\textbf{Tunnel Speed}} & \multicolumn{1}{c|}{\boldmath$f_D$}
 		& \multicolumn{2}{c|}{\textbf{PSD/floor} (dB)} & \multicolumn{1}{c|}{\textbf{Excess}} \\ \cline{3-4}
 		\multicolumn{1}{|c|}{(\si{m/s})} & \multicolumn{1}{c|}{(\si{MHz})}
 		& \multicolumn{1}{c|}{Mean $+\,5\sigma$} & \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}}
@@ -266,7 +266,7 @@ After measuring the system's sensitivity performance in the dense-fog seeded air
 	\small
 	\begin{tabular}{|S[table-format=1.1]|S[table-format=1.0]|S[table-format=1.3]|S[table-format=1.3]|S[table-format=2.2]|}
 		\hline
-		\multicolumn{1}{|c|}{\textbf{Speed}} & \multicolumn{1}{c|}{\textbf{Captures}}
+		\multicolumn{1}{|c|}{\textbf{Tunnel Speed}} & \multicolumn{1}{c|}{\textbf{Captures}}
 		& \multicolumn{2}{c|}{\textbf{Normalised PSD} (\si{dB})} & \multicolumn{1}{c|}{\textbf{Excess}} \\ \cline{3-4}
 		\multicolumn{1}{|c|}{(\si{m/s})} & \multicolumn{1}{c|}{\textbf{averaged}}
 		& \multicolumn{1}{c|}{Mean $+\,5\sigma$} & \multicolumn{1}{c|}{\textbf{At \boldmath$f_D$}}
@@ -340,6 +340,7 @@ combined with removing the residual PIIN to reach the shot-noise limit
 		\hline
 		\textbf{Quantity} & \textbf{Value} \\ \hline
 		Tunnel speed range & \SIrange[range-phrase=--, range-units=single]{3.1}{21}{m/s} \\ \hline
+		LOS speed range ($U\cos\ang{35}$) & \SIrange[range-phrase=--, range-units=single]{2.54}{17.2}{m/s} \\ \hline
 		Speed error & \SI[retain-explicit-plus]{+10.7}{\percent} \\ \hline
 		Error per speed & $+8.1$ to \SI[retain-explicit-plus]{+11.6}{\percent} \\ \hline
 		Linearity, $R^2$ (free intercept) & 0.9998 \\ \hline
@@ -348,38 +349,40 @@ combined with removing the residual PIIN to reach the shot-noise limit
 	\end{tabular}
 	\caption{Velocity accuracy in dense fog (collimator facing downstream, 9 speeds).}
 	\label{tab:D_velocity_summary}
-	
 \end{table}
 
-It was found that using the original test setup detailed in the methodology for this section (downstream facing collimator and wedge), an average overshoot of approximately 10.7\% was consistently observed between the DWL measured velocity (as calculated from the peak's frequency), and the wind-tunnel's velocity setpoint. However, the data showed very good linearity, with $R^2=0.9998$, thus the overshoot offset can easily be removed via a single-point calibration, to give an error of approximately 1.1\%. Without this calibration, the system fails performance requirement P7 on velocity accuracy within $5\%$, but after the calibration it passes. Thus, it is important to investigate whether the calibration, which assumes error from the test setup, is valid.
+It was found that using the original test setup detailed in the methodology for this section (downstream facing collimator and wedge), an average overshoot of approximately 10.7\% was consistently observed between the DWL measured velocity (as calculated from the peak's frequency), and the expected line-of-sight velocity, as calculated from the wind-tunnel's velocity setpoint. However, the data showed very good linearity, with $R^2=0.9998$, thus the overshoot offset can easily be removed via a single-point calibration, to give an error of approximately 1.1\%. Without this calibration, the system fails performance requirement P7 on velocity accuracy within $5\%$, but after the calibration it passes. Thus, it is important to investigate whether the calibration, which assumes error from the test setup, is valid.
 
 % It can also be seen that the Doppler peak had a width of approximately 0.45 - 0.65MHz at its half-maximum value, corresponding to a velocity range of 0.35 - 0.5m/s across the beam's volume - this is expected, given that the Doppler peak represents the equally-weighted Doppler shift from velocity components along the entire beam (rather than just at the center), since no focusing is used (see \autoref{sec:lit-Ranging} and \autoref{sec:design-ComponentChoices}), and naturally the wind-speed will vary across the tunnel's area and give varying Doppler shifts near the setpoint.
 
 The cause of the 10.7\% overshoot was therefore further investigated: The laser's frequency is stable at the expected 1550nm (a drift causing 10\% error would require a drifted wavelength of 1400nm, which is not possible for a DFB diode), the data acquisition chain was validated against a signal generated by a signal generator, and the wind-tunnel's setpoint speeds were validated against a calibrated anemometer. Thus it is hypothesised that this error is due to the turbulence and blockage caused by the test-rig geometry, which may redirect a significant component of the flow over the top of the wedge, and thus into the line of sight of the collimator, so as to cause an overshoot in its measurement relative to the wind-tunnel setpoint. The test setup was modified to investigate this, so as to have the wedge and collimator now pointing upstream of the wind. The results of this setup are plotted in \autoref{fig:figvelocityboth} alongside the "expected" measurement from the wind-tunnel setpoint, and the results from the original downstream setup. Note here that the system is homodyne, and thus downstream and upstream velocity appear the same at the output (the recovered velocity is not signed, see \autoref{sec:lit-homohetero}).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{../../../../../Downloads/fig_velocity_both}
+	\includegraphics[width=0.75\linewidth]{"../Data Acquisition/figures/fig_velocity_both"}
 	\caption{Measured vs predicted velocity at different wind-tunnel setpoints}
 	\label{fig:figvelocityboth}
 \end{figure}
 
 It can be seen that with this new setup, the overshoot was reduced to an average of 6.9\%, while retaining the linearity of the original setup. It is thus clear that at least some component of the overshoot is due to the test-rig geometry, and that it is thus valid to remove the offset using a single-point calibration. Rigorously profiling the tunnel flow for a given test rig would however be needed to test this hypothesis, and the velocity accuracy further (see recommendation R4).
 
-%\subsubsection{Summary of results}
-%In dense fog, a Doppler peak was detected above the mean\,$+\,5\sigma$
-%threshold at every tunnel speed from \SIrange[range-phrase=--,
-%range-units=single]{3.1}{21}{m/s} within \num{10000} averages, meeting P6. In
-%light mist at \SI{5}{m/s}, where the return was approximately half that in
-%fog, detection required approximately \num{21600} averages, so P6 is not met
-%in this case. The measured velocity was highly linear with tunnel speed
-%($R^2 = 0.9998$) but overshot by \SI{10.7}{\percent}, failing P7 as built. A
-%single-factor calibration reduces the error to \SI{1.1}{\percent}, meeting P7.
-%The overshoot is at least partly attributable to the test-rig geometry, and
-%the calibration is therefore specific to the installation. Finally,
-%measurement in clean air is estimated to require a further
-%\SIrange[range-phrase=--, range-units=single]{25}{30}{dB} of sensitivity,
-%dominated by transmit power and residual PIIN, which averaging alone cannot
-%practically provide.
+\subsubsection{Summary of results}
+In dense fog, a Doppler peak was detected above the mean\,$+\,5\sigma$
+threshold at every tunnel speed from \SIrange[range-phrase=--,
+range-units=single]{3.1}{21}{m/s} within \num{10000} averages, meeting sensitivity requirement P6. These wind-tunnel speeds correspond to beam line-of-sight speeds of \SIrange[range-phrase=--,
+range-units=single]{2.54}{17.2}{m/s}, and thus the peak at the highest tunnel speeds demonstrates the system's high-end velocity detection above 15m/s (LOS), meeting P5. In
+light mist at a tunnel setpoint of \SI{5}{m/s}, where the return was approximately half that in
+fog, detection required approximately \num{21600} averages, so P6 is not met
+in this case.
+
+ The measured velocity was highly linear with tunnel speed
+($R^2 = 0.9998$) but overshot by \SI{10.7}{\percent}, failing P7 as built. A
+single-factor calibration reduces the error to \SI{1.1}{\percent}, which causes P7 to finally be met.
+The overshoot is at least partly attributable to the test-rig geometry, and
+the calibration is therefore specific to the installation. Finally,
+measurement in clean air is estimated to require a further
+\SIrange[range-phrase=--, range-units=single]{25}{30}{dB} of sensitivity,
+dominated by transmit power and residual PIIN, which averaging alone cannot
+practically provide.
 
 
 

@@ -1,42 +1,42 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Block diagram of the chosen architecture: all-fibre, coherent, continuous-wave, monostatic, homodyne, with balanced detection}}{17}{figure.caption.5}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Architecture diagram of final system design}}{27}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Block diagram of the chosen architecture: all-fibre, coherent, continuous-wave, monostatic, homodyne, with balanced detection}}{15}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Architecture diagram of final system design}}{23}{figure.caption.18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Experimental setup A}}{29}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces PSD of total noise (shot and electronic) for different laser source currents}}{31}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces 5 - 20MHz Average PSD vs Laser Current with Balanced Detection}}{32}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Total noise in the system for different inserted patch-cable lengths}}{36}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Experimental setup A}}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces PSD of total noise (shot and electronic) for different laser source currents}}{27}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 5 - 20MHz Average PSD vs Laser Current with Balanced Detection}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Total noise in the system for different inserted patch-cable lengths}}{30}{figure.caption.29}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Test setup used for hard-target speed measurement}}{38}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces C: PSD of hard-target speed measurements, at different motor RPMs}}{39}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces C: Measured Doppler peak frequency (from centroid) and expected Doppler peak frequency vs target motor RPM}}{40}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces D: Wind-tunnel experimental setup diagram}}{41}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces D: PSD for wind-speed measurements, at different wind-tunnel setpoints, with dense fog-seeded air}}{43}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalised PSD near $f_D$ for different numbers of averages}}{45}{figure.caption.39}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Measured vs predicted velocity at different wind-tunnel setpoints}}{47}{figure.caption.42}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Lorentzian frequency spectrum of a laser diode.}}{58}{figure.caption.44}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Spectrum of a monostatic CW coherent lidar, showing the Doppler signal superimposed on the skirt of the common-mode peak (adapted from \cite {cariou2006laser}).}}{59}{figure.caption.45}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Balanced detection. The 50:50 coupler delivers the sum and difference of the backscatter and LO fields to two matched photodiodes; the output is the difference of their photocurrents, in which the common-mode terms cancel and only the beat term $2\sqrt {P_{LO} P_{RS}}\cos (2\pi \Delta f t)$ remains.}}{62}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Test setup used for hard-target speed measurement}}{34}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces C: PSD of hard-target speed measurements, at different motor RPMs}}{34}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces C: Measured Doppler peak frequency (from centroid) and expected Doppler peak frequency vs target motor RPM}}{35}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces D: Wind-tunnel experimental setup diagram}}{36}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces D: PSD for wind-speed measurements, at different wind-tunnel setpoints, with dense fog-seeded air}}{38}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalised PSD near $f_D$ for different numbers of averages}}{39}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Measured vs predicted velocity at different wind-tunnel setpoints}}{41}{figure.caption.43}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {F.1}{\ignorespaces P--I--V characteristic of the supplied BFLD-1550-20SM-FA2 diode at \SI {25}{\celsius }, redrawn from the manufacturer's test report (values read from the printed curve to about $\pm $\SI {0.5}{\milli \watt }).}}{66}{figure.caption.51}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Lorentzian frequency spectrum of a laser diode.}}{52}{figure.caption.47}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Spectrum of a monostatic CW coherent lidar, showing the Doppler signal superimposed on the skirt of the common-mode peak (adapted from \cite {cariou2006laser}).}}{53}{figure.caption.48}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {G.1}{\ignorespaces A3: 5 - 20MHz Average PSD vs Laser Current with Single-Ended Detection}}{70}{figure.caption.56}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {H.1}{\ignorespaces Grid of PSD plots for each wind-tunnel setpoint}}{72}{figure.caption.57}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {I.1}{\ignorespaces Example prompt to format tables and figures for the laser datasheet appendix}}{75}{figure.caption.62}%
-\contentsline {figure}{\numberline {I.2}{\ignorespaces Example prompt to improve clarity and conciseness of architecture decisions}}{77}{figure.caption.65}%
-\contentsline {figure}{\numberline {I.3}{\ignorespaces Example prompt used to assist in conceptual understanding of PIIN and PIIN roll-off}}{80}{figure.caption.68}%
-\contentsline {figure}{\numberline {I.4}{\ignorespaces Example prompt given to generate plots for PIIN test results from raw data}}{83}{figure.caption.71}%
-\contentsline {figure}{\numberline {I.5}{\ignorespaces Example prompt for generating an acquisition script for acquiring oscilloscope data for wind-tunnel testing}}{85}{figure.caption.74}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Balanced detection. The 50:50 coupler delivers the sum and difference of the backscatter and LO fields to two matched photodiodes; the output is the difference of their photocurrents, in which the common-mode terms cancel and only the beat term $2\sqrt {P_{LO} P_{RS}}\cos (2\pi \Delta f t)$ remains.}}{56}{figure.caption.49}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {K.1}{\ignorespaces \relax }}{89}{figure.caption.76}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {F.1}{\ignorespaces P--I--V characteristic of the supplied BFLD-1550-20SM-FA2 diode at \SI {25}{\celsius }, redrawn from the manufacturer's test report (values read from the printed curve to about $\pm $\SI {0.5}{\milli \watt }).}}{60}{figure.caption.54}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {G.1}{\ignorespaces A3: 5 - 20MHz Average PSD vs Laser Current with Single-Ended Detection}}{64}{figure.caption.59}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {H.1}{\ignorespaces Grid of PSD plots for each wind-tunnel setpoint}}{66}{figure.caption.60}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {I.1}{\ignorespaces Example prompt to format tables and figures for the laser datasheet appendix}}{69}{figure.caption.65}%
+\contentsline {figure}{\numberline {I.2}{\ignorespaces Example prompt to improve clarity and conciseness of architecture decisions}}{71}{figure.caption.68}%
+\contentsline {figure}{\numberline {I.3}{\ignorespaces Example prompt used to assist in conceptual understanding of PIIN and PIIN roll-off}}{73}{figure.caption.71}%
+\contentsline {figure}{\numberline {I.4}{\ignorespaces Example prompt given to generate plots for PIIN test results from raw data}}{75}{figure.caption.74}%
+\contentsline {figure}{\numberline {I.5}{\ignorespaces Example prompt for generating an acquisition script for acquiring oscilloscope data for wind-tunnel testing}}{76}{figure.caption.77}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {K.1}{\ignorespaces \relax }}{81}{figure.caption.79}%

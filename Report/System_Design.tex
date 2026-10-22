@@ -56,7 +56,7 @@ From the reviewed literature in \autoref{sec:litReview}, an architecture of \tex
 
 \begin{table}[H]
 	\centering
-	\footnotesize
+	\small
 	\setlength{\tabcolsep}{4pt}
 	\renewcommand{\arraystretch}{1.15}
 	\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.11\textwidth}
@@ -76,11 +76,11 @@ From the reviewed literature in \autoref{sec:litReview}, an architecture of \tex
 		\addlinespace[3pt]
 		Balanced detection & Single-ended detection &
 		3\,dB SNR improvement in shot-noise-limited operation (\autoref{sec:lit-BalancedDetection}), and RIN is largely cancelled, allowing the system to better approach the shot-noise limit (Appendix~\ref{appendix:RIN}). &
-		-- \\
+		Additional cost. \\
 		\addlinespace[3pt]
 		Monostatic optics & Bistatic optics &
 		A single aperture serves both transmit and receive, separated by a fibre circulator; avoids the greatly increased alignment complexity, and cost of a second set of optics and alignment equipment \cite{cariou2006laser,harris_role_1998,bennett_doppler_2003}. &
-		Back-reflections from the transmit path reach the detector and raise the noise floor through PIIN (\autoref{sec:lit-linewidth}). \\
+		Back-reflections from the transmit path reach the detector and raise the noise floor through PIIN (\autoref{sec:lit-noiseSources}). \\
 		\addlinespace[3pt]
 		Continuous wave & Pulsed &
 		Needs no pulse or receive timing, which simplifies design and reduces costs, and is more effective at the short ranges (tens of cm to 1--2\,m) of a benchtop system, as pulsed systems are ineffective below tens of metres \cite{hill_remote_nodate}. &
@@ -189,7 +189,7 @@ P1 & Detector noise & Approaching ideal shot-noise-limited behaviour: total
  P2 & Phase-induced intensity noise (PIIN) & Level (in dB) and spectral shape measured; Low enough to facilitate measurements for P6 & B \\ \hline
 P3 & Total system noise & Total noise floor (shot + electronic + residual RIN + PIIN) quantified with respect to the shot-noise limit, and sources of excess noise described and characterised & B \\ \hline
  P4 & Velocity detection on a hard target & Doppler peak detected at $ \geq 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 1000$ averages, for a hard target 10cm away from laser emission & C \\ \hline
-P5 & Velocity detection range & Minimum resolvable LOS speed of $\leq$ 0.1m/s, maximum resolvable LOS speed of $\geq$ 20m/s & C, D \\ \hline
+P5 & Velocity detection range & Minimum resolvable LOS speed of $\leq$ 0.1m/s, maximum resolvable LOS speed of $\geq$ 15m/s & C, D \\ \hline
 P6 & Detection of wind-speed in seeded air (smoke or fog) & Doppler peak detected at $ \geq 5\times\sigma$ (5 times the noise standard deviation) above the  mean, at $N \leq 10 000$ averages 
 & D \\ \hline
 P7 & Velocity accuracy & Doppler velocity within 5\% of ground-truth velocity of target (hard target and seeded flow) & C, D \\

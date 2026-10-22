@@ -2,8 +2,8 @@
 \label{sec:conclusionsAndRecommendations}
 This report has demonstrated a working benchtop-scale Doppler wind LiDAR,
 built from readily available components. The conclusions from each
-experiment are given first, followed by recommendations for improving the
-system; each conclusion refers to the recommendations that address it.
+experiment are given first, followed by a table summarising the findings of the report with respect to the performance requirements, and thereafter recommendations for improving the
+system are given; each conclusion refers to the recommendations that address it.
 
 \section{Conclusions}
 
@@ -17,6 +17,47 @@ Thereafter, the functional analysis yielded several important results. It was fi
  
  Ultimately, the contents of this report effectively demonstrate the working principles of a Doppler wind LiDAR system and quantifies its detection sensitivity and velocity accuracy with respect to the noise in the system and the components used.
  
+ A summary of the results with respect to the requirements laid out in \autoref{sec:design-sysReqs} is given in \autoref{tab:req-verification}:
+ 
+ \begin{table}[H]
+ 	\centering
+ 	\small
+ 	\setlength{\tabcolsep}{4pt}
+ 	\renewcommand{\arraystretch}{1.2}
+ 	\begin{tabular}{@{} l
+ 			>{\raggedright\arraybackslash}p{0.27\linewidth}
+ 			>{\raggedright\arraybackslash}p{0.38\linewidth}
+ 			>{\raggedright\arraybackslash}p{0.12\linewidth}
+ 			l @{}}
+ 		\toprule
+ 		\textbf{ID} & \textbf{Requirement} & \textbf{Result} & \textbf{Verdict} & \textbf{Section} \\
+ 		\midrule
+ 		P1 & Detector noise within 1 dB of the shot-noise limit
+ 		& 0.72 dB above the shot-noise limit at 48 mA
+ 		& Met & 4.2 \\
+ 		P2 & PIIN level and spectral shape measured; low enough for P6
+ 		& Flat floor, 22.1 dB above shot-noise limit, reduced to 4.3 dB by path-length matching; enabled P6
+ 		& Met & 4.3 \\
+ 		P3 & Total system noise quantified and attributed
+ 		& 5.7 dB above shot-noise limit; dominated by PIIN (\autoref{tab:noise-budget})
+ 		& Met & 4.3, 4.4 \\
+ 		P4 & Hard-target peak $\geq 5\sigma$ above mean at $N \leq 1000$
+ 		& 16.9--25.9 dB above the noise mean at all six speeds, $N \approx 245$
+ 		& Met & 5.1 \\
+ 		P5 & LOS speed range $\leq 0.1$ to $\geq 15$ m/s
+ 		& 0.056 m/s resolved (C); 17.2 m/s resolved (D)
+ 		& Met & 5.1, 5.2 \\
+ 		P6 & Seeded-air peak $\geq 5\sigma$ above mean at $N \leq 10\,000$
+ 		& Dense fog: detected at all nine speeds, $N \approx 7200$. Light mist (5 m/s): required $N \approx 21\,600$
+ 		& Met (fog); not met (mist) & 5.2 \\
+ 		P7 & Velocity within 5\,\% of ground truth
+ 		& $+10.6$\,\% (C), $+10.7$\,\% (D) as built; 1.1\,\% RMS after one-point calibration
+ 		& Met after calibration & 5.1, 5.2 \\
+ 		\bottomrule
+ 	\end{tabular}
+ 	\caption{Verification of the performance requirements of \autoref{tab:requirements}.}
+ 	\label{tab:req-verification}
+ \end{table}
 
 \section{Recommendations}
 From the concluded results discussed above, a number of recommendations can be made for future work on this system. These recommendations form an essential part of the project's work, as they are derived from quantified limitations in the current system. 

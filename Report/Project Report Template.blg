@@ -19,46 +19,44 @@ Reallocating 'name_of_file' (item size: 1) to 19 items.
 Reallocating 'name_of_file' (item size: 1) to 15 items.
 A level-1 auxiliary file: appendices.aux
 Database file #1: Bibliography-25Aug.bib
-Warning--empty booktitle in bennett_doppler_2003
 You've used 26 entries,
             2118 wiz_defined-function locations,
-            691 strings with 10480 characters,
-and the built_in function-call counts, 10504 in all, are:
-= -- 1001
-> -- 674
-< -- 4
-+ -- 271
-- -- 241
-* -- 909
-:= -- 1823
-add.period$ -- 90
+            695 strings with 10592 characters,
+and the built_in function-call counts, 10694 in all, are:
+= -- 1021
+> -- 685
+< -- 5
++ -- 274
+- -- 244
+* -- 934
+:= -- 1850
+add.period$ -- 91
 call.type$ -- 26
 change.case$ -- 200
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 293
-empty$ -- 668
-format.name$ -- 241
-if$ -- 2067
+cite$ -- 26
+duplicate$ -- 297
+empty$ -- 681
+format.name$ -- 244
+if$ -- 2108
 int.to.chr$ -- 0
 int.to.str$ -- 26
 missing$ -- 22
 newline$ -- 144
-num.names$ -- 54
-pop$ -- 164
+num.names$ -- 56
+pop$ -- 160
 preamble$ -- 1
 purify$ -- 172
 quote$ -- 0
-skip$ -- 193
+skip$ -- 197
 stack$ -- 0
-substring$ -- 615
-swap$ -- 41
-text.length$ -- 4
+substring$ -- 641
+swap$ -- 46
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 102
-warning$ -- 1
-while$ -- 88
+warning$ -- 0
+while$ -- 91
 width$ -- 28
-write$ -- 314
-(There was 1 warning)
+write$ -- 317
