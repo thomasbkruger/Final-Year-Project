@@ -360,10 +360,10 @@ A standard 50:50 non-polarisation maintaining FC/APC connector type fiber optic 
  
  The lower bound on the LO power is set by the requirement for shot-noise-limited
  operation, which occurs when the LO shot noise exceeds the 
- electronic noise of the detector (see \autoref{sec:lit-noiseSources}). For the
- balanced detector, the shot noise current density is
- $I_{\text{sn}} = \sqrt{2qR P_{\text{LO}}}$ (derived from Kikuchi et al. \cite{kikuchi_fundamentals_2016}), where R is the photodetector's responsivity, and q is the charge of an electron, so equating this to the PD100B input
- noise density $I_n = 8~\text{pA}/\sqrt{\text{Hz}}$ gives
+ electronic noise of the detector (see \autoref{sec:lit-noiseSources}). For the balanced detector, the shot-noise current density is the square root of
+ the power spectral density in \autoref{eq:shotnoise},
+ $I_{\mathrm{sn}} = \sqrt{2qRP_{\mathrm{LO}}}$, so equating this to the PD100B
+ input noise density $I_n = 8\,\mathrm{pA}/\sqrt{\mathrm{Hz}}$ gives
  \begin{equation}
  	P_{\text{LO,min}} = \frac{i_n^2}{2qR}
  	= \frac{(8\times10^{-12})^2}{2(1.602\times10^{-19})(0.9)}

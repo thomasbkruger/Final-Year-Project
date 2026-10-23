@@ -1,0 +1,3 @@
+# Python bytecode caches - regenerated on every run, never worth tracking
+__pycache__/
+*.pyc

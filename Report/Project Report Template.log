@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  22 OCT 2026 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.29)  23 OCT 2026 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1615,7 +1615,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [25]
-<../Data Acquisition/figures/psd_overlay.png, id=1050, 426.8748pt x 252.2223pt>
+<../Data Acquisition/figures/psd_overlay.png, id=1052, 426.8748pt x 252.2223pt>
 
 File: ../Data Acquisition/figures/psd_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_overlay.png>
@@ -1631,7 +1631,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [26]
-<../Data Acquisition/figures/psd_vs_current.png, id=1061, 428.0793pt x 237.7683
+<../Data Acquisition/figures/psd_vs_current.png, id=1063, 428.0793pt x 237.7683
 pt>
 File: ../Data Acquisition/figures/psd_vs_current.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_vs_current.png>
@@ -1664,7 +1664,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [29]
-<../Data Acquisition/figures/psd_piin_lengths.png, id=1107, 426.393pt x 265.230
+<../Data Acquisition/figures/psd_piin_lengths.png, id=1110, 426.393pt x 265.230
 9pt>
 File: ../Data Acquisition/figures/psd_piin_lengths.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_piin_lengths.png>
@@ -1700,7 +1700,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (Results.tex
 Chapter 5.
-<../Data Acquisition/figures/fig_rig_side3d.pdf, id=1133, 909.34059pt x 353.668
+<../Data Acquisition/figures/fig_rig_side3d.pdf, id=1136, 909.34059pt x 353.668
 38pt>
 File: ../Data Acquisition/figures/fig_rig_side3d.pdf Graphic file (type pdf)
 <use ../Data Acquisition/figures/fig_rig_side3d.pdf>
@@ -1713,7 +1713,7 @@ n input line 27.
 
 
 ]
-<../Data Acquisition/figures/psd_rpm_overlay.png, id=1145, 430.7292pt x 237.768
+<../Data Acquisition/figures/psd_rpm_overlay.png, id=1148, 430.7292pt x 237.768
 3pt>
 File: ../Data Acquisition/figures/psd_rpm_overlay.png Graphic file (type png)
 <use ../Data Acquisition/figures/psd_rpm_overlay.png>
@@ -1730,7 +1730,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34 <../Data Acquisition/figures/fig_rig_side3d.pdf> <../Data Acquisition/figur
 es/psd_rpm_overlay.png>]
-<../Data Acquisition/figures/fig_doppler_vs_rpm.pdf, id=1192, 429.50526pt x 238
+<../Data Acquisition/figures/fig_doppler_vs_rpm.pdf, id=1195, 429.50526pt x 238
 .21309pt>
 File: ../Data Acquisition/figures/fig_doppler_vs_rpm.pdf Graphic file (type pdf
 )
@@ -1763,7 +1763,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [37]
-<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=1291, 470.7186
+<../Data Acquisition/figures/psd_windtunnel_overlay_pair.png, id=1294, 470.7186
 pt x 280.8894pt>
 File: ../Data Acquisition/figures/psd_windtunnel_overlay_pair.png Graphic file 
 (type png)
@@ -1780,7 +1780,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [38 <../Data Acquisition/figures/psd_windtunnel_overlay_pair.png>]
-<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1305, 476.982pt x 
+<../Data Acquisition/figures/psd_5mps_mist_averaging.png, id=1308, 476.982pt x 
 220.9053pt>
 File: ../Data Acquisition/figures/psd_5mps_mist_averaging.png Graphic file (typ
 e png)
@@ -1805,7 +1805,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [40]
-<../Data Acquisition/figures/fig_velocity_both.pdf, id=1333, 520.34402pt x 317.
+<../Data Acquisition/figures/fig_velocity_both.pdf, id=1336, 520.34402pt x 317.
 98799pt>
 File: ../Data Acquisition/figures/fig_velocity_both.pdf Graphic file (type pdf)
 
@@ -2044,7 +2044,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.8254pt
 (hyperref)                removed on input line 4.
 
-<../Data Acquisition/figures/psd_vs_current_single.png, id=1567, 428.0793pt x 2
+<../Data Acquisition/figures/psd_vs_current_single.png, id=1570, 428.0793pt x 2
 37.7683pt>
 File: ../Data Acquisition/figures/psd_vs_current_single.png Graphic file (type 
 png)
@@ -2064,7 +2064,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [64 <../Data Acquisition/figures/psd_vs_current_single.png>]
 Appendix H.
-<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1581, 487.8225pt x 61
+<../Data Acquisition/figures/psd_windtunnel_cases.png, id=1584, 487.8225pt x 61
 0.1997pt>
 File: ../Data Acquisition/figures/psd_windtunnel_cases.png Graphic file (type p
 ng)
@@ -2103,7 +2103,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [68]
 Appendix I.
-<screenshot001.png, id=1607, 599.23875pt x 349.90726pt>
+<screenshot001.png, id=1610, 599.23875pt x 349.90726pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
 Package pdftex.def Info: screenshot001.png  used on input line 10.
@@ -2119,7 +2119,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [70]
-<screenshot002.png, id=1668, 588.39825pt x 210.7875pt>
+<screenshot002.png, id=1671, 588.39825pt x 210.7875pt>
 File: screenshot002.png Graphic file (type png)
 <use screenshot002.png>
 Package pdftex.def Info: screenshot002.png  used on input line 98.
@@ -2155,7 +2155,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [72]
-<screenshot003.png, id=1736, 587.19376pt x 346.29375pt>
+<screenshot003.png, id=1739, 587.19376pt x 346.29375pt>
 File: screenshot003.png Graphic file (type png)
 <use screenshot003.png>
 Package pdftex.def Info: screenshot003.png  used on input line 174.
@@ -2177,7 +2177,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [74]
-<screenshot004.png, id=1749, 461.92575pt x 106.59825pt>
+<screenshot004.png, id=1752, 461.92575pt x 106.59825pt>
 File: screenshot004.png Graphic file (type png)
 <use screenshot004.png>
 Package pdftex.def Info: screenshot004.png  used on input line 237.
@@ -2198,7 +2198,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [75 <./screenshot004.png>]
-<screenshot005.png, id=1758, 455.301pt x 109.6095pt>
+<screenshot005.png, id=1761, 455.301pt x 109.6095pt>
 File: screenshot005.png Graphic file (type png)
 <use screenshot005.png>
 Package pdftex.def Info: screenshot005.png  used on input line 315.
@@ -2233,7 +2233,7 @@ Appendix J.
 
 ]
 Appendix K.
-<ethics_psq_outcome.pdf, id=1780, 614.295pt x 794.97pt>
+<ethics_psq_outcome.pdf, id=1783, 614.295pt x 794.97pt>
 File: ethics_psq_outcome.pdf Graphic file (type pdf)
 <use ethics_psq_outcome.pdf>
 Package pdftex.def Info: ethics_psq_outcome.pdf  used on input line 6.
@@ -2273,10 +2273,10 @@ ed.
 (rerunfilecheck)             Checksum: 2D8429A3912FBD0EE3D5CAFE4D7E887C;16941.
  ) 
 Here is how much of TeX's memory you used:
- 47249 strings out of 467871
- 1149883 string characters out of 5418376
- 2320289 words of memory out of 5000000
- 74917 multiletter control sequences out of 15000+600000
+ 47252 strings out of 467871
+ 1149926 string characters out of 5418376
+ 2320456 words of memory out of 5000000
+ 74919 multiletter control sequences out of 15000+600000
  646981 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,23n,118p,1675b,2223s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2318,9 +2318,9 @@ ts/cm/cmti10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmti8.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmtt10.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on "Project Report Template.pdf" (95 pages, 3186765 bytes).
+Output written on "Project Report Template.pdf" (95 pages, 3187678 bytes).
 PDF statistics:
- 2028 PDF objects out of 2073 (max. 8388607)
- 435 named destinations out of 1000 (max. 500000)
+ 2031 PDF objects out of 2073 (max. 8388607)
+ 436 named destinations out of 1000 (max. 500000)
  955 words of extra memory for PDF output out of 10000 (max. 10000000)
 

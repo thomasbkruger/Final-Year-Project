@@ -62,7 +62,8 @@ from scipy.ndimage import median_filter
 from acquire_windtunnel import psd_of
 from noise_vs_rpm import measure
 from peak_vs_rpm import WAVELENGTH, fit_origin, peak_of
-from psd_rpm import C_GRID, C_INK, C_MUTED, C_SURFACE, CAT, style_axes
+from psd_rpm import (C_GRID, C_INK, C_MUTED, C_SURFACE, CAT, style_axes,
+                     velocity_axis)
 
 BEAM_ANGLE_DEG = 35.0       # beam to horizontal flow, from the rig geometry
 HZ_PER_MPS = 2 / WAVELENGTH * np.cos(np.radians(BEAM_ANGLE_DEG))   # 1.057 MHz
@@ -219,6 +220,7 @@ def plot_overlay(rows: list[dict], f: np.ndarray, out: Path, title: str,
     fig.patch.set_facecolor(C_SURFACE)
     draw_overlay(ax, rows, f, y_of)
     style_axes(ax, "psd", title, ylabel=ylabel)
+    velocity_axis(ax, HZ_PER_MPS, "tunnel speed (m/s)")
     leg = ax.legend(frameon=False, loc="upper left", labelcolor=C_INK,
                     bbox_to_anchor=(1.01, 1.0), borderaxespad=0,
                     title="tunnel speed setpoint", alignment="left")
@@ -247,6 +249,7 @@ def plot_overlay_pair(rows: list[dict], f: np.ndarray, out: Path) -> None:
     for ax, title in ((raw, "Raw signal PSD"), (rel, "Normalised to noise floor")):
         ax.set_title(title, loc="left", color=C_INK)
         ax.set_xticks(range(0, int(ax.get_xlim()[1]) + 1, 10_000_000))
+        velocity_axis(ax, HZ_PER_MPS, "tunnel speed (m/s)", fontsize=figstyle.FS_NOTE)
 
     handles, labels = raw.get_legend_handles_labels()
     leg = fig.legend(handles, labels, frameon=False, ncol=5,
@@ -307,6 +310,8 @@ def plot_case_grid(rows: list[dict], mist: list[dict], f: np.ndarray,
         ax.title.set_size(figstyle.FS_NOTE)
         ax.set_xticks(range(0, int(fmax) + 1, 10_000_000))
         ax.tick_params(labelsize=figstyle.FS_NOTE, which="both")
+        if i < ncols:                             # top row carries the speed axis
+            velocity_axis(ax, HZ_PER_MPS, "tunnel speed (m/s)", fontsize=figstyle.FS_NOTE)
         ax.xaxis.label.set_size(figstyle.FS_LEGEND)
         ax.yaxis.label.set_size(figstyle.FS_LEGEND)
         if i % ncols:
@@ -453,6 +458,7 @@ def plot_averaging(caps: list[dict], f: np.ndarray, out: Path,
         # 5 MHz ticks crowd a narrow panel past 15 MHz.
         ax.set_xticks(range(0, int(fmax) + 1,
                             5_000_000 if fmax <= 15e6 else 10_000_000))
+        velocity_axis(ax, HZ_PER_MPS, "tunnel speed (m/s)", fontsize=figstyle.FS_NOTE)
     # One legend for every panel, beneath them: the panels have no free corner.
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, frameon=False, ncol=len(labels), loc="lower center",

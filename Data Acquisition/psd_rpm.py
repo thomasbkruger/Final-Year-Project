@@ -56,6 +56,11 @@ C_MUTED = "#52514e"
 C_GRID = "#d8d7d3"
 C_SURFACE = "#fcfcfb"
 
+# Doppler shift per unit of line-of-sight speed, f_D = 2 v / lambda, for the
+# speed axis drawn along the top of the spectra.
+WAVELENGTH = 1550e-9        # m, DFB laser
+HZ_PER_MPS_LOS = 2 / WAVELENGTH                  # 1.290 MHz per m/s
+
 # Matches C1_600RPM and 500rpm_4m alike: the number opens the tag or follows
 # an underscore.
 RPM_TAG = re.compile(r"(?:^|_)(\d+)\s*RPM", re.IGNORECASE)
@@ -210,6 +215,23 @@ def style_axes(ax, kind: str, title: str | None = None, xscale: str | None = Non
         ax.set_title(title, loc="left", color=C_INK)
 
 
+def velocity_axis(ax, hz_per_mps: float, label: str, fontsize: float | None = None):
+    """A second x-axis along the top: the same frequencies read as speed.
+
+    Same quantity in other units, not a second measure, so it is a pure
+    rescaling of the bottom axis and follows its limits.
+    """
+    sec = ax.secondary_xaxis("top", functions=(lambda f: f / hz_per_mps,
+                                               lambda v: v * hz_per_mps))
+    sec.set_xlabel(label, color=C_INK)
+    sec.spines["top"].set_color(C_GRID)
+    sec.tick_params(colors=C_MUTED)
+    if fontsize:
+        sec.tick_params(labelsize=fontsize)
+        sec.xaxis.label.set_size(fontsize)
+    return sec
+
+
 def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
                  fmax: float | None = None, label: str | None = None) -> None:
     import matplotlib.pyplot as plt
@@ -245,6 +267,8 @@ def plot_overlay(d: dict, kind: str, out: Path, series: str, ref_tag: str,
         ax.set_ylim(0, None)
     # Untitled: the report caption names the figure.
     style_axes(ax, kind, ylabel=ylabel)
+    if KINDS[kind]["xscale"] == "linear":
+        velocity_axis(ax, HZ_PER_MPS_LOS, "target line-of-sight speed (m/s)")
     # The peaks sit low and to the left on the linear axes, leaving the top
     # right empty; on log axes the spectrum fills the plot, so go outside.
     inside = KINDS[kind]["xscale"] == "linear"
@@ -295,6 +319,8 @@ def plot_each(d: dict, kind: str, out_dir: Path, series: str, ref_tag: str,
             ax.set_xlim(0, fmax or content_fmax(d, kind))
         style_axes(ax, kind, f"{label or series} - {rpm} RPM, "
                              f"{KINDS[kind]['name']}")
+        if KINDS[kind]["xscale"] == "linear":
+            velocity_axis(ax, HZ_PER_MPS_LOS, "target line-of-sight speed (m/s)")
         # Peaks sit at the left on a linear axis and fill the lower band on a
         # log one, so the top right corner is the only reliably empty one.
         ax.legend(frameon=False, labelcolor=C_INK,
